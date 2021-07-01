@@ -7,6 +7,7 @@ import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
+import PosterImg from './whiplash.jpeg';
 
 const useStyles = makeStyles({
   root: {
@@ -22,10 +23,10 @@ export default function MovieCard() {
       <CardActionArea>
         <CardMedia
           component="img"
-          alt="Contemplative Reptile"
+          alt="whiplash poster"
           height="140"
-          image="/static/images/cards/contemplative-reptile.jpg"
-          title="Contemplative Reptile"
+          image={PosterImg}
+          title="Whiplash poster"
         />
         <CardContent>
           <Typography gutterBottom variant="h5" component="h2">
