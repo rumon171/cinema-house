@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import ContainerWithHeader from './components/ContainerWithHeader';
+import BaseContainer from './components/BaseContainer';
 
 function App() {
   return (
@@ -9,7 +9,7 @@ function App() {
         <p>
           Edit <code>src/App.tsx</code> and save to reload.
         </p>
-        <ContainerWithHeader></ContainerWithHeader>
+        <BaseContainer></BaseContainer>
            
       </header>
     </div>

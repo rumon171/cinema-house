@@ -1,32 +1,7 @@
-/*
-import React from "react";
-import { List } from "@material-ui/core";
-
-interface Props {
-
-}
-
-  const DynamicList: React.FC<Props> = (
-    {
-
-    }: Props) => {
-
-    return (
-        <>
-            <List>
-
-            </List>
-        </>
-      );
-  }
-  
-export default DynamicList;
-*/
-
 import React from 'react';
-import AppBar from '@material-ui/core/AppBar';
+import Header from './Header';
+import MovieCard from './Card';
 import Toolbar from '@material-ui/core/Toolbar';
-import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import useScrollTrigger from '@material-ui/core/useScrollTrigger';
@@ -43,7 +18,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function ScrollTop(props: any) {
+const ScrollTop = (props: any) => {
   const { children, window } = props;
   const classes = useStyles();
   const trigger = useScrollTrigger({
@@ -69,15 +44,11 @@ function ScrollTop(props: any) {
   );
 }
 
-export default function ContainerWithHeader(props: any) {
+const BaseContainer = (props: any) => {
   return (
     <React.Fragment>
       <CssBaseline />
-      <AppBar>
-        <Toolbar>
-          <Typography variant="h6">Scroll to see button</Typography>
-        </Toolbar>
-      </AppBar>
+      <Header></Header>
       <Toolbar id="back-to-top-anchor" />
       <Container>
         Cras mattis consectetur purus sit amet fermentum.
@@ -116,6 +87,7 @@ Cras mattis consectetur purus sit amet fermentum.
 Cras justo odio, dapibus ac facilisis in, egestas eget quam.
 Morbi leo risus, porta ac consectetur ac, vestibulum at eros.
 Praesent commodo cursus magna, vel scelerisque nisl consectetur et.
+      <MovieCard></MovieCard>
       </Container>
       <ScrollTop {...props}>
         <Fab color="secondary" size="small" aria-label="scroll back to top">
@@ -125,3 +97,5 @@ Praesent commodo cursus magna, vel scelerisque nisl consectetur et.
     </React.Fragment>
   );
 }
+
+export default BaseContainer;
