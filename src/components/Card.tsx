@@ -15,7 +15,7 @@ const useStyles = makeStyles({
   },
 });
 
-export default function MovieCard() {
+const MovieCard = () =>  {
   const classes = useStyles();
 
   return (
@@ -49,3 +49,5 @@ export default function MovieCard() {
     </Card>
   );
 }
+
+export default MovieCard;

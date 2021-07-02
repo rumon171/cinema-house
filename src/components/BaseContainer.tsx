@@ -9,15 +9,19 @@ import KeyboardArrowUpIcon from '@material-ui/icons/KeyboardArrowUp';
 import ScrollTop from './ScrollTop';
 
 /*
-  const BalanceContainer: React.FC<Props> = (
+interface Props {
+  className: string;
+  children: string;
+  className: string;
+}
+*/
+/*
+  const BaseContainer: React.FC<Props> = (
     {
-      totalBalance, 
-      className, 
-      currencySymbol,
-      setTotalBalance, 
-      income,
-      totalExpenses,
-    }: Props) =>{
+      className,
+      children,
+      window,
+    }: Props) => {
 */
 
 const BaseContainer = (props: any) => {
