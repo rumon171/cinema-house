@@ -5,13 +5,9 @@ import BaseContainer from './components/BaseContainer';
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <BaseContainer></BaseContainer>
-           
-      </header>
+      <div className="container">
+        <BaseContainer></BaseContainer>           
+      </div>
     </div>
   );
 }
