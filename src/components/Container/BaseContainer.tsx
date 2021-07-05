@@ -1,28 +1,12 @@
 import React from 'react';
-import Header from './Header';
-import MovieCard from './Card';
+import Header from '../Header';
+import MovieCard from '../Catalog/Card';
 import Toolbar from '@material-ui/core/Toolbar';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Container from '@material-ui/core/Container';
 import Fab from '@material-ui/core/Fab';
 import KeyboardArrowUpIcon from '@material-ui/icons/KeyboardArrowUp';
-import ScrollTop from './ScrollTop';
-
-/*
-interface Props {
-  className: string;
-  children: string;
-  className: string;
-}
-*/
-/*
-  const BaseContainer: React.FC<Props> = (
-    {
-      className,
-      children,
-      window,
-    }: Props) => {
-*/
+import ScrollTop from '../Catalog/ScrollTop';
 
 const BaseContainer = (props: any) => {
   return (
@@ -31,7 +15,7 @@ const BaseContainer = (props: any) => {
       <Header></Header>
       <Toolbar id="back-to-top-anchor" />
       <Container>
-        <MovieCard></MovieCard>
+      <MovieCard></MovieCard>
         Cras mattis consectetur purus sit amet fermentum.
 Cras justo odio, dapibus ac facilisis in, egestas eget quam.
 Morbi leo risus, porta ac consectetur ac, vestibulum at eros.
