@@ -1,3 +1,13 @@
 .topBar {
     background-color: #AA2876;
 }
+
+.topBar > .MuiFormControl-root {
+    margin-left: auto;
+}
+
+.seachField > .MuiInputBase-root:hover {
+    background-color: #bd3787;
+}
+
+
