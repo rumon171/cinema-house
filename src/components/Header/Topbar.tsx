@@ -3,7 +3,7 @@ import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 
-const Header = (props: any) => {
+const Topbar = (props: any) => {
   return (
     <React.Fragment>
       <AppBar>
@@ -15,4 +15,4 @@ const Header = (props: any) => {
   );
 }
 
-export default Header;
+export default Topbar;

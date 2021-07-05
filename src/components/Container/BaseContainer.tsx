@@ -1,5 +1,5 @@
 import React from 'react';
-import Header from '../Header';
+import Topbar from '../Header/Topbar';
 import MovieCard from '../Catalog/Card';
 import Toolbar from '@material-ui/core/Toolbar';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -12,7 +12,7 @@ const BaseContainer = (props: any) => {
   return (
     <React.Fragment>
       <CssBaseline />
-      <Header></Header>
+      <Topbar></Topbar>
       <Toolbar id="back-to-top-anchor" />
       <Container>
       <MovieCard></MovieCard>
