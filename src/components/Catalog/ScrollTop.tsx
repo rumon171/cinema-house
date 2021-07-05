@@ -1,6 +1,7 @@
 import { makeStyles } from '@material-ui/core/styles';
 import useScrollTrigger from '@material-ui/core/useScrollTrigger';
 import Zoom from '@material-ui/core/Zoom';
+import './Catalog.css';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -29,7 +30,7 @@ const useStyles = makeStyles((theme) => ({
   
     return (
       <Zoom in={trigger}>
-        <div onClick={handleClick} role="presentation" className={classes.root}>
+        <div onClick={handleClick} role="presentation" className="scrolltop">
           {children}
         </div>
       </Zoom>
