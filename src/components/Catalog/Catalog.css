@@ -1,9 +1,18 @@
 .card {
     max-width: 300px;
+    margin: 10px;
 }
 
-.scrolltop {
+.scrollTop {
     position: fixed;
     bottom: 50px;
     right: 50px;
+}
+
+.scrollTop > button {
+    background-color: #20C689;
+}
+
+.seachField {
+
 }

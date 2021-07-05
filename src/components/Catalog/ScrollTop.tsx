@@ -1,19 +1,9 @@
-import { makeStyles } from '@material-ui/core/styles';
 import useScrollTrigger from '@material-ui/core/useScrollTrigger';
 import Zoom from '@material-ui/core/Zoom';
 import './Catalog.css';
-
-const useStyles = makeStyles((theme) => ({
-    root: {
-      position: 'fixed',
-      bottom: theme.spacing(2),
-      right: theme.spacing(2),
-    },
-  }));
   
   const ScrollTop = (props: any) => {
     const { children, window } = props;
-    const classes = useStyles();
     const trigger = useScrollTrigger({
       target: window ? window() : undefined,
       disableHysteresis: true,
@@ -30,7 +20,7 @@ const useStyles = makeStyles((theme) => ({
   
     return (
       <Zoom in={trigger}>
-        <div onClick={handleClick} role="presentation" className="scrolltop">
+        <div onClick={handleClick} role="presentation" className="scrollTop">
           {children}
         </div>
       </Zoom>
