@@ -3,6 +3,19 @@ import './App.css';
 import BaseContainer from './components/Container/BaseContainer';
 import { Movie } from "./services/movies.service";
 
+const MoviesContext = React.createContext(
+  [
+    {
+      title: 'Whiplash',
+      rating: 8.5
+    },
+    {
+      title: 'Memento',
+      rating: 9.1
+    }
+  ]
+);
+
 function App() {
   useEffect(() => {
     //fetchMovies()
@@ -25,11 +38,22 @@ function App() {
   const [movies, setMovies] = useState<Movie[]>([]);
 
   return (
-    <div className="App">
-      <div className="container">
-        <BaseContainer></BaseContainer>           
+    <MoviesContext.Provider value={[
+      {
+        title: 'Whiplash',
+        rating: 8.5
+      },
+      {
+        title: 'Memento',
+        rating: 9.1
+      }
+      ]}>
+      <div className="App">
+        <div className="container">
+          <BaseContainer></BaseContainer>           
+        </div>
       </div>
-    </div>
+    </MoviesContext.Provider>
   );
 }
 

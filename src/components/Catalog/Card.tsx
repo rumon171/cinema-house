@@ -10,6 +10,12 @@ import './Catalog.css';
 import PosterImg from '.././whiplash.jpeg';
 
 const MovieCard = () =>  {
+  const ShowValues = () => {
+    console.log('works');
+  };
+
+
+
   return (
     <Card className="card">
       <CardActionArea>
@@ -30,7 +36,7 @@ const MovieCard = () =>  {
         <Button size="small" color="primary">
           <FavoriteBorderIcon />
         </Button>
-        <Button size="small" color="primary">
+        <Button size="small" color="primary" onClick={ShowValues}>
           8.5
         </Button>
       </CardActions>
