@@ -1,3 +1,4 @@
+import React, { useContext } from "react";
 import Card from '@material-ui/core/Card';
 import CardActionArea from '@material-ui/core/CardActionArea';
 import CardActions from '@material-ui/core/CardActions';
@@ -7,14 +8,15 @@ import Button from '@material-ui/core/Button';
 import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
 import Typography from '@material-ui/core/Typography';
 import './Catalog.css';
+import { MoviesContext } from "../.././services/context";
 import PosterImg from '.././whiplash.jpeg';
 
 const MovieCard = () =>  {
+  const passedValues = useContext(MoviesContext);
+  
   const ShowValues = () => {
-    console.log('works');
-  };
-
-
+    console.log('passedValues ', passedValues);
+  }
 
   return (
     <Card className="card">

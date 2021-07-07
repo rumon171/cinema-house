@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React from "react";
 import Topbar from '../Header/Topbar';
 import MovieCard from '../Catalog/Card';
 import Toolbar from '@material-ui/core/Toolbar';
@@ -6,19 +6,10 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import { List } from "@material-ui/core";
 import Container from '@material-ui/core/Container';
 import Fab from '@material-ui/core/Fab';
-import Button from '@material-ui/core/Button';
 import KeyboardArrowUpIcon from '@material-ui/icons/KeyboardArrowUp';
 import ScrollTop from '../Catalog/ScrollTop';
-import { MoviesContext } from "../.././services/context";
 
 const BaseContainer = (props: any) => {
-  //static contextType = MoviesContext;
-  const passedValues = useContext(MoviesContext);
-  
-  const ShowValues = () => {
-    console.log('passedValues ', passedValues);
-  }
-
   return (
     <React.Fragment>
       <Container>
@@ -28,9 +19,6 @@ const BaseContainer = (props: any) => {
         <List>
         <MovieCard></MovieCard>
         </List>
-        <Button size="small" color="primary" onClick={ShowValues}>
-          TIRAL
-        </Button>
         Cras mattis consectetur purus sit amet fermentum.
 Cras justo odio, dapibus ac facilisis in, egestas eget quam.
 Morbi leo risus, porta ac consectetur ac, vestibulum at eros.
