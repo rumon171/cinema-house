@@ -2,7 +2,8 @@ import React, { useState, useEffect } from "react";
 import './App.css';
 import BaseContainer from './components/Container/BaseContainer';
 import { Movie } from "./services/movies.service";
-
+import { MoviesContext } from "./services/context";
+/*
 const MoviesContext = React.createContext(
   [
     {
@@ -15,6 +16,7 @@ const MoviesContext = React.createContext(
     }
   ]
 );
+*/
 
 function App() {
   useEffect(() => {
