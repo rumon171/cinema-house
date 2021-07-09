@@ -35,7 +35,7 @@ const MovieCards = () =>  {
               />
               <CardContent>
                 <Typography gutterBottom variant="h5" component="h2">
-                  movie.
+                 {movie.title}
                 </Typography>
               </CardContent>
             </CardActionArea>
@@ -44,7 +44,7 @@ const MovieCards = () =>  {
                 <FavoriteBorderIcon />
               </Button>
               <Button size="small" color="primary" onClick={ShowValues}>
-                8.5
+                {movie.rating}
               </Button>
             </CardActions>
           </Card>
