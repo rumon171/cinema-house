@@ -1,9 +1,8 @@
 import React from "react";
 import Topbar from '../Header/Topbar';
-import MovieCard from '../Catalog/Card';
+import MovieCards from '../Catalog/MovieCards';
 import Toolbar from '@material-ui/core/Toolbar';
 import CssBaseline from '@material-ui/core/CssBaseline';
-import { List } from "@material-ui/core";
 import Container from '@material-ui/core/Container';
 import Fab from '@material-ui/core/Fab';
 import KeyboardArrowUpIcon from '@material-ui/icons/KeyboardArrowUp';
@@ -16,7 +15,7 @@ const BaseContainer = (props: any) => {
         <CssBaseline />
         <Topbar></Topbar>
         <Toolbar id="back-to-top-anchor" />
-        <MovieCard></MovieCard>
+        <MovieCards></MovieCards>
         Cras mattis consectetur purus sit amet fermentum.
 Cras justo odio, dapibus ac facilisis in, egestas eget quam.
 Morbi leo risus, porta ac consectetur ac, vestibulum at eros.

@@ -11,7 +11,7 @@ import './Catalog.css';
 import { MoviesContext } from "../.././services/context";
 import PosterImg from '.././whiplash.jpeg';
 
-const MovieCard = () =>  {
+const MovieCards = () =>  {
   const { movies } = useContext(MoviesContext);
   
   const ShowValues = () => {
@@ -32,7 +32,7 @@ const MovieCard = () =>  {
           />
           <CardContent>
             <Typography gutterBottom variant="h5" component="h2">
-              Whiplsh
+              movie.
             </Typography>
           </CardContent>
         </CardActionArea>
@@ -50,7 +50,7 @@ const MovieCard = () =>  {
   );
 }
 
-export default MovieCard;
+export default MovieCards;
   
 /*
 return (
