@@ -22,8 +22,9 @@ function App() {
   useEffect(() => {
     fetchMovies()
       .then(setMovies)
-      .catch(() => setMovies([]));
+      .catch((_) => setMovies([]));
 
+      /*
       setMovies(
         [
           {
@@ -36,21 +37,13 @@ function App() {
           }
         ]
       );
+      */
   }, []);
 
   const [movies, setMovies] = useState<Movie[]>([]);
 
   return (
-    <MoviesContext.Provider value={[
-      {
-        title: 'Whiplash',
-        rating: 8.5
-      },
-      {
-        title: 'Memento',
-        rating: 9.1
-      }
-      ]}>
+    <MoviesContext.Provider value={{ movies }}>
       <div className="App">
         <div className="container">
           <BaseContainer></BaseContainer>           

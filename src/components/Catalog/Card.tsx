@@ -13,6 +13,7 @@ import PosterImg from '.././whiplash.jpeg';
 
 const MovieCard = () =>  {
   const passedValues = useContext(MoviesContext);
+  //const { movies } = useContext(MoviesContext);
   
   const ShowValues = () => {
     console.log('passedValues ', passedValues);
