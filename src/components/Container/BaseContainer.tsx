@@ -16,9 +16,7 @@ const BaseContainer = (props: any) => {
         <CssBaseline />
         <Topbar></Topbar>
         <Toolbar id="back-to-top-anchor" />
-        <List>
         <MovieCard></MovieCard>
-        </List>
         Cras mattis consectetur purus sit amet fermentum.
 Cras justo odio, dapibus ac facilisis in, egestas eget quam.
 Morbi leo risus, porta ac consectetur ac, vestibulum at eros.

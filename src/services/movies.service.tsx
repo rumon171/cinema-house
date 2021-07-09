@@ -8,7 +8,6 @@ export interface Movie {
    // picture?: string;
   }
 
-  //  const DynamicList: React.FC<ListItemsArray> = (
   export function fetchMovies(): Promise<Movie[]> {
    return fetch(
      `${movieApiBaseUrl}/discover/movie?sort_by=popularity.desc&api_key=${process.env.REACT_APP_API_KEY}`

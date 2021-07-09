@@ -19,6 +19,41 @@ const MovieCard = () =>  {
   }
 
   return (
+    <div >
+      {movies.map((movie) => (
+        <Card className="card">
+        <CardActionArea>
+          <CardMedia
+            component="img"
+            alt="whiplash poster"
+            height="140"
+            image={PosterImg}
+            title="Whiplash poster"
+          />
+          <CardContent>
+            <Typography gutterBottom variant="h5" component="h2">
+              Whiplsh
+            </Typography>
+          </CardContent>
+        </CardActionArea>
+        <CardActions>
+          <Button size="small" color="primary">
+            <FavoriteBorderIcon />
+          </Button>
+          <Button size="small" color="primary" onClick={ShowValues}>
+            8.5
+          </Button>
+        </CardActions>
+      </Card>
+      ))}
+    </div>
+  );
+}
+
+export default MovieCard;
+  
+/*
+return (
     <Card className="card">
       <CardActionArea>
         <CardMedia
@@ -47,3 +82,4 @@ const MovieCard = () =>  {
 }
 
 export default MovieCard;
+*/
