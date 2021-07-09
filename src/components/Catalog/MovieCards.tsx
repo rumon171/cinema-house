@@ -24,7 +24,7 @@ const MovieCards = () =>  {
       <Grid container spacing={0}>
       {movies.map((movie) => (
         <Grid item xs={6} sm={3}>
-          <Card className="card">
+          <Card className="card" key={movie.id}>
             <CardActionArea>
               <CardMedia
                 component="img"

@@ -1,11 +1,11 @@
 const movieApiBaseUrl = "https://api.themoviedb.org/3";
 export interface Movie {
-   // id: number;
+    id: number;
    // date: string;
     title: string;
     rating: number;
    // resume: string;
-   // picture?: string;
+    picture: string;
   }
 
   export function fetchMovies(): Promise<Movie[]> {
@@ -23,12 +23,16 @@ export interface Movie {
  function mapResult(res: any[]): Movie[] {
    return res.map((movie) => {
      const {
+       id,
        title,
        vote_average,
+       picture,
      } = movie;
      return {
-       title,
+       id: id,
+       title: title,
        rating: vote_average,
+       picture: picture,
      };
    });
  }
