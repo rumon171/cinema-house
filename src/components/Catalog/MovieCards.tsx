@@ -8,7 +8,8 @@ import Button from '@material-ui/core/Button';
 import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
 import Typography from '@material-ui/core/Typography';
 import './Catalog.css';
-import { MoviesContext } from "../.././services/context";
+import { MoviesContext } from "../../services/context";
+import Grid from '@material-ui/core/Grid';
 import PosterImg from '.././whiplash.jpeg';
 
 const MovieCards = () =>  {
@@ -20,66 +21,38 @@ const MovieCards = () =>  {
 
   return (
     <div >
+      <Grid container spacing={0}>
       {movies.map((movie) => (
-        <Card className="card">
-        <CardActionArea>
-          <CardMedia
-            component="img"
-            alt="whiplash poster"
-            height="140"
-            image={PosterImg}
-            title="Whiplash poster"
-          />
-          <CardContent>
-            <Typography gutterBottom variant="h5" component="h2">
-              movie.
-            </Typography>
-          </CardContent>
-        </CardActionArea>
-        <CardActions>
-          <Button size="small" color="primary">
-            <FavoriteBorderIcon />
-          </Button>
-          <Button size="small" color="primary" onClick={ShowValues}>
-            8.5
-          </Button>
-        </CardActions>
-      </Card>
+        <Grid item xs={6} sm={3}>
+          <Card className="card">
+            <CardActionArea>
+              <CardMedia
+                component="img"
+                alt="whiplash poster"
+                height="140"
+                image={PosterImg}
+                title="Whiplash poster"
+              />
+              <CardContent>
+                <Typography gutterBottom variant="h5" component="h2">
+                  movie.
+                </Typography>
+              </CardContent>
+            </CardActionArea>
+            <CardActions>
+              <Button size="small" color="primary">
+                <FavoriteBorderIcon />
+              </Button>
+              <Button size="small" color="primary" onClick={ShowValues}>
+                8.5
+              </Button>
+            </CardActions>
+          </Card>
+        </Grid>
       ))}
+      </Grid>
     </div>
   );
 }
 
 export default MovieCards;
-  
-/*
-return (
-    <Card className="card">
-      <CardActionArea>
-        <CardMedia
-          component="img"
-          alt="whiplash poster"
-          height="140"
-          image={PosterImg}
-          title="Whiplash poster"
-        />
-        <CardContent>
-          <Typography gutterBottom variant="h5" component="h2">
-            Whiplsh
-          </Typography>
-        </CardContent>
-      </CardActionArea>
-      <CardActions>
-        <Button size="small" color="primary">
-          <FavoriteBorderIcon />
-        </Button>
-        <Button size="small" color="primary" onClick={ShowValues}>
-          8.5
-        </Button>
-      </CardActions>
-    </Card>
-  );
-}
-
-export default MovieCard;
-*/
