@@ -15,18 +15,12 @@ export interface Movie {
    )
      .then((res) => res.json())
      .then((res) => mapResult(res.results))
-     .catch((_) => {
-         //console.error('Error:', error);
+     .catch(() => {
          return [];
      });
  }
 
- /* SUkeist vIETOm
-     const {
-       title,
-       vote_average,
-     } = movie;
- */
+ // = movie has to be after const {} here
  function mapResult(res: any[]): Movie[] {
    return res.map((movie) => {
      const {
