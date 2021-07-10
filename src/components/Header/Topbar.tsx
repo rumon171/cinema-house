@@ -3,6 +3,7 @@ import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import TextField from '@material-ui/core/TextField';
+import OutlinedInput from '@material-ui/core/OutlinedInput';
 import './Header.css';
 
 const Topbar = (props: any) => {
@@ -11,7 +12,7 @@ const Topbar = (props: any) => {
       <AppBar>
         <Toolbar className="topBar">
           <Typography variant="h6">Movies app</Typography>
-          <TextField id="outlined-basic" label="Search" variant="outlined" className="seachField" />
+          <OutlinedInput color="secondary" className="seachField" defaultValue="Search"/>
         </Toolbar>
       </AppBar>
     </React.Fragment>
