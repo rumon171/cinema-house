@@ -23,24 +23,22 @@ function App() {
       <MoviesContext.Provider value={{ movies }}>
         <div className="App">
           <div className="container">
-
-            <BaseContainer>
-            <NavLink 
-      to="/contact" 
-      activeClassName="selected">
-      Contact  dfsdfsdfsdfsdfsdf
-</NavLink>
-            </BaseContainer>           
+            <BaseContainer></BaseContainer>           
           </div>
         </div>
       </MoviesContext.Provider>
 
       <Switch>
           <Route path="/contact">
-
+          <div>
+      <ul>
+        {["Alex", "John", "Jaz", "fedrik", "missali"].map((user, idx) => {
+          return <li key={idx}>{user}</li>;
+        })}
+      </ul>
+    </div>
           </Route>
           <Route path="/">
-
           </Route>
       </Switch>
     </Router>
