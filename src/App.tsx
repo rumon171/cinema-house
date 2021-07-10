@@ -29,16 +29,16 @@ function App() {
       </MoviesContext.Provider>
 
       <Switch>
+          <Route exact path="/" />
+
           <Route path="/contact">
-          <div>
-      <ul>
-        {["Alex", "John", "Jaz", "fedrik", "missali"].map((user, idx) => {
-          return <li key={idx}>{user}</li>;
-        })}
-      </ul>
-    </div>
-          </Route>
-          <Route path="/">
+            <div>
+              <ul>
+                {["Alex", "John", "Jaz", "fedrik", "missali"].map((user, idx) => {
+                  return <li key={idx}>{user}</li>;
+                })}
+              </ul>
+            </div>
           </Route>
       </Switch>
     </Router>

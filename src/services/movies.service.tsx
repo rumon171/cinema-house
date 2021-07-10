@@ -17,7 +17,7 @@ export interface Movie {
 
   export function fetchMovies(): Promise<Movie[]> {
    return fetch(
-     `${movieApiBaseUrl}/discover/movie?sort_by=date.desc&api_key=${process.env.REACT_APP_API_KEY}`
+     `${movieApiBaseUrl}/discover/movie?sort_by=popularity.desc&api_key=${process.env.REACT_APP_API_KEY}`
    )
      .then((res) => res.json())
      .then((res) => mapResult(res.results))
