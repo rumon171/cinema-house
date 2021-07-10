@@ -28,15 +28,14 @@ const MovieCards = () =>  {
             <CardActionArea>
               <CardMedia
                 component="img"
-                alt="whiplash poster"
+                alt="poster of {movie.title}"
                 height="140"
-                image={PosterImg}
-                title="Whiplash poster"
+                image={movie.picture}
+                title={movie.title}
               />
               <CardContent>
                 <Typography gutterBottom variant="h5" component="h2">
                  {movie.title}
-                 {movie.picture}
                 </Typography>
               </CardContent>
             </CardActionArea>
