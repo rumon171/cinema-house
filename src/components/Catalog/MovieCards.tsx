@@ -21,7 +21,7 @@ const MovieCards = () =>  {
 
   return (
     <div >
-      <Grid container spacing={0}>
+      <Grid container spacing={1}>
       {movies.map((movie) => (
         <Grid item xs={6} sm={3} key={movie.id}>
           <Card className="card">
@@ -51,3 +51,11 @@ const MovieCards = () =>  {
 }
 
 export default MovieCards;
+
+/*
+              <CardContent>
+                <Typography gutterBottom variant="h5" component="h2">
+                 {movie.title}
+                </Typography>
+              </CardContent>
+*/

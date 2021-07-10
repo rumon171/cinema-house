@@ -1,18 +1,10 @@
 .card {
     max-width: 300px;
-    margin: 10px;
 }
-
-/*
-.card > button {
-    height: 350px;
-}
-*/
 
 .card > button > img {
     height: auto;
 }
-
 
 .scrollTop {
     position: fixed;

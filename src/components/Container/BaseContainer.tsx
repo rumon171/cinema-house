@@ -7,11 +7,12 @@ import Container from '@material-ui/core/Container';
 import Fab from '@material-ui/core/Fab';
 import KeyboardArrowUpIcon from '@material-ui/icons/KeyboardArrowUp';
 import ScrollTop from '../Catalog/ScrollTop';
+import './BaseContainer.css';
 
 const BaseContainer = (props: any) => {
   return (
     <React.Fragment>
-      <Container>
+      <Container className="container">
         <CssBaseline />
         <Topbar></Topbar>
         <Toolbar id="back-to-top-anchor" />
