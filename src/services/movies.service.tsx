@@ -1,3 +1,8 @@
+//import("../images/default-poster.png");
+import * as img from '../images/default-poster.png';
+
+console.log('img ', img);
+
 const movieApiBaseUrl = "https://api.themoviedb.org/3";
 const posterBaseUrl = "https://image.tmdb.org/t/p/w300";
 export interface Movie {
@@ -36,7 +41,7 @@ export interface Movie {
        title: title,
        rating: vote_average,
        description: overview,
-       picture: poster_path ? `${posterBaseUrl}${poster_path}` : undefined,
+       picture: poster_path ? `${posterBaseUrl}${poster_path}` : "../../images/default-poster.png",
        date: date,
      };
    });

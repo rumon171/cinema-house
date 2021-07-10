@@ -10,7 +10,7 @@ import Typography from '@material-ui/core/Typography';
 import './Catalog.css';
 import { MoviesContext } from "../../services/context";
 import Grid from '@material-ui/core/Grid';
-import PosterImg from '.././whiplash.jpeg';
+import("../../images/default-poster.png");
 
 const MovieCards = () =>  {
   const { movies } = useContext(MoviesContext);
@@ -33,11 +33,6 @@ const MovieCards = () =>  {
                 image={movie.picture}
                 title={movie.title}
               />
-              <CardContent>
-                <Typography gutterBottom variant="h5" component="h2">
-                 {movie.title}
-                </Typography>
-              </CardContent>
             </CardActionArea>
             <CardActions>
               <Button size="small" color="primary">
