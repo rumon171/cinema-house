@@ -2,7 +2,6 @@ import React from "react";
 import Topbar from '../Header/Topbar';
 import MovieCards from '../Catalog/MovieCards';
 import Toolbar from '@material-ui/core/Toolbar';
-import CssBaseline from '@material-ui/core/CssBaseline';
 import Container from '@material-ui/core/Container';
 import Fab from '@material-ui/core/Fab';
 import KeyboardArrowUpIcon from '@material-ui/icons/KeyboardArrowUp';
