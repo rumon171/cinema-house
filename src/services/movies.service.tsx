@@ -1,5 +1,6 @@
 //import("../images/default-poster.png");
-import * as img from '../images/default-poster.png';
+import * as img from '../images/no-image-available.png';
+import noImage from '../images/no-image-available.png';
 
 console.log('img ', img);
 
@@ -16,7 +17,7 @@ export interface Movie {
 
   export function fetchMovies(): Promise<Movie[]> {
    return fetch(
-     `${movieApiBaseUrl}/discover/movie?sort_by=popularity.desc&api_key=${process.env.REACT_APP_API_KEY}`
+     `${movieApiBaseUrl}/discover/movie?sort_by=date.desc&api_key=${process.env.REACT_APP_API_KEY}`
    )
      .then((res) => res.json())
      .then((res) => mapResult(res.results))
@@ -41,7 +42,7 @@ export interface Movie {
        title: title,
        rating: vote_average,
        description: overview,
-       picture: poster_path ? `${posterBaseUrl}${poster_path}` : '../images/default-poster.png',
+       picture: poster_path ? `${posterBaseUrl}${poster_path}` : noImage,
        date: date,
      };
    });

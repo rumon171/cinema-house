@@ -10,7 +10,6 @@ import Typography from '@material-ui/core/Typography';
 import './Catalog.css';
 import { MoviesContext } from "../../services/context";
 import Grid from '@material-ui/core/Grid';
-import("../../images/default-poster.png");
 
 var NavLink = require("react-router-dom").NavLink;
 
