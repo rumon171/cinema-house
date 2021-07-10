@@ -41,7 +41,7 @@ export interface Movie {
        title: title,
        rating: vote_average,
        description: overview,
-       picture: poster_path ? `${posterBaseUrl}${poster_path}` : "../../images/default-poster.png",
+       picture: poster_path ? `${posterBaseUrl}${poster_path}` : '../images/default-poster.png',
        date: date,
      };
    });

@@ -12,6 +12,8 @@ import { MoviesContext } from "../../services/context";
 import Grid from '@material-ui/core/Grid';
 import("../../images/default-poster.png");
 
+var NavLink = require("react-router-dom").NavLink;
+
 const MovieCards = () =>  {
   const { movies } = useContext(MoviesContext);
   
@@ -24,25 +26,27 @@ const MovieCards = () =>  {
       <Grid container spacing={1}>
       {movies.map((movie) => (
         <Grid item xs={6} sm={2} key={movie.id}>
-          <Card className="card">
-            <CardActionArea>
-              <CardMedia
-                component="img"
-                alt={"Poster of " + movie.title}
-                height="140"
-                image={movie.picture}
-                title={movie.title}
-              />
-            </CardActionArea>
-            <CardActions>
-              <Button size="small" color="primary">
-                <FavoriteBorderIcon />
-              </Button>
-              <Button size="small" color="primary" onClick={ShowValues}>
-                {movie.rating}
-              </Button>
-            </CardActions>
-          </Card>
+          <NavLink to="/movie">
+            <Card className="card">
+              <CardActionArea>
+                <CardMedia
+                  component="img"
+                  alt={"Poster of " + movie.title}
+                  height="140"
+                  image={movie.picture}
+                  title={movie.title}
+                />
+              </CardActionArea>
+              <CardActions>
+                <Button size="small" color="primary">
+                  <FavoriteBorderIcon />
+                </Button>
+                <Button size="small" color="primary" onClick={ShowValues}>
+                  {movie.rating}
+                </Button>
+              </CardActions>
+            </Card>
+          </NavLink>
         </Grid>
       ))}
       </Grid>
