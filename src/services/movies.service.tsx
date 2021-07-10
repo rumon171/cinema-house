@@ -1,11 +1,12 @@
 const movieApiBaseUrl = "https://api.themoviedb.org/3";
+const posterBaseUrl = "https://image.tmdb.org/t/p/w300";
 export interface Movie {
     id: number;
-   // date: string;
     title: string;
     rating: number;
-   // resume: string;
-    picture: string;
+    description: string;
+    picture?: string;
+    date: string;
   }
 
   export function fetchMovies(): Promise<Movie[]> {
@@ -26,13 +27,17 @@ export interface Movie {
        id,
        title,
        vote_average,
-       picture,
+       overview,
+       poster_path,
+       date,
      } = movie;
      return {
        id: id,
        title: title,
        rating: vote_average,
-       picture: picture,
+       description: overview,
+       picture: poster_path ? `${posterBaseUrl}${poster_path}` : undefined,
+       date: date,
      };
    });
  }
