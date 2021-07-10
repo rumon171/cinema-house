@@ -25,7 +25,7 @@ const MovieCards = () =>  {
       <Grid container spacing={1}>
       {movies.map((movie) => (
         <Grid item xs={6} sm={2} key={movie.id}>
-          <NavLink to="/movie">
+          <NavLink to="/movieid">
             <Card className="card">
               <CardActionArea>
                 <CardMedia

@@ -8,20 +8,12 @@ import KeyboardArrowUpIcon from '@material-ui/icons/KeyboardArrowUp';
 import ScrollTop from '../Catalog/ScrollTop';
 import './BaseContainer.css';
 
-var NavLink = require("react-router-dom").NavLink;
-
 const BaseContainer = (props: any) => {
   return (
     <React.Fragment>
       <Container className="container">
-
         <Topbar></Topbar>
         <Toolbar id="back-to-top-anchor" />
-<NavLink 
-      to="/contact" 
-      activeClassName="selected">
-      Contact  dfsdfsdfsdfsdfsdf
-</NavLink>
         <MovieCards></MovieCards>
         <ScrollTop {...props}>
           <Fab color="secondary" size="small" aria-label="scroll back to top">

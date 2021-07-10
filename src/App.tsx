@@ -7,7 +7,6 @@ import { MoviesContext } from "./services/context";
 var Router = require("react-router-dom").BrowserRouter;
 var Route = require("react-router-dom").Route;
 var Switch = require("react-router-dom").Switch;
-var NavLink = require("react-router-dom").NavLink;
 
 function App() {
   useEffect(() => {
@@ -29,9 +28,8 @@ function App() {
       </MoviesContext.Provider>
 
       <Switch>
-          <Route exact path="/" />
-
-          <Route path="/contact">
+          <Route path="/" exact />
+          <Route path="/movieid">
             <div>
               <ul>
                 {["Alex", "John", "Jaz", "fedrik", "missali"].map((user, idx) => {
