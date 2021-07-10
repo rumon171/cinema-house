@@ -23,7 +23,7 @@ const MovieCards = () =>  {
     <div >
       <Grid container spacing={1}>
       {movies.map((movie) => (
-        <Grid item xs={6} sm={3} key={movie.id}>
+        <Grid item xs={6} sm={2} key={movie.id}>
           <Card className="card">
             <CardActionArea>
               <CardMedia

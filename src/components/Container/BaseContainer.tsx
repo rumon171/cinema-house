@@ -13,7 +13,7 @@ const BaseContainer = (props: any) => {
   return (
     <React.Fragment>
       <Container className="container">
-        <CssBaseline />
+
         <Topbar></Topbar>
         <Toolbar id="back-to-top-anchor" />
         <MovieCards></MovieCards>
