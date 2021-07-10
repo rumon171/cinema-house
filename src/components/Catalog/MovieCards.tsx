@@ -36,7 +36,6 @@ const MovieCards = () =>  {
               <CardContent>
                 <Typography gutterBottom variant="h5" component="h2">
                  {movie.title}
-                 picture: 
                  {movie.picture}
                 </Typography>
               </CardContent>
