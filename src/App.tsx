@@ -20,22 +20,35 @@ function App() {
 
   return (
     <Router>
-      <MoviesContext.Provider value={{ movies }}>
-        <div className="App">
-          <div className="container">
-            <BaseContainer></BaseContainer>           
-          </div>
-        </div>
-      </MoviesContext.Provider>
 
       <Switch>
-          <Route exact path="/movieid" component={MoviePage} >
-
+          <Route  path="/movieid" >
+            <div>
+              <MoviePage/>
+            </div>
           </Route>
-
+          <Route path="/" >
+            <MoviesContext.Provider value={{ movies }}>
+              <div className="App">
+                <div className="container">
+                  <BaseContainer></BaseContainer>           
+                </div>
+              </div>
+            </MoviesContext.Provider>
+          </Route>
       </Switch>
     </Router>
   );
 }
 
 export default App;
+
+/*
+<MoviesContext.Provider value={{ movies }}>
+<div className="App">
+  <div className="container">
+    <BaseContainer></BaseContainer>           
+  </div>
+</div>
+</MoviesContext.Provider>
+*/
