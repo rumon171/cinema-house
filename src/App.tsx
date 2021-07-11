@@ -3,6 +3,7 @@ import './App.css';
 import BaseContainer from './components/Container/BaseContainer';
 import { Movie, fetchMovies } from "./services/movies.service";
 import { MoviesContext } from "./services/context";
+import MoviePage from './components/MoviePage/MoviePage';
 
 var Router = require("react-router-dom").BrowserRouter;
 var Route = require("react-router-dom").Route;
@@ -28,16 +29,10 @@ function App() {
       </MoviesContext.Provider>
 
       <Switch>
-          <Route path="/" exact />
-          <Route path="/movieid">
-            <div>
-              <ul>
-                {["Alex", "John", "Jaz", "fedrik", "missali"].map((user, idx) => {
-                  return <li key={idx}>{user}</li>;
-                })}
-              </ul>
-            </div>
+          <Route exact path="/movieid" component={MoviePage} >
+
           </Route>
+
       </Switch>
     </Router>
   );
