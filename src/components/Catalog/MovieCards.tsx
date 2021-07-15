@@ -8,8 +8,6 @@ import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
 import Grid from '@material-ui/core/Grid';
 import './Catalog.css';
 import { MoviesContext } from "../../services/context";
-import { Movie } from "../../services/movies.service";
-
 
 var NavLink = require("react-router-dom").NavLink;
 
