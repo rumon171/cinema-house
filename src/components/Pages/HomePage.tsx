@@ -6,9 +6,9 @@ import Container from '@material-ui/core/Container';
 import Fab from '@material-ui/core/Fab';
 import KeyboardArrowUpIcon from '@material-ui/icons/KeyboardArrowUp';
 import ScrollTop from '../Catalog/ScrollTop';
-import './BaseContainer.css';
+import './Pages.css';
 
-const BaseContainer = (props: any) => {
+const HomePage = (props: any) => {
   return (
     <React.Fragment>
       <Container className="container">
@@ -25,4 +25,4 @@ const BaseContainer = (props: any) => {
   );
 }
 
-export default BaseContainer;
+export default HomePage;

@@ -1,8 +1,4 @@
-//import("../images/default-poster.png");
-import * as img from '../images/no-image-available.png';
 import noImage from '../images/no-image-available.png';
-
-console.log('img ', img);
 
 const movieApiBaseUrl = "https://api.themoviedb.org/3";
 const posterBaseUrl = "https://image.tmdb.org/t/p/w300";
@@ -17,7 +13,7 @@ export interface Movie {
 
   export function fetchMovies(): Promise<Movie[]> {
    return fetch(
-     `${movieApiBaseUrl}/discover/movie?sort_by=popularity.desc&api_key=${process.env.REACT_APP_API_KEY}`
+     `${movieApiBaseUrl}/movie/popular?api_key=${process.env.REACT_APP_API_KEY}&page=1`
    )
      .then((res) => res.json())
      .then((res) => mapResult(res.results))

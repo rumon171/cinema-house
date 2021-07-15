@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import './App.css';
-import BaseContainer from './components/Container/BaseContainer';
+import HomePage from './components/Pages/HomePage';
 import { Movie, fetchMovies } from "./services/movies.service";
 import { MoviesContext } from "./services/context";
-import MoviePage from './components/MoviePage/MoviePage';
+import MoviePage from './components/Pages/MoviePage';
 
 var Router = require("react-router-dom").BrowserRouter;
 var Route = require("react-router-dom").Route;
@@ -19,36 +19,22 @@ function App() {
   const [movies, setMovies] = useState<Movie[]>([]);
 
   return (
-    <Router>
-
-      <Switch>
-          <Route  path="/movieid" >
-            <div>
-              <MoviePage/>
-            </div>
-          </Route>
-          <Route path="/" >
-            <MoviesContext.Provider value={{ movies }}>
-              <div className="App">
-                <div className="container">
-                  <BaseContainer></BaseContainer>           
-                </div>
-              </div>
-            </MoviesContext.Provider>
-          </Route>
-      </Switch>
-    </Router>
+    <MoviesContext.Provider value={{ movies }}>
+      <div className="App">
+        <div className="container">
+          <Router>
+            <Switch>
+              <Route path="/movieid" >
+                  <MoviePage />
+              </Route>
+              <Route path="/" >
+                <HomePage></HomePage>           
+              </Route>
+            </Switch>
+          </Router>
+        </div>
+      </div>
+    </MoviesContext.Provider>
   );
 }
-
 export default App;
-
-/*
-<MoviesContext.Provider value={{ movies }}>
-<div className="App">
-  <div className="container">
-    <BaseContainer></BaseContainer>           
-  </div>
-</div>
-</MoviesContext.Provider>
-*/

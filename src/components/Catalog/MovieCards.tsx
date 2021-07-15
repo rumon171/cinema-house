@@ -14,8 +14,8 @@ var NavLink = require("react-router-dom").NavLink;
 const MovieCards = () =>  {
   const { movies } = useContext(MoviesContext);
   
-  const ShowValues = () => {
-    console.log('passedValues ', movies);
+  const ShowValues = (clickedItem: any) => {
+    console.log('clickedItem ', clickedItem);
   }
 
   return (
@@ -38,7 +38,7 @@ const MovieCards = () =>  {
                 <Button size="small" color="primary">
                   <FavoriteBorderIcon />
                 </Button>
-                <Button size="small" color="primary" onClick={ShowValues}>
+                <Button size="small" color="primary" onClick={() => ShowValues(movie.id)}>
                   {movie.rating}
                 </Button>
               </CardActions>
