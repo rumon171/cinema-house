@@ -16,14 +16,25 @@ export interface Movie {
      `${movieApiBaseUrl}/movie/popular?api_key=${process.env.REACT_APP_API_KEY}&page=1`
    )
      .then((res) => res.json())
-     .then((res) => mapResult(res.results))
+     .then((res) => mapListResult(res.results))
      .catch(() => {
          return [];
      });
  }
 
+ export function fetchMovie() {
+  return fetch(
+    `${movieApiBaseUrl}/movie/75780?api_key=${process.env.REACT_APP_API_KEY}`
+  )
+    .then((res) => res.json())
+    .then((res) => mapListResult(res.results))
+    .catch(() => {
+        return {};
+    });
+}
+
  // = movie has to be after const {} here
- function mapResult(res: any[]): Movie[] {
+ function mapListResult(res: any[]): Movie[] {
    return res.map((movie) => {
      const {
        id,
