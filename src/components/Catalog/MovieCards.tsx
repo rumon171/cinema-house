@@ -15,10 +15,6 @@ const MovieCards = () =>  {
   const { movies } = useContext(MoviesContext);  
   
   const [clickedMovieId, setClickedMovieId] = useState<number>(0);
-  
-   const SelectMovie = async (itemId: number) => {
-    setClickedMovieId(itemId);
-  }
 
   useEffect(() => {
     console.log('Current value of movie id state', clickedMovieId);
@@ -29,7 +25,7 @@ return (
       <Grid container spacing={1}>
       {movies.map((movie) => (
         <Grid item xs={6} sm={2} key={movie.id}>
-          <NavLink to={"movie/" + clickedMovieId}>
+          <NavLink to={"movie/" + movie.id}>
             <Card className="card">
               <CardActionArea>
                 <CardMedia
@@ -44,7 +40,7 @@ return (
                 <Button size="small" color="primary">
                   <FavoriteBorderIcon />
                 </Button>
-                <Button size="small" color="primary" onClick={() => SelectMovie(movie.id)}>
+                <Button size="small" color="primary" onClick={() => setClickedMovieId(movie.id)}>
                   {movie.rating}
                 </Button>
               </CardActions>
