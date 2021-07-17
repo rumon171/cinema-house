@@ -14,13 +14,7 @@ var NavLink = require("react-router-dom").NavLink;
 const MovieCards = () =>  {
   const { movies } = useContext(MoviesContext);  
   
-  const [clickedMovieId, setClickedMovieId] = useState<number>(0);
-
-  useEffect(() => {
-    console.log('Current value of movie id state', clickedMovieId);
-  }, [clickedMovieId]);
-
-return (
+  return (
     <div >
       <Grid container spacing={1}>
       {movies.map((movie) => (
@@ -40,7 +34,7 @@ return (
                 <Button size="small" color="primary">
                   <FavoriteBorderIcon />
                 </Button>
-                <Button size="small" color="primary" onClick={() => setClickedMovieId(movie.id)}>
+                <Button size="small" color="primary">
                   {movie.rating}
                 </Button>
               </CardActions>
