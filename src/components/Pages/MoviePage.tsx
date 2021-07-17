@@ -2,7 +2,10 @@ import React, {useState, useEffect} from "react";
 import Topbar from '../Header/Topbar';
 //import { fetchMovie } from "../../services/movies.service";
 import Grid from '@material-ui/core/Grid';
+import Paper from '@material-ui/core/Paper';
 import noImage from '../../images/no-image-available.png';
+import Card from '@material-ui/core/Card';
+import CardMedia from '@material-ui/core/CardMedia';
 
 const movieApiBaseUrl = "https://api.themoviedb.org/3";
 const posterBaseUrl = "https://image.tmdb.org/t/p/w300";
@@ -53,12 +56,29 @@ useEffect(() => {
   return (
     <>
       <Topbar></Topbar>
-        <div>
+      <Grid container spacing={3}>
+        <Grid item xs={6} sm={3}>
+          <Card className="card">
+            <CardMedia
+              component="img"
+              alt={"Poster of " + movie.title}
+              className="BeerListItem-img"
+              image={posterBaseUrl + movie.poster_path}
+              title={movie.title}
+            />
+          </Card>
+        </Grid>
+        <Grid item xs={6} sm={9}>
+          <Paper>xs=6 sm=3</Paper>
+        </Grid>
+        <Grid item xs={12}>
+          <Paper>CAST HERE</Paper>
+        </Grid>
+      </Grid>
+      <div>
           <div>
             {posterBaseUrl + movie.poster_path}
           </div>
-
-
       </div>
     </>
   );
