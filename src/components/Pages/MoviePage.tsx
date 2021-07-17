@@ -1,9 +1,8 @@
-import React, { useContext } from "react";
+import React from "react";
 import Topbar from '../Header/Topbar';
-import { MoviesContext } from "../../services/context";
 
 const MoviePage = (props: any) => {
-  const { movies } = useContext(MoviesContext);
+  const currentMovieId = window.location.pathname.split('/')[2];
 
   return (
     <React.Fragment>
