@@ -11,12 +11,12 @@ const HomePage = (props: any) => {
     <React.Fragment>
         <Topbar></Topbar>
         <Toolbar id="back-to-top-anchor" />
-        <MovieCards></MovieCards>
-        <ScrollTop {...props}>
-          <Fab color="secondary" size="small" aria-label="scroll back to top">
-            <KeyboardArrowUpIcon />
-          </Fab>
-        </ScrollTop>
+          <MovieCards></MovieCards>
+          <ScrollTop {...props}>
+            <Fab color="secondary" size="small" aria-label="scroll back to top">
+              <KeyboardArrowUpIcon />
+            </Fab>
+          </ScrollTop>
     </React.Fragment>
   );
 }

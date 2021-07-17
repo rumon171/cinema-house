@@ -10,9 +10,9 @@ const posterBaseUrl = "https://image.tmdb.org/t/p/w300";
 interface Movie {
   id: number;
   title: string;
-  rating: number;
-  description: string;
-  picture?: string;
+  vote_average: number;
+  overview: string;
+  poster_path?: string;
   date: string;
 }
 
@@ -22,9 +22,9 @@ const MoviePage = (props: any) => {
     {
       id: 0,
       title: '',
-      rating: 0,
-      description: '',
-      picture: 'noImage',
+      vote_average: 0,
+      overview: '',
+      poster_path: noImage,
       date: '', 
     }
   );
@@ -36,7 +36,7 @@ useEffect(() => {
     `${movieApiBaseUrl}/movie/${currentMovieId}?api_key=${process.env.REACT_APP_API_KEY}`
   )
     .then((res) => res.json())
-    .then((res) => setMovie(res.results))
+    .then((body) => setMovie(body))
     .catch(() => {
         return {};
     });
@@ -44,11 +44,16 @@ useEffect(() => {
 
   return (
     <React.Fragment>
-        <Topbar></Topbar>
-        <div className="">
-          MOVIE INFO HERE
-           
-        </div>
+      <Topbar></Topbar>
+        <div className={movie.title}>
+          <div>
+            {movie.title}
+          </div>
+
+          <div>
+            {movie.poster_path}
+          </div>
+      </div>
     </React.Fragment>
   );
 }
