@@ -3,6 +3,7 @@ import Topbar from '../Header/Topbar';
 //import { fetchMovie } from "../../services/movies.service";
 import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
+import Button from '@material-ui/core/Button';
 import noImage from '../../images/no-image-available.png';
 import Card from '@material-ui/core/Card';
 import CardMedia from '@material-ui/core/CardMedia';
@@ -69,17 +70,16 @@ useEffect(() => {
           </Card>
         </Grid>
         <Grid item xs={6} sm={9}>
-          <Paper>xs=6 sm=3</Paper>
+          <Paper>
+            <Button variant="contained" color="primary" href="#contained-buttons">
+              Link
+            </Button>
+          </Paper>
         </Grid>
         <Grid item xs={12}>
           <Paper>CAST HERE</Paper>
         </Grid>
       </Grid>
-      <div>
-          <div>
-            {posterBaseUrl + movie.poster_path}
-          </div>
-      </div>
     </>
   );
 }
