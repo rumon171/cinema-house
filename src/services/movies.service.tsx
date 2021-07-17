@@ -1,3 +1,5 @@
+import React, { useRef } from "react";
+
 import noImage from '../images/no-image-available.png';
 
 const movieApiBaseUrl = "https://api.themoviedb.org/3";
@@ -34,6 +36,12 @@ export interface Movie {
 }
 
 export function fetchMoreMovies(page = 1): Promise<Movie[]> {
+
+  
+  //let page = 3;
+  console.log('page value ', page);
+  page++;
+
   return fetch(
     `${movieApiBaseUrl}/movie/popular?api_key=${process.env.REACT_APP_API_KEY}&page=${page}`
   )

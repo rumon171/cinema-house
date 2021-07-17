@@ -8,8 +8,6 @@ import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
 import Grid from '@material-ui/core/Grid';
 import './Catalog.css';
 import { MoviesContext } from "../../services/context";
-import InfiniteScroll from 'react-infinite-scroll-component';
-import { Movie, fetchMoreMovies } from "../../services/movies.service";
 
 var NavLink = require("react-router-dom").NavLink;
 
@@ -25,91 +23,6 @@ const MovieCards = () =>  {
     console.log('clickedMovieId ', clickedMovieId);
   }
 
-  return (
-    <div >
-      <Grid container spacing={1}>
-      {movies.map((movie) => (
-        <Grid item xs={6} sm={2} key={movie.id}>
-          <NavLink to="movieid">
-            <Card className="card">
-              <CardActionArea>
-                <CardMedia
-                  component="img"
-                  alt={"Poster of " + movie.title}
-                  height="140"
-                  image={movie.picture}
-                  title={movie.title}
-                />
-              </CardActionArea>
-              <CardActions>
-                <Button size="small" color="primary">
-                  <FavoriteBorderIcon />
-                </Button>
-                <Button size="small" color="primary" onClick={() => SelectMovie(movie.id)}>
-                  {movie.rating}
-                </Button>
-              </CardActions>
-            </Card>
-          </NavLink>
-        </Grid>
-      ))}
-      </Grid>
-
-<div
-  id="scrollableDiv"
-  style={{
-    height: 300,
-    overflow: 'auto',
-    display: 'flex',
-    flexDirection: 'column-reverse',
-  }}
->
-    {/*Put the scroll bar always on the bottom*/}
-    <InfiniteScroll
-      dataLength={20}
-      next={fetchMoreMovies}
-      style={{ display: 'flex', flexDirection: 'column-reverse' }} //To put endMessage and loader to the top.
-      inverse={true} //
-      hasMore={true}
-      loader={<h4>Loading...</h4>}
-      scrollableTarget="scrollableDiv"
-    >
-
-<Grid container spacing={1}>
-      {movies.map((movie) => (
-        <Grid item xs={6} sm={2} >
-          <NavLink to="movieid">
-            <Card className="card">
-              <CardActionArea>
-
-              </CardActionArea>
-              <CardActions>
-                <Button size="small" color="primary">
-                  <FavoriteBorderIcon />
-                </Button>
-                <Button size="small" color="primary" >
-                  sth
-                </Button>
-              </CardActions>
-            </Card>
-          </NavLink>
-        </Grid>
-      ))}
-      </Grid>
-
-
-    </InfiniteScroll>
-</div>
-
-
-
-    </div>
-  );
-}
-
-export default MovieCards;
-
-/*
 return (
     <div >
       <Grid container spacing={1}>
@@ -144,4 +57,3 @@ return (
 }
 
 export default MovieCards;
-*/
