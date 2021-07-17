@@ -1,6 +1,5 @@
 import React, { useContext } from "react";
 import Topbar from '../Header/Topbar';
-import Container from '@material-ui/core/Container';
 import { MoviesContext } from "../../services/context";
 
 const MoviePage = (props: any) => {

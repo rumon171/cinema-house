@@ -14,14 +14,21 @@ var NavLink = require("react-router-dom").NavLink;
 const MovieCards = () =>  {
   const { movies } = useContext(MoviesContext);  
   
-  const [clickedMovieId, setClickedMovieId] = useState<number>(75780);
-  //const [clickedMovieId, setClickedMovieId] = useState<number>(0);
+  //const [clickedMovieId, setClickedMovieId] = useState<number>(75780);
+  const [clickedMovieId, setClickedMovieId] = useState<number>(0);
   
-  const SelectMovie = (clickedItemId: number) => {
-    console.log('clickedItem ', clickedItemId);
-    console.log('typeOf ', typeof(clickedItemId));
+   const SelectMovie = async (clickedItemId: number) => {
+    console.log('clickedItem 1 ', clickedItemId);
+    //await setClickedMovieId(clickedItemId);
+   /*
+    await setClickedMovieId(clickedItemId), 
+      console.log('clickedMovieId ', clickedMovieId);
+    };
+    */
     setClickedMovieId(clickedItemId);
-    console.log('clickedMovieId ', clickedMovieId);
+    console.log('clickedMovie 2 ', clickedMovieId);
+    // ASYNC \H'eRE
+
   }
 
 return (

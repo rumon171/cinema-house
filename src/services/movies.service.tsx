@@ -1,5 +1,3 @@
-import React, { useRef } from "react";
-
 import noImage from '../images/no-image-available.png';
 
 const movieApiBaseUrl = "https://api.themoviedb.org/3";
