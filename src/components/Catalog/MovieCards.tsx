@@ -14,7 +14,8 @@ var NavLink = require("react-router-dom").NavLink;
 const MovieCards = () =>  {
   const { movies } = useContext(MoviesContext);  
   
-  const [clickedMovieId, setClickedMovieId] = useState<number>(0);
+  const [clickedMovieId, setClickedMovieId] = useState<number>(75780);
+  //const [clickedMovieId, setClickedMovieId] = useState<number>(0);
   
   const SelectMovie = (clickedItemId: number) => {
     console.log('clickedItem ', clickedItemId);
@@ -23,14 +24,12 @@ const MovieCards = () =>  {
     console.log('clickedMovieId ', clickedMovieId);
   }
 
-// SDASDSFFSFSDFSFSDFSDF
-
 return (
     <div >
       <Grid container spacing={1}>
       {movies.map((movie) => (
         <Grid item xs={6} sm={2} key={movie.id}>
-          <NavLink to="movieid">
+          <NavLink to={"movie/" + clickedMovieId}>
             <Card className="card">
               <CardActionArea>
                 <CardMedia

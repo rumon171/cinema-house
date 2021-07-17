@@ -24,8 +24,8 @@ function App() {
         <div className="container">
           <Router>
             <Switch>
-              <Route path="/movieid" >
-                  <MoviePage />
+              <Route path="/movie/:movieid" >
+              <MoviePage />
               </Route>
               <Route path="/" >
                 <HomePage></HomePage>           
