@@ -1,4 +1,4 @@
-import{ useContext, useState, useEffect } from "react";
+import{ useContext} from "react";
 import Card from '@material-ui/core/Card';
 import CardActionArea from '@material-ui/core/CardActionArea';
 import CardActions from '@material-ui/core/CardActions';
@@ -9,7 +9,7 @@ import Grid from '@material-ui/core/Grid';
 import './Catalog.css';
 import { MoviesContext } from "../../services/context";
 
-var NavLink = require("react-router-dom").NavLink;
+const NavLink = require("react-router-dom").NavLink;
 
 const MovieCards = () =>  {
   const { movies } = useContext(MoviesContext);  

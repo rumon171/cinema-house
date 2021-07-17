@@ -51,7 +51,7 @@ useEffect(() => {
           </div>
 
           <div>
-            {movie.poster_path}
+            {posterBaseUrl + movie.poster_path}
           </div>
       </div>
     </React.Fragment>
