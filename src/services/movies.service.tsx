@@ -11,8 +11,8 @@ export interface Movie {
     date: string;
   }
 
-  export function fetchMovies(page = 11): Promise<Movie[]> {
-   return fetch(
+export async function fetchMovies(page = 11): Promise<Movie[]> {
+   return await fetch(
      `${movieApiBaseUrl}/movie/popular?api_key=${process.env.REACT_APP_API_KEY}&page=${page}`
    )
      .then((res) => res.json())
@@ -22,12 +22,15 @@ export interface Movie {
      });
  }
 
- export function fetchMovie() {
-  return fetch(
-    `${movieApiBaseUrl}/movie/75780?api_key=${process.env.REACT_APP_API_KEY}`
+ export async function fetchMovie (currentMovieId: number ) {
+  return await fetch(
+    `${movieApiBaseUrl}/movie/${currentMovieId}?api_key=${process.env.REACT_APP_API_KEY}`
   )
     .then((res) => res.json())
-    .then((res) => mapListResult(res.results))
+    .then((body) => {
+      console.log(body);
+      return body;
+  })
     .catch(() => {
         return {};
     });
