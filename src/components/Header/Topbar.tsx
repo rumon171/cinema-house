@@ -7,14 +7,14 @@ import './Header.css';
 
 const Topbar = (props: any) => {
   return (
-    <React.Fragment>
+    <>
       <AppBar>
         <Toolbar className="topBar">
           <Typography variant="h6">Movies app</Typography>
           <OutlinedInput color="secondary" className="seachField" defaultValue="Search"/>
         </Toolbar>
       </AppBar>
-    </React.Fragment>
+    </>
   );
 }
 

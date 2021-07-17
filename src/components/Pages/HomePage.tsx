@@ -8,7 +8,7 @@ import ScrollTop from '../Catalog/ScrollTop';
 
 const HomePage = (props: any) => {
   return (
-    <React.Fragment>
+    <>
         <Topbar></Topbar>
         <Toolbar id="back-to-top-anchor" />
           <MovieCards></MovieCards>
@@ -17,7 +17,7 @@ const HomePage = (props: any) => {
               <KeyboardArrowUpIcon />
             </Fab>
           </ScrollTop>
-    </React.Fragment>
+    </>
   );
 }
 

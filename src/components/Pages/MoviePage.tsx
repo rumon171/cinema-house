@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from "react";
 import Topbar from '../Header/Topbar';
-import { fetchMovie } from "../../services/movies.service";
-
+//import { fetchMovie } from "../../services/movies.service";
+import Grid from '@material-ui/core/Grid';
 import noImage from '../../images/no-image-available.png';
 
 const movieApiBaseUrl = "https://api.themoviedb.org/3";
@@ -51,18 +51,16 @@ useEffect(() => {
 }, [currentMovieId, movie]);
 
   return (
-    <React.Fragment>
+    <>
       <Topbar></Topbar>
-        <div className={movie.title}>
-          <div>
-            {movie.title}
-          </div>
-
+        <div>
           <div>
             {posterBaseUrl + movie.poster_path}
           </div>
+
+
       </div>
-    </React.Fragment>
+    </>
   );
 }
 
