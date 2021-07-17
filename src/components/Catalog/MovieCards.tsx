@@ -1,4 +1,4 @@
-import{ useContext, useState } from "react";
+import{ useContext, useState, useEffect } from "react";
 import Card from '@material-ui/core/Card';
 import CardActionArea from '@material-ui/core/CardActionArea';
 import CardActions from '@material-ui/core/CardActions';
@@ -14,22 +14,15 @@ var NavLink = require("react-router-dom").NavLink;
 const MovieCards = () =>  {
   const { movies } = useContext(MoviesContext);  
   
-  //const [clickedMovieId, setClickedMovieId] = useState<number>(75780);
   const [clickedMovieId, setClickedMovieId] = useState<number>(0);
   
-   const SelectMovie = async (clickedItemId: number) => {
-    console.log('clickedItem 1 ', clickedItemId);
-    //await setClickedMovieId(clickedItemId);
-   /*
-    await setClickedMovieId(clickedItemId), 
-      console.log('clickedMovieId ', clickedMovieId);
-    };
-    */
-    setClickedMovieId(clickedItemId);
-    console.log('clickedMovie 2 ', clickedMovieId);
-    // ASYNC \H'eRE
-
+   const SelectMovie = async (itemId: number) => {
+    setClickedMovieId(itemId);
   }
+
+  useEffect(() => {
+    console.log('Current value of movie id state', clickedMovieId);
+  }, [clickedMovieId]);
 
 return (
     <div >
