@@ -18,57 +18,36 @@ interface Movie {
 
 const MoviePage = (props: any) => {
 
-  const [movie, setMovie] = useState<Movie>();
+  const [movie, setMovie] = useState<Movie>(
+    {
+      id: 0,
+      title: '',
+      rating: 0,
+      description: '',
+      picture: 'noImage',
+      date: '', 
+    }
+  );
 
   const currentMovieId = window.location.pathname.split('/')[2];
 
-//https://api.themoviedb.org/3/movie/75780?api_key=f13446aa3541ebd88cf65b91f6932c5b
-
-
 useEffect(() => {
-
   fetch(
     `${movieApiBaseUrl}/movie/${currentMovieId}?api_key=${process.env.REACT_APP_API_KEY}`
   )
     .then((res) => res.json())
-    .then((res) => res.results)
-    .then((res) => console.log('res ', res))
+    .then((res) => setMovie(res.results))
     .catch(() => {
         return {};
     });
-
-
-    console.log('movie ', movie);
-
 }, [currentMovieId, movie]);
 
-/*
-function mapMovieResult(res: any): Movie {
-  return res.map((movie) => {
-    const {
-      id,
-      title,
-      vote_average,
-      overview,
-      poster_path,
-      date,
-    } = movie;
-    return {
-      id: id,
-      title: title,
-      rating: vote_average,
-      description: overview,
-      picture: poster_path ? `${posterBaseUrl}${poster_path}` : noImage,
-      date: date,
-    };
-  });
-}
-*/
   return (
     <React.Fragment>
         <Topbar></Topbar>
         <div className="">
           MOVIE INFO HERE
+           
         </div>
     </React.Fragment>
   );
