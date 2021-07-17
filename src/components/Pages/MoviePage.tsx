@@ -21,26 +21,12 @@ const MoviePage = (props: any) => {
 
 //https://api.themoviedb.org/3/movie/75780?api_key=f13446aa3541ebd88cf65b91f6932c5b
 
-/*
-function fetchMovie() {
-  return fetch(
-    `${movieApiBaseUrl}/movie/75780?api_key=${process.env.REACT_APP_API_KEY}`
-  )
-    .then((res) => res.json())
-    .then((res) => mapListResult(res.results))
-    .then((res) =>console.log(res))
-    .catch(() => {
-        return {};
-    });
-}
-*/
-
 //const [movie, setMovie] = useState<Movie>({});
 
 useEffect(() => {
 
   fetch(
-    `${movieApiBaseUrl}/movie/75780?api_key=${process.env.REACT_APP_API_KEY}`
+    `${movieApiBaseUrl}/movie/${currentMovieId}?api_key=${process.env.REACT_APP_API_KEY}`
   )
     .then((res) => res.json())
     .then((res) => console.log(res))
@@ -50,6 +36,7 @@ useEffect(() => {
 
 }, []);
 
+// IT IS NOT A LIST BUT A SINGLE OBJeCT
 function mapListResult(res: any[]): Movie[] {
   return res.map((movie) => {
     const {
