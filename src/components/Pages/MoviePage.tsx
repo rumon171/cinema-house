@@ -11,7 +11,7 @@ interface Movie {
   vote_average: number;
   overview: string;
   poster_path?: string;
-  date: string;
+  release_date: string;
 }
 
 const MoviePage = (props: any) => {
@@ -23,7 +23,7 @@ const [movie, setMovie] = useState<Movie>(
     vote_average: 0,
     overview: '',
     poster_path: noImage,
-    date: '', 
+    release_date: '', 
   }
 );
 
@@ -36,6 +36,7 @@ useEffect(() => {
     const fetchedMovieInfo = await fetchMovie(Number(currentMovieId));
     setMovie(fetchedMovieInfo);
     setMovieImg(posterBaseUrl+fetchedMovieInfo.poster_path);
+    console.log('fetchedMovieInfo.date ', fetchedMovieInfo.date);
   }
   
   callAPI();
@@ -56,11 +57,12 @@ useEffect(() => {
           </Card>
         </Grid>
         <Grid item xs={6} sm={9}>
-          <DialogTitle
-              disableTypography
-              id="alert-dialog-title">
+          <DialogTitle disableTypography>
             {movie.title}
           </DialogTitle>
+          {movie.vote_average}
+          {movie.release_date}
+          {movie.overview}
           <Button 
             variant="contained" 
             color="primary" 
