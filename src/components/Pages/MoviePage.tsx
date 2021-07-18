@@ -85,8 +85,8 @@ const Trial = () => {
             </p>
             <p>
               Genres:&nbsp;
-                {movie.genres.map((genre) => (
-                  <span>
+                {movie.genres.map((genre, i) => (
+                  <span key={i}>
                     {genre.name},&nbsp;
                   </span>
                 ))}
