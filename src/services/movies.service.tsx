@@ -27,10 +27,7 @@ export async function fetchMovies(page = 11): Promise<Movie[]> {
     `${movieApiBaseUrl}/movie/${currentMovieId}?api_key=${process.env.REACT_APP_API_KEY}`
   )
     .then((res) => res.json())
-    .then((body) => {
-      console.log(body);
-      return body;
-  })
+    .then((body) => {return body})
     .catch(() => {
         return {};
     });
