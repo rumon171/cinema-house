@@ -1,10 +1,8 @@
-import React from "react";
 import Topbar from '../Header/Topbar';
 import MovieCards from '../Catalog/MovieCards';
-import Toolbar from '@material-ui/core/Toolbar';
-import Fab from '@material-ui/core/Fab';
-import KeyboardArrowUpIcon from '@material-ui/icons/KeyboardArrowUp';
 import ScrollTop from '../Catalog/ScrollTop';
+import {Toolbar, Fab} from '@material-ui/core';
+import KeyboardArrowUpIcon from '@material-ui/icons/KeyboardArrowUp';
 
 const HomePage = (props: any) => {
   return (

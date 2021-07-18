@@ -1,7 +1,7 @@
 import {useState, useEffect} from "react";
 import Topbar from '../Header/Topbar';
 import { fetchMovie } from "../../services/movies.service";
-import {Grid, Paper, Card, CardMedia, Button} from '@material-ui/core';
+import {Grid, Card, CardMedia, Button, DialogTitle} from '@material-ui/core';
 import noImage from '../../images/no-image-available.png';
 const posterBaseUrl = "https://image.tmdb.org/t/p/w300";
 
@@ -56,14 +56,20 @@ useEffect(() => {
           </Card>
         </Grid>
         <Grid item xs={6} sm={9}>
-          <Paper>
-            <Button variant="contained" color="primary" href="#contained-buttons">
-              {movie.poster_path}
-            </Button>
-          </Paper>
+          <DialogTitle
+              disableTypography
+              id="alert-dialog-title">
+            {movie.title}
+          </DialogTitle>
+          <Button 
+            variant="contained" 
+            color="primary" 
+            href="#contained-buttons">
+            sth
+          </Button>
         </Grid>
         <Grid item xs={12}>
-          <Paper>CAST HERE</Paper>
+          CAST HERE (carrousel to scroll horiz)
         </Grid>
       </Grid>
     </>

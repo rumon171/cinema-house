@@ -22,7 +22,7 @@ export async function fetchMovies(page = 11): Promise<Movie[]> {
      });
  }
 
- export async function fetchMovie (currentMovieId: number ) {
+export async function fetchMovie (currentMovieId: number ) {
   return await fetch(
     `${movieApiBaseUrl}/movie/${currentMovieId}?api_key=${process.env.REACT_APP_API_KEY}`
   )
@@ -33,24 +33,24 @@ export async function fetchMovies(page = 11): Promise<Movie[]> {
     });
 }
 
- // = movie has to be after const {} here
- function mapListResult(res: any[]): Movie[] {
-   return res.map((movie) => {
-     const {
-       id,
-       title,
-       vote_average,
-       overview,
-       poster_path,
-       date,
-     } = movie;
-     return {
-       id: id,
-       title: title,
-       rating: vote_average,
-       description: overview,
-       picture: poster_path ? `${posterBaseUrl}${poster_path}` : noImage,
-       date: date,
-     };
-   });
- }
+// = movie has to be after const {} here
+function mapListResult(res: any[]): Movie[] {
+  return res.map((movie) => {
+    const {
+      id,
+      title,
+      vote_average,
+      overview,
+      poster_path,
+      date,
+    } = movie;
+    return {
+      id: id,
+      title: title,
+      rating: vote_average,
+      description: overview,
+      picture: poster_path ? `${posterBaseUrl}${poster_path}` : noImage,
+      date: date,
+    };
+  });
+}
