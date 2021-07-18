@@ -4,6 +4,7 @@ import { fetchMovie } from "../../services/movies.service";
 import {Grid, Card, CardMedia, Button} from '@material-ui/core';
 import noImage from '../../images/no-image-available.png';
 import './Pages.css';
+import { array } from "joi";
 const posterBaseUrl = "https://image.tmdb.org/t/p/w300";
 
 interface Movie {
@@ -13,6 +14,9 @@ interface Movie {
   overview: string;
   poster_path?: string;
   release_date: string;
+  budget: number;
+  revenue: number;
+  //genres: <>;
 }
 
 const MoviePage = (props: any) => {
@@ -24,7 +28,10 @@ const [movie, setMovie] = useState<Movie>(
     vote_average: 0,
     overview: '',
     poster_path: noImage,
-    release_date: '', 
+    release_date: '',
+    budget: 0,
+    revenue: 0,
+   // genres: [],
   }
 );
 
@@ -67,8 +74,17 @@ useEffect(() => {
             <div>
               {movie.release_date}
             </div>
-            <p>
+            <p className="content-main-paragraph">
               {movie.overview}
+            </p>
+            <p>
+              Genres: 
+            </p>
+            <p>
+              Budget: ${movie.budget}
+            </p>
+            <p>
+              Revenue: ${movie.revenue}
             </p>
             <Button 
               variant="contained" 
