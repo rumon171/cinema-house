@@ -1,8 +1,5 @@
 import React from 'react';
-import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
-import Typography from '@material-ui/core/Typography';
-import OutlinedInput from '@material-ui/core/OutlinedInput';
+import {AppBar, Toolbar, Typography, OutlinedInput} from '@material-ui/core';
 import './Header.css';
 
 const Topbar = (props: any) => {
