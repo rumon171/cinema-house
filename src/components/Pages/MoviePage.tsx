@@ -1,7 +1,7 @@
 import {useState, useEffect} from "react";
 import Topbar from '../Header/Topbar';
 import { fetchMovie } from "../../services/movies.service";
-import {Grid, Card, CardMedia, Button, Typography} from '@material-ui/core';
+import {Grid, Card, CardMedia, Button} from '@material-ui/core';
 import noImage from '../../images/no-image-available.png';
 import './Pages.css';
 const posterBaseUrl = "https://image.tmdb.org/t/p/w300";
@@ -56,26 +56,24 @@ useEffect(() => {
             />
           </Card>
         </Grid>
-        <Grid item xs={6} sm={9} className="align-left">
-          <Typography component="h1" variant="h2" align="center" className="override-align">
+        <Grid item xs={6} sm={9}>
+          <h1>
             {movie.title}
-          </Typography>
-          <Typography variant="h5" align="center" component="p">
-            <span className="rating-container content-font">
-              {movie.vote_average}
-            </span>
-          </Typography>
-          <Typography variant="h5" align="center" component="p" className="content-font">
+          </h1>
+          <span className="rating-container content-font align-left">
+            {movie.vote_average}
+          </span>
+          <div>
             {movie.release_date}
-          </Typography>
-          <Typography variant="h5" align="center" component="p" className="content-font content-main-paragraph">
+          </div>
+          <p>
             {movie.overview}
-          </Typography>
+          </p>
           <Button 
             variant="contained" 
             color="primary" 
             href="#contained-buttons"
-            className="content-font">
+            className="content-font align-left">
             sth
           </Button>
         </Grid>
@@ -88,3 +86,5 @@ useEffect(() => {
 }
 
 export default MoviePage;
+
+//   <Typography variant="h5" align="center" component="p" className="content-font justify">

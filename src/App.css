@@ -6,6 +6,11 @@ body {
   text-align: center;
 }
 
+.typography-base {
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-weight: 400;
+}
+
 .container {
   background-color: #28293B;
   padding-top: 5px;

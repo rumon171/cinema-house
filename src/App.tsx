@@ -21,7 +21,7 @@ function App() {
   return (
     <MoviesContext.Provider value={{ movies }}>
       <div className="App">
-        <div className="container">
+        <div className="container typography-base">
           <Router>
             <Switch>
               <Route path="/movie/:movieid" >
