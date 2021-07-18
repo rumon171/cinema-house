@@ -11,7 +11,7 @@ export interface Movie {
     date: string;
   }
 
-export async function fetchMovies(page = 11): Promise<Movie[]> {
+export async function fetchMovies(page = 15): Promise<Movie[]> {
    return await fetch(
      `${movieApiBaseUrl}/movie/popular?api_key=${process.env.REACT_APP_API_KEY}&page=${page}`
    )

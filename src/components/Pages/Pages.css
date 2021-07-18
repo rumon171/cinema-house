@@ -1,3 +1,7 @@
+.container-movie-page {
+    padding: 2rem;
+}
+
 .card {
     max-width: 300px;
     height: 100%;

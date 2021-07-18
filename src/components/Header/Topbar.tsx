@@ -8,7 +8,7 @@ const Topbar = (props: any) => {
       <AppBar>
         <Toolbar className="top-bar ">
           <h1 className="top-bar-title">
-            Movies app
+            MoviesApp
           </h1>
           <OutlinedInput color="secondary" className="seach-field" defaultValue="Search"/>
         </Toolbar>
