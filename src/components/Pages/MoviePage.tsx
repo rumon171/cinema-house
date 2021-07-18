@@ -86,5 +86,3 @@ useEffect(() => {
 }
 
 export default MoviePage;
-
-//   <Typography variant="h5" align="center" component="p" className="content-font justify">

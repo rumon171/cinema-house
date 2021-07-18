@@ -1,7 +1,11 @@
-.topBar {
+.top-bar {
     background-color: #AA2876;
 }
 
-.seachField {
+.top-bar-title {
+    font-size: 1.5rem;
+}
+
+.seach-field {
     margin-left: auto;
 }
