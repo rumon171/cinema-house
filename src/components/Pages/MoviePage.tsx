@@ -6,6 +6,10 @@ import noImage from '../../images/no-image-available.png';
 import './Pages.css';
 const posterBaseUrl = "https://image.tmdb.org/t/p/w300";
 
+interface Genre {
+  id: number;
+  name: string;
+}
 interface Movie {
   id: number;
   title: string;
@@ -15,7 +19,7 @@ interface Movie {
   release_date: string;
   budget: number;
   revenue: number;
-  genres: string[];
+  genres: Genre[];
 }
 
 const MoviePage = (props: any) => {
@@ -38,15 +42,18 @@ const [movieImg, setMovieImg] = useState<string>(noImage);
 const currentMovieId = window.location.pathname.split('/')[2];
 
 useEffect(() => {
- 
   const callAPI = async () => {
     const fetchedMovieInfo = await fetchMovie(Number(currentMovieId));
     setMovie(fetchedMovieInfo);
     setMovieImg(posterBaseUrl+fetchedMovieInfo.poster_path);
   }
-  
+
   callAPI();
 }, [currentMovieId]);
+
+const Trial = () => {
+  console.log('movie genres', movie.genres);
+}
  
   return (
     <>
@@ -77,10 +84,15 @@ useEffect(() => {
               {movie.overview}
             </p>
             <p>
-              Genres: {movie.budget}
+              Genres:&nbsp;
+                {movie.genres.map((genre) => (
+                  <span>
+                    {genre.name},&nbsp;
+                  </span>
+                ))}
             </p>
             <p>
-              Budget: 
+              Budget: ${movie.budget}
             </p>
             <p>
               Revenue: ${movie.revenue}
@@ -88,7 +100,8 @@ useEffect(() => {
             <Button 
               variant="contained" 
               color="primary" 
-              href="#contained-buttons">
+              onClick={Trial}
+              href="#">
               sth
             </Button>
           </div>
