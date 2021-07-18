@@ -56,26 +56,27 @@ useEffect(() => {
             />
           </Card>
         </Grid>
-        <Grid item xs={6} sm={9}>
-          <h1>
+        <Grid item xs={6} sm={9} className="align-left">
+          <h1 className="title">
             {movie.title}
           </h1>
-          <span className="rating-container content-font align-left">
-            {movie.vote_average}
-          </span>
-          <div>
-            {movie.release_date}
+          <div className="content">
+            <span className="rating-container">
+              {movie.vote_average}
+            </span>
+            <div>
+              {movie.release_date}
+            </div>
+            <p>
+              {movie.overview}
+            </p>
+            <Button 
+              variant="contained" 
+              color="primary" 
+              href="#contained-buttons">
+              sth
+            </Button>
           </div>
-          <p>
-            {movie.overview}
-          </p>
-          <Button 
-            variant="contained" 
-            color="primary" 
-            href="#contained-buttons"
-            className="content-font align-left">
-            sth
-          </Button>
         </Grid>
         <Grid item xs={12}>
           CAST HERE (carrousel to scroll horiz)

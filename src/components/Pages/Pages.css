@@ -6,33 +6,7 @@
 .card > button > img {
     height: 400px;
 }
-/*CHANGE*/
-.title {
-    font-size: 1.5rem;
-    font-weight: 400;
-    letter-spacing: 0.03em;
-}
-/*CHECK IF NEEDED*/
-.MuiTypography-alignCenter 
-.MuiTypography-alignCenter.align-left {
-    text-align: left;
-}
-/*CHECK IF NEEDED*/
-a.align-left {
-    float: left;
-}
-/*CHECK IF NEEDED*/
-.MuiTypography-alignCenter.justify {
-    text-align: justify;
-}
 
 .rating-container {
-    background-color: #ffd23f;
-    
-}
-/*CHANGE*/
-.content-font {
-    font-size: 1rem;
-    line-height: 1.75;
-    letter-spacing: 0.01em;
+    background-color: #ffd23f;    
 }
