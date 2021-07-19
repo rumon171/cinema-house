@@ -1,8 +1,8 @@
 import{ useContext} from "react";
 import {Card, Grid, CardActionArea, CardActions, CardMedia, Button} from '@material-ui/core';
 import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
-import './Catalog.css';
 import { MoviesContext } from "../../services/context";
+import './Catalog.css';
 
 const NavLink = require("react-router-dom").NavLink;
 

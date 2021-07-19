@@ -1,8 +1,9 @@
-import {useState, useEffect} from "react";
+import {useState, useEffect, useContext} from "react";
 import Topbar from '../Header/Topbar';
 import { fetchMovie } from "../../services/movies.service";
 import {Grid, Card, CardMedia, Button} from '@material-ui/core';
 import noImage from '../../images/no-image-available.png';
+import { MoviesContext } from "../../services/context";
 import './Pages.css';
 const posterBaseUrl = "https://image.tmdb.org/t/p/w300";
 
@@ -24,36 +25,39 @@ interface Movie {
 
 const MoviePage = (props: any) => {
 
-const [movie, setMovie] = useState<Movie>(
-  {
-    id: 0,
-    title: '',
-    vote_average: 0,
-    overview: '',
-    poster_path: noImage,
-    release_date: '',
-    budget: 0,
-    revenue: 0,
-    genres: [],
+  const { selectedMovie } = useContext(MoviesContext);  
+
+  const [movie, setMovie] = useState<Movie>(
+    {
+      id: 0,
+      title: '',
+      vote_average: 0,
+      overview: '',
+      poster_path: noImage,
+      release_date: '',
+      budget: 0,
+      revenue: 0,
+      genres: [],
+    }
+  );
+
+  const [movieImg, setMovieImg] = useState<string>(noImage);
+  const currentMovieId = window.location.pathname.split('/')[2];
+  
+
+  useEffect(() => {
+    const callAPI = async () => {
+      const fetchedMovieInfo = await fetchMovie(Number(currentMovieId));
+      setMovie(fetchedMovieInfo);
+      setMovieImg(posterBaseUrl+fetchedMovieInfo.poster_path);
+    }
+
+    callAPI();
+  }, [currentMovieId]);
+
+  const Trial = () => {
+    console.log('selectedMovie ', selectedMovie);
   }
-);
-
-const [movieImg, setMovieImg] = useState<string>(noImage);
-const currentMovieId = window.location.pathname.split('/')[2];
-
-useEffect(() => {
-  const callAPI = async () => {
-    const fetchedMovieInfo = await fetchMovie(Number(currentMovieId));
-    setMovie(fetchedMovieInfo);
-    setMovieImg(posterBaseUrl+fetchedMovieInfo.poster_path);
-  }
-
-  callAPI();
-}, [currentMovieId]);
-
-const Trial = () => {
-  console.log('movie genres', movie.genres);
-}
  
   return (
     <>

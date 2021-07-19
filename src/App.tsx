@@ -17,11 +17,12 @@ function App() {
   }, []);
 
   const [movies, setMovies] = useState<Movie[]>([]);
+  const [selectedMovie, setSelectedMovie] = useState(0);
 
   return (
-    <MoviesContext.Provider value={{ movies }}>
+    <MoviesContext.Provider value={{ movies, selectedMovie }}>
       <div className="App">
-        <div className="container typography-base">
+        <div className="container typography-base ">
           <Router>
             <Switch>
               <Route path="/movie/:movieid" >
