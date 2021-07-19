@@ -20,7 +20,7 @@ function App() {
   const [selectedMovie, setSelectedMovie] = useState(0);
 
   return (
-    <MoviesContext.Provider value={{ movies, selectedMovie }}>
+    <MoviesContext.Provider value={{ movies, selectedMovie, setSelectedMovie }}>
       <div className="App">
         <div className="container typography-base ">
           <Router>

@@ -56,7 +56,16 @@ const MoviePage = (props: any) => {
   }, [currentMovieId]);
 
   const Trial = () => {
-    console.log('selectedMovie ', selectedMovie);
+
+   // setSelectedMovie(300);
+   console.log('selectedMovie ', selectedMovie);
+
+/*
+    setSelectedMovie(300, () => {
+      console.log('selectedMovie ', selectedMovie);
+   });
+   */
+    
   }
  
   return (
@@ -106,7 +115,7 @@ const MoviePage = (props: any) => {
               color="primary" 
               onClick={Trial}
               href="#">
-              sth
+               selected movie
             </Button>
           </div>
         </Grid>
