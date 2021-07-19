@@ -56,16 +56,7 @@ const MoviePage = (props: any) => {
   }, [currentMovieId]);
 
   const Trial = () => {
-
-   // setSelectedMovie(300);
    console.log('selectedMovie ', selectedMovie);
-
-/*
-    setSelectedMovie(300, () => {
-      console.log('selectedMovie ', selectedMovie);
-   });
-   */
-    
   }
  
   return (
