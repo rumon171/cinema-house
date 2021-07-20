@@ -8,14 +8,22 @@ const NavLink = require("react-router-dom").NavLink;
 
 const MovieCards = () =>  {
   const { movies } = useContext(MoviesContext);  
-  
+ 
+  const { setSelectedMovie } = useContext(MoviesContext);  
+
+
+  const Trial = () => {
+    setSelectedMovie(234);
+  }
+
   return (
     <div >
+
       <Grid container spacing={1}>
         {movies.map((movie) => (
           <Grid item xs={6} sm={2} key={movie.id}>
             <NavLink to={"movie/" + movie.id}>
-              <Card className="card">
+              <Card className="card" onClick={Trial}>
                 <CardActionArea>
                   <CardMedia
                     component="img"
