@@ -6,7 +6,6 @@ import noImage from '../../images/no-image-available.png';
 import { MoviesContext } from "../../services/context";
 import './Pages.css';
 const posterBaseUrl = "https://image.tmdb.org/t/p/w300";
-
 interface Genre {
   id: number;
   name: string;
@@ -27,6 +26,7 @@ const MoviePage = (props: any) => {
 
   const { selectedMovie } = useContext(MoviesContext);  
 
+  const [movieImg, setMovieImg] = useState<string>(noImage);
   const [movie, setMovie] = useState<Movie>(
     {
       id: 0,
@@ -41,23 +41,15 @@ const MoviePage = (props: any) => {
     }
   );
 
-  const [movieImg, setMovieImg] = useState<string>(noImage);
-  const currentMovieId = window.location.pathname.split('/')[2];
-  
-
   useEffect(() => {
     const callAPI = async () => {
-      const fetchedMovieInfo = await fetchMovie(Number(currentMovieId));
+      const fetchedMovieInfo = await fetchMovie(Number(selectedMovie));
       setMovie(fetchedMovieInfo);
       setMovieImg(posterBaseUrl+fetchedMovieInfo.poster_path);
     }
 
     callAPI();
-  }, [currentMovieId]);
-
-  const Trial = () => {
-   console.log('selectedMovie ', selectedMovie);
-  }
+  }, [selectedMovie]);
  
   return (
     <>
@@ -104,9 +96,8 @@ const MoviePage = (props: any) => {
             <Button 
               variant="contained" 
               color="primary" 
-              onClick={Trial}
               href="#">
-               selected movie
+               sth
             </Button>
           </div>
         </Grid>
