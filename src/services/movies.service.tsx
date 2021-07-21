@@ -22,17 +22,6 @@ export async function fetchMovies(page = 15): Promise<Movie[]> {
      });
  }
 
-export async function fetchMovie (currentMovieId: number ) {
-  return await fetch(
-    `${movieApiBaseUrl}/movie/${currentMovieId}?api_key=${process.env.REACT_APP_API_KEY}`
-  )
-    .then((res) => res.json())
-    .then((body) => {return body})
-    .catch(() => {
-        return {};
-    });
-}
-
 // = movie has to be after const {} here
 function mapListResult(res: any[]): Movie[] {
   return res.map((movie) => {
@@ -53,4 +42,26 @@ function mapListResult(res: any[]): Movie[] {
       date: date,
     };
   });
+}
+
+export async function fetchSelectedMovie (currentMovieId: number ) {
+  return await fetch(
+    `${movieApiBaseUrl}/movie/${currentMovieId}?api_key=${process.env.REACT_APP_API_KEY}`
+  )
+    .then((res) => res.json())
+    .then((body) => {return body})
+    .catch(() => {
+        return {};
+    });
+}
+
+export async function fetchSearchedMovie (currentMovieId: number ) {
+  return await fetch(
+    `${movieApiBaseUrl}/movie/${currentMovieId}?api_key=${process.env.REACT_APP_API_KEY}`
+  )
+    .then((res) => res.json())
+    .then((body) => {return body})
+    .catch(() => {
+        return {};
+    });
 }

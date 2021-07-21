@@ -1,6 +1,6 @@
 import {useState, useEffect, useContext} from "react";
 import Topbar from '../Header/Topbar';
-import { fetchMovie } from "../../services/movies.service";
+import { fetchSelectedMovie } from "../../services/movies.service";
 import {Grid, Card, CardMedia, Button} from '@material-ui/core';
 import noImage from '../../images/no-image-available.png';
 import { MoviesContext } from "../../services/context";
@@ -43,7 +43,7 @@ const MoviePage = (props: any) => {
 
   useEffect(() => {
     const callAPI = async () => {
-      const fetchedMovieInfo = await fetchMovie(Number(selectedMovie));
+      const fetchedMovieInfo = await fetchSelectedMovie(Number(selectedMovie));
       setMovie(fetchedMovieInfo);
       setMovieImg(posterBaseUrl+fetchedMovieInfo.poster_path);
     }
