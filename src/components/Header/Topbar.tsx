@@ -1,6 +1,6 @@
-import React from 'react';
-import {AppBar, Toolbar, OutlinedInput} from '@material-ui/core';
+import {AppBar, Toolbar} from '@material-ui/core';
 import './Header.css';
+import Search from './Search';
 
 const Topbar = (props: any) => {
   return (
@@ -10,7 +10,7 @@ const Topbar = (props: any) => {
           <h1 className="top-bar-title">
             MoviesApp
           </h1>
-          <OutlinedInput color="secondary" className="seach-field" defaultValue="Search"/>
+          <Search />
         </Toolbar>
       </AppBar>
     </>
