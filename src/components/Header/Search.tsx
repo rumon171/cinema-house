@@ -14,8 +14,7 @@ const Search = (props: any) => {
   useEffect(() => {
 
     if (insertedTitle) {
-      console.log("AAAAA", insertedTitle);
-
+      //INFINITE LOOP HERE
       fetchSearchedMovie(insertedTitle)
       .then((res) => updateMovies(res))
       .catch(() => updateMovies([]));
