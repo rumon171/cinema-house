@@ -3,6 +3,7 @@ import {OutlinedInput} from '@material-ui/core';
 import './Header.css';
 import { MoviesContext } from "../../services/context";
 import { fetchSearchedMovie } from "../../services/movies.service";
+import { resolveTripleslashReference } from 'typescript';
 
 const Search = (props: any) => {
 
@@ -11,26 +12,19 @@ const Search = (props: any) => {
   const [insertedTitle, setInsertedTitle] = useState<string>('');
 
   useEffect(() => {
-    /*
-    const callAPI = async () => {
-    const fetchedMovieInfo = await fetchSearchedMovie(insertedTitle);
-  // console.log('fetchedMovieInfo ', fetchedMovieInfo);
-  // updateMovies(fetchedMovieInfo);
-  }
 
-  callAPI();
-  */
+    if (insertedTitle) {
+      console.log("AAAAA", insertedTitle);
 
-  if (insertedTitle) {
-    console.log("AAAAA", insertedTitle);
+      fetchSearchedMovie(insertedTitle)
+      .then((res) => updateMovies(res))
+      .catch(() => updateMovies([]));
+      //.then((res) => console.log("RES ", res))
+    }
 
-    fetchSearchedMovie(insertedTitle)
-      .then((res) => console.log("RES ", res))
-     // .then(updateMovies(insertedTitle))
-     // .catch(() => updateMovies([]));
-  }
+    console.log('movies ', movies);
 
-  }, [insertedTitle]);
+  }, [insertedTitle, updateMovies, movies]);
 
   return (
     <>
