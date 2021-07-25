@@ -14,16 +14,13 @@ const Search = (props: any) => {
   useEffect(() => {
 
     if (insertedTitle) {
-      //INFINITE LOOP HERE
+      //NOT ALL DATA IS DISPALYED
       fetchSearchedMovie(insertedTitle)
-      .then((res) => updateMovies(res))
-      .catch(() => updateMovies([]));
-      //.then((res) => console.log("RES ", res))
+        .then((res) => updateMovies(res))
+        .catch(() => updateMovies([]));
     }
 
-    console.log('movies ', movies);
-
-  }, [insertedTitle, updateMovies, movies]);
+  }, [insertedTitle, updateMovies]);
 
   return (
     <>
