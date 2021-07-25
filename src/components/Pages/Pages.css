@@ -7,7 +7,8 @@
     height: 100%;
 }
 
-.card > button > img {
+/* TO CHANGE OR DELETE */
+.card > img {
     height: 400px;
 }
 

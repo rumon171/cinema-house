@@ -12,15 +12,15 @@ const Switch = require("react-router-dom").Switch;
 function App() {
   useEffect(() => {
     fetchMovies()
-      .then(setMovies)
-      .catch(() => setMovies([]));
+      .then(updateMovies)
+      .catch(() => updateMovies([]));
   }, []);
 
-  const [movies, setMovies] = useState<Movie[]>([]);
+  const [movies, updateMovies] = useState<Movie[]>([]);
   const [selectedMovie, setSelectedMovie] = useState(0);
 
   return (
-    <MoviesContext.Provider value={{ movies, selectedMovie, setSelectedMovie }}>
+    <MoviesContext.Provider value={{ movies, updateMovies, selectedMovie, setSelectedMovie }}>
       <div className="App">
         <div className="container typography-base ">
           <Router>

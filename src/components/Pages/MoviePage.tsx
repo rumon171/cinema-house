@@ -24,9 +24,8 @@ interface Movie {
 
 const MoviePage = (props: any) => {
 
-  const { selectedMovie } = useContext(MoviesContext);  
+  const { selectedMovie } = useContext(MoviesContext);
 
-  const [movieImg, setMovieImg] = useState<string>(noImage);
   const [movie, setMovie] = useState<Movie>(
     {
       id: 0,
@@ -40,17 +39,21 @@ const MoviePage = (props: any) => {
       genres: [],
     }
   );
+  const [movieImg, setMovieImg] = useState<string>(noImage);
 
   useEffect(() => {
-    const callAPI = async () => {
-      const fetchedMovieInfo = await fetchSelectedMovie(Number(selectedMovie));
-      setMovie(fetchedMovieInfo);
-      setMovieImg(posterBaseUrl+fetchedMovieInfo.poster_path);
+    if (selectedMovie !== 0) {
+      const callAPI = async () => {
+        const fetchedMovieInfo = await fetchSelectedMovie(Number(selectedMovie));
+        setMovie(fetchedMovieInfo);
+        setMovieImg(posterBaseUrl+fetchedMovieInfo.poster_path);
+      }
+
+      callAPI();
     }
 
-    callAPI();
   }, [selectedMovie]);
- 
+
   return (
     <>
       <Topbar></Topbar>
@@ -81,7 +84,7 @@ const MoviePage = (props: any) => {
             </p>
             <p>
               Genres:&nbsp;
-                {movie.genres.map((genre, i) => (
+                {movie.genres && movie.genres?.map((genre, i) => (
                   <span key={i}>
                     {genre.name},&nbsp;
                   </span>

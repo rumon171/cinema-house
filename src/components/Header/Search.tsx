@@ -1,14 +1,36 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import {OutlinedInput} from '@material-ui/core';
 import './Header.css';
+import { MoviesContext } from "../../services/context";
+import { fetchSearchedMovie } from "../../services/movies.service";
 
 const Search = (props: any) => {
 
-  const [searchedMovie, setSearchedMovie] = useState<string>('');
-  
-  useEffect(()=>{
-    console.log('Current searchedMovie ', searchedMovie);
-  }, [searchedMovie]);
+  const { movies, updateMovies } = useContext(MoviesContext); 
+
+  const [insertedTitle, setInsertedTitle] = useState<string>('');
+
+  useEffect(() => {
+    /*
+    const callAPI = async () => {
+    const fetchedMovieInfo = await fetchSearchedMovie(insertedTitle);
+  // console.log('fetchedMovieInfo ', fetchedMovieInfo);
+  // updateMovies(fetchedMovieInfo);
+  }
+
+  callAPI();
+  */
+
+  if (insertedTitle) {
+    console.log("AAAAA", insertedTitle);
+
+    fetchSearchedMovie(insertedTitle)
+      .then((res) => console.log("RES ", res))
+     // .then(updateMovies(insertedTitle))
+     // .catch(() => updateMovies([]));
+  }
+
+  }, [insertedTitle]);
 
   return (
     <>
@@ -16,30 +38,12 @@ const Search = (props: any) => {
             color="secondary" 
             className="seach-field" 
             type="string" 
-            onBlur={({ target: { value } }) => setSearchedMovie(value)} 
-            placeholder="Expense cost" 
-            value={searchedMovie}
+            onChange={({ target: { value } }) => setInsertedTitle(value)} 
+            placeholder="Search" 
+            value={insertedTitle}
             />
     </>
   );
 }
 
 export default Search;
-/* 
-
- onChange={({ target: { value } }) => onChange(value)} 
-
-*/
-
-
-/*
-            <InputItem 
-                onChange={setAmount}  
-                onBlur={setAmount}  
-                title="Amount" 
-                type="number" 
-                placeholder="Expense cost" 
-                value={Amount}
-            
-            />
-*/

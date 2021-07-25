@@ -1,4 +1,4 @@
-import{ useContext} from "react";
+import{ useContext } from "react";
 import {Card, Grid, CardActionArea, CardActions, CardMedia, Button} from '@material-ui/core';
 import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
 import { MoviesContext } from "../../services/context";
