@@ -23,7 +23,7 @@ export async function fetchSelectedMovie (currentMovieId: number ) {
 }
 
 export async function fetchSearchedMovie (enteredMovieTitle: string ) {
-  // remove unecesary charancters from the string here
+  // remove unnecessary characters from the string here
   // like {, }, /, ", :, ect. splitting it into parts of an list array
     return await fetch(
       `${movieApiBaseUrl}/search/movie/?api_key=${process.env.REACT_APP_API_KEY}&query=${enteredMovieTitle}`

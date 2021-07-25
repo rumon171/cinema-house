@@ -58,8 +58,8 @@ const MoviePage = (props: any) => {
     <>
       <Topbar></Topbar>
       <Grid container spacing={2} className="container-movie-page">
-        <Grid item xs={6} sm={3}>
-          <Card className="card">
+        <Grid item xs={12} sm={6} md={3}>
+          <Card className="card-movie">
             <CardMedia
               component="img"
               alt={"Poster of " + movie.title}
@@ -68,7 +68,7 @@ const MoviePage = (props: any) => {
             />
           </Card>
         </Grid>
-        <Grid item xs={6} sm={9} className="align-left">
+        <Grid item xs={12} sm={6} md={9} className="align-left">
           <h1 className="title">
             {movie.title}
           </h1>

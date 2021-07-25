@@ -1,16 +1,3 @@
-.card {
-    max-width: 300px;
-    height: 100%;   
-    /*
-    height: 90%;
-    width: 100%;
-    */
-}
-
-.card > button > img {
-    height: auto;
-}
-
 .scrollTop {
     position: fixed;
     bottom: 50px;
@@ -19,4 +6,23 @@
 
 .scrollTop > button {
     background-color: #20C689;
+}
+
+.card-list {
+    max-width: 300px;
+    height: 100%;   
+    /*
+    height: 90%;
+    width: 100%;
+    */
+}
+
+.card-list > button > img {
+    height: auto;
+}
+
+@media screen and (max-width: 960px) {
+    .card-list {
+        margin: auto;
+    }   
 }

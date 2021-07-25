@@ -17,11 +17,11 @@ const MovieCards = () =>  {
 
   return (
     <div >
-      <Grid container spacing={1}>
+      <Grid container spacing={1} className="container-content">
         {movies.map((movie) => (
-          <Grid item xs={6} sm={2} key={movie.id}>
+          <Grid item xs={12} sm={6} md={3} lg={2} key={movie.id}>
             <NavLink to={"movie/" + movie.id}>
-              <Card className="card" onClick={ () => SetSelectedMovieId(movie.id)} >
+              <Card className="card-list" onClick={ () => SetSelectedMovieId(movie.id)} >
                 <CardActionArea>
                   <CardMedia
                     component="img"

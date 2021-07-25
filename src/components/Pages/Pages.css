@@ -2,16 +2,22 @@
     padding: 2rem;
 }
 
-.card {
-    max-width: 300px;
-    height: 100%;
-}
-
-/* TO CHANGE OR DELETE */
-.card > img {
-    height: 400px;
+@media screen and (max-width: 599px) {
+    .container-content {
+        padding: 1rem;
+    }
 }
 
 .rating-container {
     background-color: #ffd23f;    
+}
+
+@media screen and (max-width: 1380px) {
+    .card-movie {
+        max-height: 450px;
+    }
+
+    .card-movie img {
+        height: 100%;
+    }
 }
