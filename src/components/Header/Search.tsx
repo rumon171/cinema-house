@@ -27,7 +27,7 @@ const Search = (props: any) => {
         .catch(() => updateMovies([]));
     }
   }
-
+ 
   return (
     <>
         <OutlinedInput 
