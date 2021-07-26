@@ -6,19 +6,23 @@ import { fetchSearchedMovie, fetchMovies } from "../../services/movies.service";
 
 const Search = (props: any) => {
 
-  const { updateMovies } = useContext(MoviesContext); 
+  const { movies, updateMovies } = useContext(MoviesContext); 
 
   const [insertedTitle, setInsertedTitle] = useState<string>('');
   
   const fetchMoviesList = () => {
     if (insertedTitle) {
       fetchSearchedMovie(insertedTitle)
-      .then((res) => updateMovies(res))
-      .catch(() => updateMovies([]));
+        .then((res) => updateMovies(res))
+        .catch(() => updateMovies([]));
+
+      console.log('CURRENT MOVIES ', movies);
+
+
     } else {
       fetchMovies()
-      .then((res) => updateMovies(res))
-      .catch(() => updateMovies([]));
+        .then((res) => updateMovies(res))
+        .catch(() => updateMovies([]));
     }
   }
 
