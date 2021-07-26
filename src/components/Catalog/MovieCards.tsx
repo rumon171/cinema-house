@@ -37,7 +37,7 @@ const MovieCards = () =>  {
                     <FavoriteBorderIcon />
                   </Button>
                   <Button size="small" color="primary">
-                    {movie.poster_path}
+                    {movie.vote_average}
                   </Button>
                 </CardActions>
               </Card>
