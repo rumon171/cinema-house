@@ -3,7 +3,9 @@ import {Card, Grid, CardActionArea, CardActions, CardMedia, Button} from '@mater
 import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
 import { MoviesContext } from "../../services/context";
 import './Catalog.css';
+import noImage from '../../images/no-image-available.png';
 
+const posterBaseUrl = "https://image.tmdb.org/t/p/w300";
 const NavLink = require("react-router-dom").NavLink;
 
 const MovieCards = () =>  {
@@ -26,7 +28,7 @@ const MovieCards = () =>  {
                   <CardMedia
                     component="img"
                     alt={"Poster of " + movie.title}
-                    image={movie.picture}
+                    image={movie.poster_path ? posterBaseUrl + movie.poster_path : noImage}
                     title={movie.title}
                   />
                 </CardActionArea>
@@ -35,7 +37,7 @@ const MovieCards = () =>  {
                     <FavoriteBorderIcon />
                   </Button>
                   <Button size="small" color="primary">
-                    {movie.vote_average}
+                    {movie.poster_path}
                   </Button>
                 </CardActions>
               </Card>

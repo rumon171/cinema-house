@@ -7,7 +7,7 @@ export interface Movie {
     title: string;
     vote_average: number;
     description: string;
-    picture?: string;
+    poster_path?: string;
     date: string;
   }
 
@@ -62,7 +62,7 @@ function mapListResult(res: any[]): Movie[] {
       title: title,
       vote_average: vote_average,
       description: overview,
-      picture: poster_path ? `${posterBaseUrl}${poster_path}` : noImage,
+      poster_path: poster_path ? `${posterBaseUrl}${poster_path}` : noImage,
       date: date,
     };
   });
