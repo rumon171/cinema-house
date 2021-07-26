@@ -3,24 +3,30 @@ import {OutlinedInput} from '@material-ui/core';
 import './Header.css';
 import { MoviesContext } from "../../services/context";
 import { fetchSearchedMovie } from "../../services/movies.service";
-import { resolveTripleslashReference } from 'typescript';
 
 const Search = (props: any) => {
 
-  const { movies, updateMovies } = useContext(MoviesContext); 
+  const { updateMovies } = useContext(MoviesContext); 
 
   const [insertedTitle, setInsertedTitle] = useState<string>('');
 
-  useEffect(() => {
+  const handleKeyPress = (e: any) => {
+    if (e.keyCode === 13) {
+      if (insertedTitle) {
+        fetchSearchedMovie(insertedTitle)
+          .then((res) => updateMovies(res))
+          .catch(() => updateMovies([]));
+      }
+    }
+  }
 
+  const fetchByEnteredTitle = () => {
     if (insertedTitle) {
-      //NOT ALL DATA IS DISPALYED
       fetchSearchedMovie(insertedTitle)
         .then((res) => updateMovies(res))
         .catch(() => updateMovies([]));
     }
-
-  }, [insertedTitle, updateMovies]);
+  }
 
   return (
     <>
@@ -29,8 +35,10 @@ const Search = (props: any) => {
             className="seach-field" 
             type="string" 
             onChange={({ target: { value } }) => setInsertedTitle(value)} 
+            onBlur={fetchByEnteredTitle} 
+            onKeyDown={ (e) => handleKeyPress(e) }
             placeholder="Search" 
-            value={insertedTitle}
+            defaultValue={insertedTitle}
             />
     </>
   );
