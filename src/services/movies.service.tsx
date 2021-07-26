@@ -5,7 +5,7 @@ const posterBaseUrl = "https://image.tmdb.org/t/p/w300";
 export interface Movie {
     id: number;
     title: string;
-    rating: number;
+    vote_average: number;
     description: string;
     picture?: string;
     date: string;
@@ -60,7 +60,7 @@ function mapListResult(res: any[]): Movie[] {
     return {
       id: id,
       title: title,
-      rating: vote_average,
+      vote_average: vote_average,
       description: overview,
       picture: poster_path ? `${posterBaseUrl}${poster_path}` : noImage,
       date: date,

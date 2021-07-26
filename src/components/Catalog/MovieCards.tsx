@@ -34,9 +34,8 @@ const MovieCards = () =>  {
                   <Button size="small" color="primary">
                     <FavoriteBorderIcon />
                   </Button>
-                  {movie.title}
                   <Button size="small" color="primary">
-                    {movie.rating}
+                    {movie.vote_average}
                   </Button>
                 </CardActions>
               </Card>
