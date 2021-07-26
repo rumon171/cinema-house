@@ -22,11 +22,12 @@ export async function fetchSelectedMovie (currentMovieId: number ) {
     });
 }
 
-export async function fetchSearchedMovie (enteredMovieTitle: string ) {
-  // remove unnecessary characters from the string here
-  // like {, }, /, ", :, ect. splitting it into parts of an list array
+export async function fetchSearchedMovie (enteredTitle: string ) {
+
+  const enteredTitleWithoutSpecials = enteredTitle.replace(/[^a-zA-Z ]/g, ""); 
+
     return await fetch(
-      `${movieApiBaseUrl}/search/movie/?api_key=${process.env.REACT_APP_API_KEY}&query=${enteredMovieTitle}`
+      `${movieApiBaseUrl}/search/movie/?api_key=${process.env.REACT_APP_API_KEY}&query=${enteredTitleWithoutSpecials}`
     )
       .then((res) => res.json())
       .then((body) => {return body.results})
