@@ -49,7 +49,7 @@ const MovieCards = () =>  {
           ))
           :
           <div>
-            NOTHING IS FOUND
+            Nothing is found
           </div>
         }
       </Grid>
