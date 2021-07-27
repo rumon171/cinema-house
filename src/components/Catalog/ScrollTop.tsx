@@ -1,6 +1,6 @@
 import useScrollTrigger from '@material-ui/core/useScrollTrigger';
 import Zoom from '@material-ui/core/Zoom';
-import './Catalog.css';
+import './Catalog.scss';
   
   const ScrollTop = (props: any) => {
     const { children, window } = props;

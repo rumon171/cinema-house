@@ -1,3 +1,5 @@
+$base-color: #AA2876;
+
 body {
   overscroll-behavior: none;
 }
@@ -32,6 +34,7 @@ body {
   font-size: 2.3rem;
   font-weight: 400;
   letter-spacing: 0.03em;
+  margin-top: 0;
 }
 
 .content {

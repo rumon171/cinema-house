@@ -4,7 +4,7 @@ import { fetchSelectedMovie } from "../../services/movies.service";
 import {Grid, Card, CardMedia, Button} from '@material-ui/core';
 import noImage from '../../images/no-image-available.png';
 import { MoviesContext } from "../../services/context";
-import './Pages.css';
+import './Pages.scss';
 const posterBaseUrl = "https://image.tmdb.org/t/p/w300";
 interface Genre {
   id: number;
@@ -42,7 +42,6 @@ const MoviePage = (props: any) => {
   const [movieImg, setMovieImg] = useState<string>(noImage);
 
   useEffect(() => {
-    if (selectedMovie !== 0) {
       const callAPI = async () => {
         const fetchedMovieInfo = await fetchSelectedMovie(Number(selectedMovie));
         setMovie(fetchedMovieInfo);
@@ -50,7 +49,6 @@ const MoviePage = (props: any) => {
       }
 
       callAPI();
-    }
 
   }, [selectedMovie]);
 

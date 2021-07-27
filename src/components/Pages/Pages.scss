@@ -1,3 +1,6 @@
+
+@import '../../App';
+
 .container-movie-page {
     padding: 2rem;
 }
@@ -9,7 +12,7 @@
 }
 
 .rating-container {
-    background-color: #ffd23f;    
+    background-color: $base-color;    
 }
 
 @media screen and (max-width: 1380px) {

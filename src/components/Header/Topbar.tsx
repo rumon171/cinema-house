@@ -1,5 +1,5 @@
 import {AppBar, Toolbar} from '@material-ui/core';
-import './Header.css';
+import './Header.scss';
 import Search from './Search';
 
 const Topbar = (props: any) => {

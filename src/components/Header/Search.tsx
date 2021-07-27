@@ -1,6 +1,6 @@
 import React, { useState, useContext } from 'react';
 import {OutlinedInput} from '@material-ui/core';
-import './Header.css';
+import './Header.scss';
 import { MoviesContext } from "../../services/context";
 import { fetchSearchedMovie, fetchMovies } from "../../services/movies.service";
 

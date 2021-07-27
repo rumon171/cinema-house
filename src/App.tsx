@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import './App.css';
+import './App.scss';
 import HomePage from './components/Pages/HomePage';
 import { Movie, fetchMovies } from "./services/movies.service";
 import { MoviesContext } from "./services/context";

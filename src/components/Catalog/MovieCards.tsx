@@ -2,7 +2,7 @@ import{ useContext } from "react";
 import {Card, Grid, CardActionArea, CardActions, CardMedia, Button} from '@material-ui/core';
 import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
 import { MoviesContext } from "../../services/context";
-import './Catalog.css';
+import './Catalog.scss';
 import noImage from '../../images/no-image-available.png';
 
 const posterBaseUrl = "https://image.tmdb.org/t/p/w300";
@@ -49,7 +49,7 @@ const MovieCards = () =>  {
           ))
           :
           <div>
-            Nothing is found
+            Sorry, nothing is found...
           </div>
         }
       </Grid>
