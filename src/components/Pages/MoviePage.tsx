@@ -26,6 +26,7 @@ const MoviePage = (props: any) => {
 
   const { selectedMovie } = useContext(MoviesContext);
 
+  const movieIdFromUrl = document.URL.split('/').pop();
   const [movie, setMovie] = useState<Movie>(
     {
       id: 0,
@@ -42,15 +43,15 @@ const MoviePage = (props: any) => {
   const [movieImg, setMovieImg] = useState<string>(noImage);
 
   useEffect(() => {
-      const callAPI = async () => {
-        const fetchedMovieInfo = await fetchSelectedMovie(Number(selectedMovie));
+      const callAPI = async () => {  
+        const fetchedMovieInfo = await fetchSelectedMovie(selectedMovie !== 0 ? selectedMovie : Number(movieIdFromUrl));
         setMovie(fetchedMovieInfo);
         setMovieImg(posterBaseUrl+fetchedMovieInfo.poster_path);
       }
 
       callAPI();
 
-  }, [selectedMovie]);
+  }, [selectedMovie, movieIdFromUrl]);
 
   return (
     <>
