@@ -26,15 +26,14 @@ const Search = (props: any) => {
       fetchMoviesList();
     }
   }
- 
+
   return (
     <>
       <OutlinedInput 
           color="secondary" 
           className="seach-field" 
-          type="string" 
-          onChange={({ target: { value } }) => setSearchedMovie(value)} 
-          onBlur={fetchMoviesList} 
+          type="string"  
+          onBlur={({ target: { value } }) => {setSearchedMovie(value); fetchMoviesList()}} 
           onKeyDown={ (e) => handleKeyPress(e) }
           placeholder="Search" 
           defaultValue={searchedMovie}
