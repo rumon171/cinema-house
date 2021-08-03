@@ -6,13 +6,13 @@ import { fetchSearchedMovie, fetchMovies } from "../../services/movies.service";
 
 const Search = (props: any) => {
 
-  const { movies, updateMovies } = useContext(MoviesContext); 
+  const { updateMovies, searchedMovie, setSearchedMovie } = useContext(MoviesContext); 
 
-  const [insertedTitle, setInsertedTitle] = useState<string>('');
+  //const [searchedMovie, setSearchedMovie] = useState<string>('');
   
   const fetchMoviesList = () => {
-    if (insertedTitle) {
-      fetchSearchedMovie(insertedTitle)
+    if (searchedMovie) {
+      fetchSearchedMovie(searchedMovie)
         .then((res) => updateMovies(res))
         .catch(() => updateMovies([]));
 
@@ -35,11 +35,11 @@ const Search = (props: any) => {
           color="secondary" 
           className="seach-field" 
           type="string" 
-          onChange={({ target: { value } }) => setInsertedTitle(value)} 
+          onChange={({ target: { value } }) => setSearchedMovie(value)} 
           onBlur={fetchMoviesList} 
           onKeyDown={ (e) => handleKeyPress(e) }
           placeholder="Search" 
-          defaultValue={insertedTitle}
+          defaultValue={searchedMovie}
           />
     </>
   );

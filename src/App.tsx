@@ -18,9 +18,10 @@ function App() {
 
   const [movies, updateMovies] = useState<Movie[]>([]);
   const [selectedMovie, setSelectedMovie] = useState(0);
-
+  const [searchedMovie, setSearchedMovie] = useState<string>('');
+  
   return (
-    <MoviesContext.Provider value={{ movies, updateMovies, selectedMovie, setSelectedMovie }}>
+    <MoviesContext.Provider value={{ movies, updateMovies, selectedMovie, setSelectedMovie, searchedMovie, setSearchedMovie }}>
       <div className="App">
         <div className="container typography-base ">
           <Router>
