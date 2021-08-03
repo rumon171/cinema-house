@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import { useContext } from 'react';
 import {OutlinedInput} from '@material-ui/core';
 import './Header.scss';
 import { MoviesContext } from "../../services/context";
@@ -8,8 +8,6 @@ const Search = (props: any) => {
 
   const { updateMovies, searchedMovie, setSearchedMovie } = useContext(MoviesContext); 
 
-  //const [searchedMovie, setSearchedMovie] = useState<string>('');
-  
   const fetchMoviesList = () => {
     if (searchedMovie) {
       fetchSearchedMovie(searchedMovie)
