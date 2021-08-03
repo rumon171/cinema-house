@@ -4,16 +4,30 @@ import './Header.scss';
 import { MoviesContext } from "../../services/context";
 import { fetchSearchedMovie, fetchMovies } from "../../services/movies.service";
 
-const Search = (props: any) => {
+const history = require("react-router-dom").UseHistory;
 
-  const { updateMovies, searchedMovie, setSearchedMovie } = useContext(MoviesContext); 
+const Search = (props: any) => {
+  
+  const { updateMovies, searchedMovie, setSearchedMovie } = useContext(MoviesContext);
+  
+
 
   const fetchMoviesList = (event: any) => {
     const searchedMovieValue = event.target.value;
     setSearchedMovie(searchedMovieValue);
   }
 
+  const handleKeyPress = (event: any) => {
+    if (event.keyCode === 13) {
+      fetchMoviesList(event);
+    }
+  }
+
   useEffect(()=>{
+
+    console.log('SEARCHED MOIVE HAS CHANGED');
+    history.push("/");
+
     if (searchedMovie) {
       fetchSearchedMovie(searchedMovie)
         .then((res) => updateMovies(res))
@@ -24,12 +38,6 @@ const Search = (props: any) => {
         .catch(() => updateMovies([]));
     }
   }, [searchedMovie, updateMovies]);
-
-  const handleKeyPress = (event: any) => {
-    if (event.keyCode === 13) {
-      fetchMoviesList(event);
-    }
-  }
 
   return (
     <>
