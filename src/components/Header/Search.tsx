@@ -16,9 +16,6 @@ const Search = (props: any) => {
         .then((res) => updateMovies(res))
         .catch(() => updateMovies([]));
 
-      console.log('CURRENT MOVIES ', movies);
-
-
     } else {
       fetchMovies()
         .then((res) => updateMovies(res))
