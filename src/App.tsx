@@ -27,7 +27,7 @@ function App() {
           <Router>
             <Switch>
               <Route path="/movie/:movieid" >
-              <MoviePage />
+                <MoviePage />
               </Route>
               <Route path="/" >
                 <HomePage></HomePage>           

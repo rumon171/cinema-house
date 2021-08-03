@@ -11,7 +11,9 @@ const Search = (props: any) => {
   const fetchMoviesList = (event: any) => {
     const searchedMovieValue = event.target.value;
     setSearchedMovie(searchedMovieValue);
+  }
 
+  useEffect(()=>{
     if (searchedMovie) {
       fetchSearchedMovie(searchedMovie)
         .then((res) => updateMovies(res))
@@ -21,7 +23,7 @@ const Search = (props: any) => {
         .then((res) => updateMovies(res))
         .catch(() => updateMovies([]));
     }
-  }
+  }, [searchedMovie, updateMovies]);
 
   const handleKeyPress = (event: any) => {
     if (event.keyCode === 13) {
