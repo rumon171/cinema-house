@@ -7,7 +7,7 @@ import './Pages.scss';
 
 const MoviePage = (props: any) => {
 
-  const { searchedMovie } = useContext(MoviesContext); 
+  const { searchedMovie } = useContext(MoviesContext);
 
   return (
     <>
