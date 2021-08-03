@@ -1,21 +1,20 @@
 import { useContext } from 'react';
 import Topbar from '../Header/Topbar';
 import MovieContent from '../Pages/MovieContent';
+import Catalog from '../Catalog/Catalog';
 import { MoviesContext } from "../../services/context";
 import './Pages.scss';
 
 const MoviePage = (props: any) => {
 
-  const { updateMovies, searchedMovie, setSearchedMovie } = useContext(MoviesContext); 
+  const { searchedMovie } = useContext(MoviesContext); 
 
   return (
     <>
       <Topbar></Topbar>
-      {searchedMovie === '' ? <MovieContent></MovieContent> : <button>ALTERN</button>}
+      {searchedMovie === '' ? <MovieContent></MovieContent> : <Catalog></Catalog>}
     </>
   );
 }
 
 export default MoviePage;
-
-//{isLoggedIn ? <button>Logout</button> : <button>Login</button>}
