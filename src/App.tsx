@@ -9,15 +9,17 @@ import { Route } from 'react-router-dom';
 import { Switch } from 'react-router-dom';
 
 function App() {
+  const [movies, updateMovies] = useState<Movie[]>([]);
+  const [selectedMovie, setSelectedMovie] = useState(0);
+  const [searchedMovie, setSearchedMovie] = useState<string>('');
+
   useEffect(() => {
     fetchMovies()
       .then(updateMovies)
       .catch(() => updateMovies([]));
-  }, []);
 
-  const [movies, updateMovies] = useState<Movie[]>([]);
-  const [selectedMovie, setSelectedMovie] = useState(0);
-  const [searchedMovie, setSearchedMovie] = useState<string>('');
+      console.log('selectedMovie HOME PAGE ', selectedMovie);
+  }, [selectedMovie]);
   
   return (
     <MoviesContext.Provider value={{ movies, updateMovies, selectedMovie, setSelectedMovie, searchedMovie, setSearchedMovie }}>
