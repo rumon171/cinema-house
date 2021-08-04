@@ -16,10 +16,7 @@ const Search = (props: any) => {
     setSearchedMovie(searchedMovieValue);
 
     if (isMoviePageFirstTimeOpened === true) {
-      console.log('HISTORY OBJECT ', history);
-      console.log('isMoviePageFirstTimeOpened SEARCH', isMoviePageFirstTimeOpened);
       setIsMoviePageFirstTimeOpened(false);
-      console.log('isMoviePageFirstTimeOpened SEARCH', isMoviePageFirstTimeOpened);
       history.push("/");
     }
   }
