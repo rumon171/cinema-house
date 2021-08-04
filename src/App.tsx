@@ -1,13 +1,12 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import './App.scss';
 import HomePage from './components/Pages/HomePage';
 import { Movie, fetchMovies } from "./services/movies.service";
 import { MoviesContext } from "./services/context";
 import MoviePage from './components/Pages/MoviePage';
-
-const Router = require("react-router-dom").BrowserRouter;
-const Route = require("react-router-dom").Route;
-const Switch = require("react-router-dom").Switch;
+import { BrowserRouter } from 'react-router-dom';
+import { Route } from 'react-router-dom';
+import { Switch } from 'react-router-dom';
 
 function App() {
   useEffect(() => {
@@ -24,7 +23,7 @@ function App() {
     <MoviesContext.Provider value={{ movies, updateMovies, selectedMovie, setSelectedMovie, searchedMovie, setSearchedMovie }}>
       <div className="App">
         <div className="container typography-base ">
-          <Router>
+          <BrowserRouter>
             <Switch>
               <Route path="/movie/:movieid" >
                 <MoviePage />
@@ -33,7 +32,7 @@ function App() {
                 <HomePage></HomePage>           
               </Route>
             </Switch>
-          </Router>
+          </BrowserRouter>
         </div>
       </div>
     </MoviesContext.Provider>

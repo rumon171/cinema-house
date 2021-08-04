@@ -3,15 +3,14 @@ import {OutlinedInput} from '@material-ui/core';
 import './Header.scss';
 import { MoviesContext } from "../../services/context";
 import { fetchSearchedMovie, fetchMovies } from "../../services/movies.service";
-
-const history = require("react-router-dom").UseHistory;
+import { useHistory } from 'react-router-dom';
 
 const Search = (props: any) => {
   
   const { updateMovies, searchedMovie, setSearchedMovie } = useContext(MoviesContext);
+
+  let history = useHistory();
   
-
-
   const fetchMoviesList = (event: any) => {
     const searchedMovieValue = event.target.value;
     setSearchedMovie(searchedMovieValue);
@@ -25,8 +24,8 @@ const Search = (props: any) => {
 
   useEffect(()=>{
 
-    console.log('SEARCHED MOIVE HAS CHANGED');
-    history.push("/");
+    console.log('HISTORY OBJECT ', history);
+    //history.push("/");
 
     if (searchedMovie) {
       fetchSearchedMovie(searchedMovie)
