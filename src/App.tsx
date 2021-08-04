@@ -12,18 +12,16 @@ function App() {
   const [movies, updateMovies] = useState<Movie[]>([]);
   const [selectedMovie, setSelectedMovie] = useState(0);
   const [searchedMovie, setSearchedMovie] = useState<string>('');
-  const [isMoviePageOpened, setIsMoviePageOpened] = useState<boolean>(false);
+  const [isMoviePageFirstTimeOpened, setIsMoviePageFirstTimeOpened] = useState<boolean>(false);
 
   useEffect(() => {
     fetchMovies()
       .then(updateMovies)
       .catch(() => updateMovies([]));
-
-      console.log('selectedMovie HOME PAGE ', selectedMovie);
-  }, [selectedMovie]);
+  }, []);
   
   return (
-    <MoviesContext.Provider value={{ movies, updateMovies, selectedMovie, setSelectedMovie, searchedMovie, setSearchedMovie }}>
+    <MoviesContext.Provider value={{ movies, updateMovies, selectedMovie, setSelectedMovie, searchedMovie, setSearchedMovie, isMoviePageFirstTimeOpened, setIsMoviePageFirstTimeOpened }}>
       <div className="App">
         <div className="container typography-base ">
           <BrowserRouter>

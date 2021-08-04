@@ -7,7 +7,7 @@ import { useHistory } from 'react-router-dom';
 
 const Search = (props: any) => {
   
-  const { updateMovies, searchedMovie, setSearchedMovie, selectedMovie } = useContext(MoviesContext);
+  const { updateMovies, searchedMovie, setSearchedMovie, isMoviePageFirstTimeOpened, setIsMoviePageFirstTimeOpened } = useContext(MoviesContext);
 
   let history = useHistory();
   
@@ -23,9 +23,11 @@ const Search = (props: any) => {
   }
 
   useEffect(()=>{
-    if (selectedMovie !== 0) {
+    if (isMoviePageFirstTimeOpened === true) {
       console.log('HISTORY OBJECT ', history);
-      console.log('selectedMovie SEARCH', selectedMovie);
+      console.log('isMoviePageFirstTimeOpened SEARCH', isMoviePageFirstTimeOpened);
+      setIsMoviePageFirstTimeOpened(false);
+      console.log('isMoviePageFirstTimeOpened SEARCH', isMoviePageFirstTimeOpened);
       //history.push("/");
     }
 
@@ -38,7 +40,7 @@ const Search = (props: any) => {
         .then((res) => updateMovies(res))
         .catch(() => updateMovies([]));
     }
-  }, [searchedMovie, updateMovies]);
+  }, [searchedMovie, updateMovies, history, isMoviePageFirstTimeOpened, setIsMoviePageFirstTimeOpened]);
 
   return (
     <>
