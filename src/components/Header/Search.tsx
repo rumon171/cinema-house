@@ -7,7 +7,7 @@ import { useHistory } from 'react-router-dom';
 
 const Search = (props: any) => {
   
-  const { updateMovies, searchedMovie, setSearchedMovie } = useContext(MoviesContext);
+  const { updateMovies, searchedMovie, setSearchedMovie, selectedMovie } = useContext(MoviesContext);
 
   let history = useHistory();
   
@@ -24,8 +24,11 @@ const Search = (props: any) => {
 
   useEffect(()=>{
 
-    console.log('HISTORY OBJECT ', history);
-    //history.push("/");
+    if (selectedMovie !== 0) {
+      console.log('HISTORY OBJECT ', history);
+      console.log('selectedMovie ', selectedMovie);
+      //history.push("/");
+    }
 
     if (searchedMovie) {
       fetchSearchedMovie(searchedMovie)
