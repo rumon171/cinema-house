@@ -14,6 +14,14 @@ const Search = (props: any) => {
   const fetchMoviesList = (event: any) => {
     const searchedMovieValue = event.target.value;
     setSearchedMovie(searchedMovieValue);
+
+    if (isMoviePageFirstTimeOpened === true) {
+      console.log('HISTORY OBJECT ', history);
+      console.log('isMoviePageFirstTimeOpened SEARCH', isMoviePageFirstTimeOpened);
+      setIsMoviePageFirstTimeOpened(false);
+      console.log('isMoviePageFirstTimeOpened SEARCH', isMoviePageFirstTimeOpened);
+      history.push("/");
+    }
   }
 
   const handleKeyPress = (event: any) => {
@@ -23,14 +31,6 @@ const Search = (props: any) => {
   }
 
   useEffect(()=>{
-    if (isMoviePageFirstTimeOpened === true) {
-      console.log('HISTORY OBJECT ', history);
-      console.log('isMoviePageFirstTimeOpened SEARCH', isMoviePageFirstTimeOpened);
-      setIsMoviePageFirstTimeOpened(false);
-      console.log('isMoviePageFirstTimeOpened SEARCH', isMoviePageFirstTimeOpened);
-      //history.push("/");
-    }
-
     if (searchedMovie) {
       fetchSearchedMovie(searchedMovie)
         .then((res) => updateMovies(res))
@@ -40,7 +40,7 @@ const Search = (props: any) => {
         .then((res) => updateMovies(res))
         .catch(() => updateMovies([]));
     }
-  }, [searchedMovie, updateMovies, history, isMoviePageFirstTimeOpened, setIsMoviePageFirstTimeOpened]);
+  }, [searchedMovie, updateMovies]);
 
   return (
     <>

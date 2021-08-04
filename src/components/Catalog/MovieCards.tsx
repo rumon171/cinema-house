@@ -11,10 +11,10 @@ const NavLink = require("react-router-dom").NavLink;
 const MovieCards = () =>  {
   const { movies } = useContext(MoviesContext);  
 
-  const { setSelectedMovie, setIsMoviePageOpened } = useContext(MoviesContext);  
+  const { setSelectedMovie, setIsMoviePageFirstTimeOpened } = useContext(MoviesContext);  
 
   const SetSelectedMovieId = (id: number) => {
-    setIsMoviePageOpened(true);
+    setIsMoviePageFirstTimeOpened(true);
     setSelectedMovie(id);
   }
 
