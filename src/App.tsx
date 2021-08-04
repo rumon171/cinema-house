@@ -12,6 +12,7 @@ function App() {
   const [movies, updateMovies] = useState<Movie[]>([]);
   const [selectedMovie, setSelectedMovie] = useState(0);
   const [searchedMovie, setSearchedMovie] = useState<string>('');
+  const [isMoviePageOpened, setIsMoviePageOpened] = useState<boolean>(false);
 
   useEffect(() => {
     fetchMovies()

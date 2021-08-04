@@ -8,6 +8,8 @@ export const MoviesContext = React.createContext<{
     setSelectedMovie: (value: number) => void;
     searchedMovie: string;
     setSearchedMovie: (value: string) => void;
+    isMoviePageOpened: boolean;
+    setIsMoviePageOpened: (value: boolean) => void;
   }>({
     movies: [],
     updateMovies: Function,
@@ -15,4 +17,6 @@ export const MoviesContext = React.createContext<{
     setSelectedMovie: () => {},
     searchedMovie: '',
     setSearchedMovie: () => {},
+    isMoviePageOpened: false,
+    setIsMoviePageOpened: () => {},
   });

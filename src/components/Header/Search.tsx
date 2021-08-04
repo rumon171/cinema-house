@@ -25,7 +25,7 @@ const Search = (props: any) => {
   useEffect(()=>{
     if (selectedMovie !== 0) {
       console.log('HISTORY OBJECT ', history);
-      console.log('selectedMovie ', selectedMovie);
+      console.log('selectedMovie SEARCH', selectedMovie);
       //history.push("/");
     }
 
