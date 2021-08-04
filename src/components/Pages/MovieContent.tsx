@@ -1,9 +1,9 @@
 import {useState, useEffect, useContext} from "react";
 import { fetchSelectedMovie } from "../../services/movies.service";
 import {Grid, Card, CardMedia, Button} from '@material-ui/core';
-import noImage from '../../images/no-image-available.png';
 import { MoviesContext } from "../../services/context";
 import './Pages.scss';
+import noImage from '../../images/no-image-available.png';
 const posterBaseUrl = "https://image.tmdb.org/t/p/w300";
 interface Genre {
   id: number;
@@ -45,13 +45,15 @@ const MovieContent = (props: any) => {
       const callAPI = async () => {  
         const fetchedMovieInfo = await fetchSelectedMovie(selectedMovie !== 0 ? selectedMovie : Number(movieIdFromUrl));
         setMovie(fetchedMovieInfo);
+        fetchedMovieInfo.poster_path !== null ? setMovieImg(posterBaseUrl+fetchedMovieInfo.poster_path) : setMovieImg(noImage);
+        fetchedMovieInfo.poster_path !== null ? console.log("NOT NULL") : console.log("NULL, noImage", noImage);
         setMovieImg(posterBaseUrl+fetchedMovieInfo.poster_path);
       }
 
       callAPI();
 
   }, [selectedMovie, movieIdFromUrl]);
-
+// setMovieImg(noImage)
   return (
     <>
       <Grid container spacing={2} className="container-movie-page">
@@ -61,7 +63,6 @@ const MovieContent = (props: any) => {
               component="img"
               alt={"Poster of " + movie.title}
               image={movieImg}
-              title={movie.title}
             />
           </Card>
         </Grid>

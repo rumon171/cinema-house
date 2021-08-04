@@ -48,7 +48,6 @@ const Search = (props: any) => {
           onBlur={fetchMoviesList} 
           onKeyDown={handleKeyPress}
           placeholder="Search" 
-          defaultValue={searchedMovie}
           />
     </>
   );
