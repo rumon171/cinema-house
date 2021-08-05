@@ -45,15 +45,15 @@ const MovieContent = (props: any) => {
       const callAPI = async () => {  
         const fetchedMovieInfo = await fetchSelectedMovie(selectedMovie !== 0 ? selectedMovie : Number(movieIdFromUrl));
         setMovie(fetchedMovieInfo);
-        fetchedMovieInfo.poster_path !== null ? setMovieImg(posterBaseUrl+fetchedMovieInfo.poster_path) : setMovieImg(noImage);
-        fetchedMovieInfo.poster_path !== null ? console.log("NOT NULL") : console.log("NULL, noImage", noImage);
-        setMovieImg(posterBaseUrl+fetchedMovieInfo.poster_path);
+        if (fetchedMovieInfo.poster_path !== null) {
+          setMovieImg(posterBaseUrl+fetchedMovieInfo.poster_path);
+        }
       }
 
       callAPI();
 
   }, [selectedMovie, movieIdFromUrl]);
-// setMovieImg(noImage)
+
   return (
     <>
       <Grid container spacing={2} className="container-movie-page">
@@ -62,7 +62,7 @@ const MovieContent = (props: any) => {
             <CardMedia
               component="img"
               alt={"Poster of " + movie.title}
-              image={movieImg}
+              image={ movie.poster_path ? movieImg : noImage }
             />
           </Card>
         </Grid>
