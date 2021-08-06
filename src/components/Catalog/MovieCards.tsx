@@ -2,8 +2,10 @@ import{ useContext } from "react";
 import {Card, Grid, CardActionArea, CardActions, CardMedia, Button} from '@material-ui/core';
 import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
 import { MoviesContext } from "../../services/context";
+import '../../App.scss';
 import './Catalog.scss';
 import noImage from '../../images/no-image-available.png';
+import loadingSpinner from '../../images/loading-spinner.gif';
 
 const posterBaseUrl = "https://image.tmdb.org/t/p/w300";
 const NavLink = require("react-router-dom").NavLink;
@@ -20,6 +22,20 @@ const MovieCards = () =>  {
 
   return (
     <div >
+      <div className="">
+        <CardMedia
+          component="img"
+          image={loadingSpinner}
+          className="loading-spinner"
+        />
+      </div>
+    </div>
+  );
+}
+
+export default MovieCards;
+
+/*
       <Grid container spacing={1} className="container-content">
         { 
         movies.length > 0 
@@ -54,8 +70,4 @@ const MovieCards = () =>  {
           </div>
         }
       </Grid>
-    </div>
-  );
-}
-
-export default MovieCards;
+*/
