@@ -11,7 +11,7 @@ const posterBaseUrl = "https://image.tmdb.org/t/p/w300";
 const NavLink = require("react-router-dom").NavLink;
 
 const MovieCards = () =>  {
-  const { movies } = useContext(MoviesContext);  
+  const { movies, searchedMovie } = useContext(MoviesContext);  
 
   const { setSelectedMovie, setIsMoviePageFirstTimeOpened } = useContext(MoviesContext);  
 
@@ -22,20 +22,6 @@ const MovieCards = () =>  {
 
   return (
     <div >
-      <div className="">
-        <CardMedia
-          component="img"
-          image={loadingSpinner}
-          className="loading-spinner"
-        />
-      </div>
-    </div>
-  );
-}
-
-export default MovieCards;
-
-/*
       <Grid container spacing={1} className="container-content">
         { 
         movies.length > 0 
@@ -65,9 +51,18 @@ export default MovieCards;
             </Grid>
           ))
           :
-          <div>
-            Sorry, nothing is found...
-          </div>
+            searchedMovie ?
+            <div className="">Try a different phrase...</div>
+            :
+            <CardMedia
+            component="img"
+            image={loadingSpinner}
+            className="loading-spinner"
+          />
         }
       </Grid>
-*/
+    </div>
+  );
+}
+
+export default MovieCards;

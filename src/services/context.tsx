@@ -10,6 +10,7 @@ export const MoviesContext = React.createContext<{
     setSearchedMovie: (value: string) => void;
     isMoviePageFirstTimeOpened: boolean;
     setIsMoviePageFirstTimeOpened: (value: boolean) => void;
+    loading: boolean;
   }>({
     movies: [],
     updateMovies: Function,
@@ -19,4 +20,5 @@ export const MoviesContext = React.createContext<{
     setSearchedMovie: () => {},
     isMoviePageFirstTimeOpened: false,
     setIsMoviePageFirstTimeOpened: () => {},
+    loading: true,
   });

@@ -5,9 +5,13 @@
     padding: 2rem;
 }
 
-@media screen and (max-width: 599px) {
+@media screen and (max-width: 649px) {
     .container-content {
         padding: 1rem;
+    }
+
+    .container-movie-page {
+        margin: 40px auto !important;
     }
 }
 
@@ -17,7 +21,7 @@
 
 @media screen and (max-width: 1380px) {
     .card-movie {
-        max-height: 450px;
+        max-height: 655px;
     }
 
     .card-movie img {
