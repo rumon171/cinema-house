@@ -2,21 +2,24 @@ import{ useContext } from "react";
 import {Card, Grid, CardActionArea, CardActions, CardMedia, Button} from '@material-ui/core';
 import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
 import { MoviesContext } from "../../services/context";
+import { Movie } from "../../services/movies.service";
 import noImage from '../../images/no-image-available.png';
 
 const posterBaseUrl = "https://image.tmdb.org/t/p/w300";
 const NavLink = require("react-router-dom").NavLink;
 
 interface Props {
-  xsValue: number; 
+  xsValue: number;
+  similarMovies: Movie[];
 }
 
 const CardsGrid: React.FC<Props> = (
   {
     xsValue,
+    similarMovies,
   }: Props) =>{
-  const { movies } = useContext(MoviesContext);
-  const cards = movies;
+
+  const cards = similarMovies;
 
   const { setSelectedMovie, setIsMoviePageFirstTimeOpened } = useContext(MoviesContext);  
 

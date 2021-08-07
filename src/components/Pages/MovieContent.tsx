@@ -44,7 +44,7 @@ const MovieContent = (props: any) => {
 
       callAPI();
 
-  }, [selectedMovie, movieIdFromUrl, similarMovies]);
+  }, [selectedMovie, movieIdFromUrl]);
 
   return (
     <>
@@ -94,7 +94,7 @@ const MovieContent = (props: any) => {
             </Button>
           </div>
         </Grid>
-        <CardsGrid xsValue={3}></CardsGrid> 
+        <CardsGrid xsValue={3} similarMovies={similarMovies}></CardsGrid> 
       </Grid>
     </>
   );
