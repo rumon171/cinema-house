@@ -1,5 +1,5 @@
 import {useState, useEffect, useContext} from "react";
-import { Movie, fetchSelectedMovie } from "../../services/movies.service";
+import { Movie, fetchSelectedMovie, fetchSimilarMovies } from "../../services/movies.service";
 import {Grid, Card, CardMedia, Button} from '@material-ui/core';
 import { MoviesContext } from "../../services/context";
 import CardsGrid from '../GeneralComponents/CardsGrid';
@@ -37,13 +37,14 @@ const MovieContent = (props: any) => {
         if (fetchedSelectedMovieInfo.poster_path !== null) {
           setMovieImg(posterBaseUrl+fetchedSelectedMovieInfo.poster_path);
         }
-       // const fetchedSimilarMovies = await fetchSimilarMovies(movieId));
-       // setSimilarMovies(fetchedSimilarMovies);
+
+        const fetchedSimilarMovies = await fetchSimilarMovies(movieId);
+        setSimilarMovies(fetchedSimilarMovies);
       }
 
       callAPI();
 
-  }, [selectedMovie, movieIdFromUrl]);
+  }, [selectedMovie, movieIdFromUrl, similarMovies]);
 
   return (
     <>

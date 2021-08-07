@@ -9,10 +9,10 @@ interface Genre {
 export interface Movie {
     id: number;
     title: string;
-    vote_average: number;
-    overview: string;
+    vote_average?: number;
+    overview?: string;
     poster_path?: string;
-    release_date: string;
+    release_date?: string;
     budget?: number;
     revenue?: number;
     genres?: Genre[];
