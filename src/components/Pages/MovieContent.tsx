@@ -1,26 +1,11 @@
 import {useState, useEffect, useContext} from "react";
-import { fetchSelectedMovie } from "../../services/movies.service";
+import { Movie, fetchSelectedMovie } from "../../services/movies.service";
 import {Grid, Card, CardMedia, Button} from '@material-ui/core';
 import { MoviesContext } from "../../services/context";
 import CardsGrid from '../GeneralComponents/CardsGrid';
 import './Pages.scss';
 import noImage from '../../images/no-image-available.png';
 const posterBaseUrl = "https://image.tmdb.org/t/p/w300";
-interface Genre {
-  id: number;
-  name: string;
-}
-interface Movie {
-  id: number;
-  title: string;
-  vote_average: number;
-  overview: string;
-  poster_path?: string;
-  release_date: string;
-  budget: number;
-  revenue: number;
-  genres: Genre[];
-}
 
 const MovieContent = (props: any) => {
 
