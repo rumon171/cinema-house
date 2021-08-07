@@ -2,7 +2,7 @@ import {useState, useEffect, useContext} from "react";
 import { fetchSelectedMovie } from "../../services/movies.service";
 import {Grid, Card, CardMedia, Button} from '@material-ui/core';
 import { MoviesContext } from "../../services/context";
-import ItemsGrid from '../GeneralComponents/ItemsGrid';
+import CardsGrid from '../GeneralComponents/CardsGrid';
 import './Pages.scss';
 import noImage from '../../images/no-image-available.png';
 const posterBaseUrl = "https://image.tmdb.org/t/p/w300";
@@ -104,7 +104,7 @@ const MovieContent = (props: any) => {
           </div>
         </Grid>
         <Grid item xs={12}>
-          <ItemsGrid></ItemsGrid> 
+          <CardsGrid></CardsGrid> 
         </Grid>
       </Grid>
     </>

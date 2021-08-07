@@ -3,16 +3,15 @@ import {Card, Grid, CardActionArea, CardActions, CardMedia, Button} from '@mater
 import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
 import { MoviesContext } from "../../services/context";
 import '../../App.scss';
-//import './Catalog.scss';
+import './Catalog.scss';
 import noImage from '../../images/no-image-available.png';
 import loadingSpinner from '../../images/loading-spinner.gif';
 
 const posterBaseUrl = "https://image.tmdb.org/t/p/w300";
 const NavLink = require("react-router-dom").NavLink;
 
-const ItemsGrid = () =>  {
-  const { movies, searchedMovie } = useContext(MoviesContext);
-  const itemsArray = movies;
+const CatalogCards = () =>  {
+  const { movies, searchedMovie } = useContext(MoviesContext);  
 
   const { setSelectedMovie, setIsMoviePageFirstTimeOpened } = useContext(MoviesContext);  
 
@@ -25,18 +24,18 @@ const ItemsGrid = () =>  {
     <div >
       <Grid container spacing={1} className="container-content">
         { 
-        itemsArray.length > 0 
+        movies.length > 0 
           ? 
-          itemsArray.map((item) => (
-            <Grid item xs={12} sm={6} md={3} lg={2} key={item.id}>
-              <NavLink to={"movie/" + item.id}>
-                <Card className="card-list" onClick={() => SetSelectedMovieId(item.id)} >
+          movies.map((movie) => (
+            <Grid item xs={12} sm={6} md={3} lg={2} key={movie.id}>
+              <NavLink to={"movie/" + movie.id}>
+                <Card className="card-list" onClick={() => SetSelectedMovieId(movie.id)} >
                   <CardActionArea>
                     <CardMedia
                       component="img"
-                      alt={"Poster of " + item.title}
-                      image={item.poster_path ? posterBaseUrl + item.poster_path : noImage}
-                      title={item.title}
+                      alt={"Poster of " + movie.title}
+                      image={movie.poster_path ? posterBaseUrl + movie.poster_path : noImage}
+                      title={movie.title}
                     />
                   </CardActionArea>
                   <CardActions>
@@ -44,7 +43,7 @@ const ItemsGrid = () =>  {
                       <FavoriteBorderIcon />
                     </Button>
                     <Button size="small" color="primary">
-                      {item.vote_average}
+                      {movie.vote_average}
                     </Button>
                   </CardActions>
                 </Card>
@@ -66,4 +65,4 @@ const ItemsGrid = () =>  {
   );
 }
 
-export default ItemsGrid;
+export default CatalogCards;
