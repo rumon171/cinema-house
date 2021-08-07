@@ -3,16 +3,14 @@ import {Card, Grid, CardActionArea, CardActions, CardMedia, Button} from '@mater
 import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
 import { MoviesContext } from "../../services/context";
 import '../../App.scss';
-//import './Catalog.scss';
 import noImage from '../../images/no-image-available.png';
-import loadingSpinner from '../../images/loading-spinner.gif';
 
 const posterBaseUrl = "https://image.tmdb.org/t/p/w300";
 const NavLink = require("react-router-dom").NavLink;
 
 const CardsGrid = () =>  {
-  const { movies, searchedMovie } = useContext(MoviesContext);
-  const CardsArray = movies;
+  const { movies } = useContext(MoviesContext);
+  const cards = movies;
 
   const { setSelectedMovie, setIsMoviePageFirstTimeOpened } = useContext(MoviesContext);  
 
@@ -24,11 +22,10 @@ const CardsGrid = () =>  {
   return (
     <div >
       <Grid container spacing={1} className="container-content">
-        { 
-        CardsArray.length > 0 
-          ? 
-          CardsArray.map((card) => (
-            <Grid xs={12} sm={6} md={3} lg={2} key={card.id}>
+      { 
+        cards.length > 0 &&
+          cards.map((card) => (
+            <Grid item xs={4} sm={3} md={2} lg={1} key={card.id}>
               <NavLink to={"movie/" + card.id}>
                 <Card className="card-list" onClick={() => SetSelectedMovieId(card.id)} >
                   <CardActionArea>
@@ -51,16 +48,7 @@ const CardsGrid = () =>  {
               </NavLink>
             </Grid>
           ))
-          :
-            searchedMovie ?
-            <div className="">Try a different phrase...</div>
-            :
-            <CardMedia
-            component="img"
-            image={loadingSpinner}
-            className="loading-spinner"
-          />
-        }
+      }
       </Grid>
     </div>
   );
