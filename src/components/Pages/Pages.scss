@@ -3,15 +3,12 @@
 
 .container-movie-page {
     padding: 2rem;
+    margin: 40px auto !important;
 }
 
 @media screen and (max-width: 649px) {
     .container-content {
         padding: 1rem;
-    }
-
-    .container-movie-page {
-        margin: 40px auto !important;
     }
 }
 
