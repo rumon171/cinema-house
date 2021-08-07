@@ -31,7 +31,7 @@ const CardsGrid: React.FC<Props> = (
       { 
         cards.length > 0 &&
           cards.map((card) => (
-            <Grid item xs={3} md={2} lg={1} key={card.id}>
+            <Grid item xs={3} md={1} key={card.id}>
               <NavLink to={"movie/" + card.id}>
                 <Card className="card-list" onClick={() => SetSelectedMovieId(card.id)} >
                   <CardActionArea>

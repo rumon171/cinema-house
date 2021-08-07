@@ -41,14 +41,14 @@ export async function fetchMovies(page = 3): Promise<Movie[]> {
      `${movieApiBaseUrl}/movie/popular?api_key=${process.env.REACT_APP_API_KEY}&page=${page}`
    )
      .then((res) => res.json())
-     .then((res) => mapListResult(res.results))
+     .then((res) => mapMainMoviesResult(res.results))
      .catch(() => {
          return [];
      });
  }
 
 // = movie has to be after const {} here
-function mapListResult(res: any[]): Movie[] {
+function mapMainMoviesResult(res: any[]): Movie[] {
   return res.map((movie) => {
     const {
       id,
@@ -69,14 +69,13 @@ function mapListResult(res: any[]): Movie[] {
   });
 }
 
-//https://api.themoviedb.org/3/movie/{movie_id}/similar?api_key=<<api_key>>&language=en-US&page=1
 export async function fetchSimilarMovies(movieId: number): Promise<Movie[]> {
   const page = 1;
   return await fetch(
     `${movieApiBaseUrl}/movie/${movieId}/similar?api_key=${process.env.REACT_APP_API_KEY}&language=en-US&page=${page}`
   )
     .then((res) => res.json())
-    .then((res) => mapListResult(res.results))
+    .then((res) => mapMainMoviesResult(res.results))
     .catch(() => {
         return [];
     });
