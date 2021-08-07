@@ -28,7 +28,7 @@ const CatalogCards = () =>  {
           ? 
           movies.map((movie) => (
             <Grid item xs={12} sm={6} md={3} lg={2} key={movie.id}>
-              <NavLink to={"movie/" + movie.id}>
+              <NavLink to={'/movie/' + movie.id}>
                 <Card className="card-list" onClick={() => SetSelectedMovieId(movie.id)} >
                   <CardActionArea>
                     <CardMedia

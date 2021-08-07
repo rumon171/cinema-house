@@ -3,6 +3,7 @@ import MovieContent from '../Pages/MovieContent';
 import './Pages.scss';
 
 const MoviePage = (props: any) => {
+
   return (
     <>
       <Topbar></Topbar>
