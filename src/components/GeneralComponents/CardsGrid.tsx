@@ -2,7 +2,6 @@ import{ useContext } from "react";
 import {Card, Grid, CardActionArea, CardActions, CardMedia, Button} from '@material-ui/core';
 import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
 import { MoviesContext } from "../../services/context";
-import '../../App.scss';
 import noImage from '../../images/no-image-available.png';
 
 const posterBaseUrl = "https://image.tmdb.org/t/p/w300";
@@ -21,7 +20,7 @@ const CardsGrid = () =>  {
 
   return (
     <div >
-      <Grid container spacing={1} className="container-content">
+      <Grid container spacing={1}>
       { 
         cards.length > 0 &&
           cards.map((card) => (
