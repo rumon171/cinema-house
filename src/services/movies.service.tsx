@@ -2,13 +2,20 @@ import noImage from '../images/no-image-available.png';
 
 const movieApiBaseUrl = "https://api.themoviedb.org/3";
 const posterBaseUrl = "https://image.tmdb.org/t/p/w300";
+interface Genre {
+  id: number;
+  name: string;
+}
 export interface Movie {
     id: number;
     title: string;
     vote_average: number;
-    description: string;
+    overview: string;
     poster_path?: string;
-    date: string;
+    release_date: string;
+    budget?: number;
+    revenue?: number;
+    genres?: Genre[];
   }
 
 export async function fetchSelectedMovie (movieId: number) {
@@ -62,9 +69,9 @@ function mapMainMoviesResult(res: any[]): Movie[] {
       id: id,
       title: title,
       vote_average: vote_average,
-      description: overview,
+      overview: overview,
       poster_path: poster_path ? `${posterBaseUrl}${poster_path}` : noImage,
-      date: date,
+      release_date: date,
     };
   });
 }

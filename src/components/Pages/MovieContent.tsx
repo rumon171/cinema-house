@@ -44,13 +44,15 @@ const MovieContent = (props: any) => {
   const [similarMovies, setSimilarMovies] = useState<Movie[]>([]);
 
   useEffect(() => {
+      const movieId = selectedMovie !== 0 ? selectedMovie : Number(movieIdFromUrl);
+
       const callAPI = async () => {  
-        const fetchedSelectedMovieInfo = await fetchSelectedMovie(selectedMovie !== 0 ? selectedMovie : Number(movieIdFromUrl));
+        const fetchedSelectedMovieInfo = await fetchSelectedMovie(movieId);
         setMovie(fetchedSelectedMovieInfo);
         if (fetchedSelectedMovieInfo.poster_path !== null) {
           setMovieImg(posterBaseUrl+fetchedSelectedMovieInfo.poster_path);
         }
-       // const fetchedSimilarMovies = await fetchSimilarMovies());
+       // const fetchedSimilarMovies = await fetchSimilarMovies(movieId));
        // setSimilarMovies(fetchedSimilarMovies);
       }
 
