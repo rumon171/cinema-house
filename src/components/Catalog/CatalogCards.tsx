@@ -1,14 +1,14 @@
 import{ useContext } from "react";
-import { Card, Grid, CardActionArea, CardActions, CardMedia, Button, Box } from '@material-ui/core';
+import { Card, Grid, CardActionArea, CardActions, CardMedia, Button } from '@material-ui/core';
 import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
 import { MoviesContext } from "../../services/context";
 import '../../App.scss';
 import './Catalog.scss';
 import noImage from '../../images/no-image-available.png';
 import loadingSpinner from '../../images/loading-spinner.gif';
+import { NavLink } from 'react-router-dom';
 
 const posterBaseUrl = "https://image.tmdb.org/t/p/w300";
-const NavLink = require("react-router-dom").NavLink;
 
 const CatalogCards = () =>  {
   const { movies, searchedMovie } = useContext(MoviesContext);  

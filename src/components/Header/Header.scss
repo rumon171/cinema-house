@@ -2,6 +2,11 @@
 
 .top-bar {
     background-color: $base-color;
+
+    a {
+        text-decoration: none;
+        color: $font-base-color;
+    }
 }
 
 .top-bar-title {
