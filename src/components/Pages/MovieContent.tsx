@@ -43,6 +43,7 @@ const MovieContent = (props: any) => {
       }
 
       callAPI();
+      window.scrollTo(0, 0);
 
   }, [selectedMovie, movieIdFromUrl]);
 
