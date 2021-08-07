@@ -41,14 +41,17 @@ const MovieContent = (props: any) => {
     }
   );
   const [movieImg, setMovieImg] = useState<string>(noImage);
+  const [similarMovies, setSimilarMovies] = useState<Movie[]>([]);
 
   useEffect(() => {
       const callAPI = async () => {  
-        const fetchedMovieInfo = await fetchSelectedMovie(selectedMovie !== 0 ? selectedMovie : Number(movieIdFromUrl));
-        setMovie(fetchedMovieInfo);
-        if (fetchedMovieInfo.poster_path !== null) {
-          setMovieImg(posterBaseUrl+fetchedMovieInfo.poster_path);
+        const fetchedSelectedMovieInfo = await fetchSelectedMovie(selectedMovie !== 0 ? selectedMovie : Number(movieIdFromUrl));
+        setMovie(fetchedSelectedMovieInfo);
+        if (fetchedSelectedMovieInfo.poster_path !== null) {
+          setMovieImg(posterBaseUrl+fetchedSelectedMovieInfo.poster_path);
         }
+       // const fetchedSimilarMovies = await fetchSimilarMovies());
+       // setSimilarMovies(fetchedSimilarMovies);
       }
 
       callAPI();
@@ -103,9 +106,7 @@ const MovieContent = (props: any) => {
             </Button>
           </div>
         </Grid>
-        <Grid item xs={12}>
-          <CardsGrid></CardsGrid> 
-        </Grid>
+        <CardsGrid xsValue={3}></CardsGrid> 
       </Grid>
     </>
   );

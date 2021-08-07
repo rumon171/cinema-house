@@ -7,7 +7,14 @@ import noImage from '../../images/no-image-available.png';
 const posterBaseUrl = "https://image.tmdb.org/t/p/w300";
 const NavLink = require("react-router-dom").NavLink;
 
-const CardsGrid = () =>  {
+interface Props {
+  xsValue: number; 
+}
+
+const CardsGrid: React.FC<Props> = (
+  {
+    xsValue,
+  }: Props) =>{
   const { movies } = useContext(MoviesContext);
   const cards = movies;
 

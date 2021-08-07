@@ -11,9 +11,9 @@ export interface Movie {
     date: string;
   }
 
-export async function fetchSelectedMovie (currentMovieId: number ) {
+export async function fetchSelectedMovie (movieId: number) {
   return await fetch(
-    `${movieApiBaseUrl}/movie/${currentMovieId}?api_key=${process.env.REACT_APP_API_KEY}`
+    `${movieApiBaseUrl}/movie/${movieId}?api_key=${process.env.REACT_APP_API_KEY}`
   )
     .then((res) => res.json())
     .then((body) => {return body})
@@ -67,4 +67,17 @@ function mapListResult(res: any[]): Movie[] {
       date: date,
     };
   });
+}
+
+//https://api.themoviedb.org/3/movie/{movie_id}/similar?api_key=<<api_key>>&language=en-US&page=1
+export async function fetchSimilarMovies(movieId: number): Promise<Movie[]> {
+  const page = 1;
+  return await fetch(
+    `${movieApiBaseUrl}/movie/${movieId}/similar?api_key=${process.env.REACT_APP_API_KEY}&language=en-US&page=${page}`
+  )
+    .then((res) => res.json())
+    .then((res) => mapListResult(res.results))
+    .catch(() => {
+        return [];
+    });
 }
