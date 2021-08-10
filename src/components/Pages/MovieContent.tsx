@@ -1,6 +1,6 @@
-import {useState, useEffect, useContext} from "react";
+import { useState, useEffect, useContext } from "react";
 import { Movie, fetchSelectedMovie, fetchSimilarMovies } from "../../services/movies.service";
-import {Grid, Card, CardMedia, Button} from '@material-ui/core';
+import { Grid, Card, CardMedia, Button } from '@material-ui/core';
 import { MoviesContext } from "../../services/context";
 import CardsGrid from '../GeneralComponents/CardsGrid';
 import './Pages.scss';
@@ -40,10 +40,10 @@ const MovieContent = (props: any) => {
 
         const fetchedSimilarMovies = await fetchSimilarMovies(movieId);
         setSimilarMovies(fetchedSimilarMovies);
+        window.scrollTo(0, 0);
       }
 
       callAPI();
-      window.scrollTo(0, 0);
 
   }, [selectedMovie, movieIdFromUrl]);
 

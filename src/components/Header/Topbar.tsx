@@ -7,7 +7,7 @@ const Topbar = (props: any) => {
   return (
     <>
       <AppBar>
-        <Toolbar className="top-bar ">
+        <Toolbar className="top-bar">
           <NavLink to={'/'}>
             <h1 className="top-bar-title">
               MoviesApp

@@ -14,10 +14,14 @@ function App() {
   const [searchedMovie, setSearchedMovie] = useState<string>('');
   const [isMoviePageFirstTimeOpened, setIsMoviePageFirstTimeOpened] = useState<boolean>(false);
   const [loading, updateLoading] = useState(true);
-
+// setListItems(prevState => ([...prevState, ...Array.from(Array(20).keys(), n => n + prevState.length + 1)]));
   useEffect(() => {
     fetchMovies()
-      .then(updateMovies)
+      .then(prevState => updateMovies([...prevState, {
+        id: 2000,
+        title: "TITLE",
+        vote_average: 10,
+      }]))
       .catch(() => updateMovies([]));
 
       updateLoading(false);
