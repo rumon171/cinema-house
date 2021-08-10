@@ -13,7 +13,7 @@ const Catalog = (props: any) => {
 
   function handleScroll() {
     if (window.innerHeight + document.documentElement.scrollTop !== document.documentElement.offsetHeight) return;
-    console.log('Fetch more list items!');
+    console.log('Fetch more list items!!');
   }
 
   return (
