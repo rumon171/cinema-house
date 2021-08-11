@@ -1,15 +1,15 @@
-import{ useEffect } from "react";
-import{ useContext } from "react";
+import{ useEffect, useState, useContext } from "react";
 import { MoviesContext } from "../../services/context";
 import CatalogCards from './CatalogCards';
 import ScrollTop from '../Catalog/ScrollTop';
 import { Toolbar, Fab } from '@material-ui/core';
 import KeyboardArrowUpIcon from '@material-ui/icons/KeyboardArrowUp';
-import { Movie, fetchMovies } from "../../services/movies.service";
+import { fetchMovies } from "../../services/movies.service";
 
 const Catalog = (props: any) => {
 
-  const { isFetching, setIsFetching, updateMovies } = useContext(MoviesContext);  
+  const { updateMovies } = useContext(MoviesContext);
+  const [isFetching, setIsFetching] = useState(false);
 
   useEffect(() => {
     window.addEventListener('scroll', handleScroll);
@@ -22,16 +22,27 @@ const Catalog = (props: any) => {
     console.log('BOTTOM IS REACHED');
     setIsFetching(true);
   }
-  
+
+/*
   useEffect(() => {
-    if (!isFetching) return;
-    console.log("fetchMovies() function is called");
+    console.log('MORE MOVIED ARE BEING FETCHED');
     fetchMovies()
       .then(prevState => updateMovies([...prevState, {
         id: 2000,
         title: "TITLE",
         vote_average: 10,
       }]))
+      .catch(() => updateMovies([]));
+
+      updateLoading(false);
+  }, []);
+*/
+
+  useEffect(() => {
+    if (!isFetching) return;
+    console.log("fetchMovies() function is called");
+    fetchMovies('2')
+      .then(prevState => updateMovies([...prevState]))
       .catch(() => updateMovies([]));
 
       setIsFetching(false);   

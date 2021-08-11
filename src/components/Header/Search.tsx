@@ -33,7 +33,7 @@ const Search = (props: any) => {
         .then((res) => updateMovies(res))
         .catch(() => updateMovies([]));
     } else {
-      fetchMovies()
+      fetchMovies('3')
         .then((res) => updateMovies(res))
         .catch(() => updateMovies([]));
     }

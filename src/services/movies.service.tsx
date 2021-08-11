@@ -43,8 +43,8 @@ export async function fetchSearchedMovie (enteredTitle: string ) {
       });
   }
 
-export async function fetchMovies(): Promise<Movie[]> {
-  let page = 1;
+export async function fetchMovies(page: string): Promise<Movie[]> {
+  //let page = 1;
 
   return await fetch(
     `${movieApiBaseUrl}/movie/popular?api_key=${process.env.REACT_APP_API_KEY}&page=${page}`

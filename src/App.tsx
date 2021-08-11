@@ -14,24 +14,30 @@ function App() {
   const [searchedMovie, setSearchedMovie] = useState<string>('');
   const [isMoviePageFirstTimeOpened, setIsMoviePageFirstTimeOpened] = useState<boolean>(false);
   const [loading, updateLoading] = useState(true);
-  const [isFetching, setIsFetching] = useState(false);
+  const [moviesPage, setMoviesPage] = useState('1');
 
   useEffect(() => {
-    console.log('MORE MOVIED ARE BEING FETCHED');
-    fetchMovies()
-      .then(prevState => updateMovies([...prevState, {
-        id: 2000,
-        title: "TITLE",
-        vote_average: 10,
-      }]))
+    fetchMovies(moviesPage)
+      .then(prevState => updateMovies(prevState))
       .catch(() => updateMovies([]));
 
       updateLoading(false);
-      setIsFetching(false);
-  }, []);
+  }, [moviesPage]);
   
   return (
-    <MoviesContext.Provider value={{ movies, updateMovies, selectedMovie, setSelectedMovie, searchedMovie, setSearchedMovie, isMoviePageFirstTimeOpened, setIsMoviePageFirstTimeOpened, loading, isFetching, setIsFetching }}>
+    <MoviesContext.Provider value={{ 
+        movies, 
+        updateMovies, 
+        selectedMovie, 
+        setSelectedMovie, 
+        searchedMovie, 
+        setSearchedMovie, 
+        isMoviePageFirstTimeOpened, 
+        setIsMoviePageFirstTimeOpened, 
+        loading,
+        moviesPage,
+        setMoviesPage
+        }}>
       <div className="App">
         <div className="container typography-base ">
           <BrowserRouter>
