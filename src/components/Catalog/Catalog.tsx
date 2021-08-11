@@ -9,8 +9,7 @@ import { Movie, fetchMovies } from "../../services/movies.service";
 
 const Catalog = (props: any) => {
 
-  // SHOULD IT REALLY BE IN CONTEXT?
-  const { isFetching, setIsFetching } = useContext(MoviesContext);  
+  const { isFetching, setIsFetching, updateMovies } = useContext(MoviesContext);  
 
   useEffect(() => {
     window.addEventListener('scroll', handleScroll);
@@ -20,14 +19,23 @@ const Catalog = (props: any) => {
 
   function handleScroll() {
     if (window.innerHeight + document.documentElement.scrollTop !== document.documentElement.offsetHeight) return;
+    console.log('BOTTOM IS REACHED');
     setIsFetching(true);
   }
   
   useEffect(() => {
     if (!isFetching) return;
-    console.log('MORE MOVIED ARE BEING FETCHED');
-    fetchMovies();
-  }, [isFetching]);
+    console.log("fetchMovies() function is called");
+    fetchMovies()
+      .then(prevState => updateMovies([...prevState, {
+        id: 2000,
+        title: "TITLE",
+        vote_average: 10,
+      }]))
+      .catch(() => updateMovies([]));
+
+      setIsFetching(false);   
+  }, [isFetching, updateMovies, setIsFetching]);
 
   return (
     <>

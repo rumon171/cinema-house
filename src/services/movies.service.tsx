@@ -43,15 +43,17 @@ export async function fetchSearchedMovie (enteredTitle: string ) {
       });
   }
 
-export async function fetchMovies(page = 1): Promise<Movie[]> {
-   return await fetch(
-     `${movieApiBaseUrl}/movie/popular?api_key=${process.env.REACT_APP_API_KEY}&page=${page}`
-   )
-     .then((res) => res.json())
-     .then((res) => mapMainMoviesResult(res.results))
-     .catch(() => {
-         return [];
-     });
+export async function fetchMovies(): Promise<Movie[]> {
+  let page = 1;
+
+  return await fetch(
+    `${movieApiBaseUrl}/movie/popular?api_key=${process.env.REACT_APP_API_KEY}&page=${page}`
+    )
+    .then((res) => res.json())
+    .then((res) => mapMainMoviesResult(res.results))
+    .catch(() => {
+        return [];
+    });
  }
 
 // = movie has to be after const {} here
