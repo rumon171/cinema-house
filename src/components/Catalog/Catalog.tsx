@@ -11,29 +11,14 @@ const Catalog = (props: any) => {
   const { isFetching, setIsFetching } = useContext(MoviesContext);  
 
   useEffect(() => {
-    window.addEventListener('scroll', function()  {console.log("is scrolling ")});
-
-    //return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
-
-  /*
-  useEffect(() => {
-    window.addEventListener('scroll', {
-      if (window.innerHeight + document.documentElement.scrollTop !== document.documentElement.offsetHeight) 
-      {
-  
-        setIsFetching(true);
-      }
-    }});
-
-    //return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-  */
 
   function handleScroll() {
     if (window.innerHeight + document.documentElement.scrollTop !== document.documentElement.offsetHeight) return;
-   // setIsFetching(true);
-    console.log('Fetch more list items!!');
+    setIsFetching(true);
+    console.log('Fetch more list items!');
   }
 
   return (
