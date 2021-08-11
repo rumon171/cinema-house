@@ -21,7 +21,8 @@ const Catalog = (props: any) => {
     if (window.innerHeight + document.documentElement.scrollTop !== document.documentElement.offsetHeight) return;
     console.log('BOTTOM IS REACHED');
     await setIsFetching(true);
-    //setMoviesPage(prevActiveStep => prevActiveStep + 1);
+    //await setMoviesPage(prev => prev + 1);
+   // setMoviesPage((prev: number) => prev + 1);
   }
 
   useEffect(() => {
