@@ -8,7 +8,7 @@ import { fetchMovies } from "../../services/movies.service";
 
 const Catalog = (props: any) => {
 
-  const { updateMovies } = useContext(MoviesContext);
+  const { updateMovies, moviesPage, setMoviesPage } = useContext(MoviesContext);
   const [isFetching, setIsFetching] = useState(false);
 
   useEffect(() => {
@@ -17,26 +17,12 @@ const Catalog = (props: any) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  function handleScroll() {
+  async function handleScroll() {
     if (window.innerHeight + document.documentElement.scrollTop !== document.documentElement.offsetHeight) return;
     console.log('BOTTOM IS REACHED');
-    setIsFetching(true);
+    await setIsFetching(true);
+    //setMoviesPage(prevActiveStep => prevActiveStep + 1);
   }
-
-/*
-  useEffect(() => {
-    console.log('MORE MOVIED ARE BEING FETCHED');
-    fetchMovies()
-      .then(prevState => updateMovies([...prevState, {
-        id: 2000,
-        title: "TITLE",
-        vote_average: 10,
-      }]))
-      .catch(() => updateMovies([]));
-
-      updateLoading(false);
-  }, []);
-*/
 
   useEffect(() => {
     if (!isFetching) return;

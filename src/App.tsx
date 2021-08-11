@@ -14,11 +14,11 @@ function App() {
   const [searchedMovie, setSearchedMovie] = useState<string>('');
   const [isMoviePageFirstTimeOpened, setIsMoviePageFirstTimeOpened] = useState<boolean>(false);
   const [loading, updateLoading] = useState(true);
-  const [moviesPage, setMoviesPage] = useState('1');
+  const [moviesPage, setMoviesPage] = useState(1);
 
   useEffect(() => {
-    fetchMovies(moviesPage)
-      .then(prevState => updateMovies(prevState))
+    fetchMovies(String(moviesPage))
+      .then(updateMovies)
       .catch(() => updateMovies([]));
 
       updateLoading(false);
