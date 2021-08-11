@@ -17,23 +17,22 @@ const Catalog = (props: any) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  async function handleScroll() {
+  function handleScroll() {
     if (window.innerHeight + document.documentElement.scrollTop !== document.documentElement.offsetHeight) return;
     console.log('BOTTOM IS REACHED');
-    await setIsFetching(true);
-    //await setMoviesPage(prev => prev + 1);
-   // setMoviesPage((prev: number) => prev + 1);
+    setIsFetching(true);
+    setMoviesPage(moviesPage + 1);
   }
 
   useEffect(() => {
     if (!isFetching) return;
-    console.log("fetchMovies() function is called");
-    fetchMovies('2')
+    console.log("fetchMovies() function is called, moviesPage: ", moviesPage);
+    fetchMovies(String(moviesPage))
       .then(prevState => updateMovies([...prevState]))
       .catch(() => updateMovies([]));
 
       setIsFetching(false);   
-  }, [isFetching, updateMovies, setIsFetching]);
+  }, [isFetching, updateMovies, setIsFetching, moviesPage]);
 
   return (
     <>
