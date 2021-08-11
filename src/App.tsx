@@ -14,7 +14,8 @@ function App() {
   const [searchedMovie, setSearchedMovie] = useState<string>('');
   const [isMoviePageFirstTimeOpened, setIsMoviePageFirstTimeOpened] = useState<boolean>(false);
   const [loading, updateLoading] = useState(true);
-// setListItems(prevState => ([...prevState, ...Array.from(Array(20).keys(), n => n + prevState.length + 1)]));
+  const [isFetching, setIsFetching] = useState(false);
+
   useEffect(() => {
     fetchMovies()
       .then(prevState => updateMovies([...prevState, {
@@ -28,7 +29,7 @@ function App() {
   }, []);
   
   return (
-    <MoviesContext.Provider value={{ movies, updateMovies, selectedMovie, setSelectedMovie, searchedMovie, setSearchedMovie, isMoviePageFirstTimeOpened, setIsMoviePageFirstTimeOpened, loading }}>
+    <MoviesContext.Provider value={{ movies, updateMovies, selectedMovie, setSelectedMovie, searchedMovie, setSearchedMovie, isMoviePageFirstTimeOpened, setIsMoviePageFirstTimeOpened, loading, isFetching, setIsFetching }}>
       <div className="App">
         <div className="container typography-base ">
           <BrowserRouter>
