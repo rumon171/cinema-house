@@ -17,6 +17,7 @@ function App() {
   const [isFetching, setIsFetching] = useState(false);
 
   useEffect(() => {
+    console.log('MORE MOVIED ARE BEING FETCHED');
     fetchMovies()
       .then(prevState => updateMovies([...prevState, {
         id: 2000,
@@ -26,6 +27,7 @@ function App() {
       .catch(() => updateMovies([]));
 
       updateLoading(false);
+      setIsFetching(false);
   }, []);
   
   return (
