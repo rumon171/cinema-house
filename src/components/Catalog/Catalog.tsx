@@ -1,4 +1,4 @@
-import{ useEffect, useState, useContext } from "react";
+import{ useEffect, useContext } from "react";
 import { MoviesContext } from "../../services/context";
 import CatalogCards from './CatalogCards';
 import ScrollTop from '../Catalog/ScrollTop';
@@ -9,7 +9,6 @@ import { Movie, fetchMovies } from "../../services/movies.service";
 const Catalog = (props: any) => {
 
   const { updateMovies, moviesPage, setMoviesPage } = useContext(MoviesContext);
-  const [isFetching, setIsFetching] = useState(false);
 
   useEffect(() => {
     window.addEventListener('scroll', handleScroll);
@@ -18,25 +17,16 @@ const Catalog = (props: any) => {
   }, []);
 
   function handleScroll() {
-   // if (window.innerHeight + document.documentElement.scrollTop !== document.documentElement.offsetHeight) return;
-    //setMoviesPage(moviesPage+1);
-    if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
-      setMoviesPage(moviesPage+1);
-      console.log('BOTTOM IS REACHED');
-    }
-    setIsFetching(true);
+    if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) return;
+    setMoviesPage(moviesPage+1);
   }
 
   const fetchNextMoviesPage = (page: number) => {
-   // if (!isFetching) {
-    //  setIsFetching(true); // <-- start loading CAN IT BE DELETED?
-      fetchMovies(String(page))
-        .then(nextPage => {
-          updateMovies((movies: Movie[]) => movies.concat(nextPage)); // <-- append next page
-        })
-        .catch(() => updateMovies([]))
-        .finally(() => setIsFetching(false)); // <-- end loading
-    //}
+    fetchMovies(String(page))
+      .then(nextPage => {
+        updateMovies((movies: Movie[]) => movies.concat(nextPage));
+      })
+      .catch(() => updateMovies([]));
   };
 
   useEffect(() => {
