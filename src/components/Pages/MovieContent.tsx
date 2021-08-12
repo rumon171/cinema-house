@@ -68,7 +68,7 @@ const MovieContent = (props: any) => {
               {movie.vote_average}
             </span>
             <div>
-              {movie.release_date}
+              {movie.release_date? movie.release_date : 'Release date: Coming out soon ;)'}
             </div>
             <p className="content-main-paragraph">
               {movie.overview}
