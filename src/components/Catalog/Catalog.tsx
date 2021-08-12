@@ -19,20 +19,22 @@ const Catalog = (props: any) => {
 
   function handleScroll() {
     if (window.innerHeight + document.documentElement.scrollTop !== document.documentElement.offsetHeight) return;
-    console.log('BOTTOM IS REACHED');
+    const currentPage = moviesPage + 1;
+    setMoviesPage(currentPage);
+    console.log('BOTTOM IS REACHED, moviesPage: ', moviesPage);
     setIsFetching(true);
-    setMoviesPage(moviesPage + 1);
   }
 
   useEffect(() => {
     if (!isFetching) return;
     console.log("fetchMovies() function is called, moviesPage: ", moviesPage);
     fetchMovies(String(moviesPage))
-      .then(prevState => updateMovies([...prevState]))
-      .catch(() => updateMovies([]));
-
-      setIsFetching(false);   
-  }, [isFetching, updateMovies, setIsFetching, moviesPage]);
+    .then(prevState => updateMovies([...prevState]))
+    .catch(() => updateMovies([]));
+    
+    setIsFetching(false);   
+    console.log("IsFetching reiksme  ", isFetching);
+  }, [isFetching, setIsFetching, moviesPage, updateMovies]);
 
   return (
     <>

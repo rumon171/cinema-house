@@ -13,7 +13,6 @@ function App() {
   const [selectedMovie, setSelectedMovie] = useState(0);
   const [searchedMovie, setSearchedMovie] = useState<string>('');
   const [isMoviePageFirstTimeOpened, setIsMoviePageFirstTimeOpened] = useState<boolean>(false);
-  const [loading, updateLoading] = useState(true);
   const [moviesPage, setMoviesPage] = useState(1);
 
   useEffect(() => {
@@ -21,7 +20,6 @@ function App() {
       .then(updateMovies)
       .catch(() => updateMovies([]));
 
-      updateLoading(false);
   }, [moviesPage]);
   
   return (
@@ -34,7 +32,6 @@ function App() {
         setSearchedMovie, 
         isMoviePageFirstTimeOpened, 
         setIsMoviePageFirstTimeOpened, 
-        loading,
         moviesPage,
         setMoviesPage
         }}>
