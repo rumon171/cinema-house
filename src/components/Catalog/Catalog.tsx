@@ -4,7 +4,7 @@ import CatalogCards from './CatalogCards';
 import ScrollTop from '../Catalog/ScrollTop';
 import { Toolbar, Fab } from '@material-ui/core';
 import KeyboardArrowUpIcon from '@material-ui/icons/KeyboardArrowUp';
-import { fetchMovies } from "../../services/movies.service";
+import { Movie, fetchMovies } from "../../services/movies.service";
 
 const Catalog = (props: any) => {
 
@@ -21,14 +21,16 @@ const Catalog = (props: any) => {
     if (window.innerHeight + document.documentElement.scrollTop !== document.documentElement.offsetHeight) return;
     setMoviesPage(moviesPage + 1);
     console.log('BOTTOM IS REACHED, moviesPage: ', moviesPage);
-    setIsFetching(true);
+    //setIsFetching(true);
   }
 
   const fetchNextMoviesPage = (page: number) => {
     if (!isFetching) {
-      setIsFetching(true); // <-- start loading
+      setIsFetching(true); // <-- start loading CAN IT BE DELETED?
       fetchMovies(String(page))
-        .then(prevState => updateMovies([...prevState])) // <-- append next page
+        .then(nextPage => {
+          updateMovies((movies: Movie[]) => movies.concat(nextPage)); // <-- append next page
+        })
         .catch(() => updateMovies([]))
         .finally(() => setIsFetching(false)); // <-- end loading
     }
