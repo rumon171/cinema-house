@@ -27,6 +27,7 @@ const MovieContent = (props: any) => {
   );
   const [movieImg, setMovieImg] = useState<string>(noImage);
   const [similarMovies, setSimilarMovies] = useState<Movie[]>([]);
+  const movieGenresAmount = movie.genres?.length ?? 0;
 
   useEffect(() => {
       const movieId = selectedMovie !== 0 ? selectedMovie : Number(movieIdFromUrl);
@@ -75,11 +76,13 @@ const MovieContent = (props: any) => {
             </p>
             <p>
               Genres:&nbsp;
-                {movie.genres && movie.genres?.map((genre, i) => (
+              {
+                movie.genres && movie.genres?.map((genre, i) => (
                   <span key={i}>
-                    {genre.name},&nbsp;
+                    {genre.name}{(movieGenresAmount !== i+1) && <span>,</span>}&nbsp;
                   </span>
-                ))}
+                ))
+              }
             </p>
             {
               (Boolean(movie.budget)) &&
