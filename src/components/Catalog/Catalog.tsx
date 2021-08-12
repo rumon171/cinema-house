@@ -23,23 +23,21 @@ const Catalog = (props: any) => {
     console.log('BOTTOM IS REACHED, moviesPage: ', moviesPage);
     setIsFetching(true);
   }
-// setArr((prevState) => [...prevState, ...arr1]);
-// updateMovies((prevState) => [...prevState, ...newMovies]);
 
-  const handleFetchMovie = () => {
-    if (!isFetching) return;
-    console.log("fetchMovies() function is called, moviesPage: ", moviesPage, " isFetching ", isFetching);
-    setIsFetching(true);
-    fetchMovies(String(moviesPage))
-      .then(prevState => updateMovies([...prevState]))
-      .catch(() => updateMovies([]));
-    setIsFetching(false);
- }
- 
- useEffect(() => {
-    handleFetchMovie();
+  const fetchNextMoviesPage = (page: number) => {
+    if (!isFetching) {
+      setIsFetching(true); // <-- start loading
+      fetchMovies(String(page))
+        .then(prevState => updateMovies([...prevState])) // <-- append next page
+        .catch(() => updateMovies([]))
+        .finally(() => setIsFetching(false)); // <-- end loading
+    }
+  };
+
+  useEffect(() => {
+    fetchNextMoviesPage(moviesPage);
     // eslint-disable-next-line react-hooks/exhaustive-deps
- }, [moviesPage]);
+  }, [moviesPage]);
 
   return (
     <>
