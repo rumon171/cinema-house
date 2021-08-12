@@ -19,22 +19,25 @@ const Catalog = (props: any) => {
 
   function handleScroll() {
     if (window.innerHeight + document.documentElement.scrollTop !== document.documentElement.offsetHeight) return;
-    const currentPage = moviesPage + 1;
-    setMoviesPage(currentPage);
+    setMoviesPage(moviesPage + 1);
     console.log('BOTTOM IS REACHED, moviesPage: ', moviesPage);
     setIsFetching(true);
   }
 
-  useEffect(() => {
+  const handleFetchMovie = () => {
     if (!isFetching) return;
-    console.log("fetchMovies() function is called, moviesPage: ", moviesPage);
+    console.log("fetchMovies() function is called, moviesPage: ", moviesPage, " isFetching ", isFetching);
+    setIsFetching(true);
     fetchMovies(String(moviesPage))
-    .then(prevState => updateMovies([...prevState]))
-    .catch(() => updateMovies([]));
-    
-    setIsFetching(false);   
-    console.log("IsFetching reiksme  ", isFetching);
-  }, [isFetching, setIsFetching, moviesPage, updateMovies]);
+      .then(prevState => updateMovies([...prevState]))
+      .catch(() => updateMovies([]));
+    setIsFetching(false);
+ }
+ 
+ useEffect(() => {
+    handleFetchMovie();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+ }, [moviesPage]);
 
   return (
     <>
