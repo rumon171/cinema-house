@@ -18,22 +18,25 @@ const Catalog = (props: any) => {
   }, []);
 
   function handleScroll() {
-    if (window.innerHeight + document.documentElement.scrollTop !== document.documentElement.offsetHeight) return;
-    setMoviesPage(moviesPage + 1);
-    console.log('BOTTOM IS REACHED, moviesPage: ', moviesPage);
-    //setIsFetching(true);
+   // if (window.innerHeight + document.documentElement.scrollTop !== document.documentElement.offsetHeight) return;
+    //setMoviesPage(moviesPage+1);
+    if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
+      setMoviesPage(moviesPage+1);
+      console.log('BOTTOM IS REACHED');
+    }
+    setIsFetching(true);
   }
 
   const fetchNextMoviesPage = (page: number) => {
-    if (!isFetching) {
-      setIsFetching(true); // <-- start loading CAN IT BE DELETED?
+   // if (!isFetching) {
+    //  setIsFetching(true); // <-- start loading CAN IT BE DELETED?
       fetchMovies(String(page))
         .then(nextPage => {
           updateMovies((movies: Movie[]) => movies.concat(nextPage)); // <-- append next page
         })
         .catch(() => updateMovies([]))
         .finally(() => setIsFetching(false)); // <-- end loading
-    }
+    //}
   };
 
   useEffect(() => {
