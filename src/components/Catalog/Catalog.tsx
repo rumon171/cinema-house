@@ -17,8 +17,10 @@ const Catalog = (props: any) => {
   }, []);
 
   function handleScroll() {
-    if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) return;
+    if (window.innerHeight + document.documentElement.scrollTop !== document.documentElement.offsetHeight) return;
+    //if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) return;
     setMoviesPage(moviesPage+1);
+    console.log('BOTTOM OF THE PAGE');
   }
 
   const fetchNextMoviesPage = (page: number) => {
