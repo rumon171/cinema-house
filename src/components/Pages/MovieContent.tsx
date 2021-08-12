@@ -81,12 +81,18 @@ const MovieContent = (props: any) => {
                   </span>
                 ))}
             </p>
-            <p>
-              Budget: ${movie.budget}
-            </p>
-            <p>
-              Revenue: ${movie.revenue}
-            </p>
+            {
+              (Boolean(movie.budget)) &&
+              <p>
+                Budget: ${movie.budget}
+              </p>
+            }          
+            {
+              (Boolean(movie.revenue)) &&
+              <p>
+                Revenue: ${movie.revenue}
+              </p>
+            }
             <Button 
               variant="contained" 
               color="primary" 

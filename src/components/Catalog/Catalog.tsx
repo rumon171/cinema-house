@@ -23,6 +23,8 @@ const Catalog = (props: any) => {
     console.log('BOTTOM IS REACHED, moviesPage: ', moviesPage);
     setIsFetching(true);
   }
+// setArr((prevState) => [...prevState, ...arr1]);
+// updateMovies((prevState) => [...prevState, ...newMovies]);
 
   const handleFetchMovie = () => {
     if (!isFetching) return;
