@@ -8,6 +8,7 @@ import { Movie, fetchMovies } from "../../services/movies.service";
 
 const Catalog = (props: any) => {
 
+  /*
   const { updateMovies, moviesPage, setMoviesPage } = useContext(MoviesContext);
 
   useEffect(() => {
@@ -35,6 +36,7 @@ const Catalog = (props: any) => {
     fetchNextMoviesPage(moviesPage);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [moviesPage]);
+  */
 
   return (
     <>

@@ -10,10 +10,10 @@
     "@testing-library/user-event": "^12.8.3",
     "@types/jest": "^26.0.23",
     "@types/node": "^12.20.15",
-    "@types/react": "^17.0.11",
     "@types/react-dom": "^17.0.8",
     "@types/react-router-dom": "^5.1.8",
     "dotenv": "^8.2.0",
+    "intersection-observer": "^0.12.0",
     "node-sass": "^6.0.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
@@ -46,5 +46,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@types/react": "^17.0.18"
   }
 }

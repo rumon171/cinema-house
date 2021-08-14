@@ -1,4 +1,4 @@
-import{ useContext } from "react";
+import{ useContext, useRef, useEffect } from "react";
 import { Card, Grid, CardActionArea, CardActions, CardMedia, Button } from '@material-ui/core';
 import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
 import { MoviesContext } from "../../services/context";
@@ -7,18 +7,33 @@ import './Catalog.scss';
 import noImage from '../../images/no-image-available.png';
 import loadingSpinner from '../../images/loading-spinner.gif';
 import { NavLink } from 'react-router-dom';
+import 'intersection-observer';
+import 'intersection-observer/intersection-observer.js'
 
 const posterBaseUrl = "https://image.tmdb.org/t/p/w300";
 
 const CatalogCards = () =>  {
   const { movies, searchedMovie } = useContext(MoviesContext);  
-
-  const { setSelectedMovie, setIsMoviePageFirstTimeOpened } = useContext(MoviesContext);  
+  const { setSelectedMovie, setIsMoviePageFirstTimeOpened } = useContext(MoviesContext);
+  const loadingRef = useRef<HTMLDivElement|null>(null);
 
   const SetSelectedMovieId = (id: number) => {
     setIsMoviePageFirstTimeOpened(true);
     setSelectedMovie(id);
   }
+  
+  const isBottomVisible = useIntersectionObserver(
+    loadingRef,
+    {
+      threshold: 0 //trigger event as soon as the element is in the viewport.
+    },
+    false // don't remove the observer after intersected.
+  );
+
+  useEffect(() => {
+    //load next page when bottom is visible
+    isBottomVisible && console.log("BOTTOM REACHED");
+  }, [isBottomVisible]);
 
   return (
     <div >
@@ -26,7 +41,7 @@ const CatalogCards = () =>  {
         { 
         movies.length > 0 
           ? 
-          movies.map((movie) => (
+          movies.map((movie, i) => (
             <Grid item xs={12} sm={6} md={3} lg={2} key={movie.id}>
               <NavLink to={'/movie/' + movie.id}>
                 <Card className="card-list" onClick={() => SetSelectedMovieId(movie.id)} >
@@ -61,6 +76,7 @@ const CatalogCards = () =>  {
           />
         }
       </Grid>
+      <div ref={loadingRef}>...</div>
     </div>
   );
 }
