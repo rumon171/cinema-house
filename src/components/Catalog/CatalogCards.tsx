@@ -32,7 +32,7 @@ const CatalogCards = () =>  {
 
         fetchMovies(String(moviesPage+1))
           .then(nextPage => {
-            updateMovies(movies => movies.concat(nextPage));
+            updateMovies((movies: Movie[]) => movies.concat(nextPage));
           })
           .catch(() => updateMovies([]))
       }

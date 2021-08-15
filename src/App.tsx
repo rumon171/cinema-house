@@ -13,7 +13,7 @@ function App() {
   const [selectedMovie, setSelectedMovie] = useState(0);
   const [searchedMovie, setSearchedMovie] = useState<string>('');
   const [isMoviePageFirstTimeOpened, setIsMoviePageFirstTimeOpened] = useState<boolean>(false);
-  const [moviesPage, setMoviesPage] = useState(1);
+  const [moviesPage, setMoviesPage] = useState(2);
 
   useEffect(() => {
     fetchMovies(String(moviesPage))
