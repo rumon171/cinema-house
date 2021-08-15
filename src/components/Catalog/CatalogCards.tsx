@@ -28,9 +28,9 @@ const CatalogCards = () =>  {
     () => {
       console.log(`LOADING REF VISIBLE`, { isVisible }, " page ", moviesPage);
       if ( isVisible ) {
-        //setMoviesPage(moviesPage+1);
+        setMoviesPage(moviesPage+1);
 
-        fetchMovies(String(moviesPage+1))
+        fetchMovies(String(moviesPage))
           .then(nextPage => {
             updateMovies((movies: Movie[]) => movies.concat(nextPage));
           })
