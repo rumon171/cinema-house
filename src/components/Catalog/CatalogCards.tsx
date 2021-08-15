@@ -12,8 +12,7 @@ import useIntersectionObserver from '../../services/useIntersectionObserver';
 const posterBaseUrl = "https://image.tmdb.org/t/p/w300";
 
 const CatalogCards = () =>  {
-  const { movies, searchedMovie } = useContext(MoviesContext);  
-  const { setSelectedMovie, setIsMoviePageFirstTimeOpened } = useContext(MoviesContext);
+  const { movies, searchedMovie, moviesPage, setMoviesPage, setSelectedMovie, setIsMoviePageFirstTimeOpened } = useContext(MoviesContext);
   const loadingRef = useRef<HTMLDivElement | null>(null);
   const entry = useIntersectionObserver(loadingRef, {})
   const isVisible = !!entry?.isIntersecting;
@@ -25,7 +24,10 @@ const CatalogCards = () =>  {
 
 useEffect (
   () => {
-    console.log(`LOADING REF VISIBLE`, { isVisible });
+    console.log(`LOADING REF VISIBLE`, { isVisible }, " page ", moviesPage);
+    if ( isVisible ) {
+      setMoviesPage(moviesPage+1);
+    }
   },
   [isVisible]
 );
