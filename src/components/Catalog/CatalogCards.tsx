@@ -1,4 +1,4 @@
-import{ useContext, useRef, useEffect } from "react";
+import{ useContext, useRef } from "react";
 import { Card, Grid, CardActionArea, CardActions, CardMedia, Button } from '@material-ui/core';
 import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
 import { MoviesContext } from "../../services/context";
@@ -7,8 +7,6 @@ import './Catalog.scss';
 import noImage from '../../images/no-image-available.png';
 import loadingSpinner from '../../images/loading-spinner.gif';
 import { NavLink } from 'react-router-dom';
-//import 'intersection-observer';
-//import 'intersection-observer/intersection-observer.js'
 import useIntersectionObserver from '../../services/useIntersectionObserver';
 
 const posterBaseUrl = "https://image.tmdb.org/t/p/w300";
@@ -24,21 +22,6 @@ const CatalogCards = () =>  {
     setIsMoviePageFirstTimeOpened(true);
     setSelectedMovie(id);
   }
-  
-  /*
-  const isBottomVisible = useIntersectionObserver(
-    loadingRef,
-    {
-      threshold: 0 // to trigger event as soon as the element is in the viewport
-    },
-    false // to not remove the observer after intersected
-  );
-
-  useEffect(() => {
-    //load next page when bottom is visible
-    isBottomVisible && console.log("BOTTOM REACHED");
-  }, [isBottomVisible]);
-*/
 
 console.log(`LOADING REF VISIBLE`, { isVisible });
 
