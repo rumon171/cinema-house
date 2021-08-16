@@ -32,7 +32,7 @@ const CatalogCards = () =>  {
 
         fetchMovies(String(moviesPage))
           .then(nextPage => {
-            updateMovies((movies: Movie[]) => movies.concat(nextPage));
+            updateMovies((movies: Movie[]) => [...movies, ...nextPage]);
           })
           .catch(() => updateMovies([]))
       }
@@ -40,6 +40,8 @@ const CatalogCards = () =>  {
     // eslint-disable-next-line react-hooks/exhaustive-deps
     [isVisible]
   );
+
+  //useEffect(() => {}, [movies])
 
   return (
     <div >
