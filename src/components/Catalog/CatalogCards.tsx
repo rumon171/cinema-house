@@ -41,8 +41,6 @@ const CatalogCards = () =>  {
     [isVisible]
   );
 
-  //useEffect(() => {}, [movies])
-
   return (
     <div >
       <Grid container spacing={1} className="container-content">
