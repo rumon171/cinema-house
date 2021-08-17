@@ -8,7 +8,7 @@ import './Catalog.scss';
 import noImage from '../../images/no-image-available.png';
 import loadingSpinner from '../../images/loading-spinner.gif';
 import { NavLink } from 'react-router-dom';
-import useIntersectionObserver from '../../services/useIntersectionObserver';
+import useIntersectionObserver from '../../customHooks/useIntersectionObserver';
 import { fetchMovies } from "../../services/movies.service";
 
 const posterBaseUrl = "https://image.tmdb.org/t/p/w300";
