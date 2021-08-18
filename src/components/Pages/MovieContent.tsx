@@ -1,16 +1,25 @@
+import React from 'react';
 import { useState, useEffect, useContext } from "react";
 import { Movie, fetchSelectedMovie, fetchSimilarMovies } from "../../services/movies.service";
 import { Grid, Card, CardMedia, Button } from '@material-ui/core';
 import { MoviesContext } from "../../services/context";
 import CardsGrid from '../GeneralComponents/CardsGrid';
-import { connect } from 'react-redux'
+import { RootState } from '../../reducer';
+import { useSelector } from 'react-redux';
 import './Pages.scss';
 import noImage from '../../images/no-image-available.png';
 const posterBaseUrl = "https://image.tmdb.org/t/p/w300";
 
 const MovieContent = (props: any) => {
 
-  const { selectedMovie } = useContext(MoviesContext);
+  //const { selectedMovie } = useContext(MoviesContext);
+  const selectedMovie = useSelector((state: RootState) => state.selectedMovie);
+/*
+  let userData = useSelector((state: RootState) => {
+    return state.user.data;
+  });
+*/
+
 
   const movieIdFromUrl = document.URL.split('/').pop();
   const [movie, setMovie] = useState<Movie>(
@@ -112,19 +121,3 @@ const MovieContent = (props: any) => {
 }
 
 export default MovieContent;
-
-function mapStateToProps(state: any) {
-  const { mainState } = state
-  return { selectedMovie: mainState.selectedMovie }
-}
-
-/*
-const mapDispatchToProps = {
-  increase: () => ({ type: "INCREASE_COUNTER" })
-};
-*/
-
-const AppContainer = connect(
-  mapStateToProps,
-  //mapDispatchToProps
-)(MovieContent);

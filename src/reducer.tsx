@@ -4,7 +4,7 @@ const initialState = {
     selectedMovie: 0,
   }
 
-function appReducer( state = initialState, action ){
+function rootReducer( state = initialState, action ){
     switch(action.type) {
         case ADD_SELECTED_MOVIE:
             return {
@@ -16,4 +16,5 @@ function appReducer( state = initialState, action ){
      }
 }
 
-export default appReducer;
+export default rootReducer;
+export type RootState = ReturnType<typeof rootReducer>
