@@ -4,7 +4,7 @@ const initialState = {
     selectedMovie: 0,
   }
 
-function rootReducer( state = initialState, action ){
+function rootReducer( state = initialState, action: any ){
     switch(action.type) {
         case ADD_SELECTED_MOVIE:
             return {

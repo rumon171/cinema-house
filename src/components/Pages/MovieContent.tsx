@@ -12,14 +12,7 @@ const posterBaseUrl = "https://image.tmdb.org/t/p/w300";
 
 const MovieContent = (props: any) => {
 
-  //const { selectedMovie } = useContext(MoviesContext);
   const selectedMovie = useSelector((state: RootState) => state.selectedMovie);
-/*
-  let userData = useSelector((state: RootState) => {
-    return state.user.data;
-  });
-*/
-
 
   const movieIdFromUrl = document.URL.split('/').pop();
   const [movie, setMovie] = useState<Movie>(
