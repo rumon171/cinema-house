@@ -69,17 +69,17 @@ const CatalogCards = () =>  {
             </Grid>
           ))
           :
-            searchedMovie ?
-            <div className="">Try a different phrase...</div>
-            :
-            <CardMedia
-            component="img"
-            image={loadingSpinner}
-            className="loading-spinner"
+          searchedMovie ?
+          <div className="">Try a different phrase...</div>
+          :
+          <CardMedia
+          component="img"
+          image={loadingSpinner}
+          className="loading-spinner"
           />
         }
       </Grid>
-      <div ref={loadingRef}>...</div>
+      <div ref={loadingRef}></div>
     </div>
   );
 }
