@@ -1,8 +1,8 @@
-export const SET_SELECTED_MOVIE = 'SET_SELECTED_MOVIE' // action types
+export const ADD_SELECTED_MOVIE = 'ADD_SELECTED_MOVIE' // action types
 
-function setselectedMovie(selectedMovie) {
+function addSelectedMovie(selectedMovie) {
    return { 
-      type: 'SET_SELECTED_MOVIE', 
+      type: 'ADD_SELECTED_MOVIE', 
       payload: selectedMovie 
    }
  }
