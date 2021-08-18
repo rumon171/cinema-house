@@ -3,6 +3,7 @@ import { Movie, fetchSelectedMovie, fetchSimilarMovies } from "../../services/mo
 import { Grid, Card, CardMedia, Button } from '@material-ui/core';
 import { MoviesContext } from "../../services/context";
 import CardsGrid from '../GeneralComponents/CardsGrid';
+import { connect } from 'react-redux'
 import './Pages.scss';
 import noImage from '../../images/no-image-available.png';
 const posterBaseUrl = "https://image.tmdb.org/t/p/w300";
@@ -117,4 +118,13 @@ function mapStateToProps(state: any) {
   return { selectedMovie: mainState.selectedMovie }
 }
 
-export default connect(mapStateToProps)(ProfileContainer);
+/*
+const mapDispatchToProps = {
+  increase: () => ({ type: "INCREASE_COUNTER" })
+};
+*/
+
+const AppContainer = connect(
+  mapStateToProps,
+  //mapDispatchToProps
+)(MovieContent);
