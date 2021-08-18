@@ -1,15 +1,19 @@
 import { ADD_SELECTED_MOVIE } from "../actions";
 
-function dataReducer( state={selectedMovies: []}, action ){
+const initialState = {
+    selectedMovie: 0,
+  }
+
+function appReducer( state = initialState, action ){
     switch(action.type) {
         case ADD_SELECTED_MOVIE:
-          return Object.assign({}, state, 
-              {
-                selectedMovies: [...state.selectedMovies, action.selectedMovies]
-               }); 
+            return {
+                ...state,
+                selectedMovie: action.selectedMovie,
+            }
          default: 
            return state;
      }
 }
 
-export default dataReducer;
+export default appReducer;
