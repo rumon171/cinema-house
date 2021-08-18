@@ -16,11 +16,10 @@ function App() {
   const [moviesPage, setMoviesPage] = useState(1);
 
   useEffect(() => {
-    fetchMovies(String(moviesPage))
+    fetchMovies('1')
       .then(updateMovies)
       .catch(() => updateMovies([]));
-
-  }, [moviesPage]);
+  }, []);
   
   return (
     <MoviesContext.Provider value={{ 
