@@ -1,4 +1,4 @@
-import { ADD_SELECTED_MOVIE } from "../actions";
+import { ADD_SELECTED_MOVIE } from "./actions";
 
 const initialState = {
     selectedMovie: 0,
