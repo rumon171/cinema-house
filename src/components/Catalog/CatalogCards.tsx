@@ -2,7 +2,6 @@ import{ useContext, useRef, useEffect } from "react";
 import { Card, Grid, CardActionArea, CardActions, CardMedia, Button } from '@material-ui/core';
 import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
 import { MoviesContext } from "../../services/context";
-import { Movie } from "../../services/movies.service";
 import '../../App.scss';
 import './Catalog.scss';
 import noImage from '../../images/no-image-available.png';
@@ -26,13 +25,11 @@ const CatalogCards = () =>  {
 
   useEffect (
     () => {
-      console.log(`LOADING REF VISIBLE`, { isVisible }, " page ", moviesPage);
       if ( isVisible ) {
         setMoviesPage(moviesPage+1);
-
         fetchMovies(String(moviesPage))
           .then(nextPage => {
-            updateMovies((movies: Movie[]) => [...movies, ...nextPage]);
+            updateMovies([...movies, ...nextPage]);
           })
           .catch(() => updateMovies([]))
       }
