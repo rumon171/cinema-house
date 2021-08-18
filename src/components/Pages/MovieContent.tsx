@@ -111,3 +111,10 @@ const MovieContent = (props: any) => {
 }
 
 export default MovieContent;
+
+function mapStateToProps(state: any) {
+  const { mainState } = state
+  return { selectedMovie: mainState.selectedMovie }
+}
+
+export default connect(mapStateToProps)(ProfileContainer);
