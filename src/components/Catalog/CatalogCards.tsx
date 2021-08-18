@@ -26,12 +26,14 @@ const CatalogCards = () =>  {
   useEffect (
     () => {
       if ( isVisible ) {
-        setMoviesPage(moviesPage+1);
-        fetchMovies(String(moviesPage))
-          .then(nextPage => {
-            updateMovies([...movies, ...nextPage]);
-          })
-          .catch(() => updateMovies([]))
+        if (moviesPage <= 500) {
+          setMoviesPage(moviesPage+1);
+          fetchMovies(String(moviesPage))
+            .then(nextPage => {
+              updateMovies([...movies, ...nextPage]);
+            })
+            .catch(() => updateMovies([]))
+        }
       }
     },
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -79,7 +81,7 @@ const CatalogCards = () =>  {
           />
         }
       </Grid>
-      <div ref={loadingRef}></div>
+      <div ref={loadingRef}>{moviesPage <= 500 ? '...' : "You've seen all movies;)"}</div>
     </div>
   );
 }
