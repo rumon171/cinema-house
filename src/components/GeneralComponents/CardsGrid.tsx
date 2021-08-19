@@ -3,6 +3,7 @@ import { Card, Grid, CardActionArea, CardActions, CardMedia, Button } from '@mat
 import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
 import { MoviesContext } from "../../services/context";
 import { Movie } from "../../services/movies.service";
+import { useSelector } from 'react-redux';
 import noImage from '../../images/no-image-available.png';
 
 const posterBaseUrl = "https://image.tmdb.org/t/p/w300";
@@ -20,6 +21,9 @@ const CardsGrid: React.FC<Props> = (
   }: Props) =>{
 
   const cards = similarMovies;
+
+  //const selectedMovie = useSelector((state: RootState) => state.selectedMovie);
+
 
   const { setSelectedMovie, setIsMoviePageFirstTimeOpened } = useContext(MoviesContext);  
 

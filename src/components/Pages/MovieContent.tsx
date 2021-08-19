@@ -1,8 +1,7 @@
 import React from 'react';
-import { useState, useEffect, useContext } from "react";
+import { useState, useEffect } from "react";
 import { Movie, fetchSelectedMovie, fetchSimilarMovies } from "../../services/movies.service";
 import { Grid, Card, CardMedia, Button } from '@material-ui/core';
-import { MoviesContext } from "../../services/context";
 import CardsGrid from '../GeneralComponents/CardsGrid';
 import { RootState } from '../../reducer';
 import { useSelector } from 'react-redux';
@@ -33,8 +32,9 @@ const MovieContent = (props: any) => {
   const movieGenresAmount = movie.genres?.length ?? 0;
 
   useEffect(() => {
-      const movieId = selectedMovie !== 0 ? selectedMovie : Number(movieIdFromUrl);
 
+      const movieId = selectedMovie !== 0 ? selectedMovie : Number(movieIdFromUrl);
+console.log("CALLED")
       const callAPI = async () => {  
         const fetchedSelectedMovieInfo = await fetchSelectedMovie(movieId);
         setMovie(fetchedSelectedMovieInfo);
@@ -48,8 +48,8 @@ const MovieContent = (props: any) => {
       }
 
       callAPI();
-
-  }, [selectedMovie, movieIdFromUrl]);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <>
