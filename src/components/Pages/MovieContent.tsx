@@ -34,8 +34,6 @@ const MovieContent = (props: any) => {
   const movieGenresAmount = movie.genres?.length ?? 0;
 
   useEffect(() => {
-    console.log("moviesContect selectedMovie ", selectedMovie);
-
       const movieId = selectedMovie !== 0 ? selectedMovie : Number(movieIdFromUrl);
       const callAPI = async () => {  
         const fetchedSelectedMovieInfo = await fetchSelectedMovie(movieId);

@@ -23,10 +23,8 @@ const CatalogCards = () =>  {
   const dispatch: Dispatch<any> = useDispatch();
 
   const SetSelectedMovieId = (id: number) => {
-    setIsMoviePageFirstTimeOpened(true); // WHY THIS IS NEEDED?
+   // setIsMoviePageFirstTimeOpened(true);
     dispatch(addSelectedMovie(id));
-    //setSelectedMovie(id); 
-    console.log("catalogCards MOVIE ID ", id);
   }
 
   useEffect (
