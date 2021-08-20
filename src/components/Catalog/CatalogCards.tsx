@@ -16,14 +16,14 @@ import { fetchMovies } from "../../services/movies.service";
 const posterBaseUrl = "https://image.tmdb.org/t/p/w300";
 
 const CatalogCards = () =>  {
-  const { movies, updateMovies, searchedMovie, moviesPage, setMoviesPage, setSelectedMovie, setIsMoviePageFirstTimeOpened } = useContext(MoviesContext);
+  const { movies, updateMovies, searchedMovie, moviesPage, setMoviesPage, setIsMoviePageFirstTimeOpened } = useContext(MoviesContext);
   const loadingRef = useRef<HTMLDivElement | null>(null);
   const entry = useIntersectionObserver(loadingRef, {})
   const isVisible = !!entry?.isIntersecting;
   const dispatch: Dispatch<any> = useDispatch();
 
   const SetSelectedMovieId = (id: number) => {
-   // setIsMoviePageFirstTimeOpened(true);
+    setIsMoviePageFirstTimeOpened(true);
     dispatch(addSelectedMovie(id));
   }
 

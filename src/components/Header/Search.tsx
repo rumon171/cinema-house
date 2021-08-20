@@ -29,6 +29,7 @@ const Search = (props: any) => {
 
   useEffect(()=>{
     if (searchedMovie) {
+      console.log('inside useEffect, searchedMovie ', searchedMovie);
       fetchSearchedMovie(searchedMovie)
         .then((res) => updateMovies(res))
         .catch(() => updateMovies([]));
