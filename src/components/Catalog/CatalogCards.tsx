@@ -2,6 +2,9 @@ import{ useContext, useRef, useEffect } from "react";
 import { Card, Grid, CardActionArea, CardActions, CardMedia, Button } from '@material-ui/core';
 import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
 import { MoviesContext } from "../../services/context";
+import { Dispatch } from "redux"
+import { useDispatch } from 'react-redux';
+import { addSelectedMovie } from '../../actions';
 import '../../App.scss';
 import './Catalog.scss';
 import noImage from '../../images/no-image-available.png';
@@ -17,10 +20,13 @@ const CatalogCards = () =>  {
   const loadingRef = useRef<HTMLDivElement | null>(null);
   const entry = useIntersectionObserver(loadingRef, {})
   const isVisible = !!entry?.isIntersecting;
+  const dispatch: Dispatch<any> = useDispatch();
 
   const SetSelectedMovieId = (id: number) => {
-    setIsMoviePageFirstTimeOpened(true);
-    setSelectedMovie(id);
+    setIsMoviePageFirstTimeOpened(true); // WHY THIS IS NEEDED?
+    dispatch(addSelectedMovie(id));
+    //setSelectedMovie(id); 
+    console.log("catalogCards MOVIE ID ", id);
   }
 
   useEffect (
@@ -46,7 +52,7 @@ const CatalogCards = () =>  {
         { 
         movies.length > 0 
           ? 
-          movies.map((movie, i) => (
+          movies.map((movie) => (
             <Grid item xs={12} sm={6} md={3} lg={2} key={movie.id}>
               <NavLink to={'/movie/' + movie.id}>
                 <Card className="card-list" onClick={() => SetSelectedMovieId(movie.id)} >

@@ -32,9 +32,9 @@ const MovieContent = (props: any) => {
   const movieGenresAmount = movie.genres?.length ?? 0;
 
   useEffect(() => {
+    console.log("selectedMovie ", selectedMovie);
 
       const movieId = selectedMovie !== 0 ? selectedMovie : Number(movieIdFromUrl);
-console.log("CALLED")
       const callAPI = async () => {  
         const fetchedSelectedMovieInfo = await fetchSelectedMovie(movieId);
         setMovie(fetchedSelectedMovieInfo);
@@ -49,7 +49,7 @@ console.log("CALLED")
 
       callAPI();
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [selectedMovie]);
 
   return (
     <>

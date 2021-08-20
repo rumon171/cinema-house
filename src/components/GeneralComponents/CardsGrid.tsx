@@ -3,7 +3,9 @@ import { Card, Grid, CardActionArea, CardActions, CardMedia, Button } from '@mat
 import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
 import { MoviesContext } from "../../services/context";
 import { Movie } from "../../services/movies.service";
-import { useSelector } from 'react-redux';
+import { Dispatch } from "redux"
+import { useDispatch } from 'react-redux';
+import { addSelectedMovie } from '../../actions';
 import noImage from '../../images/no-image-available.png';
 
 const posterBaseUrl = "https://image.tmdb.org/t/p/w300";
@@ -22,14 +24,14 @@ const CardsGrid: React.FC<Props> = (
 
   const cards = similarMovies;
 
-  //const selectedMovie = useSelector((state: RootState) => state.selectedMovie);
-
-
-  const { setSelectedMovie, setIsMoviePageFirstTimeOpened } = useContext(MoviesContext);  
+  const { setSelectedMovie, setIsMoviePageFirstTimeOpened } = useContext(MoviesContext);
+  const dispatch: Dispatch<any> = useDispatch();
 
   const SetSelectedMovieId = (id: number) => {
     setIsMoviePageFirstTimeOpened(true);
-    setSelectedMovie(id);
+    dispatch(addSelectedMovie(id));
+    //setSelectedMovie(id);
+    console.log("CardsGrid MOVIE ID ", id);
   }
 
   return (
