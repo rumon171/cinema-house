@@ -1,4 +1,4 @@
-import { ADD_SELECTED_MOVIE } from "./actions";
+import { CHANGE_SELECTED_MOVIE } from "./actions";
 
 const initialState = {
     selectedMovie: 0,
@@ -6,7 +6,7 @@ const initialState = {
 
 function rootReducer( state = initialState, action: any ){
     switch(action.type) {
-        case ADD_SELECTED_MOVIE:
+        case CHANGE_SELECTED_MOVIE:
             return {
                 ...state,
                 selectedMovie: action.payload

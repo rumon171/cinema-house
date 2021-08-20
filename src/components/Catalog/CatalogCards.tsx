@@ -4,7 +4,7 @@ import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
 import { MoviesContext } from "../../services/context";
 import { Dispatch } from "redux"
 import { useDispatch } from 'react-redux';
-import { addSelectedMovie } from '../../actions';
+import { changeSelectedMovie } from '../../actions';
 import '../../App.scss';
 import './Catalog.scss';
 import noImage from '../../images/no-image-available.png';
@@ -24,7 +24,7 @@ const CatalogCards = () =>  {
 
   const SetSelectedMovieId = (id: number) => {
     setIsMoviePageFirstTimeOpened(true);
-    dispatch(addSelectedMovie(id));
+    dispatch(changeSelectedMovie(id));
   }
 
   useEffect (

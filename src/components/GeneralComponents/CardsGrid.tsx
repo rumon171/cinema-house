@@ -5,7 +5,7 @@ import { MoviesContext } from "../../services/context";
 import { Movie } from "../../services/movies.service";
 import { Dispatch } from "redux"
 import { useDispatch } from 'react-redux';
-import { addSelectedMovie } from '../../actions';
+import { changeSelectedMovie } from '../../actions';
 import noImage from '../../images/no-image-available.png';
 
 const posterBaseUrl = "https://image.tmdb.org/t/p/w300";
@@ -28,7 +28,7 @@ const CardsGrid: React.FC<Props> = (
 
   const SetSelectedMovieId = (id: number) => {
     setIsMoviePageFirstTimeOpened(true);
-    dispatch(addSelectedMovie(id));
+    dispatch(changeSelectedMovie(id));
   }
 
   return (

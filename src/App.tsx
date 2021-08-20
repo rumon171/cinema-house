@@ -10,7 +10,7 @@ import { Switch } from 'react-router-dom';
 
 function App() {
   const [movies, updateMovies] = useState<Movie[]>([]);
-  const [selectedMovie, setSelectedMovie] = useState(0);
+ // const [selectedMovie, setSelectedMovie] = useState(0);
   const [searchedMovie, setSearchedMovie] = useState<string>('');
   const [isMoviePageFirstTimeOpened, setIsMoviePageFirstTimeOpened] = useState<boolean>(false);
   const [moviesPage, setMoviesPage] = useState(1);
@@ -25,8 +25,8 @@ function App() {
     <MoviesContext.Provider value={{ 
         movies, 
         updateMovies, 
-        selectedMovie, 
-        setSelectedMovie, 
+        //selectedMovie, 
+      //  setSelectedMovie, 
         searchedMovie, 
         setSearchedMovie, 
         isMoviePageFirstTimeOpened, 
