@@ -11,7 +11,9 @@ const posterBaseUrl = "https://image.tmdb.org/t/p/w300";
 
 const MovieContent = (props: any) => {
 
-  const selectedMovie = useSelector((state: RootState) => state.selectedMovie);
+  const selectedMovie = useSelector(
+    (state: RootState) => state.selectedMovie
+  );
 
   const movieIdFromUrl = document.URL.split('/').pop();
   const [movie, setMovie] = useState<Movie>(
@@ -32,7 +34,7 @@ const MovieContent = (props: any) => {
   const movieGenresAmount = movie.genres?.length ?? 0;
 
   useEffect(() => {
-    console.log("selectedMovie ", selectedMovie);
+    console.log("moviesContect selectedMovie ", selectedMovie);
 
       const movieId = selectedMovie !== 0 ? selectedMovie : Number(movieIdFromUrl);
       const callAPI = async () => {  

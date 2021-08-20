@@ -18,7 +18,6 @@ interface Props {
 
 const CardsGrid: React.FC<Props> = (
   {
-    xsValue,
     similarMovies,
   }: Props) =>{
 
