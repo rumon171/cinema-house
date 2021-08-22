@@ -4,10 +4,7 @@ import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
 import { MoviesContext } from "../../services/context";
 import { Dispatch } from "redux";
 import { useDispatch } from 'react-redux';
-import { 
-  changeSelectedMovie, 
-  isMoviePageOpened
- } from '../../actions';
+import { changeSelectedMovie, isMoviePageOpened } from '../../actions';
 import '../../App.scss';
 import './Catalog.scss';
 import noImage from '../../images/no-image-available.png';
@@ -15,15 +12,22 @@ import loadingSpinner from '../../images/loading-spinner.gif';
 import { NavLink } from 'react-router-dom';
 import useIntersectionObserver from '../../customHooks/useIntersectionObserver';
 import { fetchMovies } from "../../services/movies.service";
+import { RootState } from '../../reducer';
+import { useSelector } from 'react-redux';
 
 const posterBaseUrl = "https://image.tmdb.org/t/p/w300";
 
 const CatalogCards = () =>  {
-  const { movies, updateMovies, searchedMovie, moviesPage, setMoviesPage } = useContext(MoviesContext);
+  //const { movies, updateMovies, searchedMovie, moviesPage, setMoviesPage } = useContext(MoviesContext);
+  const { movies, updateMovies, moviesPage, setMoviesPage } = useContext(MoviesContext);
   const loadingRef = useRef<HTMLDivElement | null>(null);
   const entry = useIntersectionObserver(loadingRef, {})
   const isVisible = !!entry?.isIntersecting;
   const dispatch: Dispatch<any> = useDispatch();
+
+  const searchedMovie = useSelector(
+    (state: RootState) => state.searchedMovie
+  );
 
   const SetSelectedMovieId = (id: number) => {
     dispatch(isMoviePageOpened(true));

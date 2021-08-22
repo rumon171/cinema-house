@@ -7,11 +7,15 @@ import { useHistory } from 'react-router-dom';
 import { RootState } from '../../reducer';
 import { Dispatch } from "redux";
 import { useSelector, useDispatch } from 'react-redux';
-import { isMoviePageOpened } from '../../actions';
+import { isMoviePageOpened, changeSearchedMovie } from '../../actions';
 
 const Search = (props: any) => {
   
-  const { updateMovies, searchedMovie, setSearchedMovie } = useContext(MoviesContext);
+  //const { updateMovies, searchedMovie, setSearchedMovie } = useContext(MoviesContext);
+  const { updateMovies } = useContext(MoviesContext);
+  const searchedMovie = useSelector(
+    (state: RootState) => state.searchedMovie
+  );
   const dispatch: Dispatch<any> = useDispatch();
   let history = useHistory();
 
@@ -21,7 +25,8 @@ const Search = (props: any) => {
   
   const fetchMoviesList = (event: any) => {
     const searchedMovieValue = event.target.value;
-    setSearchedMovie(searchedMovieValue);
+    //setSearchedMovie(searchedMovieValue);
+    dispatch(changeSearchedMovie(searchedMovieValue));
 
     if (isMovieOpened === true) {
       dispatch(isMoviePageOpened(false));

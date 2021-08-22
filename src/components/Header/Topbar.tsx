@@ -6,15 +6,16 @@ import Search from './Search';
 import { NavLink } from 'react-router-dom';
 import { Dispatch } from "redux";
 import { useDispatch } from 'react-redux';
-import { isMoviePageOpened } from '../../actions';
+import { isMoviePageOpened, changeSearchedMovie } from '../../actions';
 
 const Topbar = (props: any) => {
 
   const { setSearchedMovie } = useContext(MoviesContext);
   const dispatch: Dispatch<any> = useDispatch();
 
-  const handleSearchedMovie = () => {
-    setSearchedMovie('');
+  const handleHomePageLink = () => {
+    //setSearchedMovie('');
+    dispatch(changeSearchedMovie(''));
     dispatch(isMoviePageOpened(false));
   }
 
@@ -22,7 +23,7 @@ const Topbar = (props: any) => {
     <>
       <AppBar>
         <Toolbar className="top-bar">
-          <NavLink to={'/'} onClick={handleSearchedMovie}>
+          <NavLink to={'/'} onClick={handleHomePageLink}>
             <h1 className="top-bar-title">
               MoviesApp
             </h1>
