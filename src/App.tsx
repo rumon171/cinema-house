@@ -10,7 +10,6 @@ import { Switch } from 'react-router-dom';
 
 function App() {
   const [movies, updateMovies] = useState<Movie[]>([]);
-  const [moviesPage, setMoviesPage] = useState(1);
 
   useEffect(() => {
     fetchMovies('1')
@@ -21,9 +20,7 @@ function App() {
   return (
     <MoviesContext.Provider value={{ 
         movies, 
-        updateMovies, 
-        moviesPage,
-        setMoviesPage
+        updateMovies
         }}>
       <div className="App">
         <div className="container typography-base ">

@@ -18,7 +18,7 @@ import { useSelector } from 'react-redux';
 const posterBaseUrl = "https://image.tmdb.org/t/p/w300";
 
 const CatalogCards = () =>  {
-  const { movies, updateMovies, moviesPage, setMoviesPage } = useContext(MoviesContext);
+  const { movies, updateMovies } = useContext(MoviesContext);
   const loadingRef = useRef<HTMLDivElement | null>(null);
   const entry = useIntersectionObserver(loadingRef, {})
   const isVisible = !!entry?.isIntersecting;
@@ -35,7 +35,6 @@ const CatalogCards = () =>  {
     () => {
       if ( isVisible ) {
         if (currentPage <= 500) {
-        //  setMoviesPage(moviesPage+1);
           dispatch(changeCurrentPage(currentPage+1));
           fetchMovies(String(currentPage))
             .then(nextPage => {
