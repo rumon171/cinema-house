@@ -8,7 +8,7 @@ import { RootState } from '../../reducer';
 import { Dispatch } from "redux";
 import { useSelector, useDispatch } from 'react-redux';
 import { 
-  isMoviePageFirstTimeOpened
+  isMoviePageOpened
  } from '../../actions';
 import { findAllByDisplayValue } from '@testing-library/react';
 
@@ -18,18 +18,20 @@ const Search = (props: any) => {
   const dispatch: Dispatch<any> = useDispatch();
   let history = useHistory();
 
-  const isMovieFirstTimeOpened = useSelector(
-    (state: RootState) => state.isMovieFirstTimeOpened
+  const isMovieOpened = useSelector(
+    (state: RootState) => state.isMoviePageOpened
   );
   
   const fetchMoviesList = (event: any) => {
     const searchedMovieValue = event.target.value;
     setSearchedMovie(searchedMovieValue);
+    console.log("FETCHING MOVIES ")
 
-    if (isMovieFirstTimeOpened === true) {
+    if (isMovieOpened === true) {
+      console.log("FIRST TIME Opened")
       //setIsMoviePageFirstTimeOpened(false);
       // WHY I GET ERROR HERE?
-     // dispatch(isMoviePageFirstTimeOpened(false));
+      dispatch(isMoviePageOpened(false));
       history.push("/");
     }
   }
@@ -42,7 +44,6 @@ const Search = (props: any) => {
 
   useEffect(()=>{
     if (searchedMovie) {
-      console.log('inside useEffect, searchedMovie ', searchedMovie);
       fetchSearchedMovie(searchedMovie)
         .then((res) => updateMovies(res))
         .catch(() => updateMovies([]));

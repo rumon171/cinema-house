@@ -1,5 +1,5 @@
 export const CHANGE_SELECTED_MOVIE = 'CHANGE_SELECTED_MOVIE' // action types
-export const IS_MOVIE_PAGE_FIRST_TIME_OPENED = 'IS_MOVIE_PAGE_FIRST_TIME_OPENED' // action types
+export const IS_MOVIE_PAGE_OPENED = 'IS_MOVIE_PAGE_OPENED' // action types
 
 export function changeSelectedMovie ( id ) {
    return { 
@@ -8,9 +8,9 @@ export function changeSelectedMovie ( id ) {
    }
  }
 
- export function isMoviePageFirstTimeOpened ( boolean ) {
+ export function isMoviePageOpened ( boolean ) {
    return {
-      type: IS_MOVIE_PAGE_FIRST_TIME_OPENED,
-      isMovieFirstTimeOpened: boolean,
+      type: IS_MOVIE_PAGE_OPENED,
+      isMoviePageOpened: boolean,
    }
 }

@@ -1,11 +1,11 @@
 import { 
   CHANGE_SELECTED_MOVIE, 
-  IS_MOVIE_PAGE_FIRST_TIME_OPENED 
+  IS_MOVIE_PAGE_OPENED 
 } from "./actions";
 
 const initialState = {
     selectedMovie: 0,
-    isMovieFirstTimeOpened: false,
+    isMoviePageOpened: false,
   }
 
 function rootReducer( state = initialState, action: any ){
@@ -15,10 +15,10 @@ function rootReducer( state = initialState, action: any ){
                 ...state,
                 selectedMovie: action.selectedMovie
             }
-        case IS_MOVIE_PAGE_FIRST_TIME_OPENED:
+        case IS_MOVIE_PAGE_OPENED:
             return {
                 ...state,
-                isMovieFirstTimeOpened: action.isMovieFirstTimeOpened
+                isMoviePageOpened: action.isMoviePageOpened
             }
          default: 
            return state;

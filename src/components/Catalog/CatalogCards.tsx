@@ -6,7 +6,7 @@ import { Dispatch } from "redux";
 import { useDispatch } from 'react-redux';
 import { 
   changeSelectedMovie, 
-  isMoviePageFirstTimeOpened
+  isMoviePageOpened
  } from '../../actions';
 import '../../App.scss';
 import './Catalog.scss';
@@ -27,7 +27,7 @@ const CatalogCards = () =>  {
 
   const SetSelectedMovieId = (id: number) => {
     //setIsMoviePageFirstTimeOpened(true);
-    dispatch(isMoviePageFirstTimeOpened(true));
+    dispatch(isMoviePageOpened(true));
     dispatch(changeSelectedMovie(id));
   }
 

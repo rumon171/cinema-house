@@ -7,7 +7,7 @@ import { Dispatch } from "redux";
 import { useDispatch } from 'react-redux';
 import { 
   changeSelectedMovie, 
-  isMoviePageFirstTimeOpened
+  isMoviePageOpened
  } from '../../actions';
 import noImage from '../../images/no-image-available.png';
 
@@ -31,7 +31,7 @@ const CardsGrid: React.FC<Props> = (
 
   const SetSelectedMovieId = (id: number) => {
     //setIsMoviePageFirstTimeOpened(true);
-    dispatch(isMoviePageFirstTimeOpened(true));
+    dispatch(isMoviePageOpened(true));
     dispatch(changeSelectedMovie(id));
   }
 
