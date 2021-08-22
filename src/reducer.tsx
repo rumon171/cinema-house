@@ -5,6 +5,7 @@ import {
 
 const initialState = {
     selectedMovie: 0,
+    isMovieFirstTimeOpened: false,
   }
 
 function rootReducer( state = initialState, action: any ){

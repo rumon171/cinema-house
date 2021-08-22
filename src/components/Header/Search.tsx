@@ -10,6 +10,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { 
   isMoviePageFirstTimeOpened
  } from '../../actions';
+import { findAllByDisplayValue } from '@testing-library/react';
 
 const Search = (props: any) => {
   
@@ -18,7 +19,7 @@ const Search = (props: any) => {
   let history = useHistory();
 
   const isMovieFirstTimeOpened = useSelector(
-    (state: RootState) => state.selectedMovie
+    (state: RootState) => state.isMovieFirstTimeOpened
   );
   
   const fetchMoviesList = (event: any) => {
@@ -27,7 +28,8 @@ const Search = (props: any) => {
 
     if (isMovieFirstTimeOpened === true) {
       //setIsMoviePageFirstTimeOpened(false);
-      dispatch(isMoviePageFirstTimeOpened(false));
+      // WHY I GET ERROR HERE?
+     // dispatch(isMoviePageFirstTimeOpened(false));
       history.push("/");
     }
   }
