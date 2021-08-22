@@ -23,10 +23,8 @@ const CatalogCards = () =>  {
   const entry = useIntersectionObserver(loadingRef, {})
   const isVisible = !!entry?.isIntersecting;
   const dispatch: Dispatch<any> = useDispatch();
-
-  const searchedMovie = useSelector(
-    (state: RootState) => state.searchedMovie
-  );
+  const searchedMovie = useSelector((state: RootState) => state.searchedMovie);
+  const currentPage = useSelector((state: RootState) => state.currentPage);
 
   const SetSelectedMovieId = (id: number) => {
     dispatch(isMoviePageOpened(true));

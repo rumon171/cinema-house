@@ -35,7 +35,7 @@ function rootReducer( state = initialState, action: any ){
                 currentPage: action.currentPage
             }
          default: 
-           return state;
+            return state;
      }
 }
 
