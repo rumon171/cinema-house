@@ -6,8 +6,6 @@ export const MoviesContext = React.createContext<{
     updateMovies: Function;
     searchedMovie: string;
     setSearchedMovie: (value: string) => void;
-    isMoviePageFirstTimeOpened: boolean;
-    setIsMoviePageFirstTimeOpened: (value: boolean) => void;
     moviesPage: number;
     setMoviesPage: (value: number) => void;
   }>({
@@ -15,8 +13,6 @@ export const MoviesContext = React.createContext<{
     updateMovies: Function,
     searchedMovie: '',
     setSearchedMovie: () => {},
-    isMoviePageFirstTimeOpened: false,
-    setIsMoviePageFirstTimeOpened: () => {},
     moviesPage: 1,
     setMoviesPage: () => {}
   });

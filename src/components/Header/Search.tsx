@@ -7,14 +7,11 @@ import { useHistory } from 'react-router-dom';
 import { RootState } from '../../reducer';
 import { Dispatch } from "redux";
 import { useSelector, useDispatch } from 'react-redux';
-import { 
-  isMoviePageOpened
- } from '../../actions';
-import { findAllByDisplayValue } from '@testing-library/react';
+import { isMoviePageOpened } from '../../actions';
 
 const Search = (props: any) => {
   
-  const { updateMovies, searchedMovie, setSearchedMovie, isMoviePageFirstTimeOpened, setIsMoviePageFirstTimeOpened } = useContext(MoviesContext);
+  const { updateMovies, searchedMovie, setSearchedMovie } = useContext(MoviesContext);
   const dispatch: Dispatch<any> = useDispatch();
   let history = useHistory();
 
@@ -25,12 +22,8 @@ const Search = (props: any) => {
   const fetchMoviesList = (event: any) => {
     const searchedMovieValue = event.target.value;
     setSearchedMovie(searchedMovieValue);
-    console.log("FETCHING MOVIES ")
 
     if (isMovieOpened === true) {
-      console.log("FIRST TIME Opened")
-      //setIsMoviePageFirstTimeOpened(false);
-      // WHY I GET ERROR HERE?
       dispatch(isMoviePageOpened(false));
       history.push("/");
     }

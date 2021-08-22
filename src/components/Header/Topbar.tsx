@@ -4,13 +4,18 @@ import {AppBar, Toolbar} from '@material-ui/core';
 import './Header.scss';
 import Search from './Search';
 import { NavLink } from 'react-router-dom';
+import { Dispatch } from "redux";
+import { useDispatch } from 'react-redux';
+import { isMoviePageOpened } from '../../actions';
 
 const Topbar = (props: any) => {
 
   const { setSearchedMovie } = useContext(MoviesContext);
+  const dispatch: Dispatch<any> = useDispatch();
 
   const handleSearchedMovie = () => {
     setSearchedMovie('');
+    dispatch(isMoviePageOpened(false));
   }
 
   return (

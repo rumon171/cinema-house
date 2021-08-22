@@ -25,12 +25,9 @@ const CardsGrid: React.FC<Props> = (
   }: Props) =>{
 
   const cards = similarMovies;
-
-  const { setIsMoviePageFirstTimeOpened } = useContext(MoviesContext);
   const dispatch: Dispatch<any> = useDispatch();
 
   const SetSelectedMovieId = (id: number) => {
-    //setIsMoviePageFirstTimeOpened(true);
     dispatch(isMoviePageOpened(true));
     dispatch(changeSelectedMovie(id));
   }
