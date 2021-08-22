@@ -25,6 +25,9 @@ function App() {
       .then(updateHomePageMovies)
       .catch(() => updateMovies([]));
 
+
+      console.log('movies ', movies);
+      console.log('homePageMovies ', homePageMovies);
     dispatch(addHomePageMovies(homePageMovies));
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
