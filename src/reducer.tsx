@@ -1,11 +1,13 @@
 import { 
-  CHANGE_SELECTED_MOVIE, 
-  IS_MOVIE_PAGE_OPENED,
-  SEARCHED_MOVIE,
-  CURRENT_PAGE
+    ADD_HOME_PAGE_MOVIES,
+    CHANGE_SELECTED_MOVIE, 
+    IS_MOVIE_PAGE_OPENED,
+    SEARCHED_MOVIE,
+    CURRENT_PAGE
 } from "./actions";
 
 const initialState = {
+    homePageMovies: [],
     selectedMovie: 0,
     isMoviePageOpened: false,
     searchedMovie: '',
@@ -14,6 +16,11 @@ const initialState = {
 
 function rootReducer( state = initialState, action: any ){
     switch(action.type) {
+        case ADD_HOME_PAGE_MOVIES:
+            return {
+                ...state,
+                homePageMovies: action.homePageMovies
+            }
         case CHANGE_SELECTED_MOVIE:
             return {
                 ...state,

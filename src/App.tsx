@@ -7,14 +7,26 @@ import MoviePage from './components/Pages/MoviePage';
 import { BrowserRouter } from 'react-router-dom';
 import { Route } from 'react-router-dom';
 import { Switch } from 'react-router-dom';
+import { Dispatch } from "redux";
+import { useDispatch } from 'react-redux';
+import { addHomePageMovies } from './actions';
 
 function App() {
   const [movies, updateMovies] = useState<Movie[]>([]);
+  const [homePageMovies, updateHomePageMovies] = useState<Movie[]>([]);
+  const dispatch: Dispatch<any> = useDispatch();
 
   useEffect(() => {
     fetchMovies('1')
       .then(updateMovies)
       .catch(() => updateMovies([]));
+
+    fetchMovies('1')
+      .then(updateHomePageMovies)
+      .catch(() => updateMovies([]));
+
+    dispatch(addHomePageMovies(homePageMovies));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   
   return (
