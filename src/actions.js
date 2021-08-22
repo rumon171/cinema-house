@@ -1,6 +1,7 @@
 export const CHANGE_SELECTED_MOVIE = 'CHANGE_SELECTED_MOVIE'
 export const IS_MOVIE_PAGE_OPENED = 'IS_MOVIE_PAGE_OPENED'
 export const SEARCHED_MOVIE = 'SEARCHED_MOVIE'
+export const MOVIES_PAGE = 'MOVIES_PAGE'
 
 export function changeSelectedMovie ( id ) {
    return { 
@@ -16,9 +17,16 @@ export function changeSelectedMovie ( id ) {
    }
 }
 
-export function changeSearchedMovie ( searchedMovie ) {
+export function changeSearchedMovie ( phrase ) {
    return {
       type: SEARCHED_MOVIE,
-      searchedMovie: searchedMovie
+      searchedMovie: phrase
+   }
+}
+
+export function changeMoviesPage ( number ) {
+   return {
+      type: MOVIES_PAGE,
+      currentPage: number
    }
 }
