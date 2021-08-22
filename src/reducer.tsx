@@ -9,7 +9,7 @@ function rootReducer( state = initialState, action: any ){
         case CHANGE_SELECTED_MOVIE:
             return {
                 ...state,
-                selectedMovie: action.payload
+                selectedMovie: action.selectedMovie
             }
          default: 
            return state;
