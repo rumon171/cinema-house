@@ -3,9 +3,12 @@ import { Card, Grid, CardActionArea, CardActions, CardMedia, Button } from '@mat
 import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
 import { MoviesContext } from "../../services/context";
 import { Movie } from "../../services/movies.service";
-import { Dispatch } from "redux"
+import { Dispatch } from "redux";
 import { useDispatch } from 'react-redux';
-import { changeSelectedMovie } from '../../actions';
+import { 
+  changeSelectedMovie, 
+  isMoviePageFirstTimeOpened
+ } from '../../actions';
 import noImage from '../../images/no-image-available.png';
 
 const posterBaseUrl = "https://image.tmdb.org/t/p/w300";
@@ -27,7 +30,8 @@ const CardsGrid: React.FC<Props> = (
   const dispatch: Dispatch<any> = useDispatch();
 
   const SetSelectedMovieId = (id: number) => {
-    setIsMoviePageFirstTimeOpened(true);
+    //setIsMoviePageFirstTimeOpened(true);
+    dispatch(isMoviePageFirstTimeOpened(true));
     dispatch(changeSelectedMovie(id));
   }
 

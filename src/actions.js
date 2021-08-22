@@ -8,9 +8,9 @@ export function changeSelectedMovie ( id ) {
    }
  }
 
- export function itemsRequestSuccess ( boolean ) {
+ export function isMoviePageFirstTimeOpened ( boolean ) {
    return {
       type: IS_MOVIE_PAGE_FIRST_TIME_OPENED,
-      isLoading: boolean,
+      isMovieFirstTimeOpened: boolean,
    }
 }

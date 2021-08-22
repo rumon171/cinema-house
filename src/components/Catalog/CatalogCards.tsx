@@ -2,9 +2,12 @@ import{ useContext, useRef, useEffect } from "react";
 import { Card, Grid, CardActionArea, CardActions, CardMedia, Button } from '@material-ui/core';
 import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
 import { MoviesContext } from "../../services/context";
-import { Dispatch } from "redux"
+import { Dispatch } from "redux";
 import { useDispatch } from 'react-redux';
-import { changeSelectedMovie } from '../../actions';
+import { 
+  changeSelectedMovie, 
+  isMoviePageFirstTimeOpened
+ } from '../../actions';
 import '../../App.scss';
 import './Catalog.scss';
 import noImage from '../../images/no-image-available.png';
@@ -23,7 +26,8 @@ const CatalogCards = () =>  {
   const dispatch: Dispatch<any> = useDispatch();
 
   const SetSelectedMovieId = (id: number) => {
-    setIsMoviePageFirstTimeOpened(true);
+    //setIsMoviePageFirstTimeOpened(true);
+    dispatch(isMoviePageFirstTimeOpened(true));
     dispatch(changeSelectedMovie(id));
   }
 

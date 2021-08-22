@@ -4,19 +4,30 @@ import './Header.scss';
 import { MoviesContext } from "../../services/context";
 import { fetchSearchedMovie, fetchMovies } from "../../services/movies.service";
 import { useHistory } from 'react-router-dom';
+import { RootState } from '../../reducer';
+import { Dispatch } from "redux";
+import { useSelector, useDispatch } from 'react-redux';
+import { 
+  isMoviePageFirstTimeOpened
+ } from '../../actions';
 
 const Search = (props: any) => {
   
   const { updateMovies, searchedMovie, setSearchedMovie, isMoviePageFirstTimeOpened, setIsMoviePageFirstTimeOpened } = useContext(MoviesContext);
-
+  const dispatch: Dispatch<any> = useDispatch();
   let history = useHistory();
+
+  const isMovieFirstTimeOpened = useSelector(
+    (state: RootState) => state.selectedMovie
+  );
   
   const fetchMoviesList = (event: any) => {
     const searchedMovieValue = event.target.value;
     setSearchedMovie(searchedMovieValue);
 
-    if (isMoviePageFirstTimeOpened === true) {
-      setIsMoviePageFirstTimeOpened(false);
+    if (isMovieFirstTimeOpened === true) {
+      //setIsMoviePageFirstTimeOpened(false);
+      dispatch(isMoviePageFirstTimeOpened(false));
       history.push("/");
     }
   }
