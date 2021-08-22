@@ -10,8 +10,6 @@ import { useSelector, useDispatch } from 'react-redux';
 import { isMoviePageOpened, changeSearchedMovie } from '../../actions';
 
 const Search = (props: any) => {
-  
-  //const { updateMovies, searchedMovie, setSearchedMovie } = useContext(MoviesContext);
   const { updateMovies } = useContext(MoviesContext);
   const searchedMovie = useSelector(
     (state: RootState) => state.searchedMovie
@@ -25,7 +23,6 @@ const Search = (props: any) => {
   
   const fetchMoviesList = (event: any) => {
     const searchedMovieValue = event.target.value;
-    //setSearchedMovie(searchedMovieValue);
     dispatch(changeSearchedMovie(searchedMovieValue));
 
     if (isMovieOpened === true) {

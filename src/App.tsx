@@ -10,7 +10,6 @@ import { Switch } from 'react-router-dom';
 
 function App() {
   const [movies, updateMovies] = useState<Movie[]>([]);
-  const [searchedMovie, setSearchedMovie] = useState<string>('');
   const [moviesPage, setMoviesPage] = useState(1);
 
   useEffect(() => {
@@ -23,8 +22,6 @@ function App() {
     <MoviesContext.Provider value={{ 
         movies, 
         updateMovies, 
-        searchedMovie, 
-        setSearchedMovie, 
         moviesPage,
         setMoviesPage
         }}>

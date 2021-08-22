@@ -1,5 +1,3 @@
-import { useContext } from 'react';
-import { MoviesContext } from "../../services/context";
 import {AppBar, Toolbar} from '@material-ui/core';
 import './Header.scss';
 import Search from './Search';
@@ -10,11 +8,9 @@ import { isMoviePageOpened, changeSearchedMovie } from '../../actions';
 
 const Topbar = (props: any) => {
 
-  const { setSearchedMovie } = useContext(MoviesContext);
   const dispatch: Dispatch<any> = useDispatch();
 
   const handleHomePageLink = () => {
-    //setSearchedMovie('');
     dispatch(changeSearchedMovie(''));
     dispatch(isMoviePageOpened(false));
   }

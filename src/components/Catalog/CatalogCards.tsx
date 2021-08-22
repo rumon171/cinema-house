@@ -18,7 +18,6 @@ import { useSelector } from 'react-redux';
 const posterBaseUrl = "https://image.tmdb.org/t/p/w300";
 
 const CatalogCards = () =>  {
-  //const { movies, updateMovies, searchedMovie, moviesPage, setMoviesPage } = useContext(MoviesContext);
   const { movies, updateMovies, moviesPage, setMoviesPage } = useContext(MoviesContext);
   const loadingRef = useRef<HTMLDivElement | null>(null);
   const entry = useIntersectionObserver(loadingRef, {})
