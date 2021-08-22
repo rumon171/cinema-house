@@ -4,13 +4,13 @@ import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
 import { MoviesContext } from "../../services/context";
 import { Dispatch } from "redux";
 import { useDispatch } from 'react-redux';
-import { changeSelectedMovie, isMoviePageOpened } from '../../actions';
 import '../../App.scss';
 import './Catalog.scss';
 import noImage from '../../images/no-image-available.png';
 import loadingSpinner from '../../images/loading-spinner.gif';
 import { NavLink } from 'react-router-dom';
 import useIntersectionObserver from '../../customHooks/useIntersectionObserver';
+import { changeSelectedMovie, isMoviePageOpened, changeCurrentPage } from '../../actions';
 import { fetchMovies } from "../../services/movies.service";
 import { RootState } from '../../reducer';
 import { useSelector } from 'react-redux';
@@ -34,9 +34,10 @@ const CatalogCards = () =>  {
   useEffect (
     () => {
       if ( isVisible ) {
-        if (moviesPage <= 500) {
-          setMoviesPage(moviesPage+1);
-          fetchMovies(String(moviesPage))
+        if (currentPage <= 500) {
+        //  setMoviesPage(moviesPage+1);
+          dispatch(changeCurrentPage(currentPage+1));
+          fetchMovies(String(currentPage))
             .then(nextPage => {
               updateMovies([...movies, ...nextPage]);
             })
@@ -89,7 +90,7 @@ const CatalogCards = () =>  {
           />
         }
       </Grid>
-      <div ref={loadingRef}>{moviesPage <= 500 ? '...' : "You've seen all movies;)"}</div>
+      <div ref={loadingRef}>{currentPage <= 500 ? '...' : "You've seen all movies;)"}</div>
     </div>
   );
 }

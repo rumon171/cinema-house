@@ -2,7 +2,7 @@ import {
   CHANGE_SELECTED_MOVIE, 
   IS_MOVIE_PAGE_OPENED,
   SEARCHED_MOVIE,
-  MOVIES_PAGE
+  CURRENT_PAGE
 } from "./actions";
 
 const initialState = {
@@ -29,7 +29,7 @@ function rootReducer( state = initialState, action: any ){
                 ...state,
                 searchedMovie: action.searchedMovie
             }
-        case MOVIES_PAGE:
+        case CURRENT_PAGE:
             return {
                 ...state,
                 currentPage: action.currentPage
