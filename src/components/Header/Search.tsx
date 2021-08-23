@@ -1,7 +1,6 @@
-import { useContext, useEffect } from 'react';
+import { useEffect } from 'react';
 import {OutlinedInput} from '@material-ui/core';
 import './Header.scss';
-import { MoviesContext } from "../../services/context";
 import { fetchSearchedMovie, fetchMovies } from "../../services/movies.service";
 import { useHistory } from 'react-router-dom';
 import { RootState } from '../../reducer';
@@ -10,7 +9,6 @@ import { useSelector, useDispatch } from 'react-redux';
 import { isMoviePageOpened, changeSearchedMovie, addHomePageMovies } from '../../actions';
 
 const Search = (props: any) => {
-  const { updateMovies } = useContext(MoviesContext);
   const searchedMovie = useSelector(
     (state: RootState) => state.searchedMovie
   );
@@ -48,17 +46,8 @@ const Search = (props: any) => {
         .catch(() => dispatch(addHomePageMovies([])));
     }
 
-    if (searchedMovie) {
-      fetchSearchedMovie(searchedMovie)
-        .then((res) => updateMovies(res))
-        .catch(() => updateMovies([]));
-    } else {
-      fetchMovies('1')
-        .then((res) => updateMovies(res))
-        .catch(() => updateMovies([]));
-    }
      // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [searchedMovie, updateMovies]);
+  }, [searchedMovie]);
   
   return (
     <>
