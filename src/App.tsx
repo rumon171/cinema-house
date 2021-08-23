@@ -23,15 +23,12 @@ function App() {
 
     fetchMovies('1')
       .then(updateHomePageMovies)
-      .catch(() => updateMovies([]));
-
-
-      console.log('movies ', movies);
-      console.log('homePageMovies ', homePageMovies);
-    dispatch(addHomePageMovies(homePageMovies));
+      .catch(() => updateHomePageMovies([]));
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   
+  dispatch(addHomePageMovies(homePageMovies));
+
   return (
     <MoviesContext.Provider value={{ 
         movies, 

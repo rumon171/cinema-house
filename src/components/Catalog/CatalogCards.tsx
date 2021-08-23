@@ -1,9 +1,7 @@
-import{ useContext, useRef, useEffect } from "react";
+import{ useState, useContext, useRef, useEffect } from "react";
 import { Card, Grid, CardActionArea, CardActions, CardMedia, Button } from '@material-ui/core';
 import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
 import { MoviesContext } from "../../services/context";
-import { Dispatch } from "redux";
-import { useDispatch } from 'react-redux';
 import '../../App.scss';
 import './Catalog.scss';
 import noImage from '../../images/no-image-available.png';
@@ -11,8 +9,11 @@ import loadingSpinner from '../../images/loading-spinner.gif';
 import { NavLink } from 'react-router-dom';
 import useIntersectionObserver from '../../customHooks/useIntersectionObserver';
 import { changeSelectedMovie, isMoviePageOpened, changeCurrentPage } from '../../actions';
-import { fetchMovies } from "../../services/movies.service";
+import { Movie, fetchMovies } from "../../services/movies.service";
 import { RootState } from '../../reducer';
+import { Dispatch } from "redux";
+import { addHomePageMovies } from '../../actions';
+import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
 
 const posterBaseUrl = "https://image.tmdb.org/t/p/w300";
@@ -31,22 +32,33 @@ const CatalogCards = () =>  {
     dispatch(changeSelectedMovie(id));
   }
 
+  const [homePageMovies, updateHomePageMovies] = useState<Movie[]>([]);
+
   useEffect (
     () => {
       if ( isVisible ) {
         if (currentPage <= 500) {
           dispatch(changeCurrentPage(currentPage+1));
+
           fetchMovies(String(currentPage))
             .then(nextPage => {
               updateMovies([...movies, ...nextPage]);
             })
             .catch(() => updateMovies([]))
+
+          fetchMovies(String(currentPage))
+            .then(nextPage => {
+              updateHomePageMovies([...movies, ...nextPage]);
+            })
+            .catch(() => updateHomePageMovies([]))
         }
       }
     },
     // eslint-disable-next-line react-hooks/exhaustive-deps
     [isVisible]
   );
+
+  dispatch(addHomePageMovies(homePageMovies));
 
   return (
     <div >
