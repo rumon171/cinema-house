@@ -1,8 +1,8 @@
-import { useContext, useEffect, useState } from 'react';
+import { useContext, useEffect } from 'react';
 import {OutlinedInput} from '@material-ui/core';
 import './Header.scss';
 import { MoviesContext } from "../../services/context";
-import { fetchSearchedMovie, fetchMovies, Movie } from "../../services/movies.service";
+import { fetchSearchedMovie, fetchMovies } from "../../services/movies.service";
 import { useHistory } from 'react-router-dom';
 import { RootState } from '../../reducer';
 import { Dispatch } from "redux";
@@ -11,7 +11,6 @@ import { isMoviePageOpened, changeSearchedMovie, addHomePageMovies } from '../..
 
 const Search = (props: any) => {
   const { updateMovies } = useContext(MoviesContext);
-  const [homePageMovies, updateHomePageMovies] = useState<Movie[]>([]);
   const searchedMovie = useSelector(
     (state: RootState) => state.searchedMovie
   );
@@ -41,12 +40,12 @@ const Search = (props: any) => {
   useEffect(()=>{
     if (searchedMovie) {
       fetchSearchedMovie(searchedMovie)
-        .then((res) => updateHomePageMovies(res))
-        .catch(() => updateHomePageMovies([]));
+        .then((res) => dispatch(addHomePageMovies(res)))
+        .catch(() => dispatch(addHomePageMovies([])));
     } else {
       fetchMovies('1')
-        .then((res) => updateHomePageMovies(res))
-        .catch(() => updateHomePageMovies([]));
+        .then((res) => dispatch(addHomePageMovies(res)))
+        .catch(() => dispatch(addHomePageMovies([])));
     }
 
     if (searchedMovie) {
@@ -58,10 +57,9 @@ const Search = (props: any) => {
         .then((res) => updateMovies(res))
         .catch(() => updateMovies([]));
     }
+     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [searchedMovie, updateMovies]);
-
-  dispatch(addHomePageMovies(homePageMovies));
-
+  
   return (
     <>
       <OutlinedInput 

@@ -32,8 +32,6 @@ const CatalogCards = () =>  {
     dispatch(changeSelectedMovie(id));
   }
 
-  const [homePageMovies, updateHomePageMovies] = useState<Movie[]>([]);
-
   useEffect (
     () => {
       if ( isVisible ) {
@@ -48,17 +46,17 @@ const CatalogCards = () =>  {
 
           fetchMovies(String(currentPage))
             .then(nextPage => {
-              updateHomePageMovies([...movies, ...nextPage]);
+              dispatch(addHomePageMovies([...movies, ...nextPage]));
             })
-            .catch(() => updateHomePageMovies([]))
+            .catch(() => {
+              dispatch(addHomePageMovies([...movies]));
+            });
         }
       }
     },
     // eslint-disable-next-line react-hooks/exhaustive-deps
     [isVisible]
   );
-
-  dispatch(addHomePageMovies(homePageMovies));
 
   return (
     <div >
