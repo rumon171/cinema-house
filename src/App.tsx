@@ -13,7 +13,6 @@ import { addHomePageMovies } from './actions';
 
 function App() {
   const [movies, updateMovies] = useState<Movie[]>([]);
-  const [homePageMovies, updateHomePageMovies] = useState<Movie[]>([]);
   const dispatch: Dispatch<any> = useDispatch();
 
   useEffect(() => {
@@ -22,12 +21,10 @@ function App() {
       .catch(() => updateMovies([]));
 
     fetchMovies('1')
-      .then(updateHomePageMovies)
-      .catch(() => updateHomePageMovies([]));
+      .then(movies => dispatch(addHomePageMovies(movies)))
+      .catch(() => dispatch(addHomePageMovies([])));
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-  
-  dispatch(addHomePageMovies(homePageMovies));
 
   return (
     <MoviesContext.Provider value={{ 
