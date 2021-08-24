@@ -12,16 +12,16 @@ const Search = (props: any) => {
   const searchedMovie = useSelector(
     (state: RootState) => state.searchedMovie
   );
-  const dispatch: Dispatch<any> = useDispatch();
-  let history = useHistory();
-
   const isMovieOpened = useSelector(
     (state: RootState) => state.isMoviePageOpened
   );
+  const dispatch: Dispatch<any> = useDispatch();
+  let history = useHistory();
   
   const fetchMoviesList = (event: any) => {
     const searchedMovieValue = event.target.value;
     dispatch(changeSearchedMovie(searchedMovieValue));
+    window.scrollTo(0, 0);
 
     if (isMovieOpened === true) {
       dispatch(isMoviePageOpened(false));
@@ -45,7 +45,6 @@ const Search = (props: any) => {
         .then((res) => dispatch(addHomePageMovies(res)))
         .catch(() => dispatch(addHomePageMovies([])));
     }
-
      // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [searchedMovie]);
   

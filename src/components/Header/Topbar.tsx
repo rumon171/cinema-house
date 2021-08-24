@@ -13,6 +13,7 @@ const Topbar = (props: any) => {
   const handleHomePageLink = () => {
     dispatch(changeSearchedMovie(''));
     dispatch(isMoviePageOpened(false));
+        window.scrollTo(0, 0);
   }
 
   return (
