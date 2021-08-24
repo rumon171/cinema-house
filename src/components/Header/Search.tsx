@@ -63,3 +63,5 @@ const Search = (props: any) => {
 }
 
 export default Search;
+
+// value={searchedMovie}
