@@ -92,9 +92,10 @@ const CatalogCards = () =>  {
           />
         }
       </Grid>
-      <div ref={loadingRef}>{currentPage <= 500 ? '...' : "You've seen all movies;)"}</div>
+      {!searchedMovie && <div ref={loadingRef}>{currentPage <= 500 ? '...' : "You've seen all movies;)"}</div>}
     </div>
   );
 }
 
 export default CatalogCards;
+//<div ref={loadingRef}>{currentPage <= 500 ? '...' : "You've seen all movies;)"}</div>
