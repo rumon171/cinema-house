@@ -2,13 +2,12 @@ import {AppBar, Toolbar} from '@material-ui/core';
 import './Header.scss';
 import Search from './Search';
 import { NavLink } from 'react-router-dom';
-import { Dispatch } from "redux";
 import { useDispatch } from 'react-redux';
 import { isMoviePageOpened, changeSearchedMovie } from '../../actions';
 
 const Topbar = (props: any) => {
 
-  const dispatch: Dispatch<any> = useDispatch();
+  const dispatch = useDispatch();
 
   const handleHomePageLink = () => {
     dispatch(changeSearchedMovie(''));

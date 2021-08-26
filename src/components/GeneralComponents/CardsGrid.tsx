@@ -1,7 +1,6 @@
 import { Card, Grid, CardActionArea, CardActions, CardMedia, Button } from '@material-ui/core';
 import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
 import { Movie } from "../../services/movies.service";
-import { Dispatch } from "redux";
 import { useDispatch } from 'react-redux';
 import { 
   changeSelectedMovie, 
@@ -23,7 +22,7 @@ const CardsGrid: React.FC<Props> = (
   }: Props) =>{
 
   const cards = similarMovies;
-  const dispatch: Dispatch<any> = useDispatch();
+  const dispatch = useDispatch();
 
   const SetSelectedMovieId = (id: number) => {
     dispatch(isMoviePageOpened(true));

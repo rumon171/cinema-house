@@ -4,7 +4,6 @@ import './Header.scss';
 import { fetchSearchedMovie, fetchMovies } from "../../services/movies.service";
 import { useHistory } from 'react-router-dom';
 import { RootState } from '../../reducer';
-import { Dispatch } from "redux";
 import { useSelector, useDispatch } from 'react-redux';
 import { isMoviePageOpened, changeSearchedMovie, addHomePageMovies } from '../../actions';
 
@@ -14,7 +13,7 @@ const Search = (props: any) => {
 
   const searchedMovie = useSelector((state: RootState) => state.searchedMovie);
   const isMovieOpened = useSelector((state: RootState) => state.isMoviePageOpened);
-  const dispatch: Dispatch<any> = useDispatch();
+  const dispatch = useDispatch();
   let history = useHistory();
   
   const fetchMoviesList = (event: any) => {

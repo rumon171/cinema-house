@@ -10,7 +10,6 @@ import useIntersectionObserver from '../../customHooks/useIntersectionObserver';
 import { changeSelectedMovie, isMoviePageOpened, changeCurrentPage } from '../../actions';
 import { fetchMovies } from "../../services/movies.service";
 import { RootState } from '../../reducer';
-import { Dispatch } from "redux";
 import { addHomePageMovies } from '../../actions';
 import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
@@ -21,7 +20,7 @@ const CatalogCards = () =>  {
   const loadingRef = useRef<HTMLDivElement | null>(null);
   const entry = useIntersectionObserver(loadingRef, {})
   const isVisible = !!entry?.isIntersecting;
-  const dispatch: Dispatch<any> = useDispatch();
+  const dispatch = useDispatch();
   const movies = useSelector((state: RootState) => state.homePageMovies);
   const searchedMovie = useSelector((state: RootState) => state.searchedMovie);
   const currentPage = useSelector((state: RootState) => state.currentPage);

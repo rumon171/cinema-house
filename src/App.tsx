@@ -6,7 +6,6 @@ import MoviePage from './components/Pages/MoviePage';
 import { BrowserRouter } from 'react-router-dom';
 import { Route } from 'react-router-dom';
 import { Switch } from 'react-router-dom';
-import { Dispatch } from "redux";
 import { useDispatch } from 'react-redux';
 import { addHomePageMovies } from './actions';
 
@@ -15,7 +14,7 @@ function App() {
     window.scrollTo(0, 0);
   }
 
-  const dispatch: Dispatch<any> = useDispatch();
+  const dispatch = useDispatch();
 
   useEffect(() => {
     fetchMovies('1')
