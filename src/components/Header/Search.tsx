@@ -12,12 +12,8 @@ const Search = (props: any) => {
 
   const [searchValue, setSearchValue] = useState<string>('');
 
-  const searchedMovie = useSelector(
-    (state: RootState) => state.searchedMovie
-  );
-  const isMovieOpened = useSelector(
-    (state: RootState) => state.isMoviePageOpened
-  );
+  const searchedMovie = useSelector((state: RootState) => state.searchedMovie);
+  const isMovieOpened = useSelector((state: RootState) => state.isMoviePageOpened);
   const dispatch: Dispatch<any> = useDispatch();
   let history = useHistory();
   
