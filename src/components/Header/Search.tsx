@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import {OutlinedInput} from '@material-ui/core';
 import './Header.scss';
 import { fetchSearchedMovie, fetchMovies } from "../../services/movies.service";
@@ -9,6 +9,9 @@ import { useSelector, useDispatch } from 'react-redux';
 import { isMoviePageOpened, changeSearchedMovie, addHomePageMovies } from '../../actions';
 
 const Search = (props: any) => {
+
+  const [searchValue, setSearchValue] = useState<string>('');
+
   const searchedMovie = useSelector(
     (state: RootState) => state.searchedMovie
   );
@@ -57,11 +60,11 @@ const Search = (props: any) => {
           onBlur={fetchMoviesList} 
           onKeyDown={handleKeyPress}
           placeholder="Search" 
+          value={searchValue}
+          onChange={({ target: { value } }) => setSearchValue(value)}
           />
     </>
   );
 }
 
 export default Search;
-
-// value={searchedMovie}
