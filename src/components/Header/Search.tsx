@@ -15,9 +15,8 @@ const Search = () => {
   const isMovieOpened = useSelector((state: RootState) => state.isMoviePageOpened);
   const dispatch = useDispatch();
   let history = useHistory();
-  //FocusEvent
-  const fetchMoviesList = (event: React.FocusEvent<HTMLInputElement>) => {
-    const searchedMovieValue = event.target.value;
+
+  const fetchMoviesList = (searchedMovieValue: string) => {
     dispatch(changeSearchedMovie(searchedMovieValue));
     window.scrollTo(0, 0);
 
@@ -28,9 +27,11 @@ const Search = () => {
   }
 
   const handleKeyPress = (event: React.KeyboardEvent<HTMLInputElement>) => {
+    const target = event.target as HTMLInputElement;
 
     if (event.keyCode === 13) {
-      //fetchMoviesList(event);
+      const searchedMovieValue = target.value;
+      fetchMoviesList(searchedMovieValue);
     }
   }
 
@@ -53,7 +54,7 @@ const Search = () => {
           color="secondary" 
           className="seach-field" 
           type="string"  
-          onBlur={fetchMoviesList} 
+          onBlur={({ target: { value } }) => fetchMoviesList(value)} 
           onKeyDown={handleKeyPress}
           placeholder="Search" 
           value={searchValue}
