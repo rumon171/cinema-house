@@ -1,3 +1,6 @@
+import { AnyAction } from 'redux';
+import { Movie } from "./services/movies.service";
+
 import { 
     ADD_HOME_PAGE_MOVIES,
     CHANGE_SELECTED_MOVIE, 
@@ -5,8 +8,15 @@ import {
     SEARCHED_MOVIE,
     CURRENT_PAGE
 } from "./actions";
+interface mainState {
+    homePageMovies: Movie[];
+    selectedMovie: number;
+    isMoviePageOpened: boolean;
+    searchedMovie: string;
+    currentPage: number;
+  }
 
-const initialState = {
+const initialState: mainState = {
     homePageMovies: [],
     selectedMovie: 0,
     isMoviePageOpened: false,
@@ -14,7 +24,7 @@ const initialState = {
     currentPage: 1
   }
 
-function rootReducer( state = initialState, action: any ){
+function rootReducer( state = initialState, action: AnyAction ){
     switch(action.type) {
         case ADD_HOME_PAGE_MOVIES:
             return {

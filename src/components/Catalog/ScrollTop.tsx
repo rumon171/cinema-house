@@ -10,8 +10,9 @@ import './Catalog.scss';
       threshold: 100,
     });
   
-    const handleClick = (event: any) => {
-      const anchor = (event.target.ownerDocument || document).querySelector('#back-to-top-anchor');
+    const handleClick = (pressedElement: any) => {
+      
+      const anchor = (pressedElement.ownerDocument || document).querySelector('#back-to-top-anchor');
   
       if (anchor) {
         anchor.scrollIntoView({ behavior: 'smooth', block: 'center' });
@@ -20,11 +21,16 @@ import './Catalog.scss';
   
     return (
       <Zoom in={trigger}>
-        <div onClick={handleClick} role="presentation" className="scrollTop">
+        <div 
+          onClick={({ target }) => handleClick(target)} 
+          role="presentation" 
+          className="scrollTop"
+        >
           {children}
         </div>
       </Zoom>
     );
   }
-
+// const handleClick = (event: any) => {
+// onClick={handleClick} 
   export default ScrollTop;
