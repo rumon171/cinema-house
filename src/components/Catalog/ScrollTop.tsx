@@ -4,6 +4,7 @@ import './Catalog.scss';
   
   const ScrollTop = (props: any) => {
     const { children, window } = props;
+
     const trigger = useScrollTrigger({
       target: window ? window() : undefined,
       disableHysteresis: true,
@@ -31,6 +32,5 @@ import './Catalog.scss';
       </Zoom>
     );
   }
-// const handleClick = (event: any) => {
-// onClick={handleClick} 
+
   export default ScrollTop;
