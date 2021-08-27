@@ -9,7 +9,7 @@ import './Pages.scss';
 import noImage from '../../images/no-image-available.png';
 const posterBaseUrl = "https://image.tmdb.org/t/p/w300";
 
-const MovieContent = (props: any) => {
+const MovieContent = () => {
 
   const selectedMovie = useSelector(
     (state: RootState) => state.selectedMovie

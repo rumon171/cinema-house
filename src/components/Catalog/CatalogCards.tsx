@@ -8,7 +8,7 @@ import loadingSpinner from '../../images/loading-spinner.gif';
 import { NavLink } from 'react-router-dom';
 import useIntersectionObserver from '../../customHooks/useIntersectionObserver';
 import { changeSelectedMovie, isMoviePageOpened, changeCurrentPage } from '../../actions';
-import { fetchMovies } from "../../services/movies.service";
+import { fetchMovies, Movie} from "../../services/movies.service";
 import { RootState } from '../../reducer';
 import { addHomePageMovies } from '../../actions';
 import { useDispatch } from 'react-redux';
@@ -56,7 +56,7 @@ const CatalogCards = () =>  {
         { 
         movies.length > 0 
           ? 
-          movies.map((movie: any) => (
+          movies.map((movie: Movie) => (
             <Grid item xs={12} sm={6} md={3} lg={2} key={movie.id}>
               <NavLink to={'/movie/' + movie.id}>
                 <Card className="card-list" onClick={() => SetSelectedMovieId(movie.id)} >

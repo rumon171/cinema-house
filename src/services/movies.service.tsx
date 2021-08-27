@@ -55,7 +55,7 @@ export async function fetchMovies(page: string): Promise<Movie[]> {
  }
 
 // = movie has to be after const {} here
-function mapMainMoviesResult(res: any[]): Movie[] {
+function mapMainMoviesResult(res: Movie[]): Movie[] {
   return res.map((movie) => {
     const {
       id,
@@ -63,7 +63,7 @@ function mapMainMoviesResult(res: any[]): Movie[] {
       vote_average,
       overview,
       poster_path,
-      date,
+      release_date,
     } = movie;
     return {
       id: id,
@@ -71,7 +71,7 @@ function mapMainMoviesResult(res: any[]): Movie[] {
       vote_average: vote_average,
       overview: overview,
       poster_path: poster_path ? `${posterBaseUrl}${poster_path}` : noImage,
-      release_date: date,
+      release_date: release_date,
     };
   });
 }

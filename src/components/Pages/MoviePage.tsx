@@ -2,7 +2,7 @@ import Topbar from '../Header/Topbar';
 import MovieContent from '../Pages/MovieContent';
 import './Pages.scss';
 
-const MoviePage = (props: any) => {
+const MoviePage = () => {
 
   return (
     <>

@@ -1,7 +1,7 @@
 import Topbar from '../Header/Topbar';
 import Catalog from '../Catalog/Catalog';
 
-const HomePage = (props: any) => {
+const HomePage = () => {
   return (
     <>
         <Topbar></Topbar>
