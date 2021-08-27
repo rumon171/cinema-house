@@ -11,8 +11,8 @@ import './Catalog.scss';
       threshold: 100,
     });
   
-    const handleClick = (pressedElement: any) => {
-      
+    const handleClick = (event: React.MouseEvent<HTMLInputElement>) => {
+      const pressedElement  = event.target as HTMLTextAreaElement;
       const anchor = (pressedElement.ownerDocument || document).querySelector('#back-to-top-anchor');
   
       if (anchor) {
@@ -23,7 +23,7 @@ import './Catalog.scss';
     return (
       <Zoom in={trigger}>
         <div 
-          onClick={({ target }) => handleClick(target)} 
+          onClick={handleClick} 
           role="presentation" 
           className="scrollTop"
         >
