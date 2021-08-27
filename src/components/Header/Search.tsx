@@ -7,7 +7,7 @@ import { RootState } from '../../reducer';
 import { useSelector, useDispatch } from 'react-redux';
 import { isMoviePageOpened, changeSearchedMovie, addHomePageMovies } from '../../actions';
 
-const Search = (props: any) => {
+const Search = () => {
 
   const [searchValue, setSearchValue] = useState<string>('');
 

@@ -5,7 +5,7 @@ import { NavLink } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { isMoviePageOpened, changeSearchedMovie } from '../../actions';
 
-const Topbar = (props: any) => {
+const Topbar = () => {
 
   const dispatch = useDispatch();
 
