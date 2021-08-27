@@ -63,5 +63,5 @@ const Search = () => {
     </>
   );
 }
-// onBlur={fetchMoviesList} 
+
 export default Search;
