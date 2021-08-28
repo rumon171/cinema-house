@@ -9,7 +9,7 @@ function useIntersectionObserver(
   {
     threshold = 0,
     root = null,
-    rootMargin = '0%',
+    rootMargin = '200px',
     freezeOnceVisible = false,
   }: Args,
 ): IntersectionObserverEntry | undefined {

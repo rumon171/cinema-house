@@ -10,6 +10,7 @@ import { useDispatch } from 'react-redux';
 import { addHomePageMovies } from './actions';
 
 function App() {
+
   window.onbeforeunload = function () {
     window.scrollTo(0, 0);
   }
