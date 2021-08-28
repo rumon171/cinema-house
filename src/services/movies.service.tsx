@@ -31,7 +31,7 @@ export async function fetchSelectedMovie (movieId: number) {
 
 export async function fetchSearchedMovie (enteredTitle: string ) {
 
-  const enteredTitleWithoutSpecials = enteredTitle.replace(/[^a-zA-Z ]/g, ""); 
+  const enteredTitleWithoutSpecials = enteredTitle.replace(/[^a-zA-Z ]/g, "");
 
     return await fetch(
       `${movieApiBaseUrl}/search/movie/?api_key=${process.env.REACT_APP_API_KEY}&query=${enteredTitleWithoutSpecials}`

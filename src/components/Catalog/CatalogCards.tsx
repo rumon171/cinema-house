@@ -50,15 +50,19 @@ const CatalogCards = () =>  {
     [isVisible]
   );
 
+
+  console.log("MOVIES AMOUNT ", movies.length)
+
   return (
     <div >
+      {movies.length < 6 && <div>Found matched movies</div> }
       {
         movies.length > 0 
         ? 
         <Grid container spacing={1} className="container-content">
           { 
             movies.map((movie: Movie) => (
-              <Grid item xs={12} sm={6} md={3} lg={2} key={movie.id}>
+              <Grid item xs={12} sm={movies.length > 6 ? 6 : 12} md={movies.length > 6 ? 3 : 12} lg={movies.length > 6 ? 2 : 6} key={movie.id}>
                 <NavLink to={'/movie/' + movie.id}>
                   <Card className="card-list" onClick={() => SetSelectedMovieId(movie.id)} >
                     <CardActionArea>
