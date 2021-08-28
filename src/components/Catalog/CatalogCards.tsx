@@ -50,12 +50,9 @@ const CatalogCards = () =>  {
     [isVisible]
   );
 
-
-  console.log("MOVIES AMOUNT ", movies.length)
-
   return (
     <div >
-      {movies.length < 6 && <div>Found matched movies</div> }
+      {movies.length < 6 && <div className="search-results-title">Found matched movies</div> }
       {
         movies.length > 0 
         ? 
