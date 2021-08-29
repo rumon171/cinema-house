@@ -6,6 +6,14 @@
     margin: 40px auto !important;
 }
 
+.rating-container {
+    background-color: $base-color;    
+}
+
+.similar-movies-title {
+    margin: 2.5rem 0;
+}
+
 @media screen and (max-width: 599px) {
     .card-movie {
         max-width: 50%;
@@ -23,10 +31,6 @@
     .container-content {
         padding: 1rem;
     }
-}
-
-.rating-container {
-    background-color: $base-color;    
 }
 
 @media screen and (max-width: 1380px) {

@@ -107,6 +107,7 @@ const MovieContent = () => {
             </Button>
           </div>
         </Grid>
+        {similarMovies.length > 0 && <div className="similar-movies-title">Similar movies</div>}
         <CardsGrid xsValue={3} similarMovies={similarMovies}></CardsGrid> 
       </Grid>
     </>
