@@ -6,6 +6,19 @@
     margin: 40px auto !important;
 }
 
+@media screen and (max-width: 599px) {
+    .card-movie {
+        max-width: 50%;
+        margin: 0 auto;
+    }
+
+    .title {
+        text-align: center;
+        margin: 2rem;
+        font-size: 1.8rem;
+    }
+}
+
 @media screen and (max-width: 649px) {
     .container-content {
         padding: 1rem;
