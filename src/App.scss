@@ -31,6 +31,23 @@ body {
   text-align: left;
 }
 
+.card-container {
+  max-width: 300px;
+  height: 100%;
+
+  button {
+      background-color: #000;
+      img {
+          height: auto;
+      }
+  }
+}
+
+.card-poster:hover {
+  opacity: 0.5;
+  filter:alpha(opacity=40);
+}
+
 .title {
   font-size: 2.3rem;
   font-weight: 400;
@@ -48,12 +65,31 @@ body {
   text-align: justify;
 }
 
+.loading-spinner {
+  max-width: 70px;
+}
+
+.rating-container {
+  background-color: $base-color;
+  padding: 10px;  
+}
+
+.raiting {
+  position: absolute;
+  right: 0;
+  top: 0;
+  padding: 8px 8px 0 0;
+  width: 100%;
+}
+
 @media screen and (max-width: 599px) {
   .container-content {
     padding: 10px;
   }
 }
 
-.loading-spinner {
-  max-width: 70px;
+@media screen and (max-width: 960px) {
+  .card-container {
+      margin: auto;
+  }   
 }
