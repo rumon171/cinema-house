@@ -32,13 +32,14 @@ body {
 }
 
 .card-container {
-  max-width: 300px;
-  height: 100%;
-  overflow: hidden;
+  position: relative;
+  max-width: 300px; /*is it needed?*/
+  height: 100%; /*is it needed?*/
+  overflow: hidden; /*is it needed?*/
 
   img {
-    height: auto;
-    object-fit: cover;
+    height: auto; /*is it needed?*/
+    object-fit: cover; /*is it needed?*/
     display: block;
     background-size: cover;
     background-repeat: no-repeat;
@@ -51,8 +52,15 @@ body {
   }
 
   .card-details {
+    .title {
+      position: absolute;
+      top: 0;
+      width: 100%;
+    }
     .details {
-
+      position: absolute;
+      bottom: 0;
+      width: 100%;
     }
   }
 }

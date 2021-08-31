@@ -63,14 +63,12 @@ const CatalogCards = () =>  {
               <Grid item xs={isArrayMinLength ? 6 : 12} sm={isArrayMinLength ? 4 : 12} md={isArrayMinLength ? 3 : 12} lg={isArrayMinLength ? 2 : 6} key={movie.id}>
                 <NavLink to={'/movie/' + movie.id}>
                   <div className="card-container" onClick={() => SetSelectedMovieId(movie.id)} >
-                    <div>
-                      <img
-                        className="card-poster"
-                        alt={"Poster of " + movie.title}
-                        src={movie.poster_path ? posterBaseUrl + movie.poster_path : noImage}
-                        title={movie.title}
-                      />
-                    </div>
+                    <img
+                      className="card-poster"
+                      alt={"Poster of " + movie.title}
+                      src={movie.poster_path ? posterBaseUrl + movie.poster_path : noImage}
+                      title={movie.title}
+                    />
                     <div className="card-details">
                       <div className="title">
                         <FavoriteBorderIcon />
