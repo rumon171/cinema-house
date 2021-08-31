@@ -62,25 +62,24 @@ const CatalogCards = () =>  {
             movies.map((movie: Movie) => (
               <Grid item xs={isArrayMinLength ? 6 : 12} sm={isArrayMinLength ? 4 : 12} md={isArrayMinLength ? 3 : 12} lg={isArrayMinLength ? 2 : 6} key={movie.id}>
                 <NavLink to={'/movie/' + movie.id}>
-                  <Card className="card-container" onClick={() => SetSelectedMovieId(movie.id)} >
-                    <CardActionArea>
-                      <CardMedia
-                        component="img"
+                  <div className="card-container" onClick={() => SetSelectedMovieId(movie.id)} >
+                    <div>
+                      <img
                         className="card-poster"
                         alt={"Poster of " + movie.title}
-                        image={movie.poster_path ? posterBaseUrl + movie.poster_path : noImage}
+                        src={movie.poster_path ? posterBaseUrl + movie.poster_path : noImage}
                         title={movie.title}
                       />
-                    </CardActionArea>
-                    <CardActions>
-                      <Button size="small" color="primary">
+                    </div>
+                    <div className="card-details">
+                      <div className="title">
                         <FavoriteBorderIcon />
-                      </Button>
-                      <Button size="small" color="primary">
+                      </div>
+                      <div className="details">
                         {movie.vote_average}
-                      </Button>
-                    </CardActions>
-                  </Card>
+                      </div>
+                    </div>
+                  </div>
                 </NavLink>
               </Grid>
             ))

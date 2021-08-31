@@ -1,10 +1,6 @@
-<<<<<<< HEAD
-//import { Action } from "redux";
-=======
 import { AnyAction } from 'redux';
 import { Movie } from "./services/movies.service";
 
->>>>>>> smallfixes
 import { 
     ADD_HOME_PAGE_MOVIES,
     CHANGE_SELECTED_MOVIE, 

@@ -34,18 +34,27 @@ body {
 .card-container {
   max-width: 300px;
   height: 100%;
+  overflow: hidden;
 
-  button {
-      background-color: #000;
-      img {
-          height: auto;
-      }
+  img {
+    height: auto;
+    object-fit: cover;
+    display: block;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
   }
-}
 
-.card-poster:hover {
-  opacity: 0.4;
-  filter:alpha(opacity=40);
+  .card-poster:hover {
+    opacity: 0.3;
+    filter:alpha(opacity=30);
+  }
+
+  .card-details {
+    .details {
+
+    }
+  }
 }
 
 .title {
