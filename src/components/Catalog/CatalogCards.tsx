@@ -62,10 +62,11 @@ const CatalogCards = () =>  {
             movies.map((movie: Movie) => (
               <Grid item xs={isArrayMinLength ? 6 : 12} sm={isArrayMinLength ? 4 : 12} md={isArrayMinLength ? 3 : 12} lg={isArrayMinLength ? 2 : 6} key={movie.id}>
                 <NavLink to={'/movie/' + movie.id}>
-                  <Card className="card-list" onClick={() => SetSelectedMovieId(movie.id)} >
+                  <Card className="card-container" onClick={() => SetSelectedMovieId(movie.id)} >
                     <CardActionArea>
                       <CardMedia
                         component="img"
+                        className="card-poster"
                         alt={"Poster of " + movie.title}
                         image={movie.poster_path ? posterBaseUrl + movie.poster_path : noImage}
                         title={movie.title}

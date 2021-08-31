@@ -11,25 +11,6 @@
         }
 }
 
-.card-list {
-    max-width: 300px;
-    height: 100%;   
-}
-
-.card-list {
-    button {
-        img {
-            height: auto;
-        }
-    }
-}
-
 .search-results-title {
     margin: 70px;
-}
-
-@media screen and (max-width: 960px) {
-    .card-list {
-        margin: auto;
-    }   
 }
