@@ -33,18 +33,7 @@ body {
 
 .card-container {
   position: relative;
-  max-width: 300px; /*is it needed?*/
-  height: 100%; /*is it needed?*/
-  overflow: hidden; /*is it needed?*/
-
-  img {
-    height: auto; /*is it needed?*/
-    object-fit: cover; /*is it needed?*/
-    display: block;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-  }
+  overflow: hidden;
 
   .card-poster:hover {
     opacity: 0.3;
@@ -61,6 +50,52 @@ body {
       position: absolute;
       bottom: 0;
       width: 100%;
+    }
+  }
+
+  img {
+    max-height: 2vw;
+    min-height: 22vw;
+    max-width: 16vw;
+    min-width: 16vw;
+  }
+}
+
+@media screen and (max-width: 599px) {
+  .container-content {
+    img {
+      
+    }
+  }
+}
+
+@media screen and (max-width: 959px) {
+  .container-content {
+    img {
+
+    }
+  }
+}
+
+@media screen and (max-width: 1279px) {
+  .container-content {
+    img {
+
+    }
+  }
+}
+
+@media screen and (max-width: 1919px) {
+  .container-content {
+    img {
+
+    }
+  }
+}
+@media screen and (max-width: 1279px) {
+  .container-content {
+    img {
+
     }
   }
 }
@@ -103,10 +138,4 @@ body {
   .container-content {
     padding: 10px;
   }
-}
-
-@media screen and (max-width: 960px) {
-  .card-container {
-      margin: auto;
-  }   
 }
