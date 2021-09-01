@@ -95,7 +95,10 @@ body {
 @media screen and (max-width: 1279px) {
   .container-content {
     img {
-
+      max-height: 2vw;
+      min-height: 22vw;
+      max-width: 16vw;
+      min-width: 16vw;
     }
   }
 }
