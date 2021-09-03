@@ -1,5 +1,6 @@
+import React from 'react';
 import{ useRef, useEffect } from "react";
-import { Card, Grid, CardActionArea, CardActions, CardMedia, Button } from '@material-ui/core';
+import { Grid, CardMedia } from '@material-ui/core';
 import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
 import '../../App.scss';
 import './Catalog.scss';
@@ -25,6 +26,7 @@ const CatalogCards = () =>  {
   const searchedMovie = useSelector((state: RootState) => state.searchedMovie);
   const currentPage = useSelector((state: RootState) => state.currentPage);
   const isArrayMinLength = 'movies.length > 6';
+  //const [loaded, setLoaded] = useState(false);
 
   const SetSelectedMovieId = (id: number) => {
     dispatch(isMoviePageOpened(true));

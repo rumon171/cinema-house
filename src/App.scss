@@ -41,6 +41,8 @@ body {
   }
 
   .card-details {
+    visibility: hidden;
+
     .title {
       position: absolute;
       top: 0;
@@ -51,6 +53,12 @@ body {
       bottom: 0;
       width: 100%;
     }
+  }
+}
+
+.card-container:hover {
+  .card-details {
+    visibility: visible;
   }
 }
 // xs
