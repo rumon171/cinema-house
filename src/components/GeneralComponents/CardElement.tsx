@@ -17,7 +17,7 @@ interface Props {
     element: Movie;
   }
 
-const Card: React.FC<Props> = (
+const CardElement: React.FC<Props> = (
     {
         isArrayMinLength,
         element,
@@ -56,4 +56,4 @@ const Card: React.FC<Props> = (
   );
 }
 
-export default Card;
+export default CardElement;
