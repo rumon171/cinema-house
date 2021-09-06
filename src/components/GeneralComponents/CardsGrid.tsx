@@ -19,7 +19,7 @@ interface Props {
 const CardsGrid: React.FC<Props> = (
   {
     similarMovies,
-  }: Props) =>{
+  }: Props) => {
 
   const cards = similarMovies;
   const dispatch = useDispatch();
