@@ -42,7 +42,7 @@ const CardsGrid: React.FC<Props> = (
                     <CardMedia
                       component="img"
                       alt={"Poster of " + card.title}
-                      image={card.poster_path ? posterBaseUrl + card.poster_path : noImage}
+                      image={card.poster_path ? (card.poster_path.includes('.jpg') ? posterBaseUrl + card.poster_path : noImage) : noImage}
                       title={card.title}
                     />
                   </CardActionArea>
