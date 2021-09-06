@@ -34,7 +34,7 @@ const CardsGrid: React.FC<Props> = (
       <Grid container spacing={1}>
       { 
         cards.length > 0 &&
-          cards.map((card) => (
+          cards.filter(card => card.vote_average !== 0).map((card) => (
             <Grid item xs={3} md={2} lg={1} key={card.id}>
               <NavLink to={"/movie/" + card.id}>
                 <Card className="card-list" onClick={() => SetSelectedMovieId(card.id)} >

@@ -61,7 +61,7 @@ const CatalogCards = () =>  {
         ? 
         <Grid container spacing={1} className="container-content">
           { 
-            movies.map((movie: Movie) => (
+            movies.filter((movie: Movie) => movie.vote_average !== 0).map((movie: Movie) => (
               <Grid item xs={isArrayMinLength ? 6 : 12} sm={isArrayMinLength ? 4 : 12} md={isArrayMinLength ? 3 : 12} lg={isArrayMinLength ? 2 : 6} key={movie.id}>
                 <NavLink to={'/movie/' + movie.id}>
                   <div className="card-container" onClick={() => SetSelectedMovieId(movie.id)} >
