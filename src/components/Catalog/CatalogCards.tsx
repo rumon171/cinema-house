@@ -68,7 +68,7 @@ const CatalogCards = () =>  {
                     <img
                       className="card-poster"
                       alt={"Poster of " + movie.title}
-                      src={movie.poster_path ? posterBaseUrl + movie.poster_path : noImage}
+                      src={movie.poster_path ? (movie.poster_path.includes('.jpg') ? posterBaseUrl + movie.poster_path : noImage) : noImage}
                       title={movie.title}
                     />
                     <div className="card-details">
