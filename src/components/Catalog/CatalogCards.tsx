@@ -26,7 +26,6 @@ const CatalogCards = () =>  {
   const searchedMovie = useSelector((state: RootState) => state.searchedMovie);
   const currentPage = useSelector((state: RootState) => state.currentPage);
   const isArrayMinLength = 'movies.length > 6';
-  //const [loaded, setLoaded] = useState(false);
 
   const SetSelectedMovieId = (id: number) => {
     dispatch(isMoviePageOpened(true));

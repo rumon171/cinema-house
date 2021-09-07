@@ -10,7 +10,7 @@ import noImage from '../../images/no-image-available.png';
 
 const posterBaseUrl = "https://image.tmdb.org/t/p/w300";
 const NavLink = require("react-router-dom").NavLink;
-
+const isArrayMinLength = 'movies.length > 6';
 interface Props {
   xsValue: number;
   similarMovies: Movie[];
@@ -35,7 +35,9 @@ const CardsGrid: React.FC<Props> = (
       { 
         cards.length > 0 &&
           cards.filter(card => card.vote_average !== 0).map((card) => (
-            <Grid item xs={3} md={2} lg={1} key={card.id}>
+
+
+            <Grid item xs={isArrayMinLength ? 4 : 3} sm={isArrayMinLength ? 4 : 3} md={isArrayMinLength ? 3 : 2} lg={isArrayMinLength ? 2 : 1} key={card.id}>
               <NavLink to={"/movie/" + card.id}>
                 <Card className="card-list" onClick={() => SetSelectedMovieId(card.id)} >
                   <CardActionArea>
@@ -57,6 +59,8 @@ const CardsGrid: React.FC<Props> = (
                 </Card>
               </NavLink>
             </Grid>
+
+
           ))
       }
       </Grid>
