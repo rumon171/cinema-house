@@ -14,7 +14,7 @@ const CardsGrid: React.FC<Props> = (
 
   return (
     <div >
-      <Grid container spacing={1}>
+      <Grid container spacing={1} className="container-content">
       { 
         cards.length > 0 &&
           cards.filter(card => card.vote_average !== 0).map((card) => (
