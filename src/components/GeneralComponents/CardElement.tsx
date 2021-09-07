@@ -31,10 +31,6 @@ const Cardcard: React.FC<Props> = (
   return (
     <div>
         <Grid item 
-            xs={3} 
-            sm={3} 
-            md={2} 
-            lg={1} 
             key={card.id}>
         <NavLink to={'/movie/' + card.id}>
             <div className="card-container" onClick={() => SetSelectedMovieId(card.id)} >
