@@ -13,17 +13,16 @@ import { useDispatch } from 'react-redux';
 const posterBaseUrl = "https://image.tmdb.org/t/p/w300";
 
 interface Props {
-    isArrayMinLength: number;
     element: Movie;
   }
 
 const CardElement: React.FC<Props> = (
     {
-        isArrayMinLength,
         element,
     }: Props) => {
 
     const dispatch = useDispatch();
+    const isArrayMinLength = 'element.length > 6';
 
     const SetSelectedMovieId = (id: number) => {
         dispatch(isMoviePageOpened(true));
@@ -31,8 +30,13 @@ const CardElement: React.FC<Props> = (
     }
 
   return (
-    <div >
-        <Grid item xs={isArrayMinLength ? 6 : 12} sm={isArrayMinLength ? 4 : 12} md={isArrayMinLength ? 3 : 12} lg={isArrayMinLength ? 2 : 6} key={element.id}>
+    <div>
+        <Grid item 
+            xs={isArrayMinLength ? 6 : 12} 
+            sm={isArrayMinLength ? 4 : 12} 
+            md={isArrayMinLength ? 3 : 12} 
+            lg={isArrayMinLength ? 2 : 6} 
+            key={element.id}>
         <NavLink to={'/movie/' + element.id}>
             <div className="card-container" onClick={() => SetSelectedMovieId(element.id)} >
             <img
