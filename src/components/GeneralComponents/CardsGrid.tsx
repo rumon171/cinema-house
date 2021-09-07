@@ -1,17 +1,6 @@
-import { Card, Grid, CardActionArea, CardActions, CardMedia, Button } from '@material-ui/core';
-import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
+import { Grid } from '@material-ui/core';
 import { Movie } from "../../services/movies.service";
-import { useDispatch } from 'react-redux';
 import CardElement from './CardElement';
-import { 
-  changeSelectedMovie, 
-  isMoviePageOpened
- } from '../../actions';
-import noImage from '../../images/no-image-available.png';
-
-const posterBaseUrl = "https://image.tmdb.org/t/p/w300";
-const NavLink = require("react-router-dom").NavLink;
-const isArrayMinLength = 'movies.length > 6';
 interface Props {
   similarMovies: Movie[];
 }
@@ -22,12 +11,6 @@ const CardsGrid: React.FC<Props> = (
   }: Props) =>{
 
   const cards = similarMovies;
-  const dispatch = useDispatch();
-
-  const SetSelectedMovieId = (id: number) => {
-    dispatch(isMoviePageOpened(true));
-    dispatch(changeSelectedMovie(id));
-  }
 
   return (
     <div >
@@ -35,11 +18,7 @@ const CardsGrid: React.FC<Props> = (
       { 
         cards.length > 0 &&
           cards.filter(card => card.vote_average !== 0).map((card) => (
-
-
             <CardElement card={card} />
-
-
           ))
       }
       </Grid>
