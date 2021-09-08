@@ -69,7 +69,7 @@ const MovieContent = () => {
           </h1>
           <div className="content">
             <span className="rating-container">
-              {movie.vote_average}
+              {movie.vote_average !== undefined && (movie.vote_average).toFixed(2)}
             </span>
             <div>
               {movie.release_date? movie.release_date : 'Release date: Coming out soon ;)'}

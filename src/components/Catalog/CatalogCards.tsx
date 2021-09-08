@@ -47,7 +47,7 @@ const CatalogCards = () =>  {
       {
         movies.length > 0 
         ? 
-        <Grid container spacing={1} className="container-content">
+        <Grid container className="container-content">
           { 
             movies.filter((movie: Movie) => movie.vote_average !== 0).map((movie: Movie) => (
               <CardElement card={movie} />
