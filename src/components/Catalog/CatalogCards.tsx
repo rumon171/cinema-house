@@ -43,7 +43,7 @@ const CatalogCards = () =>  {
 
   return (
     <div >
-      {movies.length < 6 && <div className="search-results-title">Found matched movies</div> }
+      {(movies.length > 0 && movies.length < 6) && <div className="search-results-title">Found matched movies</div> }
       {
         movies.length > 0 
         ? 
