@@ -3,7 +3,6 @@
 
 .container-movie-page {
     padding: 2rem;
-    margin: 40px auto !important;
 }
 
 .similar-movies-title {
@@ -20,13 +19,6 @@
         text-align: center;
         margin: 2rem;
         font-size: 1.8rem;
-    }
-}
-
-@media screen and (max-width: 649px) {
-    .container-content {
-        //padding: 1rem;
-       // margin: auto;
     }
 }
 
