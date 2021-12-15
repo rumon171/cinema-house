@@ -7,7 +7,7 @@ import useIntersectionObserver from '../../customHooks/useIntersectionObserver';
 import { changeCurrentPage } from '../../actions';
 import { fetchMovies, Movie} from "../../services/movies.service";
 import { RootState } from '../../reducer';
-import { addHomePageMovies } from '../../actions';
+import { showMoviesAtHomePage } from '../../actions';
 import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
 import CardElement from '../GeneralComponents/CardElement';
@@ -29,10 +29,10 @@ const CatalogCards = () =>  {
 
           fetchMovies(String(currentPage))
             .then(nextPage => {
-              dispatch(addHomePageMovies([...movies, ...nextPage]));
+              dispatch(showMoviesAtHomePage([...movies, ...nextPage]));
             })
             .catch(() => {
-              dispatch(addHomePageMovies([...movies]));
+              dispatch(showMoviesAtHomePage([...movies]));
             });
         }
       }

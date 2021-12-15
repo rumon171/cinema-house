@@ -1,11 +1,11 @@
 import { useEffect, useState } from 'react';
 import {OutlinedInput} from '@material-ui/core';
 import './Header.scss';
-import { fetchSearchedMovie, fetchMovies } from "../../services/movies.service";
+import { fetchSearchedMovies, fetchMovies } from "../../services/movies.service";
 import { useHistory } from 'react-router-dom';
 import { RootState } from '../../reducer';
 import { useSelector, useDispatch } from 'react-redux';
-import { isMoviePageOpened, changeSearchedMovie, addHomePageMovies } from '../../actions';
+import { isMoviePageOpened, changeSearchedMovie, showMoviesAtHomePage } from '../../actions';
 
 const Search = () => {
 
@@ -21,7 +21,7 @@ const Search = () => {
     window.scrollTo(0, 0);
 
     if (isMovieOpened === true) {
-      dispatch(isMoviePageOpened(false));
+      dispatch(isMoviePageOpened(false)); // should this action be renamed?
       history.push("/");
     }
   }
@@ -37,13 +37,13 @@ const Search = () => {
 
   useEffect(()=>{
     if (searchedMovie) {
-      fetchSearchedMovie(searchedMovie)
-        .then((res) => dispatch(addHomePageMovies(res)))
-        .catch(() => dispatch(addHomePageMovies([])));
+      fetchSearchedMovies(searchedMovie)
+        .then((res) => dispatch(showMoviesAtHomePage(res)))
+        .catch(() => dispatch(showMoviesAtHomePage([])));
     } else {
       fetchMovies('1')
-        .then((res) => dispatch(addHomePageMovies(res)))
-        .catch(() => dispatch(addHomePageMovies([])));
+        .then((res) => dispatch(showMoviesAtHomePage(res)))
+        .catch(() => dispatch(showMoviesAtHomePage([])));
     }
      // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [searchedMovie]);

@@ -29,7 +29,7 @@ export async function fetchSelectedMovie (movieId: number) {
     });
 }
 
-export async function fetchSearchedMovie (enteredTitle: string ) {
+export async function fetchSearchedMovies (enteredTitle: string ) {
 
   const enteredTitleWithoutSpecials = enteredTitle.replace(/[^a-zA-Z ]/g, "");
 

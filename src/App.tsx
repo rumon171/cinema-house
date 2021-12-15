@@ -7,7 +7,7 @@ import { BrowserRouter } from 'react-router-dom';
 import { Route } from 'react-router-dom';
 import { Switch } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import { addHomePageMovies } from './actions';
+import { showMoviesAtHomePage } from './actions';
 
 function App() {
 
@@ -19,8 +19,8 @@ function App() {
 
   useEffect(() => {
     fetchMovies('1')
-      .then(movies => dispatch(addHomePageMovies(movies)))
-      .catch(() => dispatch(addHomePageMovies([])));
+      .then(movies => dispatch(showMoviesAtHomePage(movies)))
+      .catch(() => dispatch(showMoviesAtHomePage([])));
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
