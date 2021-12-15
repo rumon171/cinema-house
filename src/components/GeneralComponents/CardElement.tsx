@@ -9,12 +9,13 @@ import '../Catalog/Catalog.scss';
 import noImage from '../../images/no-image-available.png';
 import { NavLink } from 'react-router-dom';
 import { Movie } from "../../services/movies.service";
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { RootState } from '../../reducer';
 const posterBaseUrl = "https://image.tmdb.org/t/p/w300";
 
 interface Props {
     card: Movie;
-  }
+}
 
 const Cardcard: React.FC<Props> = (
     {
@@ -28,11 +29,14 @@ const Cardcard: React.FC<Props> = (
         dispatch(changeSelectedMovie(id));
     }
 
+    const searchedMovie = useSelector((state: RootState) => state.searchedMovie);
+
+    //<div className={`card-container ${'card-container-when-search'}`} onClick={() => SetSelectedMovieId(card.id)} >
   return (
     <Grid item 
         key={card.id}>
     <NavLink to={'/movie/' + card.id} className="trial">
-        <div className="card-container card-container-when-search" onClick={() => SetSelectedMovieId(card.id)} >
+        <div className={`card-container ${searchedMovie && 'card-container-when-search'}`} onClick={() => SetSelectedMovieId(card.id)} >
         <img
             className="card-poster"
             alt={"Poster of " + card.title}
