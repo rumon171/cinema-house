@@ -29,29 +29,27 @@ const Cardcard: React.FC<Props> = (
     }
 
   return (
-    <div>
-        <Grid item 
-            key={card.id}>
-        <NavLink to={'/movie/' + card.id}>
-            <div className="card-container" onClick={() => SetSelectedMovieId(card.id)} >
-            <img
-                className="card-poster"
-                alt={"Poster of " + card.title}
-                src={card.poster_path ? (card.poster_path.includes('.jpg') ? posterBaseUrl + card.poster_path : noImage) : noImage}
-                title={card.title}
-            />
-            <div className="card-details">
-                <div className="title">
-                <FavoriteBorderIcon />
-                </div>
-                <div className="details">
-                {card.vote_average}
-                </div>
+    <Grid item 
+        key={card.id}>
+    <NavLink to={'/movie/' + card.id} className="trial">
+        <div className="card-container card-container-when-search" onClick={() => SetSelectedMovieId(card.id)} >
+        <img
+            className="card-poster"
+            alt={"Poster of " + card.title}
+            src={card.poster_path ? (card.poster_path.includes('.jpg') ? posterBaseUrl + card.poster_path : noImage) : noImage}
+            title={card.title}
+        />
+        <div className="card-details">
+            <div className="title">
+            <FavoriteBorderIcon />
             </div>
+            <div className="details">
+            {card.vote_average}
             </div>
-        </NavLink>
-        </Grid>
-    </div>
+        </div>
+        </div>
+    </NavLink>
+    </Grid>
   );
 }
 

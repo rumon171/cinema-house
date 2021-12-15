@@ -13,16 +13,14 @@ const CardsGrid: React.FC<Props> = (
   const cards = similarMovies;
 
   return (
-    <div >
-      <Grid container className="container-content">
-      { 
-        cards.length > 0 &&
-          cards.filter(card => card.vote_average !== 0).map((card) => (
-            <CardElement card={card} />
-          ))
-      }
-      </Grid>
-    </div>
+    <Grid container className="container-content">
+    { 
+      cards.length > 0 &&
+        cards.filter(card => card.vote_average !== 0).map((card) => (
+          <CardElement card={card} />
+        ))
+    }
+    </Grid>
   );
 }
 
