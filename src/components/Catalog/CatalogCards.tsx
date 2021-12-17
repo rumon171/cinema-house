@@ -1,3 +1,4 @@
+import React from "react";
 import{ useRef, useEffect } from "react";
 import { Grid, CardMedia } from '@material-ui/core';
 import '../../App.scss';
@@ -37,7 +38,6 @@ const CatalogCards = () =>  {
         }
       }
     },
-    // eslint-disable-next-line react-hooks/exhaustive-deps
     [isVisible]
   );
 
@@ -50,7 +50,7 @@ const CatalogCards = () =>  {
         <Grid container className="container-content">
           { 
             movies.filter((movie: Movie) => movie.vote_average !== 0).map((movie: Movie) => (
-              <CardElement card={movie} />
+              <CardElement key={movie.id} card={movie} />
             ))
           }
         </Grid>

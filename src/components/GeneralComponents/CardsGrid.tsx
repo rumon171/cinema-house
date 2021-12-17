@@ -1,3 +1,4 @@
+import React from "react";
 import { Grid } from '@material-ui/core';
 import { Movie } from "../../services/movies.service";
 import CardElement from './CardElement';
@@ -17,7 +18,7 @@ const CardsGrid: React.FC<Props> = (
     { 
       cards.length > 0 &&
         cards.filter(card => card.vote_average !== 0).map((card) => (
-          <CardElement card={card} />
+          <CardElement key={card.id} card={card} />
         ))
     }
     </Grid>

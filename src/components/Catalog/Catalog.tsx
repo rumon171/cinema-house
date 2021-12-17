@@ -1,3 +1,4 @@
+import React from "react";
 import CatalogCards from './CatalogCards';
 import ScrollTop from '../Catalog/ScrollTop';
 import { Toolbar, Fab } from '@material-ui/core';

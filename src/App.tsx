@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import React, { useEffect } from "react";
 import './App.scss';
 import HomePage from './components/Pages/HomePage';
 import { fetchMovies } from "./services/movies.service";
@@ -9,6 +9,7 @@ import { Switch } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { showMoviesAtHomePage } from './actions';
 
+// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 function App() {
 
   window.onbeforeunload = function () {
@@ -21,7 +22,6 @@ function App() {
     fetchMovies('1')
       .then(movies => dispatch(showMoviesAtHomePage(movies)))
       .catch(() => dispatch(showMoviesAtHomePage([])));
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (

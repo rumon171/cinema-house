@@ -1,3 +1,4 @@
+import React from "react";
 import Topbar from '../Header/Topbar';
 import Catalog from '../Catalog/Catalog';
 

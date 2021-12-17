@@ -1,5 +1,4 @@
-import React from 'react';
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { Movie, fetchSelectedMovie, fetchSimilarMovies } from "../../services/movies.service";
 import { Grid, Card, CardMedia, Button } from '@material-ui/core';
 import CardsGrid from '../GeneralComponents/CardsGrid';
@@ -48,7 +47,6 @@ const MovieContent = () => {
       }
 
       callAPI();
-  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [selectedMovie]);
 
   return (

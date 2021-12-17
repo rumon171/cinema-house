@@ -1,3 +1,4 @@
+import React from "react";
 import {AppBar, Toolbar} from '@material-ui/core';
 import './Header.scss';
 import Search from './Search';

@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import Topbar from '../Header/Topbar';
 import MovieContent from '../Pages/MovieContent';
 import './Pages.scss';
@@ -7,7 +7,7 @@ import { useHistory } from 'react-router-dom';
 const MoviePage = () => {
 
   const [locationKeys, setLocationKeys] = useState<(string | undefined)[]>([]);
-  let history = useHistory();
+  const history = useHistory();
 
 
   useEffect(() => {
@@ -31,7 +31,6 @@ const MoviePage = () => {
         }
       }
     });
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [locationKeys]);
 
   return (

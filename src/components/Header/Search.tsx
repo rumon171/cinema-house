@@ -1,3 +1,4 @@
+import React from "react";
 import { useEffect, useState } from 'react';
 import {OutlinedInput} from '@material-ui/core';
 import './Header.scss';
@@ -14,7 +15,7 @@ const Search = () => {
   const searchedMovie = useSelector((state: RootState) => state.searchedMovie);
   const isMovieOpened = useSelector((state: RootState) => state.isMoviePageOpened);
   const dispatch = useDispatch();
-  let history = useHistory();
+  const history = useHistory();
 
   const fetchMoviesList = (searchedMovieValue: string) => {
     dispatch(changeSearchedMovie(searchedMovieValue));
@@ -45,7 +46,6 @@ const Search = () => {
         .then((res) => dispatch(showMoviesAtHomePage(res)))
         .catch(() => dispatch(showMoviesAtHomePage([])));
     }
-     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [searchedMovie]);
 
   return (

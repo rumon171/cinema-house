@@ -1,3 +1,4 @@
+import React from "react";
 import useScrollTrigger from '@material-ui/core/useScrollTrigger';
 import Zoom from '@material-ui/core/Zoom';
 import './Catalog.scss';
