@@ -11,7 +11,7 @@ function useIntersectionObserver(
     root = null,
     rootMargin = '200px',
     freezeOnceVisible = false,
-  }: Args,
+  }: Args
 ): IntersectionObserverEntry | undefined {
   const [entry, setEntry] = useState<IntersectionObserverEntry>()
 
@@ -33,10 +33,9 @@ function useIntersectionObserver(
     observer.observe(node)
 
     return () => observer.disconnect()
-
   }, [elementRef, threshold, root, rootMargin, frozen])
 
   return entry
 }
 
-export default useIntersectionObserver;
+export default useIntersectionObserver

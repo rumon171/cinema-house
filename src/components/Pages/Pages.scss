@@ -1,34 +1,33 @@
-
 @import '../../App';
 
 .container-movie-page {
-    padding: 2rem;
-    margin: 65px !important;
+  padding: 2rem;
+  margin: 65px !important;
 }
 
 .similar-movies-title {
-    margin: 2.5rem 0;
+  margin: 2.5rem 0;
 }
 
 @media screen and (max-width: 599px) {
-    .card-movie {
-        max-width: 50%;
-        margin: 0 auto;
-    }
+  .card-movie {
+    max-width: 50%;
+    margin: 0 auto;
+  }
 
-    .title {
-        text-align: center;
-        margin: 2rem;
-        font-size: 1.8rem;
-    }
+  .title {
+    text-align: center;
+    margin: 2rem;
+    font-size: 1.8rem;
+  }
 }
 
 @media screen and (max-width: 1380px) {
-    .card-movie {
-        max-height: 655px;
-    }
+  .card-movie {
+    max-height: 655px;
+  }
 
-    .card-movie img {
-        height: 100%;
-    }
+  .card-movie img {
+    height: 100%;
+  }
 }

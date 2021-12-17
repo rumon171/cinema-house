@@ -1,44 +1,42 @@
-import React, { useEffect, useState } from "react";
-import Topbar from '../Header/Topbar';
-import MovieContent from '../Pages/MovieContent';
-import './Pages.scss';
-import { useHistory } from 'react-router-dom';
+import React, { useEffect, useState } from 'react'
+import Topbar from '../Header/Topbar'
+import MovieContent from '../Pages/MovieContent'
+import './Pages.scss'
+import { useHistory } from 'react-router-dom'
 
 const MoviePage: React.FC = () => {
-
-  const [locationKeys, setLocationKeys] = useState<(string | undefined)[]>([]);
-  const history = useHistory();
-
+  const [locationKeys, setLocationKeys] = useState<(string | undefined)[]>([])
+  const history = useHistory()
 
   useEffect(() => {
     return history.listen((location) => {
       if (history.action === 'PUSH') {
-        if (location.key) setLocationKeys([location.key]);
+        if (location.key) setLocationKeys([location.key])
       }
 
       if (history.action === 'POP') {
         if (locationKeys[1] === location.key) {
-          setLocationKeys(([...keys]) => keys);
+          setLocationKeys(([...keys]) => keys)
 
           // Handle forward event
-          console.log('forward button');
+          console.log('forward button')
         } else {
-          setLocationKeys((keys) => [location.key, ...keys]);
+          setLocationKeys((keys) => [location.key, ...keys])
 
           // Handle back event
-          console.log('back button');
+          console.log('back button')
           //removeTask();
         }
       }
-    });
-  }, [locationKeys]);
+    })
+  }, [locationKeys])
 
   return (
     <>
       <Topbar></Topbar>
       <MovieContent></MovieContent>
     </>
-  );
+  )
 }
 
-export default MoviePage;
+export default MoviePage

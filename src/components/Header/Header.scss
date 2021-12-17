@@ -1,19 +1,19 @@
 @import '../../App';
 
 .top-bar {
-    background-color: $base-color;
+  background-color: $base-color;
 
-    a {
-        text-decoration: none;
-        color: $font-base-color;
-    }
+  a {
+    text-decoration: none;
+    color: $font-base-color;
+  }
 }
 
 .top-bar-title {
-    font-size: 1.5rem;
-    font-weight: 500;
+  font-size: 1.5rem;
+  font-weight: 500;
 }
 
 .seach-field {
-    margin-left: auto;
+  margin-left: auto;
 }

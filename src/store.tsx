@@ -1,8 +1,8 @@
-import { createStore } from "redux";
-import appReducer from "./reducer";
-import { composeWithDevTools } from 'redux-devtools-extension';
+import { createStore } from 'redux'
+import appReducer from './reducer'
+import { composeWithDevTools } from 'redux-devtools-extension'
 
-const store = createStore(appReducer, composeWithDevTools());
+const store = createStore(appReducer, composeWithDevTools())
 
-export default store;
+export default store
 export type AppDispatch = typeof store.dispatch

@@ -1,4 +1,4 @@
-$base-color: #AA2876;
+$base-color: #aa2876;
 $font-base-color: #fff;
 
 body {
@@ -10,7 +10,7 @@ body {
 }
 
 .typography-base {
-  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
   font-weight: 400;
 }
 
@@ -37,7 +37,7 @@ body {
 
   .card-poster:hover {
     opacity: 0.3;
-    filter:alpha(opacity=30);
+    filter: alpha(opacity=30);
   }
 
   .card-details {
@@ -100,7 +100,7 @@ body {
 
 .rating-container {
   background-color: $base-color;
-  padding: 10px;  
+  padding: 10px;
 }
 
 .raiting {
@@ -112,7 +112,7 @@ body {
 }
 .container-content {
   justify-content: center;
- }
+}
 // xs
 @media screen and (max-width: 599px) {
   .container-content {
@@ -150,7 +150,7 @@ body {
 @media screen and (min-width: 1280px) and (min-width: 1280px) {
   .container-content {
     img {
-    max-height: 22vw;
+      max-height: 22vw;
       min-height: 22vw;
       max-width: 16vw;
       min-width: 16vw;
@@ -159,5 +159,4 @@ body {
 }
 
 @media screen and (max-width: 599px) {
-
 }

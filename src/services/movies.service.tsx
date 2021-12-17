@@ -1,70 +1,67 @@
-import noImage from '../images/no-image-available.png';
+import noImage from '../images/no-image-available.png'
 
-const movieApiBaseUrl = "https://api.themoviedb.org/3";
-const posterBaseUrl = "https://image.tmdb.org/t/p/w300";
+const movieApiBaseUrl = 'https://api.themoviedb.org/3'
+const posterBaseUrl = 'https://image.tmdb.org/t/p/w300'
 interface Genre {
-  id: number;
-  name: string;
+  id: number
+  name: string
 }
 export interface Movie {
-    id: number;
-    title: string;
-    vote_average?: number;
-    overview?: string;
-    poster_path?: string;
-    release_date?: string;
-    budget?: number;
-    revenue?: number;
-    genres?: Genre[];
-  }
+  id: number
+  title: string
+  vote_average?: number
+  overview?: string
+  poster_path?: string
+  release_date?: string
+  budget?: number
+  revenue?: number
+  genres?: Genre[]
+}
 
-export async function fetchSelectedMovie (movieId: number) {
+export async function fetchSelectedMovie(movieId: number) {
   return await fetch(
     `${movieApiBaseUrl}/movie/${movieId}?api_key=${process.env.REACT_APP_API_KEY}`
   )
     .then((res) => res.json())
-    .then((body) => {return body})
+    .then((body) => {
+      return body
+    })
     .catch(() => {
-        return {};
-    });
+      return {}
+    })
 }
 
-export async function fetchSearchedMovies (enteredTitle: string ) {
+export async function fetchSearchedMovies(enteredTitle: string) {
+  const enteredTitleWithoutSpecials = enteredTitle.replace(/[^a-zA-Z ]/g, '')
 
-  const enteredTitleWithoutSpecials = enteredTitle.replace(/[^a-zA-Z ]/g, "");
+  return await fetch(
+    `${movieApiBaseUrl}/search/movie/?api_key=${process.env.REACT_APP_API_KEY}&query=${enteredTitleWithoutSpecials}`
+  )
+    .then((res) => res.json())
+    .then((body) => {
+      return body.results
+    })
+    .catch(() => {
+      return {}
+    })
+}
 
-    return await fetch(
-      `${movieApiBaseUrl}/search/movie/?api_key=${process.env.REACT_APP_API_KEY}&query=${enteredTitleWithoutSpecials}`
-    )
-      .then((res) => res.json())
-      .then((body) => {return body.results})
-      .catch(() => {
-          return {};
-      });
-  }
-
-       export async function fetchMovies(page: string): Promise<Movie[]> {
+export async function fetchMovies(page: string): Promise<Movie[]> {
   return await fetch(
     `${movieApiBaseUrl}/movie/popular?api_key=${process.env.REACT_APP_API_KEY}&page=${page}`
-    )
+  )
     .then((res) => res.json())
     .then((res) => mapMainMoviesResult(res.results))
     .catch(() => {
-        return [];
-    });
- }
+      return []
+    })
+}
 
 // = movie has to be after const {} here
 function mapMainMoviesResult(res: Movie[]): Movie[] {
   return res.map((movie) => {
-    const {
-      id,
-      title,
-      vote_average,
-      overview,
-      poster_path,
-      release_date,
-    } = movie;
+    const { id, title, vote_average, overview, poster_path, release_date } =
+      movie
     return {
       id: id,
       title: title,
@@ -72,18 +69,18 @@ function mapMainMoviesResult(res: Movie[]): Movie[] {
       overview: overview,
       poster_path: poster_path ? `${posterBaseUrl}${poster_path}` : noImage,
       release_date: release_date,
-    };
-  });
+    }
+  })
 }
 
 export async function fetchSimilarMovies(movieId: number): Promise<Movie[]> {
-  const page = 1;
+  const page = 1
   return await fetch(
     `${movieApiBaseUrl}/movie/${movieId}/similar?api_key=${process.env.REACT_APP_API_KEY}&language=en-US&page=${page}`
   )
     .then((res) => res.json())
     .then((res) => mapMainMoviesResult(res.results))
     .catch(() => {
-        return [];
-    });
+      return []
+    })
 }
