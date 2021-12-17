@@ -13,7 +13,7 @@ import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
 import CardElement from '../GeneralComponents/CardElement';
 
-const CatalogCards = () =>  {
+const CatalogCards: React.FunctionComponent<any> = () =>  {
   const loadingRef = useRef<HTMLDivElement | null>(null);
   const entry = useIntersectionObserver(loadingRef, {})
   const isVisible = !!entry?.isIntersecting;

@@ -4,7 +4,7 @@ import MovieContent from '../Pages/MovieContent';
 import './Pages.scss';
 import { useHistory } from 'react-router-dom';
 
-const MoviePage = () => {
+const MoviePage: React.FunctionComponent<any> = () => {
 
   const [locationKeys, setLocationKeys] = useState<(string | undefined)[]>([]);
   const history = useHistory();
@@ -18,7 +18,7 @@ const MoviePage = () => {
 
       if (history.action === 'POP') {
         if (locationKeys[1] === location.key) {
-          setLocationKeys(([_, ...keys]) => keys);
+          setLocationKeys(([...keys]) => keys);
 
           // Handle forward event
           console.log('forward button');

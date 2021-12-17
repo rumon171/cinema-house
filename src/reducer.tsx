@@ -24,7 +24,7 @@ const initialState: mainState = {
     currentPage: 1
   }
 
-function rootReducer( state = initialState, action: AnyAction ){
+function rootReducer( state = initialState, action: AnyAction ) {
     switch(action.type) {
         case ADD_HOME_PAGE_MOVIES:
             return {

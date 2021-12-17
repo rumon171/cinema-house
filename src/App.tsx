@@ -9,7 +9,6 @@ import { Switch } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { showMoviesAtHomePage } from './actions';
 
-// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 function App() {
 
   window.onbeforeunload = function () {

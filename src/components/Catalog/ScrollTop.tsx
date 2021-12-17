@@ -3,7 +3,7 @@ import useScrollTrigger from '@material-ui/core/useScrollTrigger';
 import Zoom from '@material-ui/core/Zoom';
 import './Catalog.scss';
   
-  const ScrollTop = (props: any) => {
+  const ScrollTop: React.FunctionComponent<any> = (props: any) => {
     const { children, window } = props;
 
     const trigger = useScrollTrigger({
