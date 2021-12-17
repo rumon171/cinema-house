@@ -4,7 +4,7 @@ import ScrollTop from '../Catalog/ScrollTop';
 import { Toolbar, Fab } from '@material-ui/core';
 import KeyboardArrowUpIcon from '@material-ui/icons/KeyboardArrowUp';
 
-const Catalog: React.FunctionComponent<any> = (props: any) => {
+const Catalog: React.FunctionComponent = (props: any) => {
   return (
     <>
         <Toolbar id="back-to-top-anchor" />

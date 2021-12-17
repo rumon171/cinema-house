@@ -4,7 +4,7 @@ import MovieContent from '../Pages/MovieContent';
 import './Pages.scss';
 import { useHistory } from 'react-router-dom';
 
-const MoviePage: React.FunctionComponent<any> = () => {
+const MoviePage: React.FC = () => {
 
   const [locationKeys, setLocationKeys] = useState<(string | undefined)[]>([]);
   const history = useHistory();

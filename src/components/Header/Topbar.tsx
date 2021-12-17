@@ -6,7 +6,7 @@ import { NavLink } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { isMoviePageOpened, changeSearchedMovie } from '../../actions';
 
-const Topbar: React.FunctionComponent<any> = () => {
+const Topbar: React.FC = () => {
 
   const dispatch = useDispatch();
 

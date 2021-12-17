@@ -8,7 +8,7 @@ import './Pages.scss';
 import noImage from '../../images/no-image-available.png';
 const posterBaseUrl = "https://image.tmdb.org/t/p/w300";
 
-const MovieContent: React.FunctionComponent<any> = () => {
+const MovieContent: React.FC = () => {
 
   const selectedMovie = useSelector(
     (state: RootState) => state.selectedMovie
