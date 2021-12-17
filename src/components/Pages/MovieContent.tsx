@@ -1,21 +1,21 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect } from 'react';
 import {
   Movie,
   fetchSelectedMovie,
   fetchSimilarMovies,
-} from '../../services/movies.service'
-import { Grid, Card, CardMedia, Button } from '@material-ui/core'
-import CardsGrid from '../GeneralComponents/CardsGrid'
-import { RootState } from '../../reducer'
-import { useSelector } from 'react-redux'
-import './Pages.scss'
-import noImage from '../../images/no-image-available.png'
-const posterBaseUrl = 'https://image.tmdb.org/t/p/w300'
+} from '../../services/movies.service';
+import { Grid, Card, CardMedia, Button } from '@material-ui/core';
+import CardsGrid from '../GeneralComponents/CardsGrid';
+import { RootState } from '../../reducer';
+import { useSelector } from 'react-redux';
+import './Pages.scss';
+import noImage from '../../images/no-image-available.png';
+const posterBaseUrl = 'https://image.tmdb.org/t/p/w300';
 
 const MovieContent: React.FC = () => {
-  const selectedMovie = useSelector((state: RootState) => state.selectedMovie)
+  const selectedMovie = useSelector((state: RootState) => state.selectedMovie);
 
-  const movieIdFromUrl = document.URL.split('/').pop()
+  const movieIdFromUrl = document.URL.split('/').pop();
   const [movie, setMovie] = useState<Movie>({
     id: 0,
     title: '',
@@ -26,27 +26,28 @@ const MovieContent: React.FC = () => {
     budget: 0,
     revenue: 0,
     genres: [],
-  })
-  const [movieImg, setMovieImg] = useState<string>(noImage)
-  const [similarMovies, setSimilarMovies] = useState<Movie[]>([])
-  const movieGenresAmount = movie.genres?.length ?? 0
+  });
+  const [movieImg, setMovieImg] = useState<string>(noImage);
+  const [similarMovies, setSimilarMovies] = useState<Movie[]>([]);
+  const movieGenresAmount = movie.genres?.length ?? 0;
 
   useEffect(() => {
-    const movieId = selectedMovie !== 0 ? selectedMovie : Number(movieIdFromUrl)
+    const movieId =
+      selectedMovie !== 0 ? selectedMovie : Number(movieIdFromUrl);
     const callAPI = async () => {
-      const fetchedSelectedMovieInfo = await fetchSelectedMovie(movieId)
-      setMovie(fetchedSelectedMovieInfo)
+      const fetchedSelectedMovieInfo = await fetchSelectedMovie(movieId);
+      setMovie(fetchedSelectedMovieInfo);
       if (fetchedSelectedMovieInfo.poster_path !== null) {
-        setMovieImg(posterBaseUrl + fetchedSelectedMovieInfo.poster_path)
+        setMovieImg(posterBaseUrl + fetchedSelectedMovieInfo.poster_path);
       }
 
-      const fetchedSimilarMovies = await fetchSimilarMovies(movieId)
-      setSimilarMovies(fetchedSimilarMovies)
-      window.scrollTo(0, 0)
-    }
+      const fetchedSimilarMovies = await fetchSimilarMovies(movieId);
+      setSimilarMovies(fetchedSimilarMovies);
+      window.scrollTo(0, 0);
+    };
 
-    callAPI()
-  }, [selectedMovie])
+    callAPI();
+  }, [selectedMovie]);
 
   return (
     <>
@@ -96,7 +97,7 @@ const MovieContent: React.FC = () => {
         <CardsGrid similarMovies={similarMovies}></CardsGrid>
       </Grid>
     </>
-  )
-}
+  );
+};
 
-export default MovieContent
+export default MovieContent;

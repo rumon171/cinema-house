@@ -28,9 +28,11 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "prettier": "prettier --write ."
+    "prettier": "prettier --write .",
+    "lint": "npm run tslint \"Client/**/*.ts\"",
+    "precommit": "npm run lint && npm test",
+    "prepush": "npm run lint"
   },
   "eslintConfig": {
     "env": {
@@ -74,6 +76,11 @@
       }
     ]
   },
+  "husky": {
+    "hooks": {
+      "pre-commit": "prettier --write . && git add -A ."
+    }
+  },
   "browserslist": {
     "production": [
       ">0.2%",
@@ -89,6 +96,7 @@
   "devDependencies": {
     "@types/react": "^17.0.18",
     "eslint-plugin-prettier": "^4.0.0",
+    "husky": "^7.0.4",
     "prettier": "^2.5.1",
     "prettier-check": "^2.0.0",
     "redux-devtools-extension": "^2.13.9"

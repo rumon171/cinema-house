@@ -1,6 +1,6 @@
-import React from 'react'
-import Topbar from '../Header/Topbar'
-import Catalog from '../Catalog/Catalog'
+import React from 'react';
+import Topbar from '../Header/Topbar';
+import Catalog from '../Catalog/Catalog';
 
 const HomePage: React.FC = () => {
   return (
@@ -8,7 +8,7 @@ const HomePage: React.FC = () => {
       <Topbar></Topbar>
       <Catalog></Catalog>
     </>
-  )
-}
+  );
+};
 
-export default HomePage
+export default HomePage;

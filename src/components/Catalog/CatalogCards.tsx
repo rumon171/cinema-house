@@ -1,42 +1,42 @@
-import React from 'react'
-import { useRef, useEffect } from 'react'
-import { Grid, CardMedia } from '@material-ui/core'
-import '../../App.scss'
-import './Catalog.scss'
-import loadingSpinner from '../../images/loading-spinner.gif'
-import useIntersectionObserver from '../../customHooks/useIntersectionObserver'
-import { changeCurrentPage } from '../../actions'
-import { fetchMovies, Movie } from '../../services/movies.service'
-import { RootState } from '../../reducer'
-import { showMoviesAtHomePage } from '../../actions'
-import { useDispatch } from 'react-redux'
-import { useSelector } from 'react-redux'
-import CardElement from '../GeneralComponents/CardElement'
+import React from 'react';
+import { useRef, useEffect } from 'react';
+import { Grid, CardMedia } from '@material-ui/core';
+import '../../App.scss';
+import './Catalog.scss';
+import loadingSpinner from '../../images/loading-spinner.gif';
+import useIntersectionObserver from '../../customHooks/useIntersectionObserver';
+import { changeCurrentPage } from '../../actions';
+import { fetchMovies, Movie } from '../../services/movies.service';
+import { RootState } from '../../reducer';
+import { showMoviesAtHomePage } from '../../actions';
+import { useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
+import CardElement from '../GeneralComponents/CardElement';
 
 const CatalogCards: React.FC = () => {
-  const loadingRef = useRef<HTMLDivElement | null>(null)
-  const entry = useIntersectionObserver(loadingRef, {})
-  const isVisible = !!entry?.isIntersecting
-  const dispatch = useDispatch()
-  const movies = useSelector((state: RootState) => state.homePageMovies)
-  const searchedMovie = useSelector((state: RootState) => state.searchedMovie)
-  const currentPage = useSelector((state: RootState) => state.currentPage)
+  const loadingRef = useRef<HTMLDivElement | null>(null);
+  const entry = useIntersectionObserver(loadingRef, {});
+  const isVisible = !!entry?.isIntersecting;
+  const dispatch = useDispatch();
+  const movies = useSelector((state: RootState) => state.homePageMovies);
+  const searchedMovie = useSelector((state: RootState) => state.searchedMovie);
+  const currentPage = useSelector((state: RootState) => state.currentPage);
 
   useEffect(() => {
     if (isVisible) {
       if (currentPage <= 500) {
-        dispatch(changeCurrentPage(currentPage + 1))
+        dispatch(changeCurrentPage(currentPage + 1));
 
         fetchMovies(String(currentPage))
           .then((nextPage) => {
-            dispatch(showMoviesAtHomePage([...movies, ...nextPage]))
+            dispatch(showMoviesAtHomePage([...movies, ...nextPage]));
           })
           .catch(() => {
-            dispatch(showMoviesAtHomePage([...movies]))
-          })
+            dispatch(showMoviesAtHomePage([...movies]));
+          });
       }
     }
-  }, [isVisible])
+  }, [isVisible]);
 
   return (
     <div>
@@ -66,7 +66,7 @@ const CatalogCards: React.FC = () => {
         </div>
       )}
     </div>
-  )
-}
+  );
+};
 
-export default CatalogCards
+export default CatalogCards;

@@ -1,29 +1,29 @@
-import React from 'react'
-import { changeSelectedMovie, isMoviePageOpened } from '../../actions'
-import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder'
-import { Grid } from '@material-ui/core'
-import '../../App.scss'
-import '../Catalog/Catalog.scss'
-import noImage from '../../images/no-image-available.png'
-import { NavLink } from 'react-router-dom'
-import { Movie } from '../../services/movies.service'
-import { useDispatch, useSelector } from 'react-redux'
-import { RootState } from '../../reducer'
-const posterBaseUrl = 'https://image.tmdb.org/t/p/w300'
+import React from 'react';
+import { changeSelectedMovie, isMoviePageOpened } from '../../actions';
+import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
+import { Grid } from '@material-ui/core';
+import '../../App.scss';
+import '../Catalog/Catalog.scss';
+import noImage from '../../images/no-image-available.png';
+import { NavLink } from 'react-router-dom';
+import { Movie } from '../../services/movies.service';
+import { useDispatch, useSelector } from 'react-redux';
+import { RootState } from '../../reducer';
+const posterBaseUrl = 'https://image.tmdb.org/t/p/w300';
 
 interface Props {
-  card: Movie
+  card: Movie;
 }
 
 const Cardcard: React.FC<Props> = ({ card }: Props) => {
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
 
   const SetSelectedMovieId = (id: number) => {
-    dispatch(isMoviePageOpened(true))
-    dispatch(changeSelectedMovie(id))
-  }
+    dispatch(isMoviePageOpened(true));
+    dispatch(changeSelectedMovie(id));
+  };
 
-  const searchedMovie = useSelector((state: RootState) => state.searchedMovie)
+  const searchedMovie = useSelector((state: RootState) => state.searchedMovie);
 
   //<div className={`card-container ${'card-container-when-search'}`} onClick={() => SetSelectedMovieId(card.id)} >
   return (
@@ -56,7 +56,7 @@ const Cardcard: React.FC<Props> = ({ card }: Props) => {
         </div>
       </NavLink>
     </Grid>
-  )
-}
+  );
+};
 
-export default Cardcard
+export default Cardcard;

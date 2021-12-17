@@ -1,8 +1,8 @@
-import React from 'react'
-import CatalogCards from './CatalogCards'
-import ScrollTop from '../Catalog/ScrollTop'
-import { Toolbar, Fab } from '@material-ui/core'
-import KeyboardArrowUpIcon from '@material-ui/icons/KeyboardArrowUp'
+import React from 'react';
+import CatalogCards from './CatalogCards';
+import ScrollTop from '../Catalog/ScrollTop';
+import { Toolbar, Fab } from '@material-ui/core';
+import KeyboardArrowUpIcon from '@material-ui/icons/KeyboardArrowUp';
 
 const Catalog: React.FunctionComponent = (props: any) => {
   return (
@@ -15,7 +15,7 @@ const Catalog: React.FunctionComponent = (props: any) => {
         </Fab>
       </ScrollTop>
     </>
-  )
-}
+  );
+};
 
-export default Catalog
+export default Catalog;
