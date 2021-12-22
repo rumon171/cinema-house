@@ -92,7 +92,7 @@ const MovieContent: React.FC = () => {
           </div>
         </Grid>
         {similarMovies.length > 0 && (
-          <div className="similar-movies-title">Similar movies</div>
+          <div className="similar-movies-title">More like this</div>
         )}
         <CardsGrid similarMovies={similarMovies}></CardsGrid>
       </Grid>
