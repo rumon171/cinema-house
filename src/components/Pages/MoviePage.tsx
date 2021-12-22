@@ -3,29 +3,32 @@ import Topbar from '../Header/Topbar';
 import MovieContent from '../Pages/MovieContent';
 import './Pages.scss';
 import { useHistory } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { changeSelectedMovie } from '../../actions';
+import { movieIdFromUrl } from '../../utilities/common';
 
 const MoviePage: React.FC = () => {
   const [locationKeys, setLocationKeys] = useState<(string | undefined)[]>([]);
   const history = useHistory();
+  const dispatch = useDispatch();
 
   useEffect(() => {
     return history.listen((location) => {
       if (history.action === 'PUSH') {
         if (location.key) setLocationKeys([location.key]);
+
+        console.log('history.action === PUSH, location.key ', location.key);
       }
 
       if (history.action === 'POP') {
         if (locationKeys[1] === location.key) {
-          setLocationKeys(([...keys]) => keys);
-
           // Handle forward event
-          console.log('forward button');
+          setLocationKeys(([...keys]) => keys);
+          dispatch(changeSelectedMovie( movieIdFromUrl() ));
         } else {
-          setLocationKeys((keys) => [location.key, ...keys]);
-
           // Handle back event
-          console.log('back button');
-          //removeTask();
+          setLocationKeys((keys) => [location.key, ...keys]);
+          dispatch(changeSelectedMovie( movieIdFromUrl() ));
         }
       }
     });

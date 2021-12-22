@@ -10,12 +10,12 @@ import { RootState } from '../../reducer';
 import { useSelector } from 'react-redux';
 import './Pages.scss';
 import noImage from '../../images/no-image-available.png';
+import { movieIdFromUrl } from '../../utilities/common';
 const posterBaseUrl = 'https://image.tmdb.org/t/p/w300';
 
 const MovieContent: React.FC = () => {
   const selectedMovie = useSelector((state: RootState) => state.selectedMovie);
 
-  const movieIdFromUrl = document.URL.split('/').pop();
   const [movie, setMovie] = useState<Movie>({
     id: 0,
     title: '',
@@ -33,7 +33,7 @@ const MovieContent: React.FC = () => {
 
   useEffect(() => {
     const movieId =
-      selectedMovie !== 0 ? selectedMovie : Number(movieIdFromUrl);
+      selectedMovie !== 0 ? selectedMovie : movieIdFromUrl();
     const callAPI = async () => {
       const fetchedSelectedMovieInfo = await fetchSelectedMovie(movieId);
       setMovie(fetchedSelectedMovieInfo);
