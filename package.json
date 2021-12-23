@@ -34,53 +34,6 @@
     "precommit": "npm run lint && npm test",
     "prepush": "npm run lint"
   },
-  "eslintConfig": {
-    "env": {
-      "browser": true,
-      "es2021": true
-    },
-    "extends": [
-      "react-app",
-      "react-app/jest",
-      "eslint:recommended",
-      "plugin:react/recommended",
-      "plugin:@typescript-eslint/recommended"
-    ],
-    "parser": "@typescript-eslint/parser",
-    "parserOptions": {
-      "ecmaFeatures": {
-        "jsx": true
-      },
-      "ecmaVersion": 12,
-      "sourceType": "module"
-    },
-    "plugins": [
-      "react",
-      "@typescript-eslint"
-    ],
-    "rules": {},
-    "overrides": [
-      {
-        "files": [
-          "*.jsx",
-          "*.tsx"
-        ],
-        "rules": {
-          "@typescript-eslint/explicit-module-boundary-types": [
-            "off"
-          ],
-          "react-hooks/exhaustive-deps": [
-            "off"
-          ]
-        }
-      }
-    ]
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "prettier --write . && git add -A ."
-    }
-  },
   "browserslist": {
     "production": [
       ">0.2%",
@@ -95,7 +48,9 @@
   },
   "devDependencies": {
     "@types/react": "^17.0.18",
-    "eslint-plugin-prettier": "^4.0.0",
+    "@typescript-eslint/eslint-plugin": "^5.8.0",
+    "@typescript-eslint/parser": "^5.8.0",
+    "eslint-plugin-react": "^7.28.0",
     "prettier": "^2.5.1",
     "prettier-check": "^2.0.0",
     "redux-devtools-extension": "^2.13.9"
