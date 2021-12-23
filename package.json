@@ -96,7 +96,6 @@
   "devDependencies": {
     "@types/react": "^17.0.18",
     "eslint-plugin-prettier": "^4.0.0",
-    "husky": "^7.0.4",
     "prettier": "^2.5.1",
     "prettier-check": "^2.0.0",
     "redux-devtools-extension": "^2.13.9"
