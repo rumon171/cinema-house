@@ -1,7 +1,7 @@
 import React from 'react';
 import { Grid } from '@material-ui/core';
 import { Movie } from '../../services/movies.service';
-import CardElement from './CardElement';
+import Card from './Card';
 interface Props {
   similarMovies: Movie[];
 }
@@ -14,7 +14,7 @@ const CardsGrid: React.FC<Props> = ({ similarMovies }: Props) => {
       {cards.length > 0 &&
         cards
           .filter((card) => card.vote_average !== 0)
-          .map((card) => <CardElement key={card.id} card={card} />)}
+          .map((card) => <Card key={card.id} card={card} />)}
     </Grid>
   );
 };

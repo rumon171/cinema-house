@@ -60,7 +60,7 @@ const Search: React.FC = () => {
     <>
       <OutlinedInput
         color="secondary"
-        className="seach-field"
+        className="search-field"
         type="string"
         onBlur={({ target: { value } }) => fetchMoviesList(value)}
         onKeyDown={handleKeyPress}

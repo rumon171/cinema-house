@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Topbar from '../Header/Topbar';
-import MovieContent from '../Pages/MovieContent';
-import './Pages.scss';
+import MovieContent from './MovieContent';
+import './Containers.scss';
 import { useHistory } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { changeSelectedMovie } from '../../actions';
@@ -16,8 +16,6 @@ const MoviePage: React.FC = () => {
     return history.listen((location) => {
       if (history.action === 'PUSH') {
         if (location.key) setLocationKeys([location.key]);
-
-        console.log('history.action === PUSH, location.key ', location.key);
       }
 
       if (history.action === 'POP') {

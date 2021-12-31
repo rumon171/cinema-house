@@ -11,7 +11,7 @@ import { RootState } from '../../reducer';
 import { showMoviesAtHomePage } from '../../actions';
 import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
-import CardElement from '../GeneralComponents/CardElement';
+import Card from '../GeneralComponents/Card';
 
 const CatalogCards: React.FC = () => {
   const loadingRef = useRef<HTMLDivElement | null>(null);
@@ -48,7 +48,7 @@ const CatalogCards: React.FC = () => {
           {movies
             .filter((movie: Movie) => movie.vote_average !== 0)
             .map((movie: Movie) => (
-              <CardElement key={movie.id} card={movie} />
+              <Card key={movie.id} card={movie} />
             ))}
         </Grid>
       ) : searchedMovie ? (

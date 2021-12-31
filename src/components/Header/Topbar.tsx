@@ -5,6 +5,7 @@ import Search from './Search';
 import { NavLink } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { isMoviePageOpened, changeSearchedMovie } from '../../actions';
+import PersonOutlineOutlinedIcon from '@material-ui/icons/PersonOutlineOutlined';
 
 const Topbar: React.FC = () => {
   const dispatch = useDispatch();
@@ -23,6 +24,7 @@ const Topbar: React.FC = () => {
             <h1 className="top-bar-title">Cinema House</h1>
           </NavLink>
           <Search />
+          <PersonOutlineOutlinedIcon />
         </Toolbar>
       </AppBar>
     </>

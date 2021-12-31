@@ -15,7 +15,7 @@ interface Props {
   card: Movie;
 }
 
-const Cardcard: React.FC<Props> = ({ card }: Props) => {
+const Card: React.FC<Props> = ({ card }: Props) => {
   const dispatch = useDispatch();
 
   const SetSelectedMovieId = (id: number) => {
@@ -59,4 +59,4 @@ const Cardcard: React.FC<Props> = ({ card }: Props) => {
   );
 };
 
-export default Cardcard;
+export default Card;
