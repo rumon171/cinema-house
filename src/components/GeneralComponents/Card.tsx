@@ -18,9 +18,14 @@ interface Props {
 const Card: React.FC<Props> = ({ card }: Props) => {
   const dispatch = useDispatch();
 
-  const SetSelectedMovieId = (id: number) => {
+  const SetSelectedMovieId = (movieId: number) => {
     dispatch(isMoviePageOpened(true));
-    dispatch(changeSelectedMovie(id));
+    dispatch(changeSelectedMovie(movieId));
+  };
+
+  const AddFavouriteMovie = (movieId: number) => {
+    dispatch(AddFavouriteMovie(movieId));
+    console.log("favourited movie ", movieId);
   };
 
   const searchedMovie = useSelector((state: RootState) => state.searchedMovie);
@@ -48,7 +53,7 @@ const Card: React.FC<Props> = ({ card }: Props) => {
           />
           <div className="card-details">
             <div className="title">
-              <FavoriteBorderIcon />
+              <FavoriteBorderIcon onClick={() => AddFavouriteMovie(card.id)} />
             </div>
             <div className="details">{card.vote_average}</div>
           </div>

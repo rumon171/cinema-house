@@ -5,6 +5,7 @@ export const CHANGE_SELECTED_MOVIE = 'CHANGE_SELECTED_MOVIE';
 export const IS_MOVIE_PAGE_OPENED = 'IS_MOVIE_PAGE_OPENED';
 export const SEARCHED_MOVIE = 'SEARCHED_MOVIE';
 export const CURRENT_PAGE = 'CURRENT_PAGE';
+export const FAVOURITED_MOVIE = 'FAVOURITED_MOVIE';
 
 export function showMoviesAtHomePage(additionalMovies: Movie[]): {
   type: string;
@@ -26,16 +27,6 @@ export function changeSelectedMovie(id: number): {
   };
 }
 
-export function isMoviePageOpened(isMovieOpened: boolean): {
-  type: string;
-  isMoviePageOpened: boolean;
-} {
-  return {
-    type: IS_MOVIE_PAGE_OPENED,
-    isMoviePageOpened: isMovieOpened,
-  };
-}
-
 export function changeSearchedMovie(phrase: string): {
   type: string;
   searchedMovie: string;
@@ -53,5 +44,25 @@ export function changeCurrentPage(currentPage: number): {
   return {
     type: CURRENT_PAGE,
     currentPage: currentPage,
+  };
+}
+
+export function isMoviePageOpened(isMovieOpened: boolean): {
+  type: string;
+  isMoviePageOpened: boolean;
+} {
+  return {
+    type: IS_MOVIE_PAGE_OPENED,
+    isMoviePageOpened: isMovieOpened,
+  };
+}
+
+export function AddFavouriteMovie(movieId: number): {
+  type: string;
+  favouritedMovie: number;
+} {
+  return {
+    type: FAVOURITED_MOVIE,
+    favouritedMovie: movieId,
   };
 }
