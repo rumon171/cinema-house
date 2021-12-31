@@ -25,7 +25,6 @@ const Card: React.FC<Props> = ({ card }: Props) => {
 
   const searchedMovie = useSelector((state: RootState) => state.searchedMovie);
 
-  //<div className={`card-container ${'card-container-when-search'}`} onClick={() => SetSelectedMovieId(card.id)} >
   return (
     <Grid item key={card.id}>
       <NavLink to={'/movie/' + card.id} className="trial">

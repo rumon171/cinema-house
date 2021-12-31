@@ -24,7 +24,9 @@ const Topbar: React.FC = () => {
             <h1 className="top-bar-title">Cinema House</h1>
           </NavLink>
           <Search />
-          <PersonOutlineOutlinedIcon />
+          <NavLink to={'/profile'}>
+            <PersonOutlineOutlinedIcon />
+          </NavLink>
         </Toolbar>
       </AppBar>
     </>
