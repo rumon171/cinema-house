@@ -20,7 +20,7 @@ const Topbar: React.FC = () => {
       <AppBar>
         <Toolbar className="top-bar">
           <NavLink to={'/'} onClick={handleHomePageLink}>
-            <h1 className="top-bar-title">MoviesApp</h1>
+            <h1 className="top-bar-title">Cinema House</h1>
           </NavLink>
           <Search />
         </Toolbar>
