@@ -7,6 +7,7 @@ import {
   IS_MOVIE_PAGE_OPENED,
   SEARCHED_MOVIE,
   CURRENT_PAGE,
+  FAVOURITED_MOVIE,
 } from './actions';
 interface mainState {
   homePageMovies: Movie[];
@@ -14,6 +15,7 @@ interface mainState {
   isMoviePageOpened: boolean;
   searchedMovie: string;
   currentPage: number;
+  favouritedMovie: number;
 }
 
 const initialState: mainState = {
@@ -22,6 +24,7 @@ const initialState: mainState = {
   isMoviePageOpened: false,
   searchedMovie: '',
   currentPage: 1,
+  favouritedMovie: 0
 };
 
 function rootReducer(state = initialState, action: AnyAction) {
@@ -50,6 +53,11 @@ function rootReducer(state = initialState, action: AnyAction) {
       return {
         ...state,
         currentPage: action.currentPage,
+      };
+    case FAVOURITED_MOVIE:
+      return {
+        ...state,
+        favouritedMovie: action.favouritedMovie,
       };
     default:
       return state;
