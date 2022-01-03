@@ -57,7 +57,7 @@ export function isMoviePageOpened(isMovieOpened: boolean): {
   };
 }
 
-export function AddFavouriteMovie(movieId: number): {
+export function addFavouriteMovie(movieId: number): {
   type: string;
   favouritedMovie: number;
 } {

@@ -1,5 +1,5 @@
 import React from 'react';
-import { changeSelectedMovie, isMoviePageOpened } from '../../actions';
+import { addFavouriteMovie, changeSelectedMovie, isMoviePageOpened } from '../../actions';
 import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
 import { Grid } from '@material-ui/core';
 import '../../App.scss';
@@ -24,7 +24,8 @@ const Card: React.FC<Props> = ({ card }: Props) => {
   };
 
   const AddFavouriteMovie = (movieId: number) => {
-    dispatch(AddFavouriteMovie(movieId));
+    dispatch(addFavouriteMovie(movieId));
+
     console.log("favourited movie ", movieId);
   };
 
