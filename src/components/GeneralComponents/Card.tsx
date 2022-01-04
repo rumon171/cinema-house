@@ -18,6 +18,8 @@ interface Props {
 const Card: React.FC<Props> = ({ card }: Props) => {
   const dispatch = useDispatch();
 
+  const searchedMovie = useSelector((state: RootState) => state.searchedMovie);
+
   const SetSelectedMovieId = (movieId: number) => {
     dispatch(isMoviePageOpened(true));
     dispatch(changeSelectedMovie(movieId));
@@ -25,11 +27,7 @@ const Card: React.FC<Props> = ({ card }: Props) => {
 
   const AddFavouriteMovie = (movieId: number) => {
     dispatch(addFavouriteMovie(movieId));
-
-    console.log("favourited movie ", movieId);
   };
-
-  const searchedMovie = useSelector((state: RootState) => state.searchedMovie);
 
   return (
     <Grid item key={card.id}>

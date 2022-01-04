@@ -15,7 +15,7 @@ interface mainState {
   isMoviePageOpened: boolean;
   searchedMovie: string;
   currentPage: number;
-  favouriteMovie: number;
+  allFavouritedMovies: number[];
 }
 
 const initialState: mainState = {
@@ -24,7 +24,7 @@ const initialState: mainState = {
   isMoviePageOpened: false,
   searchedMovie: '',
   currentPage: 1,
-  favouriteMovie: 0
+  allFavouritedMovies: []
 };
 
 function rootReducer(state = initialState, action: AnyAction) {
@@ -57,8 +57,7 @@ function rootReducer(state = initialState, action: AnyAction) {
     case FAVOURITE_MOVIE:
       return {
         ...state,
-       // favouriteMovie: [...state.favouriteMovie, action.sth]
-        favouriteMovie: action.favouriteMovie,
+        allFavouritedMovies: [...state.allFavouritedMovies, action.favouriteMovie],
       };
     default:
       return state;
