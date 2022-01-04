@@ -55,10 +55,15 @@ function rootReducer(state = initialState, action: AnyAction) {
         currentPage: action.currentPage,
       };
     case FAVOURITE_MOVIE:
+      {
+      const movieIdAlreadyExists = state.allFavouritedMovies.indexOf(action.favouriteMovie);
+
       return {
         ...state,
         allFavouritedMovies: [...state.allFavouritedMovies, action.favouriteMovie],
       };
+
+      }
     default:
       return state;
   }
