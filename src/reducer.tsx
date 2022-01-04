@@ -56,13 +56,16 @@ function rootReducer(state = initialState, action: AnyAction) {
       };
     case FAVOURITE_MOVIE:
       {
-      const movieIdAlreadyExists = state.allFavouritedMovies.indexOf(action.favouriteMovie);
+        const movieIdAlreadyExists = state.allFavouritedMovies.indexOf(action.favouriteMovie)  > -1;
 
-      return {
-        ...state,
-        allFavouritedMovies: [...state.allFavouritedMovies, action.favouriteMovie],
-      };
-
+        if (movieIdAlreadyExists) {
+          return state;
+        } else {
+          return {
+            ...state,
+            allFavouritedMovies: [...state.allFavouritedMovies, action.favouriteMovie],
+          }
+        }
       }
     default:
       return state;
