@@ -14,10 +14,6 @@ const MoviePage: React.FC = () => {
 
   useEffect(() => {
     return history.listen((location) => {
-      if (history.action === 'PUSH') {
-        if (location.key) setLocationKeys([location.key]);
-      }
-
       if (history.action === 'POP') {
         if (locationKeys[1] === location.key) {
           // Handle forward event

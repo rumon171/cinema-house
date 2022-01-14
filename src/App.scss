@@ -45,7 +45,7 @@ body {
 
     color: $font-base-color;
 
-    .title {
+    .fav-icon {
       position: absolute;
       top: 0;
       width: 100%;
@@ -64,11 +64,11 @@ body {
   .card-details {
     visibility: visible;
 
-    .title {
-      transform: translateY(1vw);
+    .fav-icon {
+      transform: translateY(3vw);
     }
     .details {
-      transform: translateY(-1vw);
+      transform: translateY(-3.5vw);
     }
   }
 }
