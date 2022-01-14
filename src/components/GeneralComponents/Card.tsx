@@ -1,5 +1,5 @@
 import React from 'react';
-import { addFavouriteMovie, changeSelectedMovie, isMoviePageOpened } from '../../actions';
+import { addFavouriteMovie, changeSelectedMovie, isMoviePageOpened, isFavouriteIconClicked } from '../../actions';
 import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
 import { Grid } from '@material-ui/core';
 import '../../App.scss';
@@ -19,13 +19,25 @@ const Card: React.FC<Props> = ({ card }: Props) => {
   const dispatch = useDispatch();
 
   const searchedMovie = useSelector((state: RootState) => state.searchedMovie);
+  const isFavClicked = useSelector((state: RootState) => state.isFavIconClicked);
+
+  const SetIsFavouriteIconClicked = (isFavIconClicked: boolean) => {
+    dispatch(isFavouriteIconClicked(isFavIconClicked));
+  };
 
   const SetSelectedMovieId = (movieId: number) => {
-    dispatch(isMoviePageOpened(true));
-    dispatch(changeSelectedMovie(movieId));
+    console.log("isFavClicked inside SetSelectedMovieId", isFavClicked)
+
+    if (!isFavClicked) {
+      dispatch(isMoviePageOpened(true));
+      dispatch(changeSelectedMovie(movieId));
+    } 
+    else SetIsFavouriteIconClicked(false);
+
   };
 
   const AddFavouriteMovie = (movieId: number) => {
+    SetIsFavouriteIconClicked(true);
     dispatch(addFavouriteMovie(movieId));
   };
 

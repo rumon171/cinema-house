@@ -6,6 +6,7 @@ export const IS_MOVIE_PAGE_OPENED = 'IS_MOVIE_PAGE_OPENED';
 export const SEARCHED_MOVIE = 'SEARCHED_MOVIE';
 export const CURRENT_PAGE = 'CURRENT_PAGE';
 export const FAVOURITE_MOVIE = 'FAVOURITE_MOVIE';
+export const IS_FAV_ICON_CLICKED = 'IS_FAV_ICON_CLICKED';
 
 export function showMoviesAtHomePage(additionalMovies: Movie[]): {
   type: string;
@@ -64,5 +65,15 @@ export function addFavouriteMovie(movieId: number): {
   return {
     type: FAVOURITE_MOVIE,
     favouriteMovie: movieId,
+  };
+}
+
+export function isFavouriteIconClicked(isFavClicked: boolean): {
+  type: string;
+  isFavIconClicked: boolean;
+} {
+  return {
+    type: IS_FAV_ICON_CLICKED,
+    isFavIconClicked: isFavClicked,
   };
 }

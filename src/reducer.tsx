@@ -8,6 +8,7 @@ import {
   SEARCHED_MOVIE,
   CURRENT_PAGE,
   FAVOURITE_MOVIE,
+  IS_FAV_ICON_CLICKED,
 } from './actions';
 interface mainState {
   homePageMovies: Movie[];
@@ -16,6 +17,7 @@ interface mainState {
   searchedMovie: string;
   currentPage: number;
   allFavouritedMovies: number[];
+  isFavIconClicked: boolean;
 }
 
 const initialState: mainState = {
@@ -24,7 +26,8 @@ const initialState: mainState = {
   isMoviePageOpened: false,
   searchedMovie: '',
   currentPage: 1,
-  allFavouritedMovies: []
+  allFavouritedMovies: [],
+  isFavIconClicked: false
 };
 
 function rootReducer(state = initialState, action: AnyAction) {
@@ -67,6 +70,11 @@ function rootReducer(state = initialState, action: AnyAction) {
           }
         }
       }
+      case IS_FAV_ICON_CLICKED:
+        return {
+          ...state,
+          isFavIconClicked: action.isFavIconClicked,
+      };
     default:
       return state;
   }
