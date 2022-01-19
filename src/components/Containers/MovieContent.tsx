@@ -23,6 +23,7 @@ const MovieContent: React.FC = () => {
     overview: '',
     poster_path: noImage,
     release_date: '',
+    runtime: 0,
     budget: 0,
     revenue: 0,
     genres: [],
@@ -49,6 +50,32 @@ const MovieContent: React.FC = () => {
     callAPI();
   }, [selectedMovie]);
 
+  const convertMinutesToHoursAndMinutes = (durationInMinutes: number) => {
+
+    let areRemainingHoursLeft = false;
+    let areRemainingMinutesLeft = false;
+    let remainingTimeInHours = '';
+    let remainingTimeInMinutes = '';
+
+    const remainingHours = Math.floor(durationInMinutes / 60);
+    const remainingMinutes = durationInMinutes % 60;
+
+    areRemainingHoursLeft = remainingHours > 0;
+    areRemainingMinutesLeft = remainingMinutes > 0;
+
+    if (remainingHours > 0 ) {
+      remainingTimeInHours = remainingHours + ' h ';
+    }
+
+    if (remainingMinutes > 0 ) {
+      remainingTimeInMinutes = remainingMinutes + ' min';
+    }
+
+    const remainingTime = (areRemainingHoursLeft || areRemainingMinutesLeft) ? (' | ' + remainingTimeInHours + remainingTimeInMinutes) : ' | 0 min';
+
+    return remainingTime;
+  }
+
   return (
     <>
       <Grid container spacing={2} className="container-movie-page">
@@ -68,11 +95,14 @@ const MovieContent: React.FC = () => {
               {movie.vote_average !== undefined &&
                 movie.vote_average.toFixed(2)}
             </span>
-            <div>
+            <span>
               {movie.release_date
                 ? movie.release_date.substring(0, 4)
                 : 'Release date: Coming soon'}
-            </div>
+            </span>
+            <span>
+              {movie.runtime && convertMinutesToHoursAndMinutes(movie.runtime)}
+            </span>
             <p className="content-main-paragraph">{movie.overview}</p>
             <p>
               <span className="content-main-paragraph-title">Genres:</span>&nbsp;

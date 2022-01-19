@@ -13,6 +13,7 @@ export interface Movie {
   overview?: string;
   poster_path?: string;
   release_date?: string;
+  runtime?: number;
   budget?: number;
   revenue?: number;
   genres?: Genre[];
@@ -60,7 +61,7 @@ export async function fetchMovies(page: string): Promise<Movie[]> {
 // = movie has to be after const {} here
 function mapMainMoviesResult(res: Movie[]): Movie[] {
   return res.map((movie) => {
-    const { id, title, vote_average, overview, poster_path, release_date } =
+    const { id, title, vote_average, overview, poster_path, release_date, runtime } =
       movie;
     return {
       id: id,
@@ -69,6 +70,7 @@ function mapMainMoviesResult(res: Movie[]): Movie[] {
       overview: overview,
       poster_path: poster_path ? `${posterBaseUrl}${poster_path}` : noImage,
       release_date: release_date,
+      duration: runtime,
     };
   });
 }
