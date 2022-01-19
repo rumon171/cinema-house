@@ -70,12 +70,12 @@ const MovieContent: React.FC = () => {
             </span>
             <div>
               {movie.release_date
-                ? movie.release_date
-                : 'Release date: Coming out soon ;)'}
+                ? movie.release_date.substring(0, 4)
+                : 'Release date: Coming soon'}
             </div>
             <p className="content-main-paragraph">{movie.overview}</p>
             <p>
-              Genres:&nbsp;
+              <span className="content-main-paragraph-title">Genres:</span>&nbsp;
               {movie.genres &&
                 movie.genres?.map((genre, i) => (
                   <span key={i}>
@@ -84,8 +84,8 @@ const MovieContent: React.FC = () => {
                   </span>
                 ))}
             </p>
-            {Boolean(movie.budget) && <p>Budget: ${movie.budget}</p>}
-            {Boolean(movie.revenue) && <p>Revenue: ${movie.revenue}</p>}
+            {Boolean(movie.budget) && <p><span className="content-main-paragraph-title">Budget:</span> ${movie.budget}</p>}
+            {Boolean(movie.revenue) && <p><span className="content-main-paragraph-title">Revenue:</span> ${movie.revenue}</p>}
             <Button variant="contained" color="primary" href="#">
               sth
             </Button>
