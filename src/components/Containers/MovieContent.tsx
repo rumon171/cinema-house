@@ -52,28 +52,10 @@ const MovieContent: React.FC = () => {
 
   const convertMinutesToHoursAndMinutes = (durationInMinutes: number) => {
 
-    let areRemainingHoursLeft = false;
-    let areRemainingMinutesLeft = false;
-    let remainingTimeInHours = '';
-    let remainingTimeInMinutes = '';
-
     const remainingHours = Math.floor(durationInMinutes / 60);
     const remainingMinutes = durationInMinutes % 60;
 
-    areRemainingHoursLeft = remainingHours > 0;
-    areRemainingMinutesLeft = remainingMinutes > 0;
-
-    if (remainingHours > 0 ) {
-      remainingTimeInHours = remainingHours + ' h ';
-    }
-
-    if (remainingMinutes > 0 ) {
-      remainingTimeInMinutes = remainingMinutes + ' min';
-    }
-
-    const remainingTime = (areRemainingHoursLeft || areRemainingMinutesLeft) ? (' | ' + remainingTimeInHours + remainingTimeInMinutes) : ' | 0 min';
-
-    return remainingTime;
+    return(remainingHours + remainingMinutes > 0) ? (remainingHours + ' h ' + remainingMinutes + ' min') : ' 0 min';
   }
 
   return (
@@ -91,17 +73,20 @@ const MovieContent: React.FC = () => {
         <Grid item xs={12} sm={6} md={9} className="align-left">
           <h1 className="title">{movie.title}</h1>
           <div className="content">
-            <span className="rating-container">
-              {movie.vote_average !== undefined &&
+            <span className="imdb-container">
+              imdb
+            </span>
+            <span>
+                {movie.vote_average !== undefined &&
                 movie.vote_average.toFixed(2)}
             </span>
             <span>
               {movie.release_date
-                ? movie.release_date.substring(0, 4)
+                ? <><span>|</span> {movie.release_date.substring(0, 4)}</>
                 : 'Release date: Coming soon'}
             </span>
             <span>
-              {movie.runtime && convertMinutesToHoursAndMinutes(movie.runtime)}
+              {movie.runtime && <><span>|</span> {convertMinutesToHoursAndMinutes(movie.runtime)}</>}
             </span>
             <p className="content-main-paragraph">{movie.overview}</p>
             <p>
