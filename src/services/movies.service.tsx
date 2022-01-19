@@ -23,8 +23,8 @@ export async function fetchSelectedMovie(movieId: number) {
   return await fetch(
     `${movieApiBaseUrl}/movie/${movieId}?api_key=${process.env.REACT_APP_API_KEY}`
   )
-    .then((res) => res.json())
-    .then((body) => {
+    .then(res => res.json())
+    .then(body => {
       return body;
     })
     .catch(() => {
@@ -38,8 +38,8 @@ export async function fetchSearchedMovies(enteredTitle: string) {
   return await fetch(
     `${movieApiBaseUrl}/search/movie/?api_key=${process.env.REACT_APP_API_KEY}&query=${enteredTitleWithoutSpecials}`
   )
-    .then((res) => res.json())
-    .then((body) => {
+    .then(res => res.json())
+    .then(body => {
       return body.results;
     })
     .catch(() => {
@@ -52,7 +52,7 @@ export async function fetchMovies(page: string): Promise<Movie[]> {
     `${movieApiBaseUrl}/movie/popular?api_key=${process.env.REACT_APP_API_KEY}&page=${page}`
   )
     .then((res) => res.json())
-    .then((res) => mapMainMoviesResult(res.results))
+    .then(res => mapMainMoviesResult(res.results))
     .catch(() => {
       return [];
     });
@@ -60,7 +60,7 @@ export async function fetchMovies(page: string): Promise<Movie[]> {
 
 // = movie has to be after const {} here
 function mapMainMoviesResult(res: Movie[]): Movie[] {
-  return res.map((movie) => {
+  return res.map(movie => {
     const { id, title, vote_average, overview, poster_path, release_date, runtime } =
       movie;
     return {
@@ -70,7 +70,7 @@ function mapMainMoviesResult(res: Movie[]): Movie[] {
       overview: overview,
       poster_path: poster_path ? `${posterBaseUrl}${poster_path}` : noImage,
       release_date: release_date,
-      duration: runtime,
+      runtime: runtime,
     };
   });
 }
@@ -80,8 +80,8 @@ export async function fetchSimilarMovies(movieId: number): Promise<Movie[]> {
   return await fetch(
     `${movieApiBaseUrl}/movie/${movieId}/similar?api_key=${process.env.REACT_APP_API_KEY}&language=en-US&page=${page}`
   )
-    .then((res) => res.json())
-    .then((res) => mapMainMoviesResult(res.results))
+    .then(res => res.json())
+    .then(res => mapMainMoviesResult(res.results))
     .catch(() => {
       return [];
     });
