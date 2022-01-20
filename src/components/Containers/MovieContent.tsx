@@ -27,6 +27,7 @@ const MovieContent: React.FC = () => {
     budget: 0,
     revenue: 0,
     genres: [],
+    production_countries: [],
   });
   const [movieImg, setMovieImg] = useState<string>(noImage);
   const [similarMovies, setSimilarMovies] = useState<Movie[]>([]);
@@ -73,8 +74,10 @@ const MovieContent: React.FC = () => {
         <Grid item xs={12} sm={6} md={9} className="align-left">
           <h1 className="title">{movie.title}</h1>
           <div className="content">
-            <span className="imdb-container">
-              imdb
+            <span className="content-imdb-container">
+              <a href="https://www.imdb.com/title/tt2096673/" target="_blank" rel="noopener noreferrer">
+                imdb
+              </a>
             </span>
             <span>
                 {movie.vote_average !== undefined &&
@@ -82,11 +85,11 @@ const MovieContent: React.FC = () => {
             </span>
             <span>
               {movie.release_date
-                ? <><span>|</span> {movie.release_date.substring(0, 4)}</>
+                ? <><span className="content-info-separator">|</span>{movie.release_date.substring(0, 4)} ({movie.production_countries && movie.production_countries[0]?.iso_3166_1})</>
                 : 'Release date: Coming soon'}
             </span>
             <span>
-              {movie.runtime && <><span>|</span> {convertMinutesToHoursAndMinutes(movie.runtime)}</>}
+              {movie.runtime && <><span className="content-info-separator">|</span>{convertMinutesToHoursAndMinutes(movie.runtime)}</>}
             </span>
             <p className="content-main-paragraph">{movie.overview}</p>
             <p>
@@ -101,11 +104,13 @@ const MovieContent: React.FC = () => {
             </p>
             {Boolean(movie.budget) && <p><span className="content-main-paragraph-title">Budget:</span> ${movie.budget}</p>}
             {Boolean(movie.revenue) && <p><span className="content-main-paragraph-title">Revenue:</span> ${movie.revenue}</p>}
-            <Button variant="contained" color="primary" href="#">
-              sth
-            </Button>
           </div>
         </Grid>
+        <div className="">
+          <Button variant="contained" color="primary" href="#">
+                sth
+          </Button>
+        </div>
         {similarMovies.length > 0 && (
           <div className="similar-movies-title">More like this</div>
         )}

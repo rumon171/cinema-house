@@ -88,25 +88,35 @@ body {
   font-size: 1rem;
   line-height: 1.75;
   letter-spacing: 0.01em;
-}
 
-.content-main-paragraph {
-  text-align: justify;
+  &-info-separator {
+    margin: 0 10px;
+  }
 
-  &-title {
-    font-weight: 500;
-    color: #aa2876;
-    font-size: 1.1rem;
+  &-main-paragraph {
+    text-align: justify;
+  
+    &-title {
+      font-weight: 500;
+      color: #aa2876;
+      font-size: 1.1rem;
+    }
+  }
+
+  &-imdb-container {
+    background-color: $base-color;
+    padding: 2px;
+    margin-right: 10px;
+
+    a {
+      color: inherit;
+      text-decoration: inherit;
+    }
   }
 }
 
 .loading-spinner {
   max-width: 70px;
-}
-
-.imdb-container {
-  background-color: $base-color;
-  padding: 10px;
 }
 
 .raiting {

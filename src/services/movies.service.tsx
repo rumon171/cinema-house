@@ -6,6 +6,10 @@ interface Genre {
   id: number;
   name: string;
 }
+interface Country {
+  iso_3166_1: string;
+  name: string;
+}
 export interface Movie {
   id: number;
   title: string;
@@ -17,6 +21,7 @@ export interface Movie {
   budget?: number;
   revenue?: number;
   genres?: Genre[];
+  production_countries?: Country[];
 }
 
 export async function fetchSelectedMovie(movieId: number) {
@@ -61,7 +66,7 @@ export async function fetchMovies(page: string): Promise<Movie[]> {
 // = movie has to be after const {} here
 function mapMainMoviesResult(res: Movie[]): Movie[] {
   return res.map(movie => {
-    const { id, title, vote_average, overview, poster_path, release_date, runtime } =
+    const { id, title, vote_average, overview, poster_path, release_date, runtime, production_countries } =
       movie;
     return {
       id: id,
@@ -71,6 +76,7 @@ function mapMainMoviesResult(res: Movie[]): Movie[] {
       poster_path: poster_path ? `${posterBaseUrl}${poster_path}` : noImage,
       release_date: release_date,
       runtime: runtime,
+      production_countries: production_countries,
     };
   });
 }
