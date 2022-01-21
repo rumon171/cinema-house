@@ -3,8 +3,7 @@ import './App.scss';
 import HomePage from './components/Containers/HomePage';
 import { fetchMovies } from './services/movies.service';
 import MoviePage from './components/Containers/MoviePage';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import ScrollRestoration from 'react-scroll-restoration'
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { showMoviesAtHomePage } from './actions';
 import Profile from './components/Profile/Profile';
@@ -25,20 +24,13 @@ function App() {
   return (
     <div className="App">
       <div className="container typography-base ">
-        <Router>
-          <ScrollRestoration />
-          <Switch>
-            <Route path="/profile">
-              <Profile></Profile>
-            </Route>
-            <Route path="/movie/:movieid">
-              <MoviePage />
-            </Route>
-            <Route path="/">
-              <HomePage></HomePage>
-            </Route>
-          </Switch>
-        </Router>
+        <BrowserRouter>
+        <Routes>
+            <Route path="/profile" element={ <Profile></Profile> } />
+            <Route path="/movie/:movieid" element={ <MoviePage /> } />
+            <Route path="/" element={ <HomePage></HomePage> } />
+        </Routes>
+        </BrowserRouter>
       </div>
     </div>
   );

@@ -6,7 +6,7 @@ import {
   fetchSearchedMovies,
   fetchMovies,
 } from '../../services/movies.service';
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { RootState } from '../../reducer';
 import { useSelector, useDispatch } from 'react-redux';
 import {
@@ -23,7 +23,7 @@ const Search: React.FC = () => {
     (state: RootState) => state.isMoviePageOpened
   );
   const dispatch = useDispatch();
-  const history = useHistory();
+  const navigate = useNavigate();
 
   const fetchMoviesList = (searchedMovieValue: string) => {
     dispatch(changeSearchedMovie(searchedMovieValue));
@@ -31,7 +31,8 @@ const Search: React.FC = () => {
 
     if (isMovieOpened === true) {
       dispatch(isMoviePageOpened(false)); // should this action be renamed?
-      history.push('/');
+      //history.push('/');
+      navigate('/');
     }
   };
 

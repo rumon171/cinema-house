@@ -62,14 +62,14 @@ const Card: React.FC<Props> = ({ card }: Props) => {
             }
             title={card.title}
           />
-          <div className="card-details">
+        </div>
+      </NavLink>
+      <div className="card-details">
             <div className="fav-icon">
               <FavoriteBorderIcon onClick={() => AddFavouriteMovie(card.id)} />
             </div>
             <div className="details">{card.vote_average}</div>
-          </div>
         </div>
-      </NavLink>
     </Grid>
   );
 };

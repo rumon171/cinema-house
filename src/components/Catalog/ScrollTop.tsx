@@ -1,10 +1,14 @@
-import React from 'react';
+import React, { ReactNode } from 'react';
 import useScrollTrigger from '@material-ui/core/useScrollTrigger';
 import Zoom from '@material-ui/core/Zoom';
 import './Catalog.scss';
 
-const ScrollTop: React.FC = (props: any) => {
-  const { children, window } = props;
+interface ScrollTopProps {
+  children: ReactNode;
+  window: any;
+}
+
+const ScrollTop: React.FC<ScrollTopProps> = ({children, window}: ScrollTopProps) => {
 
   const trigger = useScrollTrigger({
     target: window ? window() : undefined,

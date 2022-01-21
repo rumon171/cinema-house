@@ -19,9 +19,8 @@
     "react-dom": "^17.0.2",
     "react-redux": "^7.2.4",
     "react-router": "^5.1.0",
-    "react-router-dom": "^5.1.0",
+    "react-router-dom": "^6.2.1",
     "react-scripts": "4.0.3",
-    "react-scroll-restoration": "^1.0.8",
     "redux": "^4.1.1",
     "typescript": "^4.3.4",
     "web-vitals": "^1.1.2"
@@ -54,7 +53,7 @@
     "eslint-plugin-react": "^7.28.0",
     "prettier": "^2.5.1",
     "prettier-check": "^2.0.0",
-    "redux-devtools-extension": "^2.13.9",
-    "react-error-overlay": "6.0.9"
+    "react-error-overlay": "6.0.9",
+    "redux-devtools-extension": "^2.13.9"
   }
 }
