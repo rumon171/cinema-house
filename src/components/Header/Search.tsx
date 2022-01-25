@@ -10,7 +10,6 @@ import { useNavigate } from 'react-router-dom';
 import { RootState } from '../../reducer';
 import { useSelector, useDispatch } from 'react-redux';
 import {
-  isMoviePageOpened,
   changeSearchedMovie,
   showMoviesAtHomePage,
 } from '../../actions';
@@ -30,8 +29,6 @@ const Search: React.FC = () => {
     window.scrollTo(0, 0);
 
     if (isMovieOpened === true) {
-      dispatch(isMoviePageOpened(false)); // should this action be renamed?
-      //history.push('/');
       navigate('/');
     }
   };

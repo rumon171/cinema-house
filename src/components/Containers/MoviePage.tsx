@@ -9,12 +9,12 @@ import { movieIdFromUrl } from '../../utilities/common';
 
 const MoviePage: React.FC = () => {
   const [locationKeys, setLocationKeys] = useState<(string | undefined)[]>([]);
-  const history = useNavigate();
+  const navigate = useNavigate();
   const dispatch = useDispatch();
 
   // useEffect(() => {
-  //   return history.listen((location) => {
-  //     if (history.action === 'POP') {
+  //   return navigate.listen((location) => {
+  //     if (navigate.action === 'POP') {
   //       if (locationKeys[1] === location.key) {
   //         // Handle forward event
   //         setLocationKeys(([...keys]) => keys);

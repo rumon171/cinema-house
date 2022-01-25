@@ -106,11 +106,6 @@ const MovieContent: React.FC = () => {
             {Boolean(movie.revenue) && <p><span className="content-main-paragraph-title">Revenue:</span> ${movie.revenue}</p>}
           </div>
         </Grid>
-        <div className="">
-          <Button variant="contained" color="primary" href="#">
-                sth
-          </Button>
-        </div>
         {similarMovies.length > 0 && (
           <div className="similar-movies-title">More like this</div>
         )}
