@@ -4,7 +4,7 @@ import {
   fetchSelectedMovie,
   fetchSimilarMovies,
 } from '../../services/movies.service';
-import { Grid, Card, CardMedia, Button } from '@material-ui/core';
+import { Grid, Card, CardMedia } from '@material-ui/core';
 import CardsGrid from '../GeneralComponents/CardsGrid';
 import { RootState } from '../../reducer';
 import { useSelector } from 'react-redux';
