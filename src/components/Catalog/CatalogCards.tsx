@@ -38,6 +38,13 @@ const CatalogCards: React.FC = () => {
     }
   }, [isVisible]);
 
+  // FIXME it should restore scroll in main page 
+  // useEffect(() => {
+  //   if ('scrollRestoration' in history) {
+  //     history.scrollRestoration = 'auto'
+  //   }
+  // });
+
   return (
     <div>
       {movies.length > 0 && movies.length < 6 && (

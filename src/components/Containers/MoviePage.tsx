@@ -12,6 +12,16 @@ const MoviePage: React.FC = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
+  useEffect(() => {
+    if ('scrollRestoration' in history) {
+      history.scrollRestoration = 'auto'
+    }
+  });
+
+
+  // FIXME: most probably as this chunck of code is commented,
+  // when pressing back, for the first time comes back to the same movie
+
   // useEffect(() => {
   //   return navigate.listen((location) => {
   //     if (navigate.action === 'POP') {

@@ -25,9 +25,8 @@ const Card: React.FC<Props> = ({ card }: Props) => {
     dispatch(isFavouriteIconClicked(isFavIconClicked));
   };
 
+  // FIXME this should prevent opening the card when fav icon is clicked
   const SetSelectedMovieId = (movieId: number) => {
-    console.log("isFavClicked inside SetSelectedMovieId", isFavClicked)
-
     if (!isFavClicked) {
       dispatch(isMoviePageOpened(true));
       dispatch(changeSelectedMovie(movieId));
