@@ -25,11 +25,11 @@ function App() {
     <div className="App">
       <div className="container typography-base ">
         <BrowserRouter>
-        <Routes>
-            <Route path="/profile" element={ <Profile></Profile> } />
-            <Route path="/movie/:movieid" element={ <MoviePage /> } />
-            <Route path="/" element={ <HomePage></HomePage> } />
-        </Routes>
+          <Routes>
+            <Route path="/profile" element={<Profile></Profile>} />
+            <Route path="/movie/:movieid" element={<MoviePage />} />
+            <Route path="/" element={<HomePage></HomePage>} />
+          </Routes>
         </BrowserRouter>
       </div>
     </div>

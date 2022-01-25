@@ -9,10 +9,7 @@ import {
 import { useNavigate } from 'react-router-dom';
 import { RootState } from '../../reducer';
 import { useSelector, useDispatch } from 'react-redux';
-import {
-  changeSearchedMovie,
-  showMoviesAtHomePage,
-} from '../../actions';
+import { changeSearchedMovie, showMoviesAtHomePage } from '../../actions';
 
 const Search: React.FC = () => {
   const [searchValue, setSearchValue] = useState<string>('');

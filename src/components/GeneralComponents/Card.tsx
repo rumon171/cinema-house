@@ -1,5 +1,10 @@
 import React from 'react';
-import { addFavouriteMovie, changeSelectedMovie, isMoviePageOpened, isFavouriteIconClicked } from '../../actions';
+import {
+  addFavouriteMovie,
+  changeSelectedMovie,
+  isMoviePageOpened,
+  isFavouriteIconClicked,
+} from '../../actions';
 import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
 import { Grid } from '@material-ui/core';
 import '../../App.scss';
@@ -19,7 +24,9 @@ const Card: React.FC<Props> = ({ card }: Props) => {
   const dispatch = useDispatch();
 
   const searchedMovie = useSelector((state: RootState) => state.searchedMovie);
-  const isFavClicked = useSelector((state: RootState) => state.isFavIconClicked);
+  const isFavClicked = useSelector(
+    (state: RootState) => state.isFavIconClicked
+  );
 
   const SetIsFavouriteIconClicked = (isFavIconClicked: boolean) => {
     dispatch(isFavouriteIconClicked(isFavIconClicked));
@@ -30,9 +37,7 @@ const Card: React.FC<Props> = ({ card }: Props) => {
     if (!isFavClicked) {
       dispatch(isMoviePageOpened(true));
       dispatch(changeSelectedMovie(movieId));
-    } 
-    else SetIsFavouriteIconClicked(false);
-
+    } else SetIsFavouriteIconClicked(false);
   };
 
   const AddFavouriteMovie = (movieId: number) => {
@@ -62,10 +67,10 @@ const Card: React.FC<Props> = ({ card }: Props) => {
             title={card.title}
           />
           <div className="card-details">
-                <div className="fav-icon">
-                  <FavoriteBorderIcon onClick={() => AddFavouriteMovie(card.id)} />
-                </div>
-                <div className="details">{card.vote_average}</div>
+            <div className="fav-icon">
+              <FavoriteBorderIcon onClick={() => AddFavouriteMovie(card.id)} />
+            </div>
+            <div className="details">{card.vote_average}</div>
           </div>
         </div>
       </NavLink>

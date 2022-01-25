@@ -14,10 +14,9 @@ const MoviePage: React.FC = () => {
 
   useEffect(() => {
     if ('scrollRestoration' in history) {
-      history.scrollRestoration = 'auto'
+      history.scrollRestoration = 'auto';
     }
   });
-
 
   // FIXME: most probably as this chunck of code is commented,
   // when pressing back, for the first time comes back to the same movie

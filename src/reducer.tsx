@@ -27,7 +27,7 @@ const initialState: mainState = {
   searchedMovie: '',
   currentPage: 1,
   allFavouritedMovies: [],
-  isFavIconClicked: false
+  isFavIconClicked: false,
 };
 
 function rootReducer(state = initialState, action: AnyAction) {
@@ -57,23 +57,26 @@ function rootReducer(state = initialState, action: AnyAction) {
         ...state,
         currentPage: action.currentPage,
       };
-    case FAVOURITE_MOVIE:
-      {
-        const movieIdAlreadyExists = state.allFavouritedMovies.indexOf(action.favouriteMovie)  > -1;
+    case FAVOURITE_MOVIE: {
+      const movieIdAlreadyExists =
+        state.allFavouritedMovies.indexOf(action.favouriteMovie) > -1;
 
-        if (movieIdAlreadyExists) {
-          return state;
-        } else {
-          return {
-            ...state,
-            allFavouritedMovies: [...state.allFavouritedMovies, action.favouriteMovie],
-          }
-        }
-      }
-      case IS_FAV_ICON_CLICKED:
+      if (movieIdAlreadyExists) {
+        return state;
+      } else {
         return {
           ...state,
-          isFavIconClicked: action.isFavIconClicked,
+          allFavouritedMovies: [
+            ...state.allFavouritedMovies,
+            action.favouriteMovie,
+          ],
+        };
+      }
+    }
+    case IS_FAV_ICON_CLICKED:
+      return {
+        ...state,
+        isFavIconClicked: action.isFavIconClicked,
       };
     default:
       return state;

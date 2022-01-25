@@ -8,8 +8,10 @@ interface ScrollTopProps {
   window: any;
 }
 
-const ScrollTop: React.FC<ScrollTopProps> = ({children, window}: ScrollTopProps) => {
-
+const ScrollTop: React.FC<ScrollTopProps> = ({
+  children,
+  window,
+}: ScrollTopProps) => {
   const trigger = useScrollTrigger({
     target: window ? window() : undefined,
     disableHysteresis: true,

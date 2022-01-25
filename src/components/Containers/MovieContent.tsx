@@ -34,8 +34,7 @@ const MovieContent: React.FC = () => {
   const movieGenresAmount = movie.genres?.length ?? 0;
 
   useEffect(() => {
-    const movieId =
-      selectedMovie !== 0 ? selectedMovie : movieIdFromUrl();
+    const movieId = selectedMovie !== 0 ? selectedMovie : movieIdFromUrl();
     const callAPI = async () => {
       const fetchedSelectedMovieInfo = await fetchSelectedMovie(movieId);
       setMovie(fetchedSelectedMovieInfo);
@@ -52,12 +51,13 @@ const MovieContent: React.FC = () => {
   }, [selectedMovie]);
 
   const convertMinutesToHoursAndMinutes = (durationInMinutes: number) => {
-
     const remainingHours = Math.floor(durationInMinutes / 60);
     const remainingMinutes = durationInMinutes % 60;
 
-    return(remainingHours + remainingMinutes > 0) ? (remainingHours + ' h ' + remainingMinutes + ' min') : ' 0 min';
-  }
+    return remainingHours + remainingMinutes > 0
+      ? remainingHours + ' h ' + remainingMinutes + ' min'
+      : ' 0 min';
+  };
 
   return (
     <>
@@ -75,25 +75,43 @@ const MovieContent: React.FC = () => {
           <h1 className="title">{movie.title}</h1>
           <div className="content">
             <span className="content-imdb-container">
-              <a href="https://www.imdb.com/title/tt2096673/" target="_blank" rel="noopener noreferrer">
+              <a
+                href="https://www.imdb.com/title/tt2096673/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 imdb
               </a>
             </span>
             <span>
-                {movie.vote_average !== undefined &&
+              {movie.vote_average !== undefined &&
                 movie.vote_average.toFixed(2)}
             </span>
             <span>
-              {movie.release_date
-                ? <><span className="content-info-separator">|</span>{movie.release_date.substring(0, 4)} ({movie.production_countries && movie.production_countries[0]?.iso_3166_1})</>
-                : 'Release date: Coming soon'}
+              {movie.release_date ? (
+                <>
+                  <span className="content-info-separator">|</span>
+                  {movie.release_date.substring(0, 4)} (
+                  {movie.production_countries &&
+                    movie.production_countries[0]?.iso_3166_1}
+                  )
+                </>
+              ) : (
+                'Release date: Coming soon'
+              )}
             </span>
             <span>
-              {movie.runtime && <><span className="content-info-separator">|</span>{convertMinutesToHoursAndMinutes(movie.runtime)}</>}
+              {movie.runtime && (
+                <>
+                  <span className="content-info-separator">|</span>
+                  {convertMinutesToHoursAndMinutes(movie.runtime)}
+                </>
+              )}
             </span>
             <p className="content-main-paragraph">{movie.overview}</p>
             <p>
-              <span className="content-main-paragraph-title">Genres:</span>&nbsp;
+              <span className="content-main-paragraph-title">Genres:</span>
+              &nbsp;
               {movie.genres &&
                 movie.genres?.map((genre, i) => (
                   <span key={i}>
@@ -102,8 +120,18 @@ const MovieContent: React.FC = () => {
                   </span>
                 ))}
             </p>
-            {Boolean(movie.budget) && <p><span className="content-main-paragraph-title">Budget:</span> ${movie.budget}</p>}
-            {Boolean(movie.revenue) && <p><span className="content-main-paragraph-title">Revenue:</span> ${movie.revenue}</p>}
+            {Boolean(movie.budget) && (
+              <p>
+                <span className="content-main-paragraph-title">Budget:</span> $
+                {movie.budget}
+              </p>
+            )}
+            {Boolean(movie.revenue) && (
+              <p>
+                <span className="content-main-paragraph-title">Revenue:</span> $
+                {movie.revenue}
+              </p>
+            )}
           </div>
         </Grid>
         {similarMovies.length > 0 && (
