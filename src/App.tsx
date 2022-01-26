@@ -7,6 +7,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { showMoviesAtHomePage } from './actions';
 import Profile from './components/Profile/Profile';
+import useStyles from './App.styles';
 
 function App() {
   window.onbeforeunload = function () {
@@ -14,6 +15,7 @@ function App() {
   };
 
   const dispatch = useDispatch();
+  const classes = useStyles();
 
   useEffect(() => {
     fetchMovies('1')
@@ -21,8 +23,9 @@ function App() {
       .catch(() => dispatch(showMoviesAtHomePage([])));
   }, []);
 
+  //className="App"
   return (
-    <div className="App">
+    <div className={classes.root}>
       <div className="container typography-base ">
         <BrowserRouter>
           <Routes>
