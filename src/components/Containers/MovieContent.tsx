@@ -11,6 +11,7 @@ import { useSelector } from 'react-redux';
 import './Containers.scss';
 import noImage from '../../images/no-image-available.png';
 import { movieIdFromUrl } from '../../utilities/common';
+import useStyles from './../../App.styles';
 const posterBaseUrl = 'https://image.tmdb.org/t/p/w300';
 
 const MovieContent: React.FC = () => {
@@ -32,6 +33,7 @@ const MovieContent: React.FC = () => {
   const [movieImg, setMovieImg] = useState<string>(noImage);
   const [similarMovies, setSimilarMovies] = useState<Movie[]>([]);
   const movieGenresAmount = movie.genres?.length ?? 0;
+  const classes = useStyles();
 
   useEffect(() => {
     const movieId = selectedMovie !== 0 ? selectedMovie : movieIdFromUrl();
@@ -61,7 +63,7 @@ const MovieContent: React.FC = () => {
 
   return (
     <>
-      <Grid container spacing={2}>
+      <Grid container spacing={2} className={classes.containerMoviePage}>
         <Grid item xs={12} sm={6} md={3}>
           <Card className="card-movie">
             <CardMedia
@@ -71,8 +73,8 @@ const MovieContent: React.FC = () => {
             />
           </Card>
         </Grid>
-        <Grid item xs={12} sm={6} md={9} className="align-left">
-          <h1 className="title">{movie.title}</h1>
+        <Grid item xs={12} sm={6} md={9}>
+          <h1 className={classes.title}>{movie.title}</h1>
           <div className="content">
             <span className="content-imdb-container">
               <a

@@ -14,6 +14,7 @@ import { NavLink } from 'react-router-dom';
 import { Movie } from '../../services/movies.service';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../../reducer';
+import useStyles from './../../App.styles';
 const posterBaseUrl = 'https://image.tmdb.org/t/p/w300';
 
 interface Props {
@@ -22,6 +23,7 @@ interface Props {
 
 const Card: React.FC<Props> = ({ card }: Props) => {
   const dispatch = useDispatch();
+  
 
   const searchedMovie = useSelector((state: RootState) => state.searchedMovie);
   const isFavClicked = useSelector(

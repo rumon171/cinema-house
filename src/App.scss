@@ -1,42 +1,34 @@
-// TODO: create vars in mui styles
 $base-color: #aa2876;
 $font-base-color: #fff;
 
+// IS THIS NEEDED????
 body {
   overscroll-behavior: none;
 }
 
-.App {
-  text-align: center;
-}
+// .container {
+//   background-color: #272838;
+//   padding-top: 5px;
+//   padding-bottom: 5px;
+//   min-height: 100vh;
+//   display: flex;
+//   flex-direction: column;
+//   align-items: center;
+//   justify-content: center;
+//   font-size: calc(10px + 2vmin);
+//   color: $font-base-color;
+// }
 
-.typography-base {
-  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
-  font-weight: 400;
-}
-
-.container {
-  background-color: #272838;
-  padding-top: 5px;
-  padding-bottom: 5px;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: $font-base-color;
-}
-
-.align-left {
-  text-align: left;
-}
+// .align-left {
+//   text-align: left;
+// }
 
 .card-container {
   text-align: center;
   position: relative;
   overflow: hidden;
 
+  // DOES THIS WORK?
   .card-poster:hover {
     opacity: 0.3;
     filter: alpha(opacity=30);
@@ -44,7 +36,6 @@ body {
 
   .card-details {
     visibility: hidden;
-
     color: $font-base-color;
 
     .fav-icon {
@@ -53,8 +44,8 @@ body {
       width: 100%;
       transition: transform 750ms;
     }
-    // TODO - add font size
-    .details {
+    // TODO - ADD FONT SIZE
+    .voteAverage {
       position: absolute;
       bottom: 0;
       width: 100%;
@@ -70,16 +61,20 @@ body {
     .fav-icon {
       transform: translateY(3vw);
     }
-    // TODO - add font size
+    // TODO - ADD FONT SIZE
     .details {
       transform: translateY(-3.5vw);
     }
   }
 }
 
-.card-container-when-search {
-  padding: 2px;
-}
+// CHECK IS THESE WORK:
+// 'alpha(opacity=30)'
+
+// IS THIS NEEDED?
+// .card-container-when-search {
+//   // padding: 2px;
+// }
 
 .title {
   font-size: 2.3rem;

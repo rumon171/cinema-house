@@ -18,8 +18,45 @@ export default makeStyles(() => ({
     minHeight: '100vh',
     minWidth: '100vw',
   },
+  containerMoviePage: {
+    marginTop: '100px',
+  },
   typographyBase: {
     fontFamily: ['Roboto', 'Helvetica', 'Arial', 'sans-serif'].join(','),
     fontWeight: 400,
+  },
+  title: {
+    fontSize: '2.3rem',
+    fontWeight: 400,
+    letterSpacing: '0.03em',
+    marginTop: 0,
+  },
+  cardDetails: {
+    visibility: 'hidden',
+    color: '#fff',
+  },
+  cardContainer: {
+    position: 'relative',
+    overflow: 'hidden',
+    textAlign: 'center',
+  },
+  cardPoster: {
+    '&hover': {
+      opacity: 0.3,
+      filter: 'alpha(opacity=30)',
+    },
+  },
+
+  favIcon: {
+    position: 'absolute',
+    top: 10,
+    width: '100%',
+    transition: 'transform 750ms',
+  },
+  voteAverage: {
+    position: 'absolute',
+    bottom: 10,
+    width: '100%',
+    transition: 'transform 750ms',
   },
 }));
