@@ -1,7 +1,6 @@
 import React from 'react';
 import { useEffect, useState } from 'react';
 import { OutlinedInput } from '@material-ui/core';
-import './Header.scss';
 import {
   fetchSearchedMovies,
   fetchMovies,
@@ -10,6 +9,7 @@ import { useNavigate } from 'react-router-dom';
 import { RootState } from '../../reducer';
 import { useSelector, useDispatch } from 'react-redux';
 import { changeSearchedMovie, showMoviesAtHomePage } from '../../actions';
+import useStyles from './Search.styles';
 
 const Search: React.FC = () => {
   const [searchValue, setSearchValue] = useState<string>('');
@@ -20,6 +20,7 @@ const Search: React.FC = () => {
   );
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const classes = useStyles();
 
   const fetchMoviesList = (searchedMovieValue: string) => {
     dispatch(changeSearchedMovie(searchedMovieValue));
@@ -55,7 +56,7 @@ const Search: React.FC = () => {
     <>
       <OutlinedInput
         color="secondary"
-        className="search-field"
+        className={classes.searchField}
         type="string"
         onBlur={({ target: { value } }) => fetchMoviesList(value)}
         onKeyDown={handleKeyPress}

@@ -11,7 +11,7 @@ import { useSelector } from 'react-redux';
 import './Containers.scss';
 import noImage from '../../images/no-image-available.png';
 import { movieIdFromUrl } from '../../utilities/common';
-import useStyles from './../../App.styles';
+import useStyles from './MovieContent.styles';
 const posterBaseUrl = 'https://image.tmdb.org/t/p/w300';
 
 const MovieContent: React.FC = () => {
@@ -137,7 +137,7 @@ const MovieContent: React.FC = () => {
           </div>
         </Grid>
         {similarMovies.length > 0 && (
-          <div className="similar-movies-title">More like this</div>
+          <div className={classes.similarMoviesTitle}>More like this</div>
         )}
         <CardsGrid similarMovies={similarMovies}></CardsGrid>
       </Grid>
