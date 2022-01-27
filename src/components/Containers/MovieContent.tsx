@@ -61,7 +61,7 @@ const MovieContent: React.FC = () => {
 
   return (
     <>
-      <Grid container spacing={2} className="container-movie-page">
+      <Grid container spacing={2}>
         <Grid item xs={12} sm={6} md={3}>
           <Card className="card-movie">
             <CardMedia

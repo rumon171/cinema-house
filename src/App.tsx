@@ -23,10 +23,9 @@ function App() {
       .catch(() => dispatch(showMoviesAtHomePage([])));
   }, []);
 
-  //className="App"
   return (
     <div className={classes.root}>
-      <div className="container typography-base ">
+      <div className={classes.container}>
         <BrowserRouter>
           <Routes>
             <Route path="/profile" element={<Profile></Profile>} />
