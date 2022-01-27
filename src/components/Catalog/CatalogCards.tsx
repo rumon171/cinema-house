@@ -2,7 +2,6 @@ import React from 'react';
 import { useRef, useEffect } from 'react';
 import { Grid, CardMedia } from '@material-ui/core';
 import '../../App.scss';
-import './Catalog.scss';
 import loadingSpinner from '../../images/loading-spinner.gif';
 import useIntersectionObserver from '../../customHooks/useIntersectionObserver';
 import { changeCurrentPage } from '../../actions';
@@ -12,7 +11,7 @@ import { showMoviesAtHomePage } from '../../actions';
 import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
 import Card from '../GeneralComponents/Card';
-import useStyles from './../../App.styles';
+import useStyles from './CatalogCards.styles';
 
 const CatalogCards: React.FC = () => {
   const loadingRef = useRef<HTMLDivElement | null>(null);
@@ -43,7 +42,7 @@ const CatalogCards: React.FC = () => {
   return (
     <div>
       {movies.length > 0 && movies.length < 6 && (
-        <div className="search-results-title">Found matched movies</div>
+        <div className={classes.searchResultsTitle}>Found matched movies</div>
       )}
       {movies.length > 0 ? (
         <Grid container className="container-content">
@@ -54,7 +53,7 @@ const CatalogCards: React.FC = () => {
             ))}
         </Grid>
       ) : searchedMovie ? (
-        <div className="">Try a different phrase...</div>
+        <div className={classes.noResultsMessage}>Try a different phrase...</div>
       ) : (
         <CardMedia
           component="img"

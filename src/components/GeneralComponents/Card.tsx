@@ -8,7 +8,6 @@ import {
 import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
 import { Grid } from '@material-ui/core';
 import '../../App.scss';
-import '../Catalog/Catalog.scss';
 import noImage from '../../images/no-image-available.png';
 import { NavLink } from 'react-router-dom';
 import { Movie } from '../../services/movies.service';

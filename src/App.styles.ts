@@ -2,9 +2,6 @@ import { makeStyles } from '@material-ui/core';
 
 export default makeStyles(() => ({
   root: {
-    // TODO: create vars in mui styles, use theme var
-    // $base-color: #aa2876;
-    // $font-base-color: #fff;
     color: '#fff',
     fontSize: '1.5rem',
   },
@@ -33,33 +30,11 @@ export default makeStyles(() => ({
   },
   loadingSpinner: {
     maxWidth: '70px',
+    display: 'block',
+    marginLeft: 'auto',
+    marginRight: 'auto',
   },
-  // cardDetails: {
-  //   visibility: 'hidden',
-  //   color: '#fff',
-  // },
-  // cardContainer: {
-  //   position: 'relative',
-  //   overflow: 'hidden',
-  //   textAlign: 'center',
-  // },
-  // cardPoster: {
-  //   '&hover': {
-  //     opacity: 0.3,
-  //     filter: 'alpha(opacity=30)',
-  //   },
-  // },
-
-  // favIcon: {
-  //   position: 'absolute',
-  //   top: 10,
-  //   width: '100%',
-  //   transition: 'transform 750ms',
-  // },
-  // voteAverage: {
-  //   position: 'absolute',
-  //   bottom: 10,
-  //   width: '100%',
-  //   transition: 'transform 750ms',
-  // },
+  noResultsMessage: {
+    textAlign: 'center',
+  },
 }));

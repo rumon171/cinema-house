@@ -1,17 +1,13 @@
+// TODO: CREAT3E GLOBAL VARS in mui styles, use theme var
 $base-color: #aa2876;
 $font-base-color: #fff;
-
-// IS THIS NEEDED????
-body {
-  overscroll-behavior: none;
-}
 
 .card-container {
   text-align: center;
   position: relative;
   overflow: hidden;
 
-  // DOES THIS WORK?
+  // DOES THIS WORK IN MUI?
   .card-poster:hover {
     opacity: 0.3;
     filter: alpha(opacity=30);
@@ -50,21 +46,6 @@ body {
   }
 }
 
-// CHECK IS THESE WORK:
-// 'alpha(opacity=30)'
-
-// IS THIS NEEDED?
-// .card-container-when-search {
-//   // padding: 2px;
-// }
-
-.title {
-  font-size: 2.3rem;
-  font-weight: 400;
-  letter-spacing: 0.03em;
-  margin-top: 0;
-}
-
 .content {
   font-size: 1rem;
   line-height: 1.75;
@@ -96,20 +77,15 @@ body {
   }
 }
 
-.loading-spinner {
-  max-width: 70px;
-}
+// WHAT IS THIS CLASS FOR?
+// .raiting {
+//   position: absolute;
+//   right: 0;
+//   top: 0;
+//   padding: 8px 8px 0 0;
+//   width: 100%;
+// }
 
-.raiting {
-  position: absolute;
-  right: 0;
-  top: 0;
-  padding: 8px 8px 0 0;
-  width: 100%;
-}
-.container-content {
-  justify-content: center;
-}
 // xs
 @media screen and (max-width: 599px) {
   .container-content {
