@@ -14,7 +14,6 @@ import { NavLink } from 'react-router-dom';
 import { Movie } from '../../services/movies.service';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../../reducer';
-import useStyles from './../../App.styles';
 const posterBaseUrl = 'https://image.tmdb.org/t/p/w300';
 
 interface Props {
@@ -72,7 +71,7 @@ const Card: React.FC<Props> = ({ card }: Props) => {
             <div className="fav-icon">
               <FavoriteBorderIcon onClick={() => AddFavouriteMovie(card.id)} />
             </div>
-            <div className="details">{card.vote_average}</div>
+            <div className="vote-average">{card.vote_average}</div>
           </div>
         </div>
       </NavLink>

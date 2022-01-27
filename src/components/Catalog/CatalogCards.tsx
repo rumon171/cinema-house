@@ -12,6 +12,7 @@ import { showMoviesAtHomePage } from '../../actions';
 import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
 import Card from '../GeneralComponents/Card';
+import useStyles from './../../App.styles';
 
 const CatalogCards: React.FC = () => {
   const loadingRef = useRef<HTMLDivElement | null>(null);
@@ -21,6 +22,7 @@ const CatalogCards: React.FC = () => {
   const movies = useSelector((state: RootState) => state.homePageMovies);
   const searchedMovie = useSelector((state: RootState) => state.searchedMovie);
   const currentPage = useSelector((state: RootState) => state.currentPage);
+  const classes = useStyles();
 
   useEffect(() => {
     if (isVisible) {
@@ -37,13 +39,6 @@ const CatalogCards: React.FC = () => {
       }
     }
   }, [isVisible]);
-
-  // FIXME it should restore scroll in main page
-  // useEffect(() => {
-  //   if ('scrollRestoration' in history) {
-  //     history.scrollRestoration = 'auto'
-  //   }
-  // });
 
   return (
     <div>
@@ -64,7 +59,7 @@ const CatalogCards: React.FC = () => {
         <CardMedia
           component="img"
           image={loadingSpinner}
-          className="loading-spinner"
+          className={classes.loadingSpinner}
         />
       )}
       {!searchedMovie && (

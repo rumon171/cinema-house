@@ -31,32 +31,35 @@ export default makeStyles(() => ({
     letterSpacing: '0.03em',
     marginTop: 0,
   },
-  cardDetails: {
-    visibility: 'hidden',
-    color: '#fff',
+  loadingSpinner: {
+    maxWidth: '70px',
   },
-  cardContainer: {
-    position: 'relative',
-    overflow: 'hidden',
-    textAlign: 'center',
-  },
-  cardPoster: {
-    '&hover': {
-      opacity: 0.3,
-      filter: 'alpha(opacity=30)',
-    },
-  },
+  // cardDetails: {
+  //   visibility: 'hidden',
+  //   color: '#fff',
+  // },
+  // cardContainer: {
+  //   position: 'relative',
+  //   overflow: 'hidden',
+  //   textAlign: 'center',
+  // },
+  // cardPoster: {
+  //   '&hover': {
+  //     opacity: 0.3,
+  //     filter: 'alpha(opacity=30)',
+  //   },
+  // },
 
-  favIcon: {
-    position: 'absolute',
-    top: 10,
-    width: '100%',
-    transition: 'transform 750ms',
-  },
-  voteAverage: {
-    position: 'absolute',
-    bottom: 10,
-    width: '100%',
-    transition: 'transform 750ms',
-  },
+  // favIcon: {
+  //   position: 'absolute',
+  //   top: 10,
+  //   width: '100%',
+  //   transition: 'transform 750ms',
+  // },
+  // voteAverage: {
+  //   position: 'absolute',
+  //   bottom: 10,
+  //   width: '100%',
+  //   transition: 'transform 750ms',
+  // },
 }));

@@ -6,23 +6,6 @@ body {
   overscroll-behavior: none;
 }
 
-// .container {
-//   background-color: #272838;
-//   padding-top: 5px;
-//   padding-bottom: 5px;
-//   min-height: 100vh;
-//   display: flex;
-//   flex-direction: column;
-//   align-items: center;
-//   justify-content: center;
-//   font-size: calc(10px + 2vmin);
-//   color: $font-base-color;
-// }
-
-// .align-left {
-//   text-align: left;
-// }
-
 .card-container {
   text-align: center;
   position: relative;
@@ -44,11 +27,11 @@ body {
       width: 100%;
       transition: transform 750ms;
     }
-    // TODO - ADD FONT SIZE
-    .voteAverage {
+    .vote-average {
       position: absolute;
       bottom: 0;
       width: 100%;
+      font-size: 20px;
       transition: transform 750ms;
     }
   }
@@ -61,8 +44,7 @@ body {
     .fav-icon {
       transform: translateY(3vw);
     }
-    // TODO - ADD FONT SIZE
-    .details {
+    .vote-average {
       transform: translateY(-3.5vw);
     }
   }
