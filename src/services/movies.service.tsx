@@ -24,7 +24,7 @@ export interface Movie {
     production_countries?: Country[];
 }
 
-export async function fetchSelectedMovie(movieId: number): Promise<Movie[]> {
+export async function fetchSelectedMovie(movieId: number): Promise<Movie> {
     return await fetch(
         `${movieApiBaseUrl}/movie/${movieId}?api_key=${process.env.REACT_APP_API_KEY}`
     )
