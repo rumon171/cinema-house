@@ -24,7 +24,7 @@ export interface Movie {
     production_countries?: Country[];
 }
 
-export async function fetchSelectedMovie(movieId: number) {
+export async function fetchSelectedMovie(movieId: number): Promise<Movie[]> {
     return await fetch(
         `${movieApiBaseUrl}/movie/${movieId}?api_key=${process.env.REACT_APP_API_KEY}`
     )
@@ -37,7 +37,9 @@ export async function fetchSelectedMovie(movieId: number) {
         });
 }
 
-export async function fetchSearchedMovies(enteredTitle: string) {
+export async function fetchSearchedMovies(
+    enteredTitle: string
+): Promise<Movie[]> {
     const enteredTitleWithoutSpecials = enteredTitle.replace(/[^a-zA-Z ]/g, '');
 
     return await fetch(
@@ -63,7 +65,7 @@ export async function fetchMovies(page: string): Promise<Movie[]> {
         });
 }
 
-function mapMainMoviesResult(res: Movie[]): Movie[] {
+const mapMainMoviesResult = (res: Movie[]): Movie[] => {
     return res.filter(movie => {
         const {
             id,
@@ -90,7 +92,7 @@ function mapMainMoviesResult(res: Movie[]): Movie[] {
             };
         }
     });
-}
+};
 
 export async function fetchSimilarMovies(movieId: number): Promise<Movie[]> {
     const page = 1;
