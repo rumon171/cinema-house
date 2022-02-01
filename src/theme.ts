@@ -3,7 +3,8 @@ import { createTheme } from '@material-ui/core/styles';
 const theme = createTheme({
     palette: {
         primary: {
-            main: '#5FB9A6',
+            main: '#aa2876',
+            contrastText: '#fff',
             dark: 'linear-gradient(-68deg, #151E27 , #335850)',
         },
         secondary: {
@@ -12,22 +13,19 @@ const theme = createTheme({
         error: {
             light: '#e5a0a0',
             main: '#CD5C5C',
-            dark: '#992c2c',
         },
         text: {
-            primary: '#20383C',
-            secondary: '#151E27',
-            hint: 'rgba(32, 56, 60, 0.7)',
+            primary: '#fff',
         },
         background: {
-            paper: '#fff',
+            default: '#272838',
         },
         common: {
-            white: '#FFF',
+            white: '#fff',
         },
     },
     typography: {
-        fontFamily: '"Work Sans"',
+        fontFamily: ['Roboto', 'Helvetica', 'Arial', 'sans-serif'].join(','),
     },
 });
 export default theme;
