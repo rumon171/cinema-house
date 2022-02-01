@@ -4,7 +4,7 @@ import { Grid, Card, CardMedia } from '@material-ui/core';
 import CardsGrid from '../GeneralComponents/CardsGrid';
 import { RootState } from '../../reducer';
 import { useSelector } from 'react-redux';
-import './Containers.scss';
+import '../Containers/Containers.scss';
 import noImage from '../../images/no-image-available.png';
 import { movieIdFromUrl } from '../../utilities/common';
 import useStyles from './MoviePage.styles';
