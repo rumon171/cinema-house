@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react';
 // import './App.scss';
-import HomePage from './components/Containers/HomePage';
+import HomePageContainer from './components/Containers/HomePageContainer';
 import { fetchMovies } from './services/movies.service';
-import MoviePage from './components/Containers/MoviePage';
+import MoviePageContainer from './components/Containers/MoviePageContainer';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { showMoviesAtHomePage } from './actions';
@@ -34,8 +34,8 @@ function App() {
                     <BrowserRouter>
                         <Routes>
                             <Route path="/profile" element={<Profile></Profile>} />
-                            <Route path="/movie/:movieid" element={<MoviePage />} />
-                            <Route path="/" element={<HomePage></HomePage>} />
+                            <Route path="/movie/:movieid" element={<MoviePageContainer />} />
+                            <Route path="/" element={<HomePageContainer></HomePageContainer>} />
                         </Routes>
                     </BrowserRouter>
                 </div>

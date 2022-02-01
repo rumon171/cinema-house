@@ -12,4 +12,8 @@ export default makeStyles(theme => ({
         fontSize: '1.5rem',
         fontWeight: 500,
     },
+    searchField: {
+        marginLeft: 'auto',
+        marginRight: '1.5rem',
+    },
 }));
