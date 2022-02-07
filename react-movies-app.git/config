@@ -6,3 +6,6 @@
 	precomposeunicode = true
 [remote "origin"]
 	url = https://github.com/jazzmam/react-movies-app
+[user]
+	name = jazzmam
+	email = ruta.kalytyte@gmail.com
