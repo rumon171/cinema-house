@@ -4,6 +4,7 @@
 	bare = true
 	ignorecase = true
 	precomposeunicode = true
+	sshCommand = ssh -i ~/.ssh/id_rsa_companyb
 [remote "origin"]
 	url = https://github.com/jazzmam/react-movies-app
 [user]
