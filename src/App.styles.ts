@@ -11,9 +11,9 @@ export default makeStyles(theme => ({
         flexDirection: 'column',
         paddingTop: '5px',
         paddingBottom: '5px',
-        // backgroundColor: theme.palette.background.default,
         minHeight: '100vh',
         minWidth: '100vw',
+        // backgroundColor: theme.palette.background.default,
     },
     typographyBase: {
         fontFamily: theme.typography.fontFamily,

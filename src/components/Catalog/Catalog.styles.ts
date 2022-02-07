@@ -6,16 +6,4 @@ export default makeStyles(() => ({
         bottom: '50px',
         right: '50px',
     },
-    noResultsMessage: {
-        textAlign: 'center',
-    },
-    loadingSpinner: {
-        maxWidth: '70px',
-        display: 'block',
-        marginLeft: 'auto',
-        marginRight: 'auto',
-    },
-    searchResultsTitle: {
-        margin: '70px',
-    },
 }));

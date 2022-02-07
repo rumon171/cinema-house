@@ -3,132 +3,123 @@ $base-color: #aa2876;
 $font-base-color: #fff;
 
 .card-container {
-  text-align: center;
-  position: relative;
-  overflow: hidden;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
 
-  // DOES THIS WORK IN MUI?
-  .card-poster:hover {
-    opacity: 0.3;
-    filter: alpha(opacity=30);
-  }
-
-  .card-details {
-    visibility: hidden;
-    color: $font-base-color;
-
-    .fav-icon {
-      position: absolute;
-      top: 0;
-      width: 100%;
-      transition: transform 750ms;
+    // DOES THIS WORK IN MUI?
+    .card-poster:hover {
+        opacity: 0.3;
+        filter: alpha(opacity=30);
     }
-    .vote-average {
-      position: absolute;
-      bottom: 0;
-      width: 100%;
-      font-size: 20px;
-      transition: transform 750ms;
+
+    .card-details {
+        visibility: hidden;
+        color: $font-base-color;
+
+        .fav-icon {
+            position: absolute;
+            top: 0;
+            width: 100%;
+            transition: transform 750ms;
+        }
+        .vote-average {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            font-size: 20px;
+            transition: transform 750ms;
+        }
     }
-  }
 }
 
 .card-container:hover {
-  .card-details {
-    visibility: visible;
+    .card-details {
+        visibility: visible;
 
-    .fav-icon {
-      transform: translateY(3vw);
+        .fav-icon {
+            transform: translateY(3vw);
+        }
+        .vote-average {
+            transform: translateY(-3.5vw);
+        }
     }
-    .vote-average {
-      transform: translateY(-3.5vw);
-    }
-  }
 }
 
 .content {
-  font-size: 1rem;
-  line-height: 1.75;
-  letter-spacing: 0.01em;
+    font-size: 1rem;
+    line-height: 1.75;
+    letter-spacing: 0.01em;
 
-  &-info-separator {
-    margin: 0 10px;
-  }
-
-  &-main-paragraph {
-    text-align: justify;
-
-    &-title {
-      font-weight: 500;
-      color: #aa2876;
-      font-size: 1.1rem;
+    &-info-separator {
+        margin: 0 10px;
     }
-  }
 
-  &-imdb-container {
-    background-color: $base-color;
-    padding: 2px;
-    margin-right: 10px;
+    &-main-paragraph {
+        text-align: justify;
 
-    a {
-      color: inherit;
-      text-decoration: inherit;
+        &-title {
+            font-weight: 500;
+            color: #aa2876;
+            font-size: 1.1rem;
+        }
     }
-  }
+
+    &-imdb-container {
+        background-color: $base-color;
+        padding: 2px;
+        margin-right: 10px;
+
+        a {
+            color: inherit;
+            text-decoration: inherit;
+        }
+    }
 }
-
-// WHAT IS THIS CLASS FOR?
-// .raiting {
-//   position: absolute;
-//   right: 0;
-//   top: 0;
-//   padding: 8px 8px 0 0;
-//   width: 100%;
-// }
 
 // xs
 @media screen and (max-width: 599px) {
-  .container-content {
-    img {
-      max-height: 63vw;
-      min-height: 63vw;
-      max-width: 47vw;
-      min-width: 47vw;
+    .container-content {
+        img {
+            max-height: 63vw;
+            min-height: 63vw;
+            max-width: 47vw;
+            min-width: 47vw;
+        }
     }
-  }
 }
 // sm
 @media screen and (min-width: 600px) and (max-width: 959px) {
-  .container-content {
-    img {
-      max-height: 45vw;
-      min-height: 45vw;
-      max-width: 33vw;
-      min-width: 33vw;
+    .container-content {
+        img {
+            max-height: 45vw;
+            min-height: 45vw;
+            max-width: 33vw;
+            min-width: 33vw;
+        }
     }
-  }
 }
 // md
 @media screen and (min-width: 960px) and (max-width: 1279px) {
-  .container-content {
-    img {
-      max-height: 35vw;
-      min-height: 35vw;
-      max-width: 25vw;
-      min-width: 25vw;
+    .container-content {
+        img {
+            max-height: 35vw;
+            min-height: 35vw;
+            max-width: 25vw;
+            min-width: 25vw;
+        }
     }
-  }
 }
 // lg
 @media screen and (min-width: 1280px) and (min-width: 1280px) {
-  .container-content {
-    img {
-      max-height: 22vw;
-      min-height: 22vw;
-      max-width: 16vw;
-      min-width: 16vw;
+    .container-content {
+        img {
+            max-height: 22vw;
+            min-height: 22vw;
+            max-width: 16vw;
+            min-width: 16vw;
+        }
     }
-  }
 }
 
 @media screen and (max-width: 599px) {

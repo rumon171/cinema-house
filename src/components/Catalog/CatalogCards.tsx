@@ -11,7 +11,7 @@ import { showMoviesAtHomePage } from '../../actions';
 import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
 import Card from '../GeneralComponents/Card';
-import useStyles from './Catalog.styles';
+import useStyles from './CatalogCards.styles';
 
 const CatalogCards: React.FC = () => {
     const loadingRef = useRef<HTMLDivElement | null>(null);

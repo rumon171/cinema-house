@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react';
-// import './App.scss';
 import HomePageContainer from './components/Containers/HomePageContainer';
 import { fetchMovies } from './services/movies.service';
 import MoviePageContainer from './components/Containers/MoviePageContainer';
