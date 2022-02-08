@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import Topbar from '../Header/Topbar';
-import './Containers';
+import './Containers.scss';
 import MoviePage from '../MoviePage/MoviePage';
 // import { useNavigate } from 'react-router-dom';
 // import { useDispatch } from 'react-redux';
