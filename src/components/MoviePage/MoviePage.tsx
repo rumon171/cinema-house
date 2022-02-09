@@ -4,7 +4,6 @@ import { Grid, Card, CardMedia } from '@material-ui/core';
 import CardsGrid from '../GeneralComponents/CardsGrid';
 import { RootState } from '../../reducer';
 import { useSelector } from 'react-redux';
-import '../Containers/Containers.scss';
 import noImage from '../../images/no-image-available.png';
 import { movieIdFromUrl } from '../../utilities/common';
 import useStyles from './MoviePage.styles';
@@ -59,7 +58,7 @@ const MoviePage: React.FC = () => {
         <>
             <Grid container spacing={2} className={classes.containerMoviePage}>
                 <Grid item xs={12} sm={6} md={3}>
-                    <Card className="card-movie">
+                    <Card className={classes.moviePoster}>
                         <CardMedia
                             component="img"
                             alt={'Poster of ' + movie.title}
@@ -69,8 +68,8 @@ const MoviePage: React.FC = () => {
                 </Grid>
                 <Grid item xs={12} sm={6} md={9}>
                     <h1 className={classes.title}>{movie.title}</h1>
-                    <div className="content">
-                        <span className="content-imdb-container">
+                    <div className={classes.content}>
+                        <span className={classes.contentImdbContainer}>
                             <a href="https://www.imdb.com/title/tt2096673/" target="_blank" rel="noopener noreferrer">
                                 imdb
                             </a>
@@ -79,7 +78,7 @@ const MoviePage: React.FC = () => {
                         <span>
                             {movie.release_date ? (
                                 <>
-                                    <span className="content-info-separator">|</span>
+                                    <span className={classes.contentInfoSeparator}>|</span>
                                     {movie.release_date.substring(0, 4)} (
                                     {movie.production_countries && movie.production_countries[0]?.iso_3166_1})
                                 </>
@@ -90,14 +89,14 @@ const MoviePage: React.FC = () => {
                         <span>
                             {movie.runtime && (
                                 <>
-                                    <span className="content-info-separator">|</span>
+                                    <span className={classes.contentInfoSeparator}>|</span>
                                     {convertMinutesToHoursAndMinutes(movie.runtime)}
                                 </>
                             )}
                         </span>
-                        <p className="content-main-paragraph">{movie.overview}</p>
+                        <p className={classes.contentMainParagraph}>{movie.overview}</p>
                         <p>
-                            <span className="content-main-paragraph-title">Genres:</span>
+                            <span className={classes.contentMainParagraphTitle}>Genres:</span>
                             &nbsp;
                             {movie.genres &&
                                 movie.genres?.map((genre, i) => (
@@ -109,12 +108,12 @@ const MoviePage: React.FC = () => {
                         </p>
                         {Boolean(movie.budget) && (
                             <p>
-                                <span className="content-main-paragraph-title">Budget:</span> ${movie.budget}
+                                <span className={classes.contentMainParagraphTitle}>Budget:</span> ${movie.budget}
                             </p>
                         )}
                         {Boolean(movie.revenue) && (
                             <p>
-                                <span className="content-main-paragraph-title">Revenue:</span> ${movie.revenue}
+                                <span className={classes.contentMainParagraphTitle}>Revenue:</span> ${movie.revenue}
                             </p>
                         )}
                     </div>
