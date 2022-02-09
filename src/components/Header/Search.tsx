@@ -6,7 +6,7 @@ import { useNavigate } from 'react-router-dom';
 import { RootState } from '../../reducer';
 import { useSelector, useDispatch } from 'react-redux';
 import { changeSearchedMovie, showMoviesAtHomePage } from '../../actions';
-import useStyles from './Topbar.styles';
+import useStyles from './HeaderTopbar.styles';
 
 const Search: React.FC = () => {
     const [searchValue, setSearchValue] = useState<string>('');

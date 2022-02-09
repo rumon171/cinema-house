@@ -1,5 +1,6 @@
+import { AppBar } from '@material-ui/core';
 import React, { useEffect } from 'react';
-import Topbar from '../Header/Topbar';
+import HeaderTopbar from '../Header/HeaderTopbar';
 import MoviePage from '../MoviePage/MoviePage';
 // import { useNavigate } from 'react-router-dom';
 // import { useDispatch } from 'react-redux';
@@ -38,7 +39,9 @@ const MoviePageContainer: React.FC = () => {
 
     return (
         <>
-            <Topbar></Topbar>
+            <AppBar>
+                <HeaderTopbar></HeaderTopbar>
+            </AppBar>
             <MoviePage></MoviePage>
         </>
     );

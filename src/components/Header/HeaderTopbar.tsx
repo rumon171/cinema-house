@@ -5,7 +5,7 @@ import { NavLink } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { isMoviePageOpened, changeSearchedMovie } from '../../actions';
 import PersonOutlineOutlinedIcon from '@material-ui/icons/PersonOutlineOutlined';
-import useStyles from './Topbar.styles';
+import useStyles from './HeaderTopbar.styles';
 
 const Topbar: React.FC = () => {
     const dispatch = useDispatch();
@@ -19,17 +19,15 @@ const Topbar: React.FC = () => {
 
     return (
         <>
-            <AppBar>
-                <Toolbar className={classes.topBar}>
-                    <NavLink to={'/'} onClick={handleHomePageLink}>
-                        <h1 className={classes.topBarTitle}>Cinema House</h1>
-                    </NavLink>
-                    <Search />
-                    <NavLink to={'/profile'}>
-                        <PersonOutlineOutlinedIcon />
-                    </NavLink>
-                </Toolbar>
-            </AppBar>
+            <Toolbar className={classes.topBar}>
+                <NavLink to={'/'} onClick={handleHomePageLink}>
+                    <h1 className={classes.topBarTitle}>Cinema House</h1>
+                </NavLink>
+                <Search />
+                <NavLink to={'/profile'}>
+                    <PersonOutlineOutlinedIcon />
+                </NavLink>
+            </Toolbar>
         </>
     );
 };

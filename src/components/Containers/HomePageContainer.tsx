@@ -1,14 +1,16 @@
 import React from 'react';
-import Topbar from '../Header/Topbar';
+import HeaderTopbar from '../Header/HeaderTopbar';
+import HeaderMenu from '../Header/HeaderMenu';
 import Catalog from '../Catalog/Catalog';
 
 const HomePage: React.FC = () => {
-  return (
-    <>
-      <Topbar></Topbar>
-      <Catalog></Catalog>
-    </>
-  );
+    return (
+        <>
+            <HeaderTopbar></HeaderTopbar>
+            <HeaderMenu></HeaderMenu>
+            <Catalog></Catalog>
+        </>
+    );
 };
 
 export default HomePage;

@@ -1,13 +1,13 @@
 import React from 'react';
-import Topbar from '../Header/Topbar';
+import HeaderTopbar from '../Header/HeaderTopbar';
 
 const Profile: React.FunctionComponent = () => {
-  return (
-    <>
-      <Topbar></Topbar>
-      list here
-    </>
-  );
+    return (
+        <>
+            <HeaderTopbar></HeaderTopbar>
+            list here
+        </>
+    );
 };
 
 export default Profile;
