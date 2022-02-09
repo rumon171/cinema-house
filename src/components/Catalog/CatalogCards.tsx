@@ -45,7 +45,7 @@ const CatalogCards: React.FC = () => {
                 <div className={classes.searchResultsTitle}>Found matched movies</div>
             )}
             {movies.length > 0 ? (
-                <Grid container className="container-content">
+                <Grid container className={classes.containerContent}>
                     {movies
                         .filter((movie: Movie) => movie.vote_average !== 0)
                         .map((movie: Movie) => (

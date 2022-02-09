@@ -25,9 +25,7 @@ export interface Movie {
 }
 
 export async function fetchSelectedMovie(movieId: number): Promise<Movie> {
-    return await fetch(
-        `${movieApiBaseUrl}/movie/${movieId}?api_key=${process.env.REACT_APP_API_KEY}`
-    )
+    return await fetch(`${movieApiBaseUrl}/movie/${movieId}?api_key=${process.env.REACT_APP_API_KEY}`)
         .then(res => res.json())
         .then(body => {
             return body;
@@ -37,13 +35,11 @@ export async function fetchSelectedMovie(movieId: number): Promise<Movie> {
         });
 }
 
-export async function fetchSearchedMovies(
-    enteredTitle: string
-): Promise<Movie[]> {
+export async function fetchSearchedMovies(enteredTitle: string): Promise<Movie[]> {
     const enteredTitleWithoutSpecials = enteredTitle.replace(/[^a-zA-Z ]/g, '');
 
     return await fetch(
-        `${movieApiBaseUrl}/search/movie/?api_key=${process.env.REACT_APP_API_KEY}&query=${enteredTitleWithoutSpecials}`
+        `${movieApiBaseUrl}/search/movie/?api_key=${process.env.REACT_APP_API_KEY}&query=${enteredTitleWithoutSpecials}`,
     )
         .then(res => res.json())
         .then(body => {
@@ -55,9 +51,7 @@ export async function fetchSearchedMovies(
 }
 
 export async function fetchMovies(page: string): Promise<Movie[]> {
-    return await fetch(
-        `${movieApiBaseUrl}/movie/popular?api_key=${process.env.REACT_APP_API_KEY}&page=${page}`
-    )
+    return await fetch(`${movieApiBaseUrl}/movie/popular?api_key=${process.env.REACT_APP_API_KEY}&page=${page}`)
         .then(res => res.json())
         .then(res => mapMainMoviesResult(res.results))
         .catch(() => {
@@ -67,25 +61,14 @@ export async function fetchMovies(page: string): Promise<Movie[]> {
 
 const mapMainMoviesResult = (res: Movie[]): Movie[] => {
     return res.filter(movie => {
-        const {
-            id,
-            title,
-            vote_average,
-            overview,
-            poster_path,
-            release_date,
-            runtime,
-            production_countries,
-        } = movie;
+        const { id, title, vote_average, overview, poster_path, release_date, runtime, production_countries } = movie;
         if (poster_path) {
             return {
                 id: id,
                 title: title,
                 vote_average: vote_average,
                 overview: overview,
-                poster_path: poster_path
-                    ? `${posterBaseUrl}${poster_path}`
-                    : noImage,
+                poster_path: poster_path ? `${posterBaseUrl}${poster_path}` : noImage,
                 release_date: release_date,
                 runtime: runtime,
                 production_countries: production_countries,
@@ -97,7 +80,7 @@ const mapMainMoviesResult = (res: Movie[]): Movie[] => {
 export async function fetchSimilarMovies(movieId: number): Promise<Movie[]> {
     const page = 1;
     return await fetch(
-        `${movieApiBaseUrl}/movie/${movieId}/similar?api_key=${process.env.REACT_APP_API_KEY}&language=en-US&page=${page}`
+        `${movieApiBaseUrl}/movie/${movieId}/similar?api_key=${process.env.REACT_APP_API_KEY}&language=en-US&page=${page}`,
     )
         .then(res => res.json())
         .then(res => mapMainMoviesResult(res.results))
