@@ -1,14 +1,19 @@
+import { Button } from '@material-ui/core';
 import React from 'react';
-import { useEffect, useState } from 'react';
-import { OutlinedInput } from '@material-ui/core';
-import { fetchSearchedMovies, fetchMovies } from '../../services/movies.service';
-import { useNavigate } from 'react-router-dom';
-import { RootState } from '../../reducer';
-import { useSelector, useDispatch } from 'react-redux';
-import { changeSearchedMovie, showMoviesAtHomePage } from '../../actions';
+import useStyles from './HeaderMenu.styles';
 
 const HeaderMenu: React.FC = () => {
-    return <>dsdsd</>;
+    const classes = useStyles();
+
+    return (
+        <>
+            <div className={classes.container}>
+                <Button variant="outlined" className={classes.filterButton}>
+                    Release date
+                </Button>
+            </div>
+        </>
+    );
 };
 
 export default HeaderMenu;

@@ -9,8 +9,8 @@ const HomePage: React.FC = () => {
         <>
             <AppBar>
                 <HeaderTopbar></HeaderTopbar>
-                <HeaderMenu></HeaderMenu>
             </AppBar>
+            <HeaderMenu></HeaderMenu>
             <Catalog></Catalog>
         </>
     );
