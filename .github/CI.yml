@@ -1,0 +1,14 @@
+name: CI
+on: [push]
+jobs:
+    build-actions:
+        runs-on: ubuntu-latest
+        steps:
+            - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
+            - uses: actions/checkout@v2
+            - name: Install modules
+              run: yarn
+            - name: Run ESLint
+              run: eslint . --ext .js,.jsx,.ts,.tsx
+            - run: 'eslint src --ext .ts --ext .tsx --ext .js --ext .jsx --max-warnings=0'
+            - run: echo "🍏 This job's status is ${{ job.status }}."
