@@ -1,5 +1,5 @@
 import React from 'react';
-import { AppBar, Toolbar } from '@material-ui/core';
+import { Toolbar } from '@material-ui/core';
 import Search from './Search';
 import { NavLink } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
