@@ -13,6 +13,6 @@ jobs:
             - name: Install modules
               run: yarn
             - name: Run ESLint
-              run: eslint . --ext .js,.jsx,.ts,.tsx
-            - run: 'eslint src --ext .ts --ext .tsx --ext .js --ext .jsx --max-warnings=0'
+              run: yarn run eslint . --ext .js,.jsx,.ts,.tsx
+#             - run: 'eslint src --ext .ts --ext .tsx --ext .js --ext .jsx --max-warnings=0'
             - run: echo "🍏 This job's status is ${{ job.status }}."
