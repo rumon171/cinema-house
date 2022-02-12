@@ -5,7 +5,7 @@ const Profile: React.FunctionComponent = () => {
     return (
         <>
             <HeaderTopbar></HeaderTopbar>
-            list here
+            profile items here
         </>
     );
 };
