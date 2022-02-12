@@ -1,0 +1,18 @@
+name: CI
+
+on: [push, pull_request]
+  # Triggers the workflow on push or pull request events on any branch
+
+jobs:
+    build:
+        runs-on: ubuntu-latest
+        steps:
+            # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+            - uses: actions/checkout@v2
+            - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
+            - name: Install modules
+              run: yarn
+            - name: Run ESLint
+              run: yarn run eslint . --ext .js,.jsx,.ts,.tsx
+#             - run: 'eslint src --ext .ts --ext .tsx --ext .js --ext .jsx --max-warnings=0'
+            - run: echo "🍏 This job's status is ${{ job.status }}."
