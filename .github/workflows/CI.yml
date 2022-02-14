@@ -12,6 +12,7 @@ jobs:
 
         steps:
             # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+            - uses: Checkout
             - uses: actions/checkout@v2
             - name: Use Node.js ${{ matrix.node-version }}
               uses: actions/setup-node@v1
@@ -23,3 +24,8 @@ jobs:
             #       node-version: ${{ matrix.node-version }}
             # - run: yarn install
             # - run: yarn test
+            - name: Cypress run
+              uses: cypress-io/github-action@v2
+              with:
+                  build: npm run build
+                  start: npm start
