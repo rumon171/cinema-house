@@ -1,26 +1,26 @@
-name: CI
+# name: CI
 
-on: [push]
+# on: [push]
 
-jobs:
-    unit-tests-run:
-        runs-on: ubuntu-latest
+# jobs:
+#     unit-tests-run:
+#         runs-on: ubuntu-latest
 
-        strategy:
-            matrix:
-                node-version: [10.x, 12.x]
+#         strategy:
+#             matrix:
+#                 node-version: [10.x, 12.x]
 
-        steps:
-            # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-            - uses: Checkout
-            - uses: actions/checkout@v2
-              with:
-                  node-version: ${{ matrix.node-version }}
-            - run: yarn install
-            - run: yarn test
+#         steps:
+#             # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+#             - uses: Checkout
+#             - uses: actions/checkout@v2
+#               with:
+#                   node-version: ${{ matrix.node-version }}
+#             - run: yarn install
+#             - run: yarn test
 
-            - name: Cypress run
-              uses: cypress-io/github-action@v2
-              with:
-                  build: npm run build
-                  start: npm start
+#             - name: Cypress run
+#               uses: cypress-io/github-action@v2
+#               with:
+#                   build: npm run build
+#                   start: npm start
