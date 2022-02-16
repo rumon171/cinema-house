@@ -3,11 +3,12 @@ import { makeStyles } from '@material-ui/core';
 export default makeStyles(() => ({
     container: {
         backgroundColor: '#414252',
-        paddingTop: '70px',
-        paddingBottom: '20px',
+        padding: '70px 10px 20px',
         marginBottom: '-30px',
         ['@media (min-width:301px)']: {
             paddingTop: '90px',
+            paddingLeft: '15px',
+            paddingRight: '15px',
         },
         ['@media (min-width:391px)']: {
             paddingTop: '70px',
