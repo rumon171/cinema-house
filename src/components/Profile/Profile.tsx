@@ -5,7 +5,8 @@ const Profile: React.FunctionComponent = () => {
     return (
         <>
             <HeaderTopbar></HeaderTopbar>
-            profile items here
+
+            <h2>profile items here</h2>
         </>
     );
 };

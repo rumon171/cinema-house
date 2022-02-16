@@ -1,0 +1,14 @@
+name: CI
+
+on: [push, pull_request]
+
+jobs:
+    run-tests:
+        runs-on: ubuntu-latest
+        steps:
+            # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+            - uses: actions/checkout@v2
+            - name: Install modules
+              run: yarn
+            - name: Run ESLint
+              run: yarn run eslint . --ext .jsx,.ts,.tsx
