@@ -5,6 +5,8 @@ export default makeStyles(() => ({
         backgroundColor: '#414252',
         padding: '70px 10px 20px',
         marginBottom: '-30px',
+        display: 'flex',
+        justifyContent: 'center',
         ['@media (min-width:301px)']: {
             paddingTop: '90px',
             paddingLeft: '15px',
@@ -19,5 +21,9 @@ export default makeStyles(() => ({
     },
     filterButton: {
         backgroundColor: '#20c689',
+        margin: '15px',
+        '&:hover': {
+            backgroundColor: '#088758',
+        },
     },
 }));

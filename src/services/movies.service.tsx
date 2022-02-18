@@ -24,6 +24,34 @@ export interface Movie {
     production_countries?: Country[];
 }
 
+const mapMoviesResultByFilter = (res: Movie[], filter_by: string): Movie[] => {
+    return res.filter(movie => {
+        // prettier-ignore
+        const { 
+            id, 
+            title, 
+            vote_average, 
+            overview, 
+            poster_path, 
+            release_date, 
+            runtime, 
+            production_countries
+        } = movie;
+        if (filter_by) {
+            return {
+                id: id,
+                title: title,
+                vote_average: vote_average,
+                overview: overview,
+                poster_path: poster_path ? `${posterBaseUrl}${poster_path}` : noImage,
+                release_date: release_date,
+                runtime: runtime,
+                production_countries: production_countries,
+            };
+        }
+    });
+};
+
 export async function fetchSelectedMovie(movieId: number): Promise<Movie> {
     return await fetch(`${movieApiBaseUrl}/movie/${movieId}?api_key=${process.env.REACT_APP_API_KEY}`)
         .then(res => res.json())
@@ -53,29 +81,11 @@ export async function fetchSearchedMovies(enteredTitle: string): Promise<Movie[]
 export async function fetchMovies(page: string): Promise<Movie[]> {
     return await fetch(`${movieApiBaseUrl}/movie/popular?api_key=${process.env.REACT_APP_API_KEY}&page=${page}`)
         .then(res => res.json())
-        .then(res => mapMainMoviesResult(res.results))
+        .then(res => mapMoviesResultByFilter(res.results, 'poster_path'))
         .catch(() => {
             return [];
         });
 }
-
-const mapMainMoviesResult = (res: Movie[]): Movie[] => {
-    return res.filter(movie => {
-        const { id, title, vote_average, overview, poster_path, release_date, runtime, production_countries } = movie;
-        if (poster_path) {
-            return {
-                id: id,
-                title: title,
-                vote_average: vote_average,
-                overview: overview,
-                poster_path: poster_path ? `${posterBaseUrl}${poster_path}` : noImage,
-                release_date: release_date,
-                runtime: runtime,
-                production_countries: production_countries,
-            };
-        }
-    });
-};
 
 export async function fetchSimilarMovies(movieId: number): Promise<Movie[]> {
     const page = 1;
@@ -83,7 +93,7 @@ export async function fetchSimilarMovies(movieId: number): Promise<Movie[]> {
         `${movieApiBaseUrl}/movie/${movieId}/similar?api_key=${process.env.REACT_APP_API_KEY}&language=en-US&page=${page}`,
     )
         .then(res => res.json())
-        .then(res => mapMainMoviesResult(res.results))
+        .then(res => mapMoviesResultByFilter(res.results, 'poster_path'))
         .catch(() => {
             return [];
         });

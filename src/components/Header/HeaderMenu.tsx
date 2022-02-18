@@ -11,6 +11,9 @@ const HeaderMenu: React.FC = () => {
                 <Button variant="outlined" className={classes.filterButton}>
                     Release date
                 </Button>
+                <Button variant="outlined" className={classes.filterButton}>
+                    Genre
+                </Button>
             </div>
         </>
     );
