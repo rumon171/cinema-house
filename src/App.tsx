@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import HomePageContainer from './components/Containers/HomePageContainer';
-import { fetchMovies } from './services/movies.service';
+import { fetchAllMovies } from './services/movies.service';
 import MoviePageContainer from './components/Containers/MoviePageContainer';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
@@ -20,7 +20,7 @@ function App() {
     const classes = useStyles();
 
     useEffect(() => {
-        fetchMovies('1')
+        fetchAllMovies('1')
             .then(movies => dispatch(showMoviesAtHomePage(movies)))
             .catch(() => dispatch(showMoviesAtHomePage([])));
     }, []);

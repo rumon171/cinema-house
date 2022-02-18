@@ -1,7 +1,7 @@
 import React from 'react';
 import { useEffect, useState } from 'react';
 import { OutlinedInput } from '@material-ui/core';
-import { fetchSearchedMovies, fetchMovies } from '../../services/movies.service';
+import { fetchSearchedMovies, fetchAllMovies } from '../../services/movies.service';
 import { useNavigate } from 'react-router-dom';
 import { RootState } from '../../reducer';
 import { useSelector, useDispatch } from 'react-redux';
@@ -41,7 +41,7 @@ const Search: React.FC = () => {
                 .then(res => dispatch(showMoviesAtHomePage(res)))
                 .catch(() => dispatch(showMoviesAtHomePage([])));
         } else {
-            fetchMovies('1')
+            fetchAllMovies('1')
                 .then(res => dispatch(showMoviesAtHomePage(res)))
                 .catch(() => dispatch(showMoviesAtHomePage([])));
         }

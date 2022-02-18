@@ -5,7 +5,7 @@ import '../../App.scss';
 import loadingSpinner from '../../images/loading-spinner.gif';
 import useIntersectionObserver from '../../customHooks/useIntersectionObserver';
 import { changeCurrentPage } from '../../actions';
-import { fetchMovies, Movie } from '../../services/movies.service';
+import { fetchAllMovies, Movie } from '../../services/movies.service';
 import { RootState } from '../../reducer';
 import { showMoviesAtHomePage } from '../../actions';
 import { useDispatch } from 'react-redux';
@@ -28,7 +28,7 @@ const CatalogCards: React.FC = () => {
             if (currentPage <= 500) {
                 dispatch(changeCurrentPage(currentPage + 1));
 
-                fetchMovies(String(currentPage))
+                fetchAllMovies(String(currentPage))
                     .then(nextPage => {
                         dispatch(showMoviesAtHomePage([...movies, ...nextPage]));
                     })

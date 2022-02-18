@@ -52,6 +52,15 @@ const mapMoviesResultByFilter = (res: Movie[], filter_by: string): Movie[] => {
     });
 };
 
+export async function fetchAllMovies(page: string): Promise<Movie[]> {
+    return await fetch(`${movieApiBaseUrl}/movie/popular?api_key=${process.env.REACT_APP_API_KEY}&page=${page}`)
+        .then(res => res.json())
+        .then(res => mapMoviesResultByFilter(res.results, 'poster_path'))
+        .catch(() => {
+            return [];
+        });
+}
+
 export async function fetchSelectedMovie(movieId: number): Promise<Movie> {
     return await fetch(`${movieApiBaseUrl}/movie/${movieId}?api_key=${process.env.REACT_APP_API_KEY}`)
         .then(res => res.json())
@@ -75,15 +84,6 @@ export async function fetchSearchedMovies(enteredTitle: string): Promise<Movie[]
         })
         .catch(() => {
             return {};
-        });
-}
-
-export async function fetchMovies(page: string): Promise<Movie[]> {
-    return await fetch(`${movieApiBaseUrl}/movie/popular?api_key=${process.env.REACT_APP_API_KEY}&page=${page}`)
-        .then(res => res.json())
-        .then(res => mapMoviesResultByFilter(res.results, 'poster_path'))
-        .catch(() => {
-            return [];
         });
 }
 

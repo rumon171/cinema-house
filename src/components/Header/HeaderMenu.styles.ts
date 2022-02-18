@@ -1,6 +1,6 @@
 import { makeStyles } from '@material-ui/core';
 
-export default makeStyles(() => ({
+export default makeStyles(theme => ({
     container: {
         backgroundColor: '#414252',
         padding: '70px 10px 20px',
@@ -20,7 +20,7 @@ export default makeStyles(() => ({
         },
     },
     filterButton: {
-        backgroundColor: '#20c689',
+        backgroundColor: theme.palette.primary.light,
         margin: '15px',
         '&:hover': {
             backgroundColor: '#088758',
